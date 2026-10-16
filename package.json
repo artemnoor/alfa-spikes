@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "db:seed": "npm --prefix backend/pipeline run seed",
+    "db:run:t08": "npm --prefix backend/pipeline run run:t08",
+    "db:server": "npm --prefix backend/pipeline start"
   },
   "devDependencies": {
     "@types/react": "^18.3.31",

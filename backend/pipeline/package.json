@@ -1,0 +1,12 @@
+{
+  "name": "pipeline-archive",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "seed": "node seed.mjs",
+    "run:t08": "node run-t08-dataset.mjs",
+    "backfill:pgvector": "node --env-file=./.env backfill-pgvector.mjs"
+  }
+}

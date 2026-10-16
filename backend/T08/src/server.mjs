@@ -1,5 +1,6 @@
 import { createServer } from 'node:http'
 import { classifyNews, classifierConfig } from './classifier.mjs'
+import { beginStageRun, failStageRun, finishStageRun, saveNews } from '../../pipeline/store.mjs'
 
 const port = Number(process.env.PORT || 8091)
 const maxBodyBytes = 64 * 1024
@@ -62,8 +63,45 @@ const server = createServer(async (request, response) => {
 
   try {
     const body = await readJson(request)
-    const result = await classifyNews(body?.state, body?.metadata)
-    return send(response, result.status === 'model' ? 200 : 502, result)
+    const state = typeof body?.state === 'string' ? body.state : ''
+    const parsedTitle = state.match(/^Заголовок:\s*(.+)$/m)?.[1]?.trim()
+    const title = String(body?.title || parsedTitle || 'Новость без заголовка')
+    const content = String(body?.content || state.replace(/^Заголовок:\s*.+\r?\n\s*/m, '').trim() || state)
+    const publicationDate = body?.publicationDate || body?.metadata?.date || null
+    const newsId = saveNews({
+      id: body?.newsId,
+      title,
+      content,
+      publicationDate,
+      sourceKind: body?.sourceKind || (body?.newsId ? 'synthetic_demo' : 'manual'),
+      sourceLabel: body?.sourceLabel || null,
+    })
+    const stageRunId = beginStageRun({
+      newsId,
+      stage: 'T08',
+      input: { title, content, publicationDate, state, metadata: body?.metadata || {} },
+      provider: 'Polza AI',
+      model: classifierConfig.model,
+    })
+    try {
+      const result = await classifyNews(state || `Заголовок: ${title}\n\n${content}`, body?.metadata)
+      finishStageRun(stageRunId, {
+        status: result.status === 'model' ? 'completed' : 'failed',
+        output: result,
+        error: result.status === 'model' ? null : result.error || 'Классификация не завершилась успешно',
+        provider: 'Polza AI',
+        model: result.model || classifierConfig.model,
+        calls: result.calls,
+        inputTokens: result.inputTokens,
+        outputTokens: result.outputTokens,
+        costRub: result.costRub,
+      })
+      const savedResult = { ...result, newsId, stageRunId }
+      return send(response, result.status === 'model' ? 200 : 502, savedResult)
+    } catch (error) {
+      failStageRun(stageRunId, error)
+      throw error
+    }
   } catch (error) {
     process.stderr.write(`Classification failed: ${error.stack ?? error.message}\n`)
     const statusCode = error.statusCode || 502
