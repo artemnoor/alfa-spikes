@@ -1,4 +1,4 @@
-const archiveUrl = process.env.PIPELINE_ARCHIVE_URL || 'http://127.0.0.1:8093'
+const archiveUrl = process.env.PIPELINE_ARCHIVE_URL || 'http://127.0.0.1:8094'
 const t09Url = process.env.T09_API_URL || 'http://127.0.0.1:8092'
 const entityTypeLabels = {
   ORGANIZATION: 'организация', PERSON: 'человек', LOCATION: 'место', MONEY: 'сумма', DATE: 'дата',

@@ -17,7 +17,15 @@ type T08Output = {
     entities?: { status?: string; entities?: unknown[]; sentivent_classification?: { label?: string | null } }
   }
 }
-type T09Output = { model?: string; calls?: number; inputTokens?: number | null; dimensions?: number; blocks?: { key: string; label: string; dimensions: number }[] }
+type T09Output = {
+  model?: string
+  calls?: number
+  inputTokens?: number | null
+  dimensions?: number
+  blocks?: { key: string; label: string; dimensions: number }[]
+  decision?: { relation?: string; candidateTitle?: string | null; resolution?: string; confidence?: number; decidedBy?: string }
+  eventRegistry?: { persisted?: boolean; eventId?: string; candidateEventId?: string | null; disposition?: string; articleCount?: number; reviewId?: string | null }
+}
 type StageRun = {
   id: string
   stage: string
@@ -44,8 +52,18 @@ type NewsRecord = {
   stageRuns: StageRun[]
 }
 type ArchiveResponse = { records: NewsRecord[]; news: number; stageRuns: number; databasePath: string }
+type EventRegistryEvent = {
+  eventId: string
+  title: string
+  canonicalNewsId: string
+  createdAt: string
+  updatedAt: string
+  articles: { newsId: string; title: string; publicationDate?: string | null; sourceKind: string; linkedAt: string }[]
+  relatedEvents: { eventId: string; title: string; relation: string; confidence: number; reason: string }[]
+}
+type EventRegistryResponse = { events: EventRegistryEvent[]; reviews: { id: string; newsId: string; newsTitle: string; candidateTitle?: string | null }[]; eventCount: number; pendingReviewCount: number }
 
-const apiBase = import.meta.env.VITE_PIPELINE_API_BASE || 'http://127.0.0.1:8093'
+const apiBase = import.meta.env.VITE_PIPELINE_API_BASE || 'http://127.0.0.1:8094'
 const statusLabels: Record<string, string> = {
   completed: 'Завершён',
   running: 'Выполняется',
@@ -100,6 +118,10 @@ function StageSummary({ run }: { run: StageRun }) {
         <strong>{result.blocks?.length ?? 0} вектора сохранено</strong>
         <span>{result.dimensions?.toLocaleString('ru-RU') ?? '—'} измерений · {result.model || run.model || 'Qwen'}</span>
       </div>
+      {result.decision && <p className="archive-event-decision">
+        {result.decision.relation || '—'} · {result.decision.resolution || 'решение'} · {Math.round((result.decision.confidence || 0) * 100)}% · {result.decision.decidedBy || 'модель'}
+        {result.eventRegistry?.eventId ? ` · событие ${result.eventRegistry.eventId.slice(0, 8)} (${result.eventRegistry.articleCount ?? 1} нов.)` : ''}
+      </p>}
       <p className="archive-metrics">{run.calls ?? result.calls ?? 1} запрос · {run.inputTokens ?? result.inputTokens ?? '—'} входных токенов. Полные массивы векторов находятся в SQLite.</p>
     </>
   )
@@ -107,22 +129,33 @@ function StageSummary({ run }: { run: StageRun }) {
 
 export default function Archive() {
   const [data, setData] = useState<ArchiveResponse | null>(null)
+  const [eventRegistry, setEventRegistry] = useState<EventRegistryResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [eventError, setEventError] = useState<string | null>(null)
   const [search, setSearch] = useState('')
   const [refreshing, setRefreshing] = useState(false)
 
   const refresh = async () => {
     setRefreshing(true)
     try {
-      const response = await fetch(`${apiBase}/records`)
-      const body = await response.json()
-      if (!response.ok) throw new Error(body.error || `Ошибка архива (${response.status})`)
+      const recordsResponse = await fetch(`${apiBase}/records`)
+      const body = await recordsResponse.json()
+      if (!recordsResponse.ok) throw new Error(body.error || `Ошибка архива (${recordsResponse.status})`)
       setData(body as ArchiveResponse)
       setError(null)
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Не удалось загрузить базу данных')
     } finally {
       setRefreshing(false)
+    }
+    try {
+      const eventsResponse = await fetch(`${apiBase}/events`)
+      const eventBody = await eventsResponse.json()
+      if (!eventsResponse.ok) throw new Error(eventBody.error || `Ошибка реестра событий (${eventsResponse.status})`)
+      setEventRegistry(eventBody as EventRegistryResponse)
+      setEventError(null)
+    } catch (cause) {
+      setEventError(cause instanceof Error ? cause.message : 'Не удалось загрузить реестр событий')
     }
   }
 
@@ -156,6 +189,25 @@ export default function Archive() {
         <div><strong>{t08Runs}</strong><span>успешных запусков T08</span></div>
         <div><strong>{t09Runs}</strong><span>успешных запусков T09</span></div>
         <div><strong>{data?.stageRuns ?? '—'}</strong><span>всего запусков этапов</span></div>
+        <div><strong>{eventRegistry?.eventCount ?? '—'}</strong><span>событий в реестре</span></div>
+        <div><strong>{eventRegistry?.pendingReviewCount ?? '—'}</strong><span>ожидают проверки</span></div>
+      </section>
+
+      <section className="archive-events" aria-label="Реестр событий">
+        <div className="archive-events-heading"><div><h2>Реестр событий</h2><span>Дубли объединены в одном событии, RELATED хранится отдельной связью</span></div></div>
+        {eventError && <p className="archive-run-error">Не удалось загрузить реестр событий: {eventError}</p>}
+        {(eventRegistry?.reviews.length ?? 0) > 0 && <div className="archive-review-queue">
+          <strong>Нужна ручная проверка · {eventRegistry?.reviews.length}</strong>
+          {eventRegistry?.reviews.map((review) => <span key={review.id}>{review.newsTitle}{review.candidateTitle ? ` ↔ ${review.candidateTitle}` : ''}</span>)}
+        </div>}
+        {!eventError && eventRegistry?.events.length === 0 && <p className="archive-muted">События появятся после обработки новостей в T09.</p>}
+        {(eventRegistry?.events.length ?? 0) > 0 && <div className="archive-event-list">
+          {eventRegistry?.events.map((event) => <article className="archive-event-card" key={event.eventId}>
+            <div className="archive-event-card-heading"><div><strong>{event.title}</strong><small>Событие {event.eventId.slice(0, 8)} · {event.articles.length} новостей</small></div><span>{event.relatedEvents.length} связей</span></div>
+            <div className="archive-event-articles">{event.articles.map((article) => <div key={article.newsId}><strong>{article.title}</strong><span>{formatDate(article.publicationDate)} · {article.sourceKind}</span></div>)}</div>
+            {event.relatedEvents.length > 0 && <div className="archive-event-links"><strong>Связанные события</strong>{event.relatedEvents.map((related) => <span key={related.eventId}>{related.title} · RELATED · {Math.round(related.confidence * 100)}%</span>)}</div>}
+          </article>)}
+        </div>}
       </section>
 
       <div className="archive-list-heading">

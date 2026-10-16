@@ -1,6 +1,6 @@
 import { createServer } from 'node:http'
-import { beginStageRun, failStageRun, finishStageRun, hasNews, saveNews } from '../../pipeline/store.mjs'
-import { findTopSimilarNews, getPgVectorStatus, initializePgVector, saveNewsEmbeddings } from './pg-store.mjs'
+import { beginStageRun, failStageRun, finishStageRun, hasNews, persistEventDecision, saveNews } from '../../pipeline/store.mjs'
+import { findTopSimilarNews, getBlockWeights, getPgVectorStatus, initializePgVector, saveNewsEmbeddings } from './pg-store.mjs'
 import { classifyEventRelation } from './deduplication.mjs'
 
 const port = Number(process.env.PORT || 8092)
@@ -149,6 +149,7 @@ const server = createServer(async (request, response) => {
       provider: 'Polza AI',
       model,
       pgvector,
+      blockWeights: getBlockWeights(),
     })
   }
 
@@ -163,13 +164,14 @@ const server = createServer(async (request, response) => {
     const blocks = validateBlocks(body?.blocks)
     const articleTitle = body?.title || blocks[0].text.match(/^Новость:\s*(.+)$/m)?.[1]?.trim() || 'Новость без заголовка'
     const articleContent = body?.content || blocks.map((block) => `${block.label}: ${block.text}`).join('\n\n')
+    const sourceKind = body?.sourceKind || 't08_classification'
     let newsId = body?.newsId
     if (!newsId) {
       newsId = saveNews({
         title: articleTitle,
         content: articleContent,
         publicationDate: body?.publicationDate,
-        sourceKind: body?.sourceKind || 't09_unlinked',
+        sourceKind,
       })
     } else if (body?.title || body?.content) {
       saveNews({
@@ -177,7 +179,7 @@ const server = createServer(async (request, response) => {
         title: articleTitle,
         content: articleContent,
         publicationDate: body?.publicationDate,
-        sourceKind: body?.sourceKind || 't08_classification',
+        sourceKind,
       })
     } else if (!hasNews(newsId)) {
       newsId = saveNews({ id: newsId, title: 'Новость, импортированная через T09', content: blocks.map((block) => `${block.label}: ${block.text}`).join('\n\n'), sourceKind: 't09_unlinked' })
@@ -196,7 +198,7 @@ const server = createServer(async (request, response) => {
         title: articleTitle,
         content: articleContent,
         publicationDate: body?.publicationDate,
-        sourceKind: body?.sourceKind || 't08_classification',
+        sourceKind,
         model: result.model,
         blocks: result.blocks,
       })
@@ -205,6 +207,17 @@ const server = createServer(async (request, response) => {
         article: { title: articleTitle, content: articleContent },
         candidates,
       })
+      const eventRegistry = sourceKind === 't09_benchmark'
+        ? { persisted: false, reason: 'Для чистоты контрольного прогона события не записываются в реестр.' }
+        : {
+            persisted: true,
+            ...persistEventDecision({
+              newsId,
+              stageRunId,
+              decision: matching.decision,
+              candidateNews: candidates.find((candidate) => candidate.newsId === matching.decision.candidateId) || null,
+            }),
+          }
       const usage = {
         embedding: { calls: result.calls, inputTokens: result.inputTokens, outputTokens: 0, costRub: null },
         jev: matching.usage.jev,
@@ -228,6 +241,7 @@ const server = createServer(async (request, response) => {
         } : null,
         topCandidates: matching.comparisons,
         decision: matching.decision,
+        eventRegistry,
         usage,
         models: { embedding: result.model, jev: matching.models.jev, deepseek: matching.models.deepseek },
       }

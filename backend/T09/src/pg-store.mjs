@@ -3,7 +3,23 @@ import pg from 'pg'
 const { Pool } = pg
 const dimensions = 4096
 const blockKeys = ['topic', 'event', 'entities', 'genre']
+const equalWeights = Object.fromEntries(blockKeys.map((key) => [key, 0.25]))
 const connectionString = process.env.T09_PGVECTOR_URL
+
+function readBlockWeights(raw) {
+  if (!raw) return equalWeights
+  try {
+    const parsed = JSON.parse(raw)
+    const values = blockKeys.map((key) => Number(parsed[key]))
+    const total = values.reduce((sum, value) => sum + value, 0)
+    if (values.some((value) => !Number.isFinite(value) || value < 0) || total <= 0) return equalWeights
+    return Object.fromEntries(blockKeys.map((key, index) => [key, values[index] / total]))
+  } catch {
+    return equalWeights
+  }
+}
+
+const defaultBlockWeights = readBlockWeights(process.env.T09_BLOCK_WEIGHTS)
 
 if (!connectionString) {
   throw new Error('Не задан T09_PGVECTOR_URL. Создайте backend/pipeline/.env по инструкции в README.')
@@ -104,30 +120,32 @@ export async function saveNewsEmbeddings({ newsId, title, content, publicationDa
   }
 }
 
-export async function findTopSimilarNews(newsId, blocks, model, limit = 10) {
+async function rankSimilarNews(newsId, blocks, model, weights, limit) {
   const ordered = blockKeys.map((key) => blocks.find((block) => block.key === key))
   if (ordered.some((block) => !block)) throw new Error('Не найдены все четыре вектора для сравнения')
+  const normalizedWeights = readBlockWeights(JSON.stringify(weights || defaultBlockWeights))
 
   const parameters = [newsId]
   const values = ordered.map((block) => {
     const keyIndex = parameters.push(block.key)
     const vectorIndex = parameters.push(toVectorLiteral(block.embedding))
-    return `($${keyIndex}::text, $${vectorIndex}::vector)`
+    const weightIndex = parameters.push(normalizedWeights[block.key])
+    return `($${keyIndex}::text, $${vectorIndex}::vector, $${weightIndex}::float8)`
   })
   const modelParameter = parameters.push(model)
-  const limitParameter = parameters.push(Math.max(1, Math.min(10, Number(limit) || 10)))
+  const limitParameter = parameters.push(Math.max(1, Math.min(5000, Number(limit) || 10)))
 
   const { rows } = await pool.query(`
-    WITH query_embeddings (block_key, embedding) AS (
+    WITH query_embeddings (block_key, embedding, weight) AS (
       VALUES ${values.join(', ')}
     ), block_scores AS (
-      SELECT e.news_id, e.block_key, 1 - (e.embedding <=> q.embedding) AS similarity
+      SELECT e.news_id, e.block_key, 1 - (e.embedding <=> q.embedding) AS similarity, q.weight
       FROM t09_block_embeddings e
       JOIN query_embeddings q USING (block_key)
       WHERE e.news_id <> $1 AND e.model = $${modelParameter}
     ), candidate_scores AS (
       SELECT news_id,
-        avg(similarity) AS similarity,
+        sum(similarity * weight) / sum(weight) AS similarity,
         jsonb_object_agg(block_key, similarity) AS block_similarities,
         count(DISTINCT block_key) AS matched_blocks
       FROM block_scores
@@ -153,6 +171,18 @@ export async function findTopSimilarNews(newsId, blocks, model, limit = 10) {
     blocks: blockKeys.map((key) => ({ key, similarity: Number(row.blockSimilarities[key]) })),
     matchedBlocks: Number(row.matchedBlocks),
   }))
+}
+
+export function getBlockWeights() {
+  return { ...defaultBlockWeights }
+}
+
+export async function findTopSimilarNews(newsId, blocks, model, limit = 10, weights = defaultBlockWeights) {
+  return rankSimilarNews(newsId, blocks, model, weights, Math.max(1, Math.min(10, Number(limit) || 10)))
+}
+
+export async function findAllSimilarNews(newsId, blocks, model, weights = defaultBlockWeights) {
+  return rankSimilarNews(newsId, blocks, model, weights, 5000)
 }
 
 export async function closePgVector() {

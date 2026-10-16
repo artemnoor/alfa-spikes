@@ -521,3 +521,8 @@
   .t09-spinner { animation-duration: 2s; }
   .t09-block-card { transition: none; }
 }
+.t09-weight-note { margin-top: 7px !important; color: #747983 !important; font-size: 11px !important; }
+.t09-registry-note { padding-top: 8px; border-top: 1px solid rgb(34 44 56 / 9%); color: #4b5664; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.t09-evidence { margin-top: 10px; padding-top: 9px; border-top: 1px solid rgb(34 44 56 / 9%); }
+.t09-evidence summary { cursor: pointer; color: #596372; font-size: 12px; font-weight: 650; }
+.t09-evidence blockquote { margin: 8px 0 0; padding: 8px 10px; border-left: 2px solid #b8c2cf; background: rgb(255 255 255 / 55%); color: #535d69; font-size: 11px; line-height: 1.5; }

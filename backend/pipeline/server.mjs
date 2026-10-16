@@ -1,7 +1,7 @@
 import { createServer } from 'node:http'
-import { getDatabaseStats, listRecords } from './store.mjs'
+import { getDatabaseStats, listEvents, listRecords } from './store.mjs'
 
-const port = Number(process.env.PORT || 8093)
+const port = Number(process.env.PORT || 8094)
 
 function send(response, status, body) {
   response.writeHead(status, {
@@ -17,6 +17,10 @@ const server = createServer((request, response) => {
   if (request.method === 'OPTIONS') return send(response, 204, {})
   if (request.method === 'GET' && request.url === '/health') {
     return send(response, 200, { ok: true, ...getDatabaseStats() })
+  }
+  if (request.method === 'GET' && request.url === '/events') {
+    const registry = listEvents()
+    return send(response, 200, { ...registry, eventCount: registry.events.length, pendingReviewCount: registry.reviews.length })
   }
   if (request.method !== 'GET' || !['/records', '/news'].includes(request.url)) {
     return send(response, 404, { error: 'not found' })

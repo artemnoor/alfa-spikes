@@ -1,0 +1,351 @@
+{
+  "runId": "2026-10-16T19-44-28-584Z-b284ff08",
+  "generatedAt": "2026-10-16T19:44:32.222Z",
+  "baseUrl": "http://127.0.0.1:8092",
+  "health": {
+    "ok": true,
+    "configured": true,
+    "provider": "Polza AI",
+    "model": "qwen/qwen3-embedding-8b",
+    "pgvector": {
+      "ready": true,
+      "dimensions": 4096,
+      "news_count": 23,
+      "indexed_news_count": 23
+    },
+    "blockWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    }
+  },
+  "models": {
+    "embedding": "qwen/qwen3-embedding-8b",
+    "jev": "typesafe/jev",
+    "deepseek": null
+  },
+  "totals": {
+    "count": 1,
+    "relationCorrect": 0,
+    "relationAccuracy": 0,
+    "candidateRecall": 1,
+    "candidateCorrect": 1,
+    "candidateCount": 1,
+    "candidateAccuracy": 1,
+    "embeddingCalls": 1,
+    "embeddingInputTokens": 142,
+    "jevCalls": 1,
+    "jevInputTokens": 6029,
+    "jevOutputTokens": 638,
+    "deepseekCalls": 0,
+    "deepseekInputTokens": 0,
+    "deepseekOutputTokens": 0,
+    "reportedProviderCostRub": 0.10568053,
+    "providerCostMissingCalls": 0
+  },
+  "weightEvaluation": {
+    "serverWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    },
+    "profiles": {
+      "equal": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "genre_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 2
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_event_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 3,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 3,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "no_genre": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 0
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      }
+    },
+    "recommended": "equal"
+  },
+  "tokenComparison": {
+    "baselineRunId": "2026-10-16T16-08-39-879Z-c7ed9f74",
+    "overlap": 1,
+    "baselineAverage": 6302,
+    "currentAverage": 6029,
+    "changePercent": -4.3
+  },
+  "cases": [
+    {
+      "id": "related_factory_launch",
+      "scenario": "A later operational milestone for the factory funded by the loan",
+      "expectedRelation": "RELATED",
+      "expectedCandidateId": "demo-001",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "SAME",
+        "resolution": "APPEND_TO_EVENT",
+        "candidateId": "demo-001",
+        "candidateTitle": "«ВекторМаш» получил кредит на строительство завода роботов",
+        "confidence": 0.72,
+        "decidedBy": "JEV",
+        "reason": "JEV определил связь SAME с кандидатом по конкретному событию.",
+        "evidence": null,
+        "fallback": {
+          "called": false,
+          "reasons": [],
+          "status": "not_needed",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 142,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 6029,
+          "outputTokens": 638,
+          "costRub": 0.10568053
+        },
+        "deepseek": {
+          "calls": 0,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "costRub": 0
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": null
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-001",
+          "title": "«ВекторМаш» получил кредит на строительство завода роботов",
+          "similarity": 0.666516545861145,
+          "relation": "SAME",
+          "confidence": 0.72
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.42065454204810315,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-010",
+          "title": "«Северный Ветер» начал строить ветропарк в Архангельской области",
+          "similarity": 0.41861503825505264,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-014",
+          "title": "«Новая Линия» разместит биржевые облигации на 4 млрд рублей",
+          "similarity": 0.39936917336203087,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "0ce78828-6b68-4647-93ce-a14dba1612e2",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.39014277831188776,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.38216975690062804,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "2b6fd113-0907-46a6-b1ec-bc1cdb6d7b4a",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.3810049607667847,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "1e14b052-dcd5-4d6f-aba6-c2ff6ec43202",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.38022420832497983,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.3780983427285421,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-016",
+          "title": "«Банк Орбита» и «Клевер Маркет» запустили оплату частями",
+          "similarity": 0.3697842404143018,
+          "relation": "DIFFERENT",
+          "confidence": 0.96
+        }
+      ],
+      "stageRunId": "d632e7a2-9c38-4aa2-8bdd-ab55d9dab1d5",
+      "newsId": "t09-bench-2026-10-16T19-44-28-584Z-b284ff08-related_factory_launch"
+    }
+  ]
+}

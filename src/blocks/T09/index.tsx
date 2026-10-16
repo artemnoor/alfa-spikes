@@ -58,8 +58,10 @@ type VectorizationResult = {
     confidence: number
     decidedBy: string
     reason: string
+    evidence: { new_article: string; candidate_article: string } | null
     fallback: { called: boolean; reasons: string[]; status: string; error: string | null }
   }
+  eventRegistry?: { persisted?: boolean; eventId?: string; candidateEventId?: string | null; disposition?: string; articleCount?: number; reviewId?: string | null }
   usage: {
     embedding: { calls: number; inputTokens: number | null }
     jev: { calls: number; inputTokens: number; outputTokens: number; costRub: number | null }
@@ -78,6 +80,7 @@ type Health = {
     dimensions: number
     indexed_news_count: number
   }
+  blockWeights?: Partial<Record<BlockKey, number>>
 }
 
 const apiBase = import.meta.env.VITE_T09_API_BASE || 'http://127.0.0.1:8092'
@@ -283,6 +286,7 @@ export default function T09({ source, onReturnToT08 }: {
           <span className="eyebrow">T09 · поиск событий</span>
           <h1>Поиск похожих новостей</h1>
           <p>Qwen находит 10 кандидатов, JEV сравнивает события, а DeepSeek разбирает только неуверенные случаи.</p>
+          <p className="t09-weight-note">Веса четырёх блоков: тема {Math.round((health?.blockWeights?.topic ?? 0.25) * 100)}%, событие {Math.round((health?.blockWeights?.event ?? 0.25) * 100)}%, сущности {Math.round((health?.blockWeights?.entities ?? 0.25) * 100)}%, характер {Math.round((health?.blockWeights?.genre ?? 0.25) * 100)}%.</p>
         </div>
       </div>
 
@@ -368,10 +372,18 @@ export default function T09({ source, onReturnToT08 }: {
                   <p>Среди кандидатов не найдено того же или напрямую связанного события.</p>
                 ) : <p>Автоматически выбрать событие не удалось.</p>}
                 <p>{result.decision.reason}</p>
+                {result.eventRegistry?.eventId && <p className="t09-registry-note">
+                  Реестр событий: {result.eventRegistry.disposition === 'APPEND_TO_EVENT' ? 'новость добавлена в объединённое событие' : result.eventRegistry.disposition === 'CREATE_RELATED_EVENT' ? 'сохранена связь между отдельными событиями' : result.eventRegistry.disposition === 'MANUAL_REVIEW' ? 'добавлено в очередь ручной проверки' : 'создано новое событие'} · ID {result.eventRegistry.eventId}
+                </p>}
+                {result.decision.evidence && <details className="t09-evidence">
+                  <summary>Проверенное подтверждение RELATED</summary>
+                  <blockquote>«{result.decision.evidence.new_article}»</blockquote>
+                  <blockquote>«{result.decision.evidence.candidate_article}»</blockquote>
+                </details>}
                 {result.decision.fallback.called && (
                   <p className="t09-fallback-note">
                     DeepSeek вызван: {result.decision.fallback.reasons.join('; ') || 'JEV запросил дополнительную проверку'}.
-                    {['still_uncertain', 'failed', 'invalid_response'].includes(result.decision.fallback.status) ? ' Автоматического решения нет.' : ''}
+                    {['still_uncertain', 'failed', 'invalid_response', 'relation_disagreement'].includes(result.decision.fallback.status) ? ' Автоматического решения нет.' : ''}
                   </p>
                 )}
               </section>
