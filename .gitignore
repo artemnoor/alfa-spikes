@@ -14,6 +14,9 @@ dist-ssr
 .playwright-cli/
 output/playwright/
 **/.cache/
+/data/*.sqlite-shm
+/data/*.sqlite-wal
+/data/*.sqlite
 
 # Local credentials and environment overrides
 .env
@@ -21,6 +24,7 @@ output/playwright/
 !.env.example
 **/.env
 **/.env.*
+!**/.env.example
 
 # Editor directories and files
 .vscode/*

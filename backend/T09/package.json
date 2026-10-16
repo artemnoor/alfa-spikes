@@ -1,0 +1,20 @@
+{
+  "name": "t09-vectorizer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=../pipeline/.env src/server.mjs",
+    "test": "node --test test/deduplication.test.mjs",
+    "test:pg": "node --env-file=../pipeline/.env --test test/pg-store.pg.test.mjs",
+    "test:api": "node --env-file=../pipeline/.env --test test/api.integration.test.mjs",
+    "test:all": "npm run test && npm run test:pg && npm run test:api",
+    "benchmark:live": "node --env-file=../pipeline/.env benchmark/live-benchmark.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
+  }
+}

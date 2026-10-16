@@ -171,6 +171,19 @@ type Analysis = {
   }
 }
 
+export type T08Snapshot = {
+  newsId?: string
+  title: string
+  content: string
+  publicationDate: string
+  analysis: Analysis
+}
+
+type T08Props = {
+  initialSnapshot?: T08Snapshot | null
+  onAnalysisComplete?: (snapshot: T08Snapshot) => void
+}
+
 const eventStatusLabels: Record<NonNullable<ExtractedEvent['event_status']>, string> = {
   completed: 'Завершено',
   announced: 'Объявлено',
@@ -412,11 +425,11 @@ function buildFullReport(analysis: Analysis | null, title: string, content: stri
 
 const apiBase = import.meta.env.VITE_T08_API_BASE || 'http://127.0.0.1:8091'
 
-export default function T08() {
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-  const [publicationDate, setPublicationDate] = useState('')
-  const [analysis, setAnalysis] = useState<Analysis | null>(null)
+export default function T08({ initialSnapshot, onAnalysisComplete }: T08Props) {
+  const [title, setTitle] = useState(initialSnapshot?.title ?? '')
+  const [content, setContent] = useState(initialSnapshot?.content ?? '')
+  const [publicationDate, setPublicationDate] = useState(initialSnapshot?.publicationDate ?? '')
+  const [analysis, setAnalysis] = useState<Analysis | null>(initialSnapshot?.analysis ?? null)
   const [analysisError, setAnalysisError] = useState<string | null>(null)
   const [formError, setFormError] = useState<string | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
@@ -504,6 +517,9 @@ export default function T08() {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
+          title: cleanTitle,
+          content: cleanContent,
+          publicationDate,
           state: `Заголовок: ${cleanTitle}\n\n${cleanContent}`,
           metadata: publicationDate ? { date: publicationDate } : {},
         }),
@@ -511,6 +527,13 @@ export default function T08() {
       const result = await response.json()
       if (!response.ok) throw new Error(result.error || `Ошибка сервера (${response.status})`)
       setAnalysis(result as Analysis)
+      onAnalysisComplete?.({
+        newsId: result.newsId,
+        title: cleanTitle,
+        content: cleanContent,
+        publicationDate,
+        analysis: result as Analysis,
+      })
       setBackendReady(true)
       setModelName(result.models?.topic || result.model || modelName)
     } catch (error) {
