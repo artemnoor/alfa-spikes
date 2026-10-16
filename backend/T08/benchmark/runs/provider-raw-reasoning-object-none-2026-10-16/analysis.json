@@ -1,0 +1,53 @@
+{
+  "article": {
+    "id": 1,
+    "name": "Завершенный запуск производства",
+    "date": "15 октября 2026",
+    "expectedStatus": "completed",
+    "expectedEvidence": "запустил",
+    "title": "«ТехноПульс» запустил новую линию аккумуляторов",
+    "content": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге. Линия уже выпускает до 40 тысяч батарей в месяц. В церемонии открытия участвовала генеральный директор Мария Волкова."
+  },
+  "analysis": {
+    "model": "deepseek/deepseek-v4-flash",
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 464,
+      "completion_tokens": 140,
+      "total_tokens": 604,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "image_tokens": 0,
+        "accepted_prediction_tokens": null,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_tokens_details": {
+        "cached_tokens": 371,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "server_tool_use": null,
+      "cost_rub": 0.00482812,
+      "cost": 0.00482812,
+      "plugins": null
+    },
+    "reportedReasoningTokens": 0,
+    "visibleOutputTokens": 140,
+    "requestedReasoningEffort": "omit",
+    "requestedThinking": "omit",
+    "reasoningObject": true,
+    "reasoningFieldPresent": false,
+    "reasoningVisibleCharacters": null,
+    "answerCharacters": 353,
+    "answerUtf8Bytes": 456,
+    "answerLooksLikeJson": true,
+    "finishStatus": "model",
+    "extractionMode": "model",
+    "inputTokens": 464,
+    "outputTokens": 140,
+    "costRub": 0.00482812,
+    "note": "Provider-reported completion tokens include whatever the API bills as output. A reasoning-vs-visible-JSON token split is exact only when the response exposes a reasoning token counter; character/byte counts are diagnostic, not token estimates."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "t08-news-classifier",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke-all": "node scripts/smoke-all.mjs",
+    "benchmark:entities": "node benchmark/run-entities-five-news.mjs",
+    "verify:entities": "node benchmark/verify-entities-five-news.mjs",
+    "test:entities:graph": "node benchmark/test-entity-graph-invariants.mjs",
+    "verify:entity-status": "node benchmark/verify-entity-event-status.mjs",
+    "rebuild:entity-status-graph": "node benchmark/rebuild-grounded-fallback-graphs.mjs"
+  },
+  "dependencies": {}
+}

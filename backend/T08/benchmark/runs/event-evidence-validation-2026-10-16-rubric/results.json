@@ -1,0 +1,1258 @@
+{
+  "startedAt": "2026-10-15T21:39:56.197Z",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\event-evidence-validation-2026-10-16\\news.json",
+  "testKind": "synthetic, manually labeled event-presence benchmark",
+  "thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "models": {
+    "selector": "typesafe/jev",
+    "evidence": "deepseek/deepseek-v4-flash"
+  },
+  "results": [
+    {
+      "input": {
+        "id": 1,
+        "name": "Кредитный транш",
+        "date": "15 октября 2026",
+        "title": "Банк перечислил «ВекторМашу» первый транш по кредиту",
+        "content": "АО «ВекторМаш» сообщило, что банк «Орбита» перечислил компании первый транш по кредитному соглашению на 1,4 млрд рублей. Договор стороны подписали 8 октября для финансирования строительства производственного комплекса.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:financing"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:financing",
+          "label": "Financing",
+          "mainType": "Financing",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:financing",
+            "label": "Financing"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:financing",
+        "proposed_event_type": "sentivent:financing",
+        "evidence_text": "банк «Орбита» перечислил компании первый транш по кредитному соглашению",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 2,
+        "inputTokens": 2897,
+        "outputTokens": 482,
+        "costRub": 0.04661925,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:financing",
+            "label": "Financing",
+            "path": [
+              {
+                "id": "sentivent:financing",
+                "label": "Financing"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 2,
+        "name": "Заявление о банкротстве",
+        "date": "14 октября 2026",
+        "title": "ПолимерСнаб подал заявление о собственном банкротстве",
+        "content": "ООО «ПолимерСнаб» направило в арбитражный суд заявление о собственном банкротстве. Компания указала долг перед кредиторами в размере 640 млн рублей. Суд зарегистрировал заявление и назначил дату первого заседания.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:legal_proceeding"
+      },
+      "error": "Event evidence model returned invalid JSON (finish_reason=length)",
+      "usage": {
+        "calls": 3,
+        "inputTokens": 3749,
+        "outputTokens": 1344,
+        "costRub": 0.08414991999999999
+      }
+    },
+    {
+      "input": {
+        "id": 3,
+        "name": "Закрытие сделки",
+        "date": "13 октября 2026",
+        "title": "«ТрансЛайн» завершил покупку оператора «ЭкспрессКарго»",
+        "content": "Логистическая группа «ТрансЛайн» сообщила о закрытии сделки по приобретению 82% акций оператора «ЭкспрессКарго». Стоимость пакета составила 4,8 млрд рублей. После интеграции компании планируют объединить складскую сеть.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:merger_acquisition"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:merger_acquisition",
+          "label": "Merger/Acquisition",
+          "mainType": "Merger/Acquisition",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:merger_acquisition",
+            "label": "Merger/Acquisition"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:merger_acquisition",
+        "proposed_event_type": "sentivent:merger_acquisition",
+        "evidence_text": "Логистическая группа «ТрансЛайн» сообщила о закрытии сделки по приобретению 82% акций оператора «ЭкспрессКарго».",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 2,
+        "inputTokens": 2904,
+        "outputTokens": 589,
+        "costRub": 0.04811751,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:merger_acquisition",
+            "label": "Merger/Acquisition",
+            "path": [
+              {
+                "id": "sentivent:merger_acquisition",
+                "label": "Merger/Acquisition"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 4,
+        "name": "Рост расходов",
+        "date": "12 октября 2026",
+        "title": "Расходы «АгроСферы» на перевозки выросли на 24%",
+        "content": "Агрохолдинг «АгроСфера» сообщил в квартальном отчёте, что расходы на перевозки за июль—сентябрь увеличились на 24% год к году. Компания связала рост с подорожанием топлива и расширением географии поставок.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:expense_increase"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:expense_increase",
+          "label": "Increase Expense",
+          "mainType": "Expense",
+          "subType": "Increase Expense"
+        },
+        "path": [
+          {
+            "id": "sentivent:expense",
+            "label": "Expense"
+          },
+          {
+            "id": "sentivent:expense_increase",
+            "label": "Expense — Increase Expense"
+          }
+        ],
+        "probability": 0.77,
+        "event_type": "sentivent:expense_increase",
+        "proposed_event_type": "sentivent:expense_increase",
+        "evidence_text": "расходы на перевозки за июль—сентябрь увеличились на 24% год к году",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 0.77,
+        "calls": 4,
+        "inputTokens": 4365,
+        "outputTokens": 941,
+        "costRub": 0.07572665,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:expense_increase",
+            "label": "Expense — Increase Expense",
+            "path": [
+              {
+                "id": "sentivent:expense",
+                "label": "Expense"
+              },
+              {
+                "id": "sentivent:expense_increase",
+                "label": "Expense — Increase Expense"
+              }
+            ],
+            "probability": 0.77
+          },
+          {
+            "qcode": "sentivent:financialreport_miss",
+            "label": "FinancialReport — Miss",
+            "path": [
+              {
+                "id": "sentivent:financialreport",
+                "label": "FinancialReport"
+              },
+              {
+                "id": "sentivent:financialreport_miss",
+                "label": "FinancialReport — Miss"
+              }
+            ],
+            "probability": 0.2277
+          },
+          {
+            "qcode": "sentivent:financialreport_beat",
+            "label": "FinancialReport — Beat",
+            "path": [
+              {
+                "id": "sentivent:financialreport",
+                "label": "FinancialReport"
+              },
+              {
+                "id": "sentivent:financialreport_beat",
+                "label": "FinancialReport — Beat"
+              }
+            ],
+            "probability": 0.0023
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:expense_decrease",
+            "label": "Expense — Decrease Expense",
+            "path": [
+              {
+                "id": "sentivent:expense",
+                "label": "Expense"
+              },
+              {
+                "id": "sentivent:expense_decrease",
+                "label": "Expense — Decrease Expense"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 5,
+        "name": "Запуск сервиса",
+        "date": "11 октября 2026",
+        "title": "«ФинПоток» запустил сервис мгновенных переводов для бизнеса",
+        "content": "Платёжная платформа «ФинПоток» объявила о запуске сервиса мгновенных переводов для малого бизнеса. Новая функция стала доступна клиентам компании в приложении с 10 октября.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:product_service_launch"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:product_service_launch",
+          "label": "Launch",
+          "mainType": "Product/Service",
+          "subType": "Launch"
+        },
+        "path": [
+          {
+            "id": "sentivent:product_service",
+            "label": "Product/Service"
+          },
+          {
+            "id": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:product_service_launch",
+        "proposed_event_type": "sentivent:product_service_launch",
+        "evidence_text": "«ФинПоток» запустил сервис мгновенных переводов для бизнеса",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 3,
+        "inputTokens": 3509,
+        "outputTokens": 595,
+        "costRub": 0.058802349999999996,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_launch",
+                "label": "Product/Service — Launch"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:product_service_cancellation_recall",
+            "label": "Product/Service — Cancellation/Recall",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_cancellation_recall",
+                "label": "Product/Service — Cancellation/Recall"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:product_service_trial",
+            "label": "Product/Service — Trial",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_trial",
+                "label": "Product/Service — Trial"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 6,
+        "name": "Назначение руководителя",
+        "date": "10 октября 2026",
+        "title": "«СеверПак» назначил нового генерального директора",
+        "content": "Совет директоров производителя упаковки «СеверПак» назначил Ирину Волкову генеральным директором. Она вступит в должность 1 ноября, сменив Андрея Соколова, который руководил компанией шесть лет.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:employment_start"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:employment_start",
+          "label": "Start",
+          "mainType": "Employment",
+          "subType": "Start"
+        },
+        "path": [
+          {
+            "id": "sentivent:employment",
+            "label": "Employment"
+          },
+          {
+            "id": "sentivent:employment_start",
+            "label": "Employment — Start"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:employment_start",
+        "proposed_event_type": "sentivent:employment_start",
+        "evidence_text": "назначил Ирину Волкову генеральным директором",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 0.75,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 3,
+        "inputTokens": 3541,
+        "outputTokens": 349,
+        "costRub": 0.06259367,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:employment_start",
+            "label": "Employment — Start",
+            "path": [
+              {
+                "id": "sentivent:employment",
+                "label": "Employment"
+              },
+              {
+                "id": "sentivent:employment_start",
+                "label": "Employment — Start"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:employment_end",
+            "label": "Employment — End",
+            "path": [
+              {
+                "id": "sentivent:employment",
+                "label": "Employment"
+              },
+              {
+                "id": "sentivent:employment_end",
+                "label": "Employment — End"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:employment_compensation",
+            "label": "Employment — Compensation",
+            "path": [
+              {
+                "id": "sentivent:employment",
+                "label": "Employment"
+              },
+              {
+                "id": "sentivent:employment_compensation",
+                "label": "Employment — Compensation"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 7,
+        "name": "Опровергнутая кибератака",
+        "date": "9 октября 2026",
+        "title": "Компания опровергла сообщения о взломе платёжной системы",
+        "content": "В соцсетях распространились сообщения о взломе платформы «ПлатёжПлюс» и утечке данных клиентов. Компания заявила, что атаки и утечки не было. Сервис был недоступен 12 минут из-за профилактических работ в дата-центре.",
+        "expected_event": false,
+        "expected_event_type": null
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:no_matching_event",
+          "label": "Нет подходящего события",
+          "mainType": "Нет подходящего события",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:no_matching_event",
+            "label": "Нет подходящего события"
+          }
+        ],
+        "probability": 0.030927835051546393,
+        "event_type": "sentivent:no_matching_event",
+        "proposed_event_type": "sentivent:product_service_launch",
+        "evidence_text": "",
+        "evidence_verified": false,
+        "evidence_reviewed": true,
+        "evidence_validation_error": "evidence_text_not_found",
+        "support_score": 0,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": {
+          "id": "sentivent:product_service_launch",
+          "label": "Product/Service — Launch",
+          "path": [
+            {
+              "id": "sentivent:product_service",
+              "label": "Product/Service"
+            },
+            {
+              "id": "sentivent:product_service_launch",
+              "label": "Product/Service — Launch"
+            }
+          ],
+          "probability": 0.5049484536082475,
+          "evidenceText": "",
+          "supportScore": 0
+        },
+        "pathProbability": 0.03,
+        "calls": 3,
+        "inputTokens": 3534,
+        "outputTokens": 374,
+        "costRub": 0.06319956,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_launch",
+                "label": "Product/Service — Launch"
+              }
+            ],
+            "probability": 0.5049484536082475
+          },
+          {
+            "qcode": "sentivent:product_service_cancellation_recall",
+            "label": "Product/Service — Cancellation/Recall",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_cancellation_recall",
+                "label": "Product/Service — Cancellation/Recall"
+              }
+            ],
+            "probability": 0.2769072164948454
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0.15463917525773196
+          },
+          {
+            "qcode": "sentivent:product_service_trial",
+            "label": "Product/Service — Trial",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_trial",
+                "label": "Product/Service — Trial"
+              }
+            ],
+            "probability": 0.03257731958762887
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.030927835051546393
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 8,
+        "name": "Обзор рынка",
+        "date": "8 октября 2026",
+        "title": "Отраслевой обзор: ставки по кредитам для бизнеса остаются стабильными",
+        "content": "Аналитики сравнили средние ставки по кредитам для малого бизнеса в восьми регионах. По итогам сентября средний показатель почти не изменился. В обзоре нет сообщений о решениях или событиях отдельных компаний.",
+        "expected_event": false,
+        "expected_event_type": null
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:macroeconomics",
+          "label": "Macroeconomics",
+          "mainType": "Macroeconomics",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:macroeconomics",
+            "label": "Macroeconomics"
+          }
+        ],
+        "probability": 0.98,
+        "event_type": "sentivent:macroeconomics",
+        "proposed_event_type": "sentivent:macroeconomics",
+        "evidence_text": "По итогам сентября средний показатель почти не изменился.",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 0.9,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 0.98,
+        "calls": 2,
+        "inputTokens": 2873,
+        "outputTokens": 614,
+        "costRub": 0.047455500000000005,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:macroeconomics",
+            "label": "Macroeconomics",
+            "path": [
+              {
+                "id": "sentivent:macroeconomics",
+                "label": "Macroeconomics"
+              }
+            ],
+            "probability": 0.98
+          },
+          {
+            "qcode": "sentivent:financing",
+            "label": "Financing",
+            "path": [
+              {
+                "id": "sentivent:financing",
+                "label": "Financing"
+              }
+            ],
+            "probability": 0.01
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.01
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 9,
+        "name": "Гипотетическая покупка",
+        "date": "7 октября 2026",
+        "title": "Эксперты обсуждают возможные сделки в транспортном секторе",
+        "content": "Участники отраслевой конференции предположили, что в будущем крупные перевозчики могут рассмотреть покупку региональных операторов. Ни одна компания не объявляла переговоров, соглашений или планов по конкретной сделке.",
+        "expected_event": false,
+        "expected_event_type": null
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:no_matching_event",
+          "label": "Нет подходящего события",
+          "mainType": "Нет подходящего события",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:no_matching_event",
+            "label": "Нет подходящего события"
+          }
+        ],
+        "probability": 0.04,
+        "event_type": "sentivent:no_matching_event",
+        "proposed_event_type": "sentivent:merger_acquisition",
+        "evidence_text": "",
+        "evidence_verified": false,
+        "evidence_reviewed": true,
+        "evidence_validation_error": "evidence_text_not_found",
+        "support_score": 0,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": {
+          "id": "sentivent:merger_acquisition",
+          "label": "Merger/Acquisition",
+          "path": [
+            {
+              "id": "sentivent:merger_acquisition",
+              "label": "Merger/Acquisition"
+            }
+          ],
+          "probability": 0.7,
+          "evidenceText": "",
+          "supportScore": 0
+        },
+        "pathProbability": 0.04,
+        "calls": 2,
+        "inputTokens": 2881,
+        "outputTokens": 386,
+        "costRub": 0.04523304,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:merger_acquisition",
+            "label": "Merger/Acquisition",
+            "path": [
+              {
+                "id": "sentivent:merger_acquisition",
+                "label": "Merger/Acquisition"
+              }
+            ],
+            "probability": 0.7
+          },
+          {
+            "qcode": "sentivent:macroeconomics",
+            "label": "Macroeconomics",
+            "path": [
+              {
+                "id": "sentivent:macroeconomics",
+                "label": "Macroeconomics"
+              }
+            ],
+            "probability": 0.26
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.04
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 10,
+        "name": "Слух о закрытии завода",
+        "date": "6 октября 2026",
+        "title": "«МеталлПром» назвал ложными сообщения о закрытии предприятия",
+        "content": "В нескольких каналах появились сообщения, что «МеталлПром» закроет завод в Туле и уволит сотрудников. Пресс-служба компании опровергла эти сведения: предприятие работает в обычном режиме, решение о закрытии не принималось.",
+        "expected_event": false,
+        "expected_event_type": null
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:no_matching_event",
+          "label": "Нет подходящего события",
+          "mainType": "Нет подходящего события",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:no_matching_event",
+            "label": "Нет подходящего события"
+          }
+        ],
+        "probability": 0.0404040404040404,
+        "event_type": "sentivent:no_matching_event",
+        "proposed_event_type": "sentivent:facility_close",
+        "evidence_text": "",
+        "evidence_verified": false,
+        "evidence_reviewed": true,
+        "evidence_validation_error": "evidence_text_not_found",
+        "support_score": 0,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": {
+          "id": "sentivent:facility_close",
+          "label": "Facility — Close",
+          "path": [
+            {
+              "id": "sentivent:facility",
+              "label": "Facility"
+            },
+            {
+              "id": "sentivent:facility_close",
+              "label": "Facility — Close"
+            }
+          ],
+          "probability": 0.6942424242424242,
+          "evidenceText": "",
+          "supportScore": 0
+        },
+        "pathProbability": 0.04,
+        "calls": 4,
+        "inputTokens": 4101,
+        "outputTokens": 453,
+        "costRub": 0.0675015,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:facility_close",
+            "label": "Facility — Close",
+            "path": [
+              {
+                "id": "sentivent:facility",
+                "label": "Facility"
+              },
+              {
+                "id": "sentivent:facility_close",
+                "label": "Facility — Close"
+              }
+            ],
+            "probability": 0.6942424242424242
+          },
+          {
+            "qcode": "sentivent:facility_open",
+            "label": "Facility — Open",
+            "path": [
+              {
+                "id": "sentivent:facility",
+                "label": "Facility"
+              },
+              {
+                "id": "sentivent:facility_open",
+                "label": "Facility — Open"
+              }
+            ],
+            "probability": 0.18454545454545454
+          },
+          {
+            "qcode": "sentivent:employment_end",
+            "label": "Employment — End",
+            "path": [
+              {
+                "id": "sentivent:employment",
+                "label": "Employment"
+              },
+              {
+                "id": "sentivent:employment_end",
+                "label": "Employment — End"
+              }
+            ],
+            "probability": 0.08
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.0404040404040404
+          },
+          {
+            "qcode": "sentivent:employment_start",
+            "label": "Employment — Start",
+            "path": [
+              {
+                "id": "sentivent:employment",
+                "label": "Employment"
+              },
+              {
+                "id": "sentivent:employment_start",
+                "label": "Employment — Start"
+              }
+            ],
+            "probability": 0.0008080808080808081
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 11,
+        "name": "Статистика продаж по отрасли",
+        "date": "5 октября 2026",
+        "title": "Продажи бытовой техники в стране выросли на 3%",
+        "content": "По данным отраслевой ассоциации, совокупные продажи бытовой техники за девять месяцев увеличились на 3%. В публикации приводятся агрегированные показатели рынка и не описываются действия или результаты конкретной компании.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:macroeconomics"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:macroeconomics",
+          "label": "Macroeconomics",
+          "mainType": "Macroeconomics",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:macroeconomics",
+            "label": "Macroeconomics"
+          }
+        ],
+        "probability": 0.88,
+        "event_type": "sentivent:macroeconomics",
+        "proposed_event_type": "sentivent:macroeconomics",
+        "evidence_text": "По данным отраслевой ассоциации, совокупные продажи бытовой техники за девять месяцев увеличились на 3%.",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 0.88,
+        "calls": 3,
+        "inputTokens": 3605,
+        "outputTokens": 703,
+        "costRub": 0.06058482,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:macroeconomics",
+            "label": "Macroeconomics",
+            "path": [
+              {
+                "id": "sentivent:macroeconomics",
+                "label": "Macroeconomics"
+              }
+            ],
+            "probability": 0.88
+          },
+          {
+            "qcode": "sentivent:salesvolume_increase",
+            "label": "SalesVolume — Increase SalesVolume",
+            "path": [
+              {
+                "id": "sentivent:salesvolume",
+                "label": "SalesVolume"
+              },
+              {
+                "id": "sentivent:salesvolume_increase",
+                "label": "SalesVolume — Increase SalesVolume"
+              }
+            ],
+            "probability": 0.11
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.01
+          },
+          {
+            "qcode": "sentivent:salesvolume_decrease",
+            "label": "SalesVolume — Decrease SalesVolume",
+            "path": [
+              {
+                "id": "sentivent:salesvolume",
+                "label": "SalesVolume"
+              },
+              {
+                "id": "sentivent:salesvolume_decrease",
+                "label": "SalesVolume — Decrease SalesVolume"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:salesvolume_stable",
+            "label": "SalesVolume — Stable SalesVolume",
+            "path": [
+              {
+                "id": "sentivent:salesvolume",
+                "label": "SalesVolume"
+              },
+              {
+                "id": "sentivent:salesvolume_stable",
+                "label": "SalesVolume — Stable SalesVolume"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "id": 12,
+        "name": "Объяснение корпоративной ответственности",
+        "date": "4 октября 2026",
+        "title": "Что означает корпоративная ответственность бизнеса",
+        "content": "В справочном материале объясняются принципы корпоративной ответственности, экологической отчётности и добровольных социальных программ. Текст приводит общие примеры и не сообщает о действиях, решениях или проблемах конкретной компании.",
+        "expected_event": false,
+        "expected_event_type": null
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:no_matching_event",
+          "label": "Нет подходящего события",
+          "mainType": "Нет подходящего события",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:no_matching_event",
+            "label": "Нет подходящего события"
+          }
+        ],
+        "probability": 0.83,
+        "event_type": "sentivent:no_matching_event",
+        "proposed_event_type": "sentivent:no_matching_event",
+        "evidence_text": "",
+        "evidence_verified": false,
+        "evidence_reviewed": false,
+        "evidence_validation_error": null,
+        "support_score": null,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 0.83,
+        "calls": 1,
+        "inputTokens": 2434,
+        "outputTokens": 244,
+        "costRub": 0.04270575,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0.83
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0.17
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    }
+  ],
+  "updatedAt": "2026-10-15T21:41:08.146Z",
+  "summary": {
+    "newsCount": 12,
+    "completed": 11,
+    "failed": 1,
+    "evidenceReviews": 10,
+    "evidenceQuotesVerified": 7,
+    "totalCalls": 32,
+    "totalInputTokens": 40393,
+    "totalCostRub": 0.70268952,
+    "thresholdMetrics": [
+      {
+        "threshold": 0.5,
+        "truePositive": 6,
+        "falseNegative": 0,
+        "falsePositive": 1,
+        "trueNegative": 4,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": 0.2,
+        "precision": 0.8571428571428571,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.6,
+        "truePositive": 6,
+        "falseNegative": 0,
+        "falsePositive": 1,
+        "trueNegative": 4,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": 0.2,
+        "precision": 0.8571428571428571,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.7,
+        "truePositive": 6,
+        "falseNegative": 0,
+        "falsePositive": 1,
+        "trueNegative": 4,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": 0.2,
+        "precision": 0.8571428571428571,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.8,
+        "truePositive": 5,
+        "falseNegative": 1,
+        "falsePositive": 1,
+        "trueNegative": 4,
+        "falseRejectionRate": 0.16666666666666666,
+        "falseAcceptanceRate": 0.2,
+        "precision": 0.8333333333333334,
+        "recall": 0.8333333333333334,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.9,
+        "truePositive": 5,
+        "falseNegative": 1,
+        "falsePositive": 1,
+        "trueNegative": 4,
+        "falseRejectionRate": 0.16666666666666666,
+        "falseAcceptanceRate": 0.2,
+        "precision": 0.8333333333333334,
+        "recall": 0.8333333333333334,
+        "acceptedWithWrongEventType": 0
+      }
+    ]
+  },
+  "finishedAt": "2026-10-15T21:41:08.148Z"
+}

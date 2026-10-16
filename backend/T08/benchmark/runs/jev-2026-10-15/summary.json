@@ -1,0 +1,123 @@
+{
+  "runDate": "2026-10-15T17:00:36.704Z",
+  "provider": "Polza AI",
+  "model": "typesafe/jev",
+  "benchmarkRecords": 300,
+  "successfulRecords": 232,
+  "unavailableRecords": 68,
+  "coverage": 0.7733,
+  "jevCalls": 2724,
+  "inputTokens": 3158895,
+  "splits": {
+    "train": {
+      "total": 210,
+      "successful": 162,
+      "unavailable": 48
+    },
+    "dev": {
+      "total": 30,
+      "successful": 22,
+      "unavailable": 8
+    },
+    "test": {
+      "total": 60,
+      "successful": 48,
+      "unavailable": 12
+    }
+  },
+  "metrics": {
+    "topic": {
+      "all": {
+        "correct": 86,
+        "evaluated": 232,
+        "total": 300,
+        "exactAccuracy": 0.3707
+      },
+      "train": {
+        "correct": 70,
+        "evaluated": 162,
+        "total": 210,
+        "exactAccuracy": 0.4321
+      },
+      "dev": {
+        "correct": 0,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 0
+      },
+      "test": {
+        "correct": 16,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 0.3333
+      }
+    },
+    "event": {
+      "all": {
+        "correct": 213,
+        "evaluated": 232,
+        "total": 300,
+        "exactAccuracy": 0.9181
+      },
+      "train": {
+        "correct": 143,
+        "evaluated": 162,
+        "total": 210,
+        "exactAccuracy": 0.8827
+      },
+      "dev": {
+        "correct": 22,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 1
+      },
+      "test": {
+        "correct": 48,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 1
+      }
+    },
+    "genre": {
+      "all": {
+        "correct": 173,
+        "evaluated": 232,
+        "total": 300,
+        "exactAccuracy": 0.7457
+      },
+      "train": {
+        "correct": 121,
+        "evaluated": 162,
+        "total": 210,
+        "exactAccuracy": 0.7469
+      },
+      "dev": {
+        "correct": 14,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 0.6364
+      },
+      "test": {
+        "correct": 38,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 0.7917
+      }
+    }
+  },
+  "failures": "All unavailable responses are listed by id in run-errors.jsonl and excluded from exact-accuracy denominators.",
+  "billedInputTokenEstimate": {
+    "amountRub": 55.44,
+    "inputTokens": 3158895,
+    "rateRubPerMillionInputTokens": 17.55,
+    "basis": "Estimated from successful-record input-token total and Polza catalog rate observed 2026-10-15; failed/unavailable calls may also have incurred costs; exact account charge was not captured."
+  },
+  "billing": {
+    "amountRubEstimate": 55.44,
+    "confirmedMinimumRubEstimate": 55.44,
+    "method": "Successful-record input tokens × Polza Jev input price observed on 2026-10-15 (17.55 RUB / 1M tokens)",
+    "knownInputTokens": 3158895,
+    "failedCallsIncluded": false,
+    "exactAccountDebitAvailable": false
+  }
+}

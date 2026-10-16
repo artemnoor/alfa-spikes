@@ -1,0 +1,128 @@
+{
+  "aggregation_config": {
+    "formula": "frozen_train_validation_scoreable_gold_support",
+    "profiles": {
+      "extraction": {
+        "support_counts": {
+          "event_argument": 11492,
+          "event_sentiment_link": 77,
+          "event_trigger": 5256,
+          "sentiment_expression": 3341,
+          "sentiment_target": 3933
+        },
+        "support_total": 24099
+      },
+      "extraction_factuality": {
+        "support_counts": {
+          "event_argument": 11492,
+          "event_modality": 5256,
+          "event_negated": 5256,
+          "event_realis": 5256,
+          "event_scoped_polarity": 5256,
+          "event_sentiment_link": 77,
+          "event_trigger": 5256,
+          "sentiment_expression": 3341,
+          "sentiment_negated": 3341,
+          "sentiment_scoped_polarity": 3341,
+          "sentiment_target": 3933,
+          "sentiment_uncertain": 3341
+        },
+        "support_total": 55146
+      }
+    },
+    "score_version": "0.4.0",
+    "support_source": {
+      "config": "sentivent_unified_document",
+      "dataset": "GillesJacobs/sentivent",
+      "semantics": {
+        "extraction": "normalized_label_complete_gold_records",
+        "factuality": "normalized_non_null_gold_attributes_on_structurally_complete_records_before_alignment"
+      },
+      "splits": [
+        "train",
+        "validation"
+      ]
+    }
+  },
+  "artifact": "sentivent_metric_aggregation",
+  "configured_display_weights": {
+    "decimal_places": 8,
+    "profiles": {
+      "extraction": {
+        "event_argument": 0.47686626,
+        "event_sentiment_link": 0.00319515,
+        "event_trigger": 0.21810034,
+        "sentiment_expression": 0.13863646,
+        "sentiment_target": 0.16320179
+      },
+      "extraction_factuality": {
+        "event_argument": 0.20839227,
+        "event_modality": 0.09531063,
+        "event_negated": 0.09531063,
+        "event_realis": 0.09531063,
+        "event_scoped_polarity": 0.09531063,
+        "event_sentiment_link": 0.00139629,
+        "event_trigger": 0.09531063,
+        "sentiment_expression": 0.06058463,
+        "sentiment_negated": 0.06058463,
+        "sentiment_scoped_polarity": 0.06058463,
+        "sentiment_target": 0.07131977,
+        "sentiment_uncertain": 0.06058463
+      }
+    }
+  },
+  "dataset": {
+    "cleaning_policy": "legacy_clean_duplicate_documents",
+    "config": "sentivent_unified_document",
+    "content_version": "1.1",
+    "conversion_profile": "sentivent.sentivent_unified_document.v1",
+    "graph_schema_version": "0.1.0",
+    "id": "GillesJacobs/sentivent"
+  },
+  "provenance": {
+    "counter": "sentivent_metric.support.compute_publication_supports",
+    "excluded_splits": [
+      "test"
+    ],
+    "included_row_count": 258,
+    "included_splits": [
+      "train",
+      "validation"
+    ],
+    "source_manifest": "unified-json-manifest.json",
+    "source_manifest_target": "unified-json",
+    "split_artifacts": {
+      "train": {
+        "bytes": 1763314,
+        "path": "data/sentivent_unified_document/train.parquet",
+        "rows": 228,
+        "sha256": "9001103cd4beb45f698a855c0a60046d47f19571ab4fce55be54bf929a6844af"
+      },
+      "validation": {
+        "bytes": 296231,
+        "path": "data/sentivent_unified_document/validation.parquet",
+        "rows": 30,
+        "sha256": "daaeccc311319b368ee745a9ced3bf7e668d4c583880cc8dc7e87acffead8c8a"
+      }
+    }
+  },
+  "schema_version": "1.0.0",
+  "score_formula": {
+    "component_score_scale": "0_to_100",
+    "configured_support_policy": "fixed_public_train_validation_supports",
+    "configured_support_total_field": "support_total",
+    "effective_support_total_expression": "sum(support_count[c] for c in active)",
+    "effective_weight_policy": {
+      "extraction_active_when": "component gold > 0 or predicted > 0",
+      "extraction_inactive_when": "component gold == 0 and predicted == 0",
+      "factuality_active_when": "gold_activity > 0 or predicted_activity > 0",
+      "factuality_activity_semantics": "non_null_attributes_on_structurally_complete_records_before_alignment",
+      "factuality_inactive_when": "gold_activity == 0 and predicted_activity == 0",
+      "prediction_only": "active_with_zero_score",
+      "renormalization": "configured integer supports over active components"
+    },
+    "expression": "sum(support_count[c] * component_score[c] for c in active) / sum(support_count[c] for c in active)",
+    "formula": "frozen_train_validation_scoreable_gold_support",
+    "runtime_weight_source": "exact_integer_support_counts"
+  }
+}

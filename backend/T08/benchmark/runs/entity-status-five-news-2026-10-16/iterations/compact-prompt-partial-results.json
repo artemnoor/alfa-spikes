@@ -1,0 +1,359 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\entity-status-five-news-2026-10-16\\news.json",
+  "partial": true,
+  "results": [
+    {
+      "id": 1,
+      "name": "Завершенный запуск производства",
+      "date": "15 октября 2026",
+      "title": "«ТехноПульс» запустил новую линию аккумуляторов",
+      "article": "Заголовок: «ТехноПульс» запустил новую линию аккумуляторов\n\n15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге. Линия уже выпускает до 40 тысяч батарей в месяц. В церемонии открытия участвовала генеральный директор Мария Волкова.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "ТехноПульс",
+          "normalized_name": "технопульс",
+          "normalized_value": "ТехноПульс",
+          "mention": "«ТехноПульс»",
+          "legal_form": null,
+          "evidence": "компания «ТехноПульс»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "PERSON",
+          "name": "Мария Волкова",
+          "normalized_name": null,
+          "normalized_value": "Мария Волкова",
+          "mention": "Мария Волкова",
+          "legal_form": null,
+          "evidence": "генеральный директор Мария Волкова",
+          "source": "article",
+          "role": "speaker",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "MONEY",
+          "name": "40 тыс",
+          "normalized_name": null,
+          "normalized_value": "40000",
+          "mention": "40 тыс",
+          "legal_form": null,
+          "evidence": "40 тыс",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "LAUNCH",
+          "graph_type": "LAUNCH",
+          "label": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+          "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+          "event_status": "completed",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "participant"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DATE",
+              "mention": "15 октября",
+              "normalized_value": "2026-10-15",
+              "unit": null,
+              "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 720,
+      "outputTokens": 4500,
+      "costRub": 0.10494034,
+      "registryLookups": 1,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=720, completion_tokens=4500)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 2,
+      "name": "Объявление о приобретении",
+      "date": "15 октября 2026",
+      "title": "«Меридиан» объявил о соглашении по покупке конкурента",
+      "article": "Заголовок: «Меридиан» объявил о соглашении по покупке конкурента\n\nКомпания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей. Стороны сообщили о договоренности сегодня. Передача акций и закрытие сделки еще не состоялись.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "Меридиан",
+          "normalized_name": "меридиан",
+          "normalized_value": "Меридиан",
+          "mention": "«Меридиан»",
+          "legal_form": null,
+          "evidence": "Компания «Меридиан»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "MONEY",
+          "name": "1,8 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "1800000000 RUB",
+          "mention": "1,8 млрд рублей",
+          "legal_form": null,
+          "evidence": "1,8 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "PERCENT",
+          "name": "60%",
+          "normalized_name": null,
+          "normalized_value": "60%",
+          "mention": "60%",
+          "legal_form": null,
+          "evidence": "60%",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "ACQUISITION",
+          "graph_type": "ACQUISITION",
+          "label": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+          "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+          "event_status": "announced",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "participant"
+            },
+            {
+              "entity_id": "entity-3",
+              "role": "participant"
+            },
+            {
+              "entity_id": "entity-4",
+              "role": "participant"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "1,8 млрд рублей",
+              "normalized_value": "1800000000 RUB",
+              "unit": null,
+              "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+              "source": "article"
+            },
+            {
+              "type": "PERCENT",
+              "mention": "60%",
+              "normalized_value": "60%",
+              "unit": null,
+              "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 712,
+      "outputTokens": 4500,
+      "costRub": 0.09962854,
+      "registryLookups": 1,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=712, completion_tokens=4500)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 3,
+      "name": "План строительства",
+      "date": "15 октября 2026",
+      "title": "«СеверСтрой» планирует построить завод в Перми",
+      "article": "Заголовок: «СеверСтрой» планирует построить завод в Перми\n\n«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году. Компания намерена вложить в проект 4 млрд рублей. Строительство пока не началось; проект проходит внутреннее согласование.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "fallback-1",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "MONEY",
+          "name": "4 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "4000000000 RUB",
+          "mention": "4 млрд рублей",
+          "legal_form": null,
+          "evidence": "4 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-2"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "PLAN",
+          "graph_type": "PLAN",
+          "label": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+          "evidence": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+          "event_status": "planned",
+          "participants": [],
+          "attributes": [
+            {
+              "type": "DURATION",
+              "mention": "2028 год",
+              "normalized_value": {
+                "value": 2028,
+                "unit": "years"
+              },
+              "unit": "years",
+              "evidence": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+              "source": "article"
+            },
+            {
+              "type": "DATE",
+              "mention": "2028",
+              "normalized_value": null,
+              "unit": null,
+              "evidence": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+              "source": "article"
+            }
+          ]
+        },
+        {
+          "event_id": "event-2",
+          "type": "PLAN",
+          "graph_type": "PLAN",
+          "label": "Строительство пока не началось; проект проходит внутреннее согласование.",
+          "evidence": "Строительство пока не началось; проект проходит внутреннее согласование.",
+          "event_status": "announced",
+          "participants": [],
+          "attributes": []
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 701,
+      "outputTokens": 4500,
+      "costRub": 0.09929386,
+      "registryLookups": 0,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=701, completion_tokens=4500)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    }
+  ]
+}

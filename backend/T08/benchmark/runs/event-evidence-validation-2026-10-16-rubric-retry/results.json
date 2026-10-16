@@ -1,0 +1,208 @@
+{
+  "startedAt": "2026-10-15T21:42:12.293Z",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\event-evidence-validation-2026-10-16\\news.json",
+  "testKind": "synthetic, manually labeled event-presence benchmark",
+  "thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "models": {
+    "selector": "typesafe/jev",
+    "evidence": "deepseek/deepseek-v4-flash"
+  },
+  "results": [
+    {
+      "input": {
+        "id": 2,
+        "name": "Заявление о банкротстве",
+        "date": "14 октября 2026",
+        "title": "ПолимерСнаб подал заявление о собственном банкротстве",
+        "content": "ООО «ПолимерСнаб» направило в арбитражный суд заявление о собственном банкротстве. Компания указала долг перед кредиторами в размере 640 млн рублей. Суд зарегистрировал заявление и назначил дату первого заседания.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:legal_proceeding"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:legal_proceeding",
+          "label": "Proceeding",
+          "mainType": "Legal",
+          "subType": "Proceeding"
+        },
+        "path": [
+          {
+            "id": "sentivent:legal",
+            "label": "Legal"
+          },
+          {
+            "id": "sentivent:legal_proceeding",
+            "label": "Legal — Proceeding"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:legal_proceeding",
+        "proposed_event_type": "sentivent:legal_proceeding",
+        "evidence_text": "ООО «ПолимерСнаб» направило в арбитражный суд заявление о собственном банкротстве.",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 3,
+        "inputTokens": 3749,
+        "outputTokens": 802,
+        "costRub": 0.06843047,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:legal_proceeding",
+            "label": "Legal — Proceeding",
+            "path": [
+              {
+                "id": "sentivent:legal",
+                "label": "Legal"
+              },
+              {
+                "id": "sentivent:legal_proceeding",
+                "label": "Legal — Proceeding"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:legal_conviction_settlement",
+            "label": "Legal — Conviction/Settlement",
+            "path": [
+              {
+                "id": "sentivent:legal",
+                "label": "Legal"
+              },
+              {
+                "id": "sentivent:legal_conviction_settlement",
+                "label": "Legal — Conviction/Settlement"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:legal_acquit",
+            "label": "Legal — Acquit",
+            "path": [
+              {
+                "id": "sentivent:legal",
+                "label": "Legal"
+              },
+              {
+                "id": "sentivent:legal_acquit",
+                "label": "Legal — Acquit"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    }
+  ],
+  "updatedAt": "2026-10-15T21:42:20.162Z",
+  "summary": {
+    "newsCount": 1,
+    "completed": 1,
+    "failed": 0,
+    "evidenceReviews": 1,
+    "evidenceQuotesVerified": 1,
+    "totalCalls": 3,
+    "totalInputTokens": 3749,
+    "totalCostRub": 0.06843047,
+    "thresholdMetrics": [
+      {
+        "threshold": 0.5,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.6,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.7,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.8,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.9,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      }
+    ]
+  },
+  "finishedAt": "2026-10-15T21:42:20.163Z"
+}

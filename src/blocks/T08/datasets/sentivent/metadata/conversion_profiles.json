@@ -1,0 +1,202 @@
+{
+  "profiles": {
+    "absa_quad_triplet_v1": {
+      "configs": [
+        "iabsa_quad_sentence"
+      ],
+      "loss_policy": "implicit ABSA configs record excluded event targets in sentivent_omitted_targets",
+      "profile_class": "derived_eval",
+      "targets": [
+        "absa"
+      ]
+    },
+    "absa_raw_line_v2": {
+      "configs": [
+        "iabsa_aste_sentence",
+        "iabsa_asqp_sentence"
+      ],
+      "loss_policy": "renders implicit ABSA sentence annotations as ASTE token-index triplet lines and ASQP character-span quad lines; each source line-boundary code point becomes one space so character offsets remain width preserving (CRLF becomes two spaces); event sentiment targets and non-sentence-local spans are excluded to match ABSA baseline files",
+      "profile_class": "derived_eval",
+      "targets": [
+        "absa"
+      ]
+    },
+    "canonical_loss_preserving": {
+      "configs": [],
+      "loss_policy": "preserves parsed graph structure in normalized internal audit tables",
+      "profile_class": "loss_preserving",
+      "targets": [
+        "canonical-hf"
+      ]
+    },
+    "dygiepp_upstream_v1": {
+      "configs": [
+        "ere_dygiepp_document"
+      ],
+      "loss_policy": "projects events to the upstream DyGIE++ schema with document-level token indices; multi-token or discontinuous SENTiVENT triggers are reduced to the first trigger token because DyGIE++ event triggers are single-token",
+      "profile_class": "derived_eval",
+      "targets": [
+        "dygiepp"
+      ]
+    },
+    "legacy_clean_duplicate_documents": {
+      "description": "Selects one public graph per document with the legacy duplicate annotation policy while retaining all annotation graphs in the canonical graph snapshot.",
+      "loss_policy": "removes duplicate annotation graphs from public views",
+      "profile_class": "cleaning"
+    },
+    "legacy_dygiepp_v1": {
+      "configs": [],
+      "loss_policy": "DyGIE++ projection with fixture and full-corpus parity after normalizing the vendored exporter's unstable argument order",
+      "profile_class": "legacy_equivalent",
+      "targets": [
+        "legacy-ie"
+      ]
+    },
+    "legacy_gts_v1": {
+      "configs": [],
+      "loss_policy": "legacy GTS sentence rows with BIO target/opinion tags; fixture and full-corpus parity pass after normalizing non-semantic triple UID/order",
+      "profile_class": "legacy_equivalent",
+      "targets": [
+        "absa"
+      ]
+    },
+    "legacy_implicit_polar_v1": {
+      "configs": [],
+      "loss_policy": "legacy implicit-polarity instance rows with fixture and full-corpus parity after normalizing non-semantic target span order",
+      "profile_class": "legacy_equivalent",
+      "targets": [
+        "absa"
+      ]
+    },
+    "llm_schema_structured_v1": {
+      "configs": [],
+      "loss_policy": "wraps task rows as internal schema-constrained LLM eval prompts",
+      "profile_class": "derived_eval",
+      "targets": [
+        "llm-schema"
+      ]
+    },
+    "omnievent_compatible_v1": {
+      "configs": [
+        "ere_omnievent_sentence"
+      ],
+      "loss_policy": "OmniEvent-style sentence/window projection with positive events and entities from the canonical graph; negative triggers are not generated and joint sentiment rows use SENTiVENT-specific SentiPol relation records",
+      "profile_class": "derived_eval",
+      "targets": [
+        "legacy-ie"
+      ]
+    },
+    "oneie_compatible_v1": {
+      "configs": [
+        "ere_oneie_sentence",
+        "sentivent_unified_oneie_sentence"
+      ],
+      "loss_policy": "OneIE-style sentence/window projection derived from the canonical graph; event triggers and arguments preserve legacy role grouping where possible, while sentiment rows use SENTiVENT-specific SentiPol relation records",
+      "profile_class": "derived_eval",
+      "targets": [
+        "legacy-ie"
+      ]
+    },
+    "sentivent.sentivent_unified_document.v1": {
+      "configs": [
+        "sentivent_unified_document"
+      ],
+      "loss_policy": "projects document-level joint event and sentiment annotations into a compact model-facing JSON shape with canonical referents resolved",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "sentivent.sentivent_unified_document_continuous.v1": {
+      "configs": [
+        "sentivent_unified_document_continuous"
+      ],
+      "loss_policy": "fills discontinuous annotation spans to the smallest covering continuous range for tools that cannot consume multi-part spans",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "sentivent.sentivent_unified_document_with_canonical_referents.v1": {
+      "configs": [
+        "sentivent_unified_document_with_canonical_referents"
+      ],
+      "loss_policy": "keeps the default resolved document-level spans and adds inline canonical-referent evidence on resolved arguments and targets",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "sentivent.sentivent_unified_sentence.v1": {
+      "configs": [
+        "sentivent_unified_sentence"
+      ],
+      "loss_policy": "projects joint event and sentiment annotations into one row per source sentence, with cross-sentence arguments, targets, and relations omitted from the sentence window",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "sentivent.sentivent_unified_sentence_continuous.v1": {
+      "configs": [
+        "sentivent_unified_sentence_continuous"
+      ],
+      "loss_policy": "fills retained sentence-local discontinuous spans to continuous ranges without crossing sentence boundaries",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "sentivent.sentivent_unified_sentence_with_canonical_referents.v1": {
+      "configs": [
+        "sentivent_unified_sentence_with_canonical_referents"
+      ],
+      "loss_policy": "adds inline canonical-reference evidence only when both original and canonical mentions are inside the same sentence row",
+      "profile_class": "derived_eval",
+      "targets": [
+        "unified-json"
+      ]
+    },
+    "task_hf_structured_v1": {
+      "configs": [],
+      "loss_policy": "projects graph annotations into internal document, sentence, and token task rows for downstream converter reuse",
+      "profile_class": "derived_eval",
+      "targets": [
+        "task-hf"
+      ]
+    },
+    "textee_event_v1": {
+      "configs": [
+        "ere_textee_sentence_e2e",
+        "ere_textee_sentence_ed",
+        "ere_textee_sentence_eae"
+      ],
+      "loss_policy": "sentence windows mark out-of-window arguments in sentivent_omitted_arguments",
+      "profile_class": "derived_eval",
+      "targets": [
+        "textee"
+      ]
+    },
+    "token_label_bio_v1": {
+      "configs": [
+        "sentivent_unified_bio_sentence"
+      ],
+      "loss_policy": "projects graph spans into sentence-level BIO token-label rows; overlapping labels are preserved in label_sets and label_conflicts while labels and ner_tags expose one deterministic sequence-tagging label per token",
+      "profile_class": "derived_eval",
+      "targets": [
+        "token-label"
+      ]
+    },
+    "uie_spot_asoc_v1": {
+      "configs": [
+        "sentivent_unified_uie_sentence"
+      ],
+      "loss_policy": "renders task rows as UIE spot-association targets with official tokens/entity/relation/event/task fields plus id-rich gold JSON",
+      "profile_class": "derived_eval",
+      "targets": [
+        "uie"
+      ]
+    }
+  },
+  "schema_version": "1.0.0"
+}

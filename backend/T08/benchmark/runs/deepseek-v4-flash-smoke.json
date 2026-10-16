@@ -1,0 +1,27 @@
+{
+  "id": "ai-launch-01",
+  "provider": "Polza AI",
+  "model": "deepseek/deepseek-v4-flash",
+  "status": "model",
+  "topic": {
+    "qcode": "medtop:20001298",
+    "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+    "label": "artificial intelligence"
+  },
+  "event": {
+    "id": "sentivent:product_service_launch",
+    "label": "Launch",
+    "mainType": "Product/Service",
+    "subType": "Launch"
+  },
+  "genre": {
+    "qcode": "genre:Press_Release",
+    "uri": "http://cv.iptc.org/newscodes/genre/Press_Release",
+    "label": "Press Release"
+  },
+  "calls": 8,
+  "inputTokens": 5802,
+  "outputTokens": 1377,
+  "costRub": 0.038938940000000005,
+  "evaluatedAt": "2026-10-15T17:18:50.8821386Z"
+}

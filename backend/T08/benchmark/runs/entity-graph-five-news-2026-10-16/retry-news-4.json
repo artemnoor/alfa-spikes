@@ -1,0 +1,217 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\jev-recovering-top3-topic-2026-10-15\\news.json",
+  "summary": {
+    "news": 1,
+    "failedNews": 1,
+    "modelCalls": 1,
+    "inputTokens": 772,
+    "outputTokens": 12000,
+    "costRub": 0.26184989,
+    "registryApiCalls": 0,
+    "entities": 6,
+    "events": 2,
+    "relations": 2,
+    "eventAttributes": 3,
+    "rejectedEntities": 0
+  },
+  "results": [
+    {
+      "id": 4,
+      "name": "Интервью о финансовых проблемах",
+      "date": "12 октября 2026",
+      "title": "Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»",
+      "article": "Заголовок: Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»\n\nВ интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала, что затраты компании на логистику за девять месяцев выросли на 38%. «Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова. При этом руководитель подчеркнула, что решение пока не принято, а действующие предприятия продолжают работать в обычном режиме.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "Бизнес-Вектор",
+          "normalized_name": "бизнес-вектор",
+          "normalized_value": "Бизнес-Вектор",
+          "mention": "«Бизнес-Вектор»",
+          "legal_form": null,
+          "evidence": "изданию «Бизнес-Вектор»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1"
+        },
+        {
+          "source_id": "recovered-2",
+          "type": "ORGANIZATION",
+          "name": "АгроСфера",
+          "normalized_name": "агросфера",
+          "normalized_value": "АгроСфера",
+          "mention": "«АгроСфера»",
+          "legal_form": null,
+          "evidence": "агрохолдинга «АгроСфера»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "PERSON",
+          "name": "Анна Белова",
+          "normalized_name": null,
+          "normalized_value": "Анна Белова",
+          "mention": "Анна Белова",
+          "legal_form": null,
+          "evidence": "генеральный директор агрохолдинга «АгроСфера» Анна Белова",
+          "source": "article",
+          "role": "speaker",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "DATE",
+          "name": "12 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-12",
+          "mention": "12 октября 2026",
+          "legal_form": null,
+          "evidence": "12 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-4"
+        },
+        {
+          "source_id": "fallback-5",
+          "type": "MONEY",
+          "name": "2 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "2000000000 RUB",
+          "mention": "2 млрд рублей",
+          "legal_form": null,
+          "evidence": "2 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-5"
+        },
+        {
+          "source_id": "fallback-6",
+          "type": "PERCENT",
+          "name": "38%",
+          "normalized_name": null,
+          "normalized_value": "38%",
+          "mention": "38%",
+          "legal_form": null,
+          "evidence": "38%",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-6"
+        }
+      ],
+      "events": [
+        {
+          "type": "COST_INCREASE",
+          "label": "Рост затрат на логистику",
+          "evidence": "затраты компании на логистику за девять месяцев выросли на 38%.",
+          "participants": [
+            {
+              "entity_id": "entity-2",
+              "role": "company"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DURATION",
+              "mention": "девять месяцев",
+              "normalized_value": {
+                "value": 9,
+                "unit": "months"
+              },
+              "unit": "months",
+              "evidence": "девять месяцев",
+              "source": "article"
+            },
+            {
+              "type": "PERCENT",
+              "mention": "38%",
+              "normalized_value": "38%",
+              "unit": null,
+              "evidence": "38%",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        },
+        {
+          "type": "INVESTMENT_PLAN",
+          "label": "Возможная заморозка инвестиционного проекта",
+          "evidence": "«Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова.",
+          "participants": [
+            {
+              "entity_id": "entity-2",
+              "role": "company"
+            },
+            {
+              "entity_id": "entity-3",
+              "role": "speaker"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "2 млрд рублей",
+              "normalized_value": "2000000000 RUB",
+              "unit": null,
+              "evidence": "2 млрд рублей",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-2"
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-3",
+          "predicate": "executive_of",
+          "object_id": "entity-2",
+          "event_id": null,
+          "label": "генеральный директор компании",
+          "evidence": "генеральный директор агрохолдинга «АгроСфера» Анна Белова"
+        },
+        {
+          "subject_id": "entity-3",
+          "predicate": "interview_published_by",
+          "object_id": "entity-1",
+          "event_id": null,
+          "label": "интервью для издания",
+          "evidence": "В интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала"
+        }
+      ],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 772,
+      "outputTokens": 12000,
+      "costRub": 0.26184989,
+      "registryLookups": 0,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=772, completion_tokens=12000)"
+    }
+  ]
+}

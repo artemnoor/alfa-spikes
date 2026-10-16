@@ -1,0 +1,635 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\entity-status-five-news-2026-10-16\\news.json",
+  "summary": {
+    "news": 5,
+    "failedNews": 0,
+    "partialNews": 5,
+    "modelCalls": 5,
+    "inputTokens": 3270,
+    "outputTokens": 15000,
+    "costRub": 0.33734315,
+    "registryApiCalls": 5,
+    "entities": 18,
+    "events": 6,
+    "relations": 2,
+    "eventAttributes": 6,
+    "eventStatusCounts": {
+      "completed": 1,
+      "announced": 1,
+      "planned": 2,
+      "conditional": 1,
+      "denied": 1
+    },
+    "rejectedEntities": 0
+  },
+  "results": [
+    {
+      "id": 1,
+      "name": "Завершенный запуск производства",
+      "date": "15 октября 2026",
+      "title": "«ТехноПульс» запустил новую линию аккумуляторов",
+      "article": "Заголовок: «ТехноПульс» запустил новую линию аккумуляторов\n\n15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге. Линия уже выпускает до 40 тысяч батарей в месяц. В церемонии открытия участвовала генеральный директор Мария Волкова.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "ТехноПульс",
+          "normalized_name": "технопульс",
+          "normalized_value": "ТехноПульс",
+          "mention": "«ТехноПульс»",
+          "legal_form": null,
+          "evidence": "компания «ТехноПульс»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "PERSON",
+          "name": "Мария Волкова",
+          "normalized_name": null,
+          "normalized_value": "Мария Волкова",
+          "mention": "Мария Волкова",
+          "legal_form": null,
+          "evidence": "генеральный директор Мария Волкова",
+          "source": "article",
+          "role": "speaker",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "MONEY",
+          "name": "40 тыс",
+          "normalized_name": null,
+          "normalized_value": "40000",
+          "mention": "40 тыс",
+          "legal_form": null,
+          "evidence": "40 тыс",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "LAUNCH",
+          "graph_type": "LAUNCH",
+          "label": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+          "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+          "event_status": "completed",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "company"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DATE",
+              "mention": "15 октября",
+              "normalized_value": "2026-10-15",
+              "unit": null,
+              "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 577,
+      "outputTokens": 3000,
+      "costRub": 0.06445293,
+      "registryLookups": 1,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=577, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 2,
+      "name": "Объявление о приобретении",
+      "date": "15 октября 2026",
+      "title": "«Меридиан» объявил о соглашении по покупке конкурента",
+      "article": "Заголовок: «Меридиан» объявил о соглашении по покупке конкурента\n\nКомпания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей. Стороны сообщили о договоренности сегодня. Передача акций и закрытие сделки еще не состоялись.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "Меридиан",
+          "normalized_name": "меридиан",
+          "normalized_value": "Меридиан",
+          "mention": "«Меридиан»",
+          "legal_form": null,
+          "evidence": "Компания «Меридиан»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "recovered-2",
+          "type": "ORGANIZATION",
+          "name": "Альтаир",
+          "normalized_name": "альтаир",
+          "normalized_value": "Альтаир",
+          "mention": "«Альтаир»",
+          "legal_form": null,
+          "evidence": "конкурента «Альтаир»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "MONEY",
+          "name": "1,8 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "1800000000 RUB",
+          "mention": "1,8 млрд рублей",
+          "legal_form": null,
+          "evidence": "1,8 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        },
+        {
+          "source_id": "fallback-5",
+          "type": "PERCENT",
+          "name": "60%",
+          "normalized_name": null,
+          "normalized_value": "60%",
+          "mention": "60%",
+          "legal_form": null,
+          "evidence": "60%",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-5"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "ACQUISITION",
+          "graph_type": "ACQUISITION",
+          "label": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+          "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+          "event_status": "announced",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "acquirer"
+            },
+            {
+              "entity_id": "entity-2",
+              "role": "target"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "1,8 млрд рублей",
+              "normalized_value": "1800000000 RUB",
+              "unit": null,
+              "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+              "source": "article"
+            },
+            {
+              "type": "PERCENT",
+              "mention": "60%",
+              "normalized_value": "60%",
+              "unit": null,
+              "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей.",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-1",
+          "predicate": "acquisition_of",
+          "object_id": "entity-2",
+          "event_id": "event-1",
+          "label": "приобретает",
+          "evidence": "Компания «Меридиан» объявила о соглашении по покупке 60% акций конкурента «Альтаир» за 1,8 млрд рублей."
+        }
+      ],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 671,
+      "outputTokens": 3000,
+      "costRub": 0.07202232,
+      "registryLookups": 2,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=671, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 3,
+      "name": "План строительства",
+      "date": "15 октября 2026",
+      "title": "«СеверСтрой» планирует построить завод в Перми",
+      "article": "Заголовок: «СеверСтрой» планирует построить завод в Перми\n\n«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году. Компания намерена вложить в проект 4 млрд рублей. Строительство пока не началось; проект проходит внутреннее согласование.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "СеверСтрой",
+          "normalized_name": "северстрой",
+          "normalized_value": "СеверСтрой",
+          "mention": "«СеверСтрой»",
+          "legal_form": null,
+          "evidence": "«СеверСтрой»",
+          "source": "article",
+          "role": "company",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-1"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "MONEY",
+          "name": "4 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "4000000000 RUB",
+          "mention": "4 млрд рублей",
+          "legal_form": null,
+          "evidence": "4 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-3"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "PLAN",
+          "graph_type": "PLAN",
+          "label": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+          "evidence": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+          "event_status": "planned",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "company"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DATE",
+              "mention": "2028 году",
+              "normalized_value": "2028",
+              "unit": null,
+              "evidence": "«СеверСтрой» планирует построить завод строительных материалов в Перми к 2028 году.",
+              "source": "article"
+            }
+          ]
+        },
+        {
+          "event_id": "event-2",
+          "type": "INVESTMENT_PLAN",
+          "graph_type": "INVESTMENT_PLAN",
+          "label": "Компания намерена вложить в проект 4 млрд рублей.",
+          "evidence": "Компания намерена вложить в проект 4 млрд рублей.",
+          "event_status": "planned",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "company"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "4 млрд рублей",
+              "normalized_value": "4000000000 RUB",
+              "unit": null,
+              "evidence": "Компания намерена вложить в проект 4 млрд рублей.",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 660,
+      "outputTokens": 3000,
+      "costRub": 0.06683361,
+      "registryLookups": 0,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=660, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 4,
+      "name": "Условный отказ от проекта",
+      "date": "15 октября 2026",
+      "title": "«АгроЛиния» допускает заморозку строительства при росте расходов",
+      "article": "Заголовок: «АгроЛиния» допускает заморозку строительства при росте расходов\n\nГенеральный директор компании «АгроЛиния» Ирина Соколова заявила: «Если расходы на логистику продолжат расти, мы можем отказаться от строительства второго комплекса стоимостью 2,4 млрд рублей». Решение пока не принято; действующее производство продолжает работать.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "АгроЛиния",
+          "normalized_name": "агролиния",
+          "normalized_value": "АгроЛиния",
+          "mention": "«АгроЛиния»",
+          "legal_form": null,
+          "evidence": "компании «АгроЛиния»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "PERSON",
+          "name": "Ирина Соколова",
+          "normalized_name": null,
+          "normalized_value": "Ирина Соколова",
+          "mention": "Ирина Соколова",
+          "legal_form": null,
+          "evidence": "Заголовок: «АгроЛиния» допускает заморозку строительства при росте расходов\n\nГенеральный директор компании «АгроЛиния» Ирина Соколова",
+          "source": "article",
+          "role": "speaker",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-2"
+        },
+        {
+          "source_id": "fallback-3",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "MONEY",
+          "name": "2,4 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "2400000000 RUB",
+          "mention": "2,4 млрд рублей",
+          "legal_form": null,
+          "evidence": "2,4 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "CONDITIONAL_DECISION",
+          "graph_type": "CONDITIONAL_DECISION",
+          "label": "Генеральный директор компании «АгроЛиния» Ирина Соколова заявила: «Если расходы на логистику продолжат расти, мы може…",
+          "evidence": "Генеральный директор компании «АгроЛиния» Ирина Соколова заявила: «Если расходы на логистику продолжат расти, мы можем отказаться от строительства второго комплекса стоимостью 2,4 млрд рублей».",
+          "event_status": "conditional",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "company"
+            },
+            {
+              "entity_id": "entity-2",
+              "role": "speaker"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "2,4 млрд рублей",
+              "normalized_value": "2400000000 RUB",
+              "unit": null,
+              "evidence": "Генеральный директор компании «АгроЛиния» Ирина Соколова заявила: «Если расходы на логистику продолжат расти, мы можем отказаться от строительства второго комплекса стоимостью 2,4 млрд рублей».",
+              "source": "article"
+            }
+          ]
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-2",
+          "predicate": "executive_of",
+          "object_id": "entity-1",
+          "event_id": "event-1",
+          "label": "генеральный директор компании",
+          "evidence": "Генеральный директор компании «АгроЛиния» Ирина Соколова заявила: «Если расходы на логистику продолжат расти, мы можем отказаться от строительства второго комплекса стоимостью 2,4 млрд рублей»."
+        }
+      ],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 684,
+      "outputTokens": 3000,
+      "costRub": 0.06708408,
+      "registryLookups": 1,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=684, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 5,
+      "name": "Опровержение сообщения о взломе",
+      "date": "15 октября 2026",
+      "title": "Компания опровергла сообщения о взломе платежной платформы",
+      "article": "Заголовок: Компания опровергла сообщения о взломе платежной платформы\n\nВ соцсетях появились сообщения о взломе платежной платформы «Каскад» и утечке данных клиентов. Представитель «Каскад» опроверг информацию о кибератаке. Проверка компании не подтвердила утечку; платформа работала штатно.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "Каскад",
+          "normalized_name": "каскад",
+          "normalized_value": "Каскад",
+          "mention": "«Каскад»",
+          "legal_form": null,
+          "evidence": "платформы «Каскад»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "fallback-2",
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "event-1",
+          "type": "DENIAL",
+          "graph_type": "DENIAL",
+          "label": "Представитель «Каскад» опроверг информацию о кибератаке.",
+          "evidence": "Представитель «Каскад» опроверг информацию о кибератаке.",
+          "event_status": "denied",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "company"
+            }
+          ],
+          "attributes": []
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 678,
+      "outputTokens": 3000,
+      "costRub": 0.06695021,
+      "registryLookups": 1,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=678, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    }
+  ]
+}

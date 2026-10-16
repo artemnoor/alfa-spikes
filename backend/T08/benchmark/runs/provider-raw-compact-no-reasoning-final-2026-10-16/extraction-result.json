@@ -1,0 +1,154 @@
+{
+  "status": "partial",
+  "extractionMode": "partial_validation",
+  "eventGraphMode": "model",
+  "model": "deepseek/deepseek-v4-flash",
+  "entities": [
+    {
+      "type": "ORGANIZATION",
+      "name": "ТехноПульс",
+      "normalized_name": "технопульс",
+      "normalized_value": "ТехноПульс",
+      "mention": "«ТехноПульс»",
+      "legal_form": null,
+      "evidence": "«ТехноПульс»",
+      "source": "article",
+      "role": null,
+      "entity_id": null,
+      "inn": null,
+      "confidence": null,
+      "id": "entity-1",
+      "alternate_mentions": [],
+      "link_source": "fns_egrul",
+      "link_status": "ambiguous"
+    },
+    {
+      "type": "LOCATION",
+      "name": "Калуге",
+      "normalized_name": null,
+      "normalized_value": "Калуге",
+      "mention": "Калуге",
+      "legal_form": null,
+      "evidence": "Калуге",
+      "source": "article",
+      "role": null,
+      "entity_id": null,
+      "inn": null,
+      "confidence": null,
+      "id": "entity-2"
+    },
+    {
+      "type": "PERSON",
+      "name": "Мария Волкова",
+      "normalized_name": null,
+      "normalized_value": "Мария Волкова",
+      "mention": "Мария Волкова",
+      "legal_form": null,
+      "evidence": "Мария Волкова",
+      "source": "article",
+      "role": null,
+      "entity_id": null,
+      "inn": null,
+      "confidence": null,
+      "id": "entity-3"
+    }
+  ],
+  "events": [
+    {
+      "type": "launch",
+      "graph_type": "launch",
+      "label": "Запуск",
+      "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге",
+      "event_status": "completed",
+      "participants": [
+        {
+          "entity_id": "entity-1",
+          "role": "subject"
+        },
+        {
+          "entity_id": "entity-2",
+          "role": "location"
+        }
+      ],
+      "attributes": [
+        {
+          "type": "DATE",
+          "mention": "15 октября",
+          "normalized_value": "2026-10-15",
+          "unit": null,
+          "evidence": "15 октября",
+          "source": "article"
+        }
+      ],
+      "event_id": "event-1"
+    },
+    {
+      "type": "production",
+      "graph_type": "production",
+      "label": "Производство",
+      "evidence": "Линия уже выпускает до 40 тысяч батарей в месяц",
+      "event_status": "completed",
+      "participants": [
+        {
+          "entity_id": "entity-1",
+          "role": "subject"
+        }
+      ],
+      "attributes": [
+        {
+          "type": "QUANTITY",
+          "mention": "40 тысяч батарей в месяц",
+          "normalized_value": {
+            "value": 40000,
+            "unit": "batteries_per_month"
+          },
+          "unit": "batteries_per_month",
+          "evidence": "40 тысяч батарей в месяц",
+          "source": "article"
+        }
+      ],
+      "event_id": "event-2"
+    },
+    {
+      "type": "participation",
+      "graph_type": "participation",
+      "label": "Участие в событии",
+      "evidence": "В церемонии открытия участвовала генеральный директор Мария Волкова",
+      "event_status": "completed",
+      "participants": [
+        {
+          "entity_id": "entity-3",
+          "role": "participant"
+        }
+      ],
+      "attributes": [],
+      "event_id": "event-3"
+    }
+  ],
+  "relations": [
+    {
+      "subject_id": "entity-1",
+      "predicate": "launched",
+      "object_id": "entity-2",
+      "event_id": "event-1",
+      "label": "launched",
+      "evidence": "15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге",
+      "event_status": "completed"
+    }
+  ],
+  "rejectedEntities": 0,
+  "duplicateEntities": 1,
+  "rejectedEvents": 0,
+  "rejectedRelations": 2,
+  "calls": 1,
+  "inputTokens": 425,
+  "outputTokens": 294,
+  "reasoningTokens": 0,
+  "visibleOutputTokens": 294,
+  "costRub": 0.01093668,
+  "registryLookups": 1,
+  "finishReason": "stop",
+  "rejectedAttributes": 0,
+  "rejectedParticipants": 0,
+  "partialReason": "validation rejected 0 entities, 0 events, 0 participants, 2 relations, and 0 facts"
+}

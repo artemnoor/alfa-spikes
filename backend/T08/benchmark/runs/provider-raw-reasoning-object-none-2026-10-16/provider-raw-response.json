@@ -1,0 +1,39 @@
+{
+  "id": "gen_2222295436562403329",
+  "object": "chat.completion",
+  "created": 1792140524,
+  "model": "deepseek/deepseek-v4-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"e\":[[\"e1\",\"ORGANIZATION\",\"«ТехноПульс»\"],[\"e2\",\"LOCATION\",\"Калуга\"],[\"e3\",\"PERSON\",\"Мария Волкова\"]],\"v\":[[\"v1\",\"launch\",\"запустила новую производственную линию аккумуляторов\",[[\"e1\",\"company\"],[\"e2\",\"location\"]],[[\"QUANTITY\",\"40 тысяч батарей в месяц\"],[\"DATE\",\"15 октября\"]]]],\"r\":[[\"e1\",\"operates_at\",\"e2\",\"v1\"],[\"e3\",\"participated_in\",\"v1\",\"v1\"]]}"
+      },
+      "finish_reason": "stop",
+      "logprobs": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 464,
+    "completion_tokens": 140,
+    "total_tokens": 604,
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "accepted_prediction_tokens": null,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 371,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "server_tool_use": null,
+    "cost_rub": 0.00482812,
+    "cost": 0.00482812,
+    "plugins": null
+  }
+}

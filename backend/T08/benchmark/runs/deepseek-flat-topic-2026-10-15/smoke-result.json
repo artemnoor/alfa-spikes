@@ -1,0 +1,135 @@
+{
+  "state": "Заголовок: Альфа-Банк представил AI-модель для поддержки клиентов\n\nКомпания объявила о запуске новой модели искусственного интеллекта для автоматизации поддержки клиентов. Сервис уже проходит испытания и станет доступен клиентам в следующем месяце.",
+  "evaluatedAt": "2026-10-15T18:54:36.4626564Z",
+  "result": {
+    "status": "model",
+    "topic": {
+      "qcode": "medtop:20001298",
+      "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+      "label": "artificial intelligence"
+    },
+    "path": [
+      {
+        "id": "medtop:13000000",
+        "label": "science and technology"
+      },
+      {
+        "id": "medtop:20000756",
+        "label": "technology and engineering"
+      },
+      {
+        "id": "medtop:20000763",
+        "label": "information technology and computer science"
+      },
+      {
+        "id": "medtop:20001298",
+        "label": "artificial intelligence"
+      }
+    ],
+    "probability": null,
+    "calls": 5,
+    "inputTokens": 60641,
+    "outputTokens": 1137,
+    "costRub": 0.34510025,
+    "model": "typesafe/jev",
+    "models": {
+      "topic": "deepseek/deepseek-v4-flash",
+      "event": "typesafe/jev",
+      "genre": "typesafe/jev"
+    },
+    "classifications": {
+      "topic": {
+        "status": "model",
+        "value": {
+          "qcode": "medtop:20001298",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+          "label": "artificial intelligence"
+        },
+        "path": [
+          {
+            "id": "medtop:13000000",
+            "label": "science and technology"
+          },
+          {
+            "id": "medtop:20000756",
+            "label": "technology and engineering"
+          },
+          {
+            "id": "medtop:20000763",
+            "label": "information technology and computer science"
+          },
+          {
+            "id": "medtop:20001298",
+            "label": "artificial intelligence"
+          }
+        ],
+        "probability": null,
+        "calls": 1,
+        "inputTokens": 55649,
+        "outputTokens": 467,
+        "costRub": 0.25751312
+      },
+      "event": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:product_service_launch",
+          "label": "Launch",
+          "mainType": "Product/Service",
+          "subType": "Launch"
+        },
+        "path": [
+          {
+            "id": "sentivent:product_service",
+            "label": "Product/Service"
+          },
+          {
+            "id": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch"
+          }
+        ],
+        "probability": 0.69,
+        "calls": 2,
+        "inputTokens": 3064,
+        "outputTokens": 312,
+        "costRub": 0.05375941
+      },
+      "genre": {
+        "status": "model",
+        "value": {
+          "qcode": "genre:Current",
+          "uri": "http://cv.iptc.org/newscodes/genre/Current",
+          "label": "Current Events"
+        },
+        "path": [
+          {
+            "id": "genre-nav:factual-news",
+            "label": "Factual news and coverage"
+          },
+          {
+            "id": "genre:Current",
+            "label": "Current Events"
+          }
+        ],
+        "probability": 0.7056,
+        "calls": 2,
+        "inputTokens": 1928,
+        "outputTokens": 358,
+        "costRub": 0.033827720000000006
+      }
+    },
+    "sources": {
+      "topic": {
+        "name": "IPTC Media Topics",
+        "conceptCount": 1085
+      },
+      "event": {
+        "name": "SENTiVENT event typology",
+        "conceptCount": 60
+      },
+      "genre": {
+        "name": "IPTC Genre",
+        "conceptCount": 54
+      }
+    }
+  }
+}

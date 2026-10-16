@@ -1,0 +1,49 @@
+{
+  "comparisonDate": "2026-10-15",
+  "datasetRecords": 300,
+  "matchingSuccessfulIds": 158,
+  "matchedMetrics": {
+    "topic": {
+      "matchedRecords": 158,
+      "jevCorrect": 66,
+      "deepseekCorrect": 62
+    },
+    "event": {
+      "matchedRecords": 158,
+      "jevCorrect": 150,
+      "deepseekCorrect": 142
+    },
+    "genre": {
+      "matchedRecords": 158,
+      "jevCorrect": 120,
+      "deepseekCorrect": 119
+    }
+  },
+  "testCoverage": {
+    "jev": {
+      "successful": 48,
+      "failed": 12
+    },
+    "deepseek": {
+      "successful": 48,
+      "failed": 12
+    }
+  },
+  "sameSuccessfulTestCohort": {
+    "matchedRecords": 40,
+    "metrics": {
+      "topic": {
+        "jevCorrect": 13,
+        "deepseekCorrect": 14
+      },
+      "event": {
+        "jevCorrect": 40,
+        "deepseekCorrect": 40
+      },
+      "genre": {
+        "jevCorrect": 32,
+        "deepseekCorrect": 33
+      }
+    }
+  }
+}

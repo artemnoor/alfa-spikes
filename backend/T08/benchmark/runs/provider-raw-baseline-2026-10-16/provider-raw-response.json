@@ -1,0 +1,40 @@
+{
+  "id": "gen_2222292636491190273",
+  "object": "chat.completion",
+  "created": 1792139904,
+  "model": "deepseek/deepseek-v4-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"events\":[{\"id\":\"ev1\",\"type\":\"launch\",\"label\":\"запуск линии\",\"evidence\":\"15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге.\",\"participants\":[{\"entity_id\":\"e1\",\"role\":\"компания\"},{\"entity_id\":\"e4\",\"role\":\"объект\"},{\"entity_id\":\"e3\",\"role\":\"место\"}],\"attributes\":[{\"type\":\"DATE\",\"mention\":\"15 октября\"}]},{\"id\":\"ev2\",\"type\":\"production\",\"label\":\"выпуск продукции\",\"evidence\":\"Линия уже выпускает до 40 тысяч батарей в месяц.\",\"participants\":[{\"entity_id\":\"e4\",\"role\":\"производитель\"},{\"entity_id\":\"e5\",\"role\":\"продукт\"}],\"attributes\":[{\"type\":\"QUANTITY\",\"mention\":\"до 40 тысяч батарей в месяц\"}]},{\"id\":\"ev3\",\"type\":\"participation\",\"label\":\"участие в церемонии\",\"evidence\":\"В церемонии открытия участвовала генеральный директор Мария Волкова.\",\"participants\":[{\"entity_id\":\"e2\",\"role\":\"участник\"},{\"entity_id\":\"e1\",\"role\":\"организатор\"}],\"attributes\":[]}],\"entities\":[{\"id\":\"e1\",\"type\":\"ORGANIZATION\",\"mention\":\"«ТехноПульс»\",\"source\":\"article\",\"role\":\"компания\"},{\"id\":\"e2\",\"type\":\"PERSON\",\"mention\":\"Мария Волкова\",\"source\":\"article\",\"role\":\"генеральный директор\"},{\"id\":\"e3\",\"type\":\"LOCATION\",\"mention\":\"Калуга\",\"source\":\"article\",\"role\":\"город\"},{\"id\":\"e4\",\"type\":\"FACILITY\",\"mention\":\"новая производственная линия аккумуляторов\",\"source\":\"article\",\"role\":\"производственная линия\"},{\"id\":\"e5\",\"type\":\"PRODUCT\",\"mention\":\"аккумуляторов\",\"source\":\"article\",\"role\":\"продукт\"}],\"relations\":[{\"subject_id\":\"e1\",\"predicate\":\"запустил\",\"object_id\":\"e4\",\"event_id\":\"ev1\",\"label\":\"запуск линии\"},{\"subject_id\":\"e4\",\"predicate\":\"расположена в\",\"object_id\":\"e3\",\"event_id\":\"ev1\",\"label\":\"местоположение\"},{\"subject_id\":\"e4\",\"predicate\":\"производит\",\"object_id\":\"e5\",\"event_id\":\"ev2\",\"label\":\"выпуск продукта\"},{\"subject_id\":\"e2\",\"predicate\":\"руководит\",\"object_id\":\"e1\",\"event_id\":\"ev3\",\"label\":\"должность генерального директора\"}]}",
+        "reasoning": "[REDACTED: reasoning text omitted; token usage retained]"
+      },
+      "finish_reason": "stop",
+      "logprobs": null
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 577,
+    "completion_tokens": 4341,
+    "total_tokens": 4918,
+    "completion_tokens_details": {
+      "reasoning_tokens": 4053,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "accepted_prediction_tokens": null,
+      "rejected_prediction_tokens": null
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "server_tool_use": null,
+    "cost_rub": 0.15378958,
+    "cost": 0.15378958,
+    "plugins": null
+  }
+}

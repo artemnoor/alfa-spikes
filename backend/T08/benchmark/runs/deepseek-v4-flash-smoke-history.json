@@ -1,0 +1,36 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "provider": "Polza AI",
+  "articleId": "ai-launch-01",
+  "successfulClassifications": 3,
+  "successfulResponseCostTotalRub": 0.11853386,
+  "failedExploratoryAttemptsCost": "unknown; these are excluded from the total",
+  "responses": [
+    {
+      "inputTokens": 5784,
+      "outputTokens": 1522,
+      "costRub": 0.04082891,
+      "topic": "medtop:20000231",
+      "event": "sentivent:product_service_launch",
+      "genre": "genre:Current"
+    },
+    {
+      "inputTokens": 5648,
+      "outputTokens": 1435,
+      "costRub": 0.03876601,
+      "topic": "medtop:20001298",
+      "event": "sentivent:product_service_launch",
+      "genre": "genre:Current",
+      "evaluatedAt": "2026-10-15T17:17:19.1188746Z"
+    },
+    {
+      "inputTokens": 5802,
+      "outputTokens": 1377,
+      "costRub": 0.03893894,
+      "topic": "medtop:20001298",
+      "event": "sentivent:product_service_launch",
+      "genre": "genre:Press_Release",
+      "evaluatedAt": "2026-10-15T17:18:50.8821386Z"
+    }
+  ]
+}

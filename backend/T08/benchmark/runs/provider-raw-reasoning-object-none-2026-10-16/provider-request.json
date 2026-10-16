@@ -1,0 +1,20 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "messages": [
+    {
+      "role": "system",
+      "content": "From the Russian news, return minified JSON only: {\"e\":[],\"v\":[],\"r\":[]}. No explanation or repeated fields.\ne rows: [id,type,exact_mention]. Named entities only: ORGANIZATION,PERSON,LOCATION,PRODUCT,FACILITY,LAW. IDs e1...; include organizations on both sides and named speakers; deduplicate.\nv rows: [id,type,one_short_exact_event_quote,[[entity_id,role]],[[fact_type,exact_value]]]. IDs v1...; include only main events. Roles belong here, never duplicate on entities. Fact types: MONEY (must include currency), QUANTITY (must include a count/measurement unit), PERCENT (must include %), DATE, DURATION. Capture material amounts, counts, dates, durations, percentages.\nr rows: [subject_id,predicate,object_id,event_id]. Include explicit links only. Event/attribute quotes must be exact contiguous substrings of the article. Never use metadata as article text or invent facts. Keep to 8 entities, 3 events, 8 relations, 4 facts/event. Example shape only: {\"e\":[[\"e1\",\"ORGANIZATION\",\"«Меридиан»\"]],\"v\":[[\"v1\",\"acquisition\",\"Меридиан объявил о покупке конкурента\",[[\"e1\",\"acquirer\"]],[[\"MONEY\",\"1,8 млрд рублей\"]]]],\"r\":[]}."
+    },
+    {
+      "role": "user",
+      "content": "{\"article\":\"Заголовок: «ТехноПульс» запустил новую линию аккумуляторов\\n\\n15 октября компания «ТехноПульс» запустила новую производственную линию аккумуляторов на площадке в Калуге. Линия уже выпускает до 40 тысяч батарей в месяц. В церемонии открытия участвовала генеральный директор Мария Волкова.\",\"metadata\":{\"date\":\"15 октября 2026\"}}"
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "reasoning": {
+    "effort": "none"
+  },
+  "max_tokens": 6000
+}

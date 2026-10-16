@@ -1,0 +1,107 @@
+{
+  "cleaning_policy": "legacy_clean_duplicate_documents",
+  "counts": {
+    "documents": {
+      "splits": {
+        "dev": 30,
+        "test": 30,
+        "train": 228
+      },
+      "total": 288
+    },
+    "event_arguments": {
+      "splits": {
+        "dev": 1346,
+        "test": 2299,
+        "train": 10135
+      },
+      "total": 13780
+    },
+    "event_coreference_links": {
+      "splits": {
+        "dev": 125,
+        "test": 218,
+        "train": 1021
+      },
+      "total": 1364
+    },
+    "event_sentiment_links": {
+      "splits": {
+        "dev": 11,
+        "test": 20,
+        "train": 71
+      },
+      "total": 102
+    },
+    "event_subtype_labels": {
+      "splits": null,
+      "total": 42
+    },
+    "event_type_labels": {
+      "splits": null,
+      "total": 18
+    },
+    "events": {
+      "splits": {
+        "dev": 625,
+        "test": 984,
+        "train": 4636
+      },
+      "total": 6245
+    },
+    "filler_arguments": {
+      "splits": {
+        "dev": 298,
+        "test": 517,
+        "train": 2384
+      },
+      "total": 3199
+    },
+    "participant_arguments": {
+      "splits": {
+        "dev": 1048,
+        "test": 1782,
+        "train": 7751
+      },
+      "total": 10581
+    },
+    "sentences": {
+      "splits": {
+        "dev": 681,
+        "test": 727,
+        "train": 5475
+      },
+      "total": 6883
+    },
+    "sentiment_expressions": {
+      "splits": {
+        "dev": 387,
+        "test": 328,
+        "train": 2954
+      },
+      "total": 3669
+    },
+    "sentiment_targets": {
+      "splits": {
+        "dev": 483,
+        "test": 415,
+        "train": 3531
+      },
+      "total": 4429
+    },
+    "tokens": {
+      "splits": {
+        "dev": 17955,
+        "test": 17126,
+        "train": 135317
+      },
+      "total": 170398
+    }
+  },
+  "graph_schema_version": "0.1.0",
+  "schema_version": "1.0.0",
+  "split_policy": "v1",
+  "split_sources": [
+    "legacy:SPLITS_DOC_EXPERIMENTS"
+  ]
+}

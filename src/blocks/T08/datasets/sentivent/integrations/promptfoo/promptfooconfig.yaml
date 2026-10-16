@@ -1,0 +1,14 @@
+# Copyright (c) Gilles Jacobs.
+# SPDX-License-Identifier: Apache-2.0
+
+description: SENTiVENT UIE structured extraction smoke eval
+prompts:
+  - |
+    Extract SENTiVENT economic events and implicit sentiment in UIE spot-association format.
+
+    Input:
+    {{text}}
+providers:
+  - id: "${PROMPTFOO_PROVIDER:-openai:chat:gpt-4.1-mini}"
+tests:
+  - huggingface://datasets/GillesJacobs/sentivent?config=sentivent_unified_uie_sentence&split=validation&limit=25

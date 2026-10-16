@@ -1,0 +1,111 @@
+{
+  "runDate": "2026-10-15T17:53:31.573Z",
+  "provider": "Polza AI",
+  "model": "deepseek/deepseek-v4-flash",
+  "benchmarkRecords": 300,
+  "successfulRecords": 206,
+  "unavailableRecords": 94,
+  "coverage": 0.6867,
+  "modelCalls": 1353,
+  "inputTokens": 1069864,
+  "outputTokens": 254628,
+  "reportedCostRub": 8.515566,
+  "splits": {
+    "train": {
+      "total": 210,
+      "successful": 136,
+      "unavailable": 74
+    },
+    "dev": {
+      "total": 30,
+      "successful": 22,
+      "unavailable": 8
+    },
+    "test": {
+      "total": 60,
+      "successful": 48,
+      "unavailable": 12
+    }
+  },
+  "metrics": {
+    "topic": {
+      "all": {
+        "correct": 81,
+        "evaluated": 206,
+        "total": 300,
+        "exactAccuracy": 0.3932
+      },
+      "train": {
+        "correct": 63,
+        "evaluated": 136,
+        "total": 210,
+        "exactAccuracy": 0.4632
+      },
+      "dev": {
+        "correct": 1,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 0.0455
+      },
+      "test": {
+        "correct": 17,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 0.3542
+      }
+    },
+    "event": {
+      "all": {
+        "correct": 183,
+        "evaluated": 206,
+        "total": 300,
+        "exactAccuracy": 0.8883
+      },
+      "train": {
+        "correct": 113,
+        "evaluated": 136,
+        "total": 210,
+        "exactAccuracy": 0.8309
+      },
+      "dev": {
+        "correct": 22,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 1
+      },
+      "test": {
+        "correct": 48,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 1
+      }
+    },
+    "genre": {
+      "all": {
+        "correct": 152,
+        "evaluated": 206,
+        "total": 300,
+        "exactAccuracy": 0.7379
+      },
+      "train": {
+        "correct": 99,
+        "evaluated": 136,
+        "total": 210,
+        "exactAccuracy": 0.7279
+      },
+      "dev": {
+        "correct": 14,
+        "evaluated": 22,
+        "total": 30,
+        "exactAccuracy": 0.6364
+      },
+      "test": {
+        "correct": 39,
+        "evaluated": 48,
+        "total": 60,
+        "exactAccuracy": 0.8125
+      }
+    }
+  },
+  "failures": "All unavailable responses are listed by id in run-errors.jsonl and excluded from exact-accuracy denominators."
+}

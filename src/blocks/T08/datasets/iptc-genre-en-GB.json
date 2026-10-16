@@ -1,0 +1,397 @@
+{
+  "dataset": "IPTC Genre",
+  "language": "en-GB",
+  "sourceUpdated": "2020-06-08",
+  "retrieved": "2026-10-15",
+  "source": "https://www.iptc.org/std/NewsCodes/treeview/genre/genre-en-GB.html",
+  "license": "CC BY 4.0",
+  "attribution": "IPTC, International Press Telecommunications Council",
+  "conceptCount": 55,
+  "concepts": [
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Actuality",
+      "qcode": "genre:Actuality",
+      "label": "Actuality",
+      "definition": "Recording of an event",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Advertiser_Supplied",
+      "qcode": "genre:Advertiser_Supplied",
+      "label": "Advertiser Supplied",
+      "definition": "Content is supplied by an organisation or individual that has paid the news provider for its placement",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Advice",
+      "qcode": "genre:Advice",
+      "label": "Advice",
+      "definition": "Letters and answers about readers' personal problems",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Advisory",
+      "qcode": "genre:Advisory",
+      "label": "Advisory",
+      "definition": "Recommendation on editorial or technical matters by a provider to its customers",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Analysis",
+      "qcode": "genre:Analysis",
+      "label": "Analysis",
+      "definition": "Data and conclusions drawn by a journalist who has conducted in depth research for a story",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Anniversary",
+      "qcode": "genre:Anniversary",
+      "label": "Anniversary",
+      "definition": "Stories about the anniversary of some important event that took place in recent history, usually bringing a short review of the event itself.",
+      "retired": true
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Archive_material",
+      "qcode": "genre:Archive_material",
+      "label": "Archival material",
+      "definition": "Material selected from the originator's archive that has been previously distributed",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Background",
+      "qcode": "genre:Background",
+      "label": "Background",
+      "definition": "Scene setting and explanation for an event being reported",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Behind_the_Story",
+      "qcode": "genre:Behind_the_Story",
+      "label": "Behind the Story",
+      "definition": "The content describes how a story was reported and offers context on the reporting",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Biography",
+      "qcode": "genre:Biography",
+      "label": "Biography",
+      "definition": "Facts and background about a person",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Birth_Announcement",
+      "qcode": "genre:Birth_Announcement",
+      "label": "Birth Announcement",
+      "definition": "News of newly born children",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Current",
+      "qcode": "genre:Current",
+      "label": "Current Events",
+      "definition": "Content about events taking place at the time of the report",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Curtain_Raiser",
+      "qcode": "genre:Curtain_Raiser",
+      "label": "Curtain Raiser",
+      "definition": "Information about the staging and outcome of an immediately upcoming event",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Daybook",
+      "qcode": "genre:Daybook",
+      "label": "Daybook",
+      "definition": "Items filed on a regular basis that are lists of upcoming events with time and place, designed to inform others of events for planning purposes.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Exclusive",
+      "qcode": "genre:Exclusive",
+      "label": "Exclusive",
+      "definition": "Information content, in any form, that is unique to a specific information provider.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Fact_Check",
+      "qcode": "genre:Fact_Check",
+      "label": "Fact Check",
+      "definition": "The news item looks into the truth or falsehood of another reported news item or assertion (for example a statement on social media by a public figure)",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Feature",
+      "qcode": "genre:Feature",
+      "label": "Feature",
+      "definition": "The object content is about a particular event or individual that may not be significant to the current breaking news.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Fixture",
+      "qcode": "genre:Fixture",
+      "label": "Fixture",
+      "definition": "The object contains data that occurs often and predictably.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Forecast",
+      "qcode": "genre:Forecast",
+      "label": "Forecast",
+      "definition": "The object contains opinion as to the outcome of a future event.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/From_the_Scene",
+      "qcode": "genre:From_the_Scene",
+      "label": "From the Scene",
+      "definition": "The object contains a report from the scene of an event.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Help_Us_to_Report",
+      "qcode": "genre:Help_Us_to_Report",
+      "label": "Help us to Report",
+      "definition": "The news item is a call for readers to provide information that may help journalists to investigate a potential news story",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/History",
+      "qcode": "genre:History",
+      "label": "History",
+      "definition": "The object content is based on previous rather than current events.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/horoscope",
+      "qcode": "genre:horoscope",
+      "label": "Horoscope",
+      "definition": "Astrological forecasts",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Interview",
+      "qcode": "genre:Interview",
+      "label": "Interview",
+      "definition": "The object contains a report of a dialogue with a news source that gives it significant voice (includes Q and A).",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/ListingOfFacts",
+      "qcode": "genre:ListingOfFacts",
+      "label": "Listing of facts",
+      "definition": "Detailled listing of facts related to a topic or a story",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Music",
+      "qcode": "genre:Music",
+      "label": "Music",
+      "definition": "The object contains music alone.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Obituary",
+      "qcode": "genre:Obituary",
+      "label": "Obituary",
+      "definition": "The object contains a narrative about an individual's life and achievements for publication after his or her death.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/almanac",
+      "qcode": "genre:almanac",
+      "label": "On This Day",
+      "definition": "List of data, including birthdays of famous people and items of historical significance, for a given day",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Opinion",
+      "qcode": "genre:Opinion",
+      "label": "Opinion",
+      "definition": "The object contains an editorial comment that reflects the views of the author.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Polls_and_Surveys",
+      "qcode": "genre:Polls_and_Surveys",
+      "label": "Polls and Surveys",
+      "definition": "The object contains numeric or other information produced as a result of questionnaires or interviews.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Press_Release",
+      "qcode": "genre:Press_Release",
+      "label": "Press Release",
+      "definition": "The object contains promotional material or information provided to a news organisation.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Press-Digest",
+      "qcode": "genre:Press-Digest",
+      "label": "Press-Digest",
+      "definition": "The object contains an editorial comment by another medium completely or in parts without significant journalistic changes.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Profile",
+      "qcode": "genre:Profile",
+      "label": "Profile",
+      "definition": "The object contains a description of the life or activity of a news subject (often a living individual).",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Program",
+      "qcode": "genre:Program",
+      "label": "Program",
+      "definition": "A news item giving lists of intended events and time to be covered by the news provider. Each program covers a day, a week, a month or a year. The covered period is referenced as a keyword.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Question_and_Answer_Session",
+      "qcode": "genre:Question_and_Answer_Session",
+      "label": "Question and Answer Session",
+      "definition": "The object contains the interviewer and subject questions and answers.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Quote",
+      "qcode": "genre:Quote",
+      "label": "Quote",
+      "definition": "The object contains a one or two sentence verbatim in direct quote.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Raw_Sound",
+      "qcode": "genre:Raw_Sound",
+      "label": "Raw Sound",
+      "definition": "The object contains unedited sounds.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Response_to_a_Question",
+      "qcode": "genre:Response_to_a_Question",
+      "label": "Response to a Question",
+      "definition": "The object contains a reply to a question.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Results_Listings_and_Statistics",
+      "qcode": "genre:Results_Listings_and_Statistics",
+      "label": "Results Listings and Statistics",
+      "definition": "The object contains alphanumeric data suitable for presentation in tabular form.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Retrospective",
+      "qcode": "genre:Retrospective",
+      "label": "Retrospective",
+      "definition": "The object contains material that looks back on a specific (generally long) period of time such as a season, quarter, year or decade.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Review",
+      "qcode": "genre:Review",
+      "label": "Review",
+      "definition": "The object contains a critique of a creative activity or service (for example a book, a film or a restaurant).",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Satire",
+      "qcode": "genre:Satire",
+      "label": "Satire",
+      "definition": "Uses exaggeration, irony, or humour to make a point; not intended to be understood as factual",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Scener",
+      "qcode": "genre:Scener",
+      "label": "Scener",
+      "definition": "The object contains a description of the event circumstances.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Side_bar_and_supporting_information",
+      "qcode": "genre:Side_bar_and_supporting_information",
+      "label": "Side bar and supporting information",
+      "definition": "Related story that provides additional context or insight into a news event",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Special_Report",
+      "qcode": "genre:Special_Report",
+      "label": "Special Report",
+      "definition": "In-depth examination of a single subject requiring extensive research and usually presented at great length, either as a single item or as a series of items",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Sponsored",
+      "qcode": "genre:Sponsored",
+      "label": "Sponsored",
+      "definition": "Content is produced on behalf of an organisation or individual that has paid the news provider for production and may approve content publication",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Summary",
+      "qcode": "genre:Summary",
+      "label": "Summary",
+      "definition": "Single item synopsis of a number of generally unrelated news stories",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Supported",
+      "qcode": "genre:Supported",
+      "label": "Supported",
+      "definition": "Content is produced with financial support from an organisation or individual, yet not approved by the underwriter before or after publication",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Synopsis",
+      "qcode": "genre:Synopsis",
+      "label": "Synopsis",
+      "definition": "The object contains a condensed version of a single news item.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Text_only",
+      "qcode": "genre:Text_only",
+      "label": "Text only",
+      "definition": "The object contains a transcription of text.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Transcript_and_Verbatim",
+      "qcode": "genre:Transcript_and_Verbatim",
+      "label": "Transcript and Verbatim",
+      "definition": "A word for word report of a discussion or briefing",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Update",
+      "qcode": "genre:Update",
+      "label": "Update",
+      "definition": "The object contains an intraday snapshot (as for electronic services) of a single news subject.",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Voicer",
+      "qcode": "genre:Voicer",
+      "label": "Voicer",
+      "definition": "Content is only voice",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Wrap",
+      "qcode": "genre:Wrap",
+      "label": "Wrap",
+      "definition": "Complete summary of an event",
+      "retired": false
+    },
+    {
+      "uri": "http://cv.iptc.org/newscodes/genre/Wrapup",
+      "qcode": "genre:Wrapup",
+      "label": "Wrapup",
+      "definition": "Recap of a running story",
+      "retired": false
+    }
+  ]
+}

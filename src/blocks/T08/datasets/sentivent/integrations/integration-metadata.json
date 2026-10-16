@@ -1,0 +1,10 @@
+{
+  "dataset_id": "GillesJacobs/sentivent",
+  "gold_field": "record",
+  "input_field": "text",
+  "split": "validation",
+  "target_field": "record",
+  "tasks": [
+    "sentivent_unified_uie_sentence"
+  ]
+}

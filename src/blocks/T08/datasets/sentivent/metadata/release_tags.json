@@ -1,0 +1,8 @@
+{
+  "annotation_guidelines_version": "1.1",
+  "build_timestamp_utc": "2026-07-14T23:04:09.400815+00:00",
+  "builder_git_commit": "7b759a38329c177b7ffa923997a4bb2c2c2e7484",
+  "builder_git_short_commit": "7b759a38329c",
+  "schema_version": "1.0.0",
+  "tag": "sentivent-guidelines-v1.1-20260714-g7b759a38329c"
+}

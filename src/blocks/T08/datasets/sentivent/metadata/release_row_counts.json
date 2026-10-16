@@ -1,0 +1,113 @@
+{
+  "checked_config_count": 18,
+  "checked_manifest_count": 7,
+  "checked_row_count": 97511,
+  "checked_split_count": 54,
+  "schema_version": "1.0.0",
+  "manifests": {
+    "absa-manifest.json": {
+      "asqp_quad_line": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "aste_triplet_line": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "iabsa_quad": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      }
+    },
+    "dygiepp-manifest.json": {
+      "events": {
+        "test": 30,
+        "train": 228,
+        "validation": 30
+      }
+    },
+    "legacy-ie-manifest.json": {
+      "omnievent_events": {
+        "test": 727,
+        "train": 5474,
+        "validation": 681
+      },
+      "oneie_event_sentiment": {
+        "test": 727,
+        "train": 5474,
+        "validation": 681
+      },
+      "oneie_events": {
+        "test": 727,
+        "train": 5474,
+        "validation": 681
+      }
+    },
+    "textee-manifest.json": {
+      "e2e_sentence": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "eae_sentence": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "ed_sentence": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      }
+    },
+    "token-label-manifest.json": {
+      "sentivent_unified_bio": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      }
+    },
+    "uie-manifest.json": {
+      "sentivent_unified_sentence": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      }
+    },
+    "unified-json-manifest.json": {
+      "sentivent_unified_document": {
+        "test": 30,
+        "train": 228,
+        "validation": 30
+      },
+      "sentivent_unified_document_continuous": {
+        "test": 30,
+        "train": 228,
+        "validation": 30
+      },
+      "sentivent_unified_document_with_canonical_referents": {
+        "test": 30,
+        "train": 228,
+        "validation": 30
+      },
+      "sentivent_unified_sentence": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "sentivent_unified_sentence_continuous": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      },
+      "sentivent_unified_sentence_with_canonical_referents": {
+        "test": 727,
+        "train": 5475,
+        "validation": 681
+      }
+    }
+  }
+}

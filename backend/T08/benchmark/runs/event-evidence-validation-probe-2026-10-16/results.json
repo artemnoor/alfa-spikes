@@ -1,0 +1,181 @@
+{
+  "startedAt": "2026-10-15T21:37:45.972Z",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\event-evidence-validation-2026-10-16\\news.json",
+  "testKind": "synthetic, manually labeled event-presence benchmark",
+  "thresholds": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "models": {
+    "selector": "typesafe/jev",
+    "evidence": "deepseek/deepseek-v4-flash"
+  },
+  "results": [
+    {
+      "input": {
+        "id": 1,
+        "name": "Кредитный транш",
+        "date": "15 октября 2026",
+        "title": "Банк перечислил «ВекторМашу» первый транш по кредиту",
+        "content": "АО «ВекторМаш» сообщило, что банк «Орбита» перечислил компании первый транш по кредитному соглашению на 1,4 млрд рублей. Договор стороны подписали 8 октября для финансирования строительства производственного комплекса.",
+        "expected_event": true,
+        "expected_event_type": "sentivent:financing"
+      },
+      "result": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:financing",
+          "label": "Financing",
+          "mainType": "Financing",
+          "subType": null
+        },
+        "path": [
+          {
+            "id": "sentivent:financing",
+            "label": "Financing"
+          }
+        ],
+        "probability": 1,
+        "event_type": "sentivent:financing",
+        "proposed_event_type": "sentivent:financing",
+        "evidence_text": "банк «Орбита» перечислил компании первый транш по кредитному соглашению на 1,4 млрд рублей",
+        "evidence_verified": true,
+        "evidence_reviewed": true,
+        "evidence_validation_error": null,
+        "support_score": 1,
+        "evidence_model": "deepseek/deepseek-v4-flash",
+        "evidenceThreshold": 0.7,
+        "rejectedEvent": null,
+        "pathProbability": 1,
+        "calls": 2,
+        "inputTokens": 2804,
+        "outputTokens": 466,
+        "costRub": 0.04605037,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:financing",
+            "label": "Financing",
+            "path": [
+              {
+                "id": "sentivent:financing",
+                "label": "Financing"
+              }
+            ],
+            "probability": 1
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:no_matching_event",
+            "label": "No matching SENTiVENT business event",
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      }
+    }
+  ],
+  "updatedAt": "2026-10-15T21:37:49.797Z",
+  "summary": {
+    "newsCount": 1,
+    "completed": 1,
+    "failed": 0,
+    "evidenceReviews": 1,
+    "evidenceQuotesVerified": 1,
+    "totalCalls": 2,
+    "totalInputTokens": 2804,
+    "totalCostRub": 0.04605037,
+    "thresholdMetrics": [
+      {
+        "threshold": 0.5,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.6,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.7,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.8,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      },
+      {
+        "threshold": 0.9,
+        "truePositive": 1,
+        "falseNegative": 0,
+        "falsePositive": 0,
+        "trueNegative": 0,
+        "falseRejectionRate": 0,
+        "falseAcceptanceRate": null,
+        "precision": 1,
+        "recall": 1,
+        "acceptedWithWrongEventType": 0
+      }
+    ]
+  },
+  "finishedAt": "2026-10-15T21:37:49.798Z"
+}

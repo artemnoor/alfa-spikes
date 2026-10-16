@@ -1,0 +1,62 @@
+{
+  "differences": {
+    "argument_role_base_counts_not_in_typology_or_role_map": {
+      "TIME": 2353
+    },
+    "argument_role_bases_not_in_typology_or_role_map": [
+      "TIME"
+    ],
+    "argument_role_counts_not_in_typology": {
+      "Amount_CapitalReturns": 1,
+      "Amount_Employment_Compensation": 5,
+      "CAPITAL": 209,
+      "DecreaseAmount": 73,
+      "HistoricalAmount_Revenue_Increase": 7,
+      "HistoricalAmount_SalesVolume_Increase": 8,
+      "IncreaseAmount": 167,
+      "PLACE": 614,
+      "Price_SecurityValue": 32,
+      "TIME": 2353
+    },
+    "argument_roles_not_in_typology": [
+      "Amount_CapitalReturns",
+      "Amount_Employment_Compensation",
+      "CAPITAL",
+      "DecreaseAmount",
+      "HistoricalAmount_Revenue_Increase",
+      "HistoricalAmount_SalesVolume_Increase",
+      "IncreaseAmount",
+      "PLACE",
+      "Price_SecurityValue",
+      "TIME"
+    ],
+    "event_fulltypes_not_in_typology": [],
+    "event_maintypes_not_in_typology": [],
+    "unlabeled_event_count": 5
+  },
+  "graph_profile": "canonical_graph_snapshot_all_annotation_members",
+  "handling": {
+    "canonical_graph_policy": "Preserve raw annotation labels and expose missing event labels through the '__missing__' metadata bucket.",
+    "dataset_card_policy": "Document these static-vocabulary differences as release limitations instead of silently normalizing them.",
+    "legacy_export_policy": "Do not remap these labels for legacy-equivalent converters; rely on strict exporter parity tests for comparable output behavior.",
+    "raw_labels_preserved": true
+  },
+  "profile": "legacy_label_vocabulary_review_v1",
+  "release_gate": {
+    "accepted_difference_kinds": [
+      "unlabeled_event_count",
+      "argument_roles_not_in_typology",
+      "argument_role_bases_not_in_typology_or_role_map"
+    ],
+    "blocking_difference_kinds": [],
+    "policy": "Accept static legacy vocabulary review findings only when observed event types are covered and all differences are documented without remapping.",
+    "status": "accepted_with_migration_notes"
+  },
+  "schema_version": "1.0.0",
+  "source_check": {
+    "event_count": 6618,
+    "name": "graph_label_vocabulary",
+    "status": "review_required"
+  },
+  "status": "documented"
+}

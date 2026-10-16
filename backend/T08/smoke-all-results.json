@@ -1,0 +1,197 @@
+{
+  "provider": "Polza AI",
+  "model": "typesafe/jev",
+  "evaluatedAt": "2026-10-15T15:56:31.045Z",
+  "syntheticExamples": 5,
+  "eventMatches": 5,
+  "expectedEventChecks": 5,
+  "genreMatches": 4,
+  "expectedGenreChecks": 5,
+  "totalCalls": 38,
+  "totalInputTokens": 41680,
+  "results": [
+    {
+      "id": "product-launch",
+      "expectedEvent": "sentivent:product_service_launch",
+      "actualEvent": "sentivent:product_service_launch",
+      "eventMatch": true,
+      "expectedGenre": "genre:Press_Release",
+      "actualGenre": "genre:Current",
+      "genreMatch": false,
+      "topic": "software and applications",
+      "event": "Product/Service — Launch",
+      "eventPath": [
+        "Product/Service",
+        "Launch"
+      ],
+      "genre": "Current Events",
+      "genrePath": [
+        "Factual news and coverage",
+        "Current Events"
+      ],
+      "probability": {
+        "topic": 1,
+        "event": 1,
+        "genre": 0.99
+      },
+      "calls": {
+        "topic": 4,
+        "event": 2,
+        "genre": 2,
+        "total": 8
+      },
+      "tokens": 9001,
+      "status": {
+        "topic": "model",
+        "event": "model",
+        "genre": "model"
+      }
+    },
+    {
+      "id": "financial-report-beat",
+      "expectedEvent": "sentivent:financialreport_beat",
+      "actualEvent": "sentivent:financialreport_beat",
+      "eventMatch": true,
+      "expectedGenre": "genre:Current",
+      "actualGenre": "genre:Current",
+      "genreMatch": true,
+      "topic": "financial statement",
+      "event": "FinancialReport — Beat",
+      "eventPath": [
+        "FinancialReport",
+        "Beat"
+      ],
+      "genre": "Current Events",
+      "genrePath": [
+        "Factual news and coverage",
+        "Current Events"
+      ],
+      "probability": {
+        "topic": 0.51,
+        "event": 1,
+        "genre": 0.92
+      },
+      "calls": {
+        "topic": 4,
+        "event": 2,
+        "genre": 2,
+        "total": 8
+      },
+      "tokens": 8327,
+      "status": {
+        "topic": "model",
+        "event": "model",
+        "genre": "model"
+      }
+    },
+    {
+      "id": "opinion-column",
+      "expectedEvent": "sentivent:no_matching_event",
+      "actualEvent": "sentivent:no_matching_event",
+      "eventMatch": true,
+      "expectedGenre": "genre:Opinion",
+      "actualGenre": "genre:Opinion",
+      "genreMatch": true,
+      "topic": "banking",
+      "event": "No matching SENTiVENT business event",
+      "eventPath": [
+        "No matching SENTiVENT business event"
+      ],
+      "genre": "Opinion",
+      "genrePath": [
+        "Analysis and commentary",
+        "Opinion"
+      ],
+      "probability": {
+        "topic": 1,
+        "event": 0.65,
+        "genre": 1
+      },
+      "calls": {
+        "topic": 4,
+        "event": 1,
+        "genre": 2,
+        "total": 7
+      },
+      "tokens": 8195,
+      "status": {
+        "topic": "model",
+        "event": "model",
+        "genre": "model"
+      }
+    },
+    {
+      "id": "legal-proceeding",
+      "expectedEvent": "sentivent:legal_proceeding",
+      "actualEvent": "sentivent:legal_proceeding",
+      "eventMatch": true,
+      "expectedGenre": "genre:Current",
+      "actualGenre": "genre:Current",
+      "genreMatch": true,
+      "topic": "litigation",
+      "event": "Legal — Proceeding",
+      "eventPath": [
+        "Legal",
+        "Proceeding"
+      ],
+      "genre": "Current Events",
+      "genrePath": [
+        "Factual news and coverage",
+        "Current Events"
+      ],
+      "probability": {
+        "topic": 0.97,
+        "event": 1,
+        "genre": 1
+      },
+      "calls": {
+        "topic": 5,
+        "event": 2,
+        "genre": 2,
+        "total": 9
+      },
+      "tokens": 8858,
+      "status": {
+        "topic": "model",
+        "event": "model",
+        "genre": "model"
+      }
+    },
+    {
+      "id": "sport-result",
+      "expectedEvent": "sentivent:no_matching_event",
+      "actualEvent": "sentivent:no_matching_event",
+      "eventMatch": true,
+      "expectedGenre": "genre:Current",
+      "actualGenre": "genre:Current",
+      "genreMatch": true,
+      "topic": "final game",
+      "event": "No matching SENTiVENT business event",
+      "eventPath": [
+        "No matching SENTiVENT business event"
+      ],
+      "genre": "Current Events",
+      "genrePath": [
+        "Factual news and coverage",
+        "Current Events"
+      ],
+      "probability": {
+        "topic": 0.98,
+        "event": 1,
+        "genre": 0.96
+      },
+      "calls": {
+        "topic": 3,
+        "event": 1,
+        "genre": 2,
+        "total": 6
+      },
+      "tokens": 7299,
+      "status": {
+        "topic": "model",
+        "event": "model",
+        "genre": "model"
+      }
+    }
+  ]
+}

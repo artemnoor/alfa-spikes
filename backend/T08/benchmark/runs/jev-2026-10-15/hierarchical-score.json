@@ -1,0 +1,39 @@
+{
+  "models": [
+    "typesafe/jev"
+  ],
+  "metric": "IPTC topic path F1: 2 × shared ancestor count / (predicted path depth + gold path depth)",
+  "interpretation": "Exact QCode accuracy is retained; shared ancestors receive partial credit, while broad predictions lose precision and wrong top-level branches receive no hierarchy credit.",
+  "predictions": 232,
+  "unavailableRecords": 68,
+  "metrics": {
+    "all": {
+      "evaluated": 232,
+      "exactQcodeAccuracy": 0.3707,
+      "sameTopLevelAccuracy": 0.7155,
+      "meanHierarchicalF1": 0.5003,
+      "invalidTopicQcodes": 0
+    },
+    "train": {
+      "evaluated": 162,
+      "exactQcodeAccuracy": 0.4321,
+      "sameTopLevelAccuracy": 0.7284,
+      "meanHierarchicalF1": 0.5313,
+      "invalidTopicQcodes": 0
+    },
+    "dev": {
+      "evaluated": 22,
+      "exactQcodeAccuracy": 0,
+      "sameTopLevelAccuracy": 0.2727,
+      "meanHierarchicalF1": 0.0909,
+      "invalidTopicQcodes": 0
+    },
+    "test": {
+      "evaluated": 48,
+      "exactQcodeAccuracy": 0.3333,
+      "sameTopLevelAccuracy": 0.875,
+      "meanHierarchicalF1": 0.5833,
+      "invalidTopicQcodes": 0
+    }
+  }
+}

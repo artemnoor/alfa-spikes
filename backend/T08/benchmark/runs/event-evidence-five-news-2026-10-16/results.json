@@ -1,0 +1,2976 @@
+{
+  "startedAt": "2026-10-15T21:42:50.996Z",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\jev-recovering-top3-topic-2026-10-15\\news.json",
+  "models": {
+    "topic": "typesafe/jev",
+    "fallback": "deepseek/deepseek-v4-flash",
+    "event": "typesafe/jev",
+    "genre": "typesafe/jev"
+  },
+  "results": [
+    {
+      "input": {
+        "id": 1,
+        "name": "Получение финансирования",
+        "date": "15 октября 2026",
+        "title": "Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода",
+        "content": "Пресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет. Средства направят на строительство предприятия по производству промышленных роботов в Тульской области. Запуск производства запланирован на третий квартал 2027 года. Компания рассчитывает создать 450 рабочих мест."
+      },
+      "result": {
+        "status": "model",
+        "topic": {
+          "qcode": "medtop:20000393",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20000393",
+          "label": "loans and lending"
+        },
+        "path": [
+          {
+            "id": "medtop:04000000",
+            "label": "economy, business and finance"
+          },
+          {
+            "id": "medtop:20000209",
+            "label": "products and services"
+          },
+          {
+            "id": "medtop:20001370",
+            "label": "financial service"
+          },
+          {
+            "id": "medtop:20000393",
+            "label": "loans and lending"
+          }
+        ],
+        "probability": null,
+        "calls": 19,
+        "inputTokens": 38515,
+        "outputTokens": 10602,
+        "costRub": 0.6644823499999999,
+        "model": "typesafe/jev",
+        "models": {
+          "topic": "typesafe/jev + deepseek/deepseek-v4-flash only when uncertain",
+          "topicFallback": "deepseek/deepseek-v4-flash",
+          "event": "typesafe/jev selection + deepseek/deepseek-v4-flash evidence and quote review",
+          "eventEvidence": "deepseek/deepseek-v4-flash",
+          "genre": "typesafe/jev"
+        },
+        "classifications": {
+          "topic": {
+            "status": "model",
+            "value": {
+              "qcode": "medtop:20000393",
+              "uri": "http://cv.iptc.org/newscodes/mediatopic/20000393",
+              "label": "loans and lending"
+            },
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000209",
+                "label": "products and services"
+              },
+              {
+                "id": "medtop:20001370",
+                "label": "financial service"
+              },
+              {
+                "id": "medtop:20000393",
+                "label": "loans and lending"
+              }
+            ],
+            "probability": 0.92,
+            "calls": 15,
+            "inputTokens": 33809,
+            "outputTokens": 9939,
+            "costRub": 0.5830327499999999,
+            "selectionMode": "jev-top3-deepseek-recovery-shortlist",
+            "confidence": 0.91,
+            "margin": 0.88,
+            "evidenceProbability": 0.74,
+            "evidenceQuote": "подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей",
+            "deepseekUsed": true,
+            "recoveryOptionsProvided": 6,
+            "deepseekReason": [
+              "маленький разрыв между вариантами",
+              "недостаточное подтверждение в тексте"
+            ],
+            "fallbackError": null,
+            "candidateCount": 10,
+            "recoveryCandidateCount": 77,
+            "reopenedBranches": 5,
+            "recoveryBranchDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "branchSupportProbability": 0.44,
+                "pathProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000355",
+                    "label": "currency"
+                  }
+                ],
+                "branchSupportProbability": 0.05,
+                "pathProbability": 0.0003
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  }
+                ],
+                "branchSupportProbability": 0.04,
+                "pathProbability": 0
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:03000000",
+                    "label": "disaster, accident and emergency incident"
+                  }
+                ],
+                "branchSupportProbability": 0.01,
+                "pathProbability": 0
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:05000000",
+                    "label": "education"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0
+              }
+            ],
+            "recoveredCandidateDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "pathProbability": 0.01,
+                "supportProbability": 0.44
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000355",
+                    "label": "currency"
+                  }
+                ],
+                "pathProbability": 0.0003,
+                "supportProbability": 0.05
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.04
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:03000000",
+                    "label": "disaster, accident and emergency incident"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:05000000",
+                    "label": "education"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:06000000",
+                    "label": "environment"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:07000000",
+                    "label": "health"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:08000000",
+                    "label": "human interest"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.05
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:09000000",
+                    "label": "labor"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.24
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:10000000",
+                    "label": "lifestyle and leisure"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:11000000",
+                    "label": "politics and government"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.05
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:12000000",
+                    "label": "religion"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              }
+            ],
+            "alternatives": [
+              {
+                "qcode": "medtop:20000393",
+                "label": "loans and lending",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20001370",
+                    "label": "financial service"
+                  },
+                  {
+                    "id": "medtop:20000393",
+                    "label": "loans and lending"
+                  }
+                ],
+                "probability": 0.92,
+                "evidenceProbability": 0.74,
+                "definition": "An agreement by an individual or institution to borrow money with an agreed interest rate and time for its return"
+              },
+              {
+                "qcode": "medtop:20000294",
+                "label": "manufacturing and engineering",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20000294",
+                    "label": "manufacturing and engineering"
+                  }
+                ],
+                "probability": 0.04,
+                "evidenceProbability": 0.62,
+                "definition": "Manufacturers of electrical, electronic and mechanical equipment but does not cover civil engineering."
+              },
+              {
+                "qcode": "medtop:20001376",
+                "label": "corporate bond",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20001376",
+                    "label": "corporate bond"
+                  }
+                ],
+                "probability": 0.02,
+                "evidenceProbability": 0.05,
+                "definition": "Corporate paper representing the loan of money at a fixed rate and for a fixed time to that company or government"
+              },
+              {
+                "qcode": "medtop:20000302",
+                "label": "machine manufacturing",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20000294",
+                    "label": "manufacturing and engineering"
+                  },
+                  {
+                    "id": "medtop:20000302",
+                    "label": "machine manufacturing"
+                  }
+                ],
+                "probability": 0.02,
+                "evidenceProbability": 0.15,
+                "definition": "Manufacturers of turbines, engines, fans, pumps, motors and other components for powered equipment"
+              },
+              {
+                "qcode": "medtop:20000360",
+                "label": "industrial production",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000360",
+                    "label": "industrial production"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.31,
+                "definition": "Manufacture of durable and non-durable goods"
+              },
+              {
+                "qcode": "medtop:20001158",
+                "label": "start-up and entrepreneurial business",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001158",
+                    "label": "start-up and entrepreneurial business"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.11,
+                "definition": "The process of designing, launching and running a new business"
+              },
+              {
+                "qcode": "medtop:20001172",
+                "label": "small and medium enterprise",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001172",
+                    "label": "small and medium enterprise"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.05,
+                "definition": "A small and medium enterprise (SME) is a company whose number of employees, balance and turnover cannot exceed certain limits set by the country where it is located"
+              },
+              {
+                "qcode": "medtop:20000209",
+                "label": "products and services",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.38,
+                "definition": "Products and services consumed by companies and individuals and the companies that manufacture or manage them"
+              },
+              {
+                "qcode": "medtop:04000000",
+                "label": "economy, business and finance",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.9,
+                "definition": "All matters concerning the planning, production and exchange of wealth."
+              },
+              {
+                "qcode": "medtop:20000344",
+                "label": "economy",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.18,
+                "definition": "Production, consumption, distribution and trade activities affecting regions or countries as a whole"
+              }
+            ]
+          },
+          "event": {
+            "status": "model",
+            "value": {
+              "id": "sentivent:financing",
+              "label": "Financing",
+              "mainType": "Financing",
+              "subType": null
+            },
+            "path": [
+              {
+                "id": "sentivent:financing",
+                "label": "Financing"
+              }
+            ],
+            "probability": 1,
+            "event_type": "sentivent:financing",
+            "proposed_event_type": "sentivent:financing",
+            "evidence_text": "подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей",
+            "evidence_verified": true,
+            "evidence_reviewed": true,
+            "evidence_validation_error": null,
+            "support_score": 1,
+            "evidence_model": "deepseek/deepseek-v4-flash",
+            "evidenceThreshold": 0.7,
+            "rejectedEvent": null,
+            "pathProbability": 1,
+            "calls": 2,
+            "inputTokens": 2997,
+            "outputTokens": 463,
+            "costRub": 0.05146434,
+            "selectionMode": "jev-top3",
+            "alternatives": [
+              {
+                "qcode": "sentivent:financing",
+                "label": "Financing",
+                "path": [
+                  {
+                    "id": "sentivent:financing",
+                    "label": "Financing"
+                  }
+                ],
+                "probability": 1
+              },
+              {
+                "qcode": "sentivent:csr_brand",
+                "label": "CSR/Brand",
+                "path": [
+                  {
+                    "id": "sentivent:csr_brand",
+                    "label": "CSR/Brand"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:deal",
+                "label": "Deal",
+                "path": [
+                  {
+                    "id": "sentivent:deal",
+                    "label": "Deal"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event",
+                "path": [
+                  {
+                    "id": "sentivent:no_matching_event",
+                    "label": "No matching SENTiVENT business event"
+                  }
+                ],
+                "probability": 0
+              }
+            ],
+            "evidence_event_type": "sentivent:financing"
+          },
+          "genre": {
+            "status": "model",
+            "value": {
+              "qcode": "genre:Press_Release",
+              "uri": "http://cv.iptc.org/newscodes/genre/Press_Release",
+              "label": "Press Release"
+            },
+            "path": [
+              {
+                "id": "genre-nav:supplied-and-sponsored-content",
+                "label": "Supplied and sponsored content"
+              },
+              {
+                "id": "genre:Press_Release",
+                "label": "Press Release"
+              }
+            ],
+            "probability": 0.6174,
+            "calls": 2,
+            "inputTokens": 1709,
+            "outputTokens": 200,
+            "costRub": 0.02998526
+          }
+        },
+        "sources": {
+          "topic": {
+            "name": "IPTC Media Topics",
+            "conceptCount": 1085
+          },
+          "event": {
+            "name": "SENTiVENT event typology",
+            "conceptCount": 60
+          },
+          "genre": {
+            "name": "IPTC Genre",
+            "conceptCount": 54
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "id": 2,
+        "name": "Проблемы поставщика",
+        "date": "14 октября 2026",
+        "title": "Крупный поставщик упаковки оказался на грани банкротства",
+        "content": "ООО «ПолимерСнаб», поставляющее упаковочные материалы производителю продуктов питания «СеверПак», подало в арбитражный суд заявление о собственном банкротстве. Задолженность предприятия перед кредиторами составляет 780 млн рублей. На фоне финансовых проблем компания приостановила отгрузки продукции. Представители «СеверПак» заявили, что имеющихся запасов хватит на три недели, после чего возможна частичная остановка производства."
+      },
+      "result": {
+        "status": "model",
+        "topic": {
+          "qcode": "medtop:20000174",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20000174",
+          "label": "bankruptcy"
+        },
+        "path": [
+          {
+            "id": "medtop:04000000",
+            "label": "economy, business and finance"
+          },
+          {
+            "id": "medtop:20000170",
+            "label": "business information"
+          },
+          {
+            "id": "medtop:20000183",
+            "label": "business financing"
+          },
+          {
+            "id": "medtop:20000174",
+            "label": "bankruptcy"
+          }
+        ],
+        "probability": null,
+        "calls": 10,
+        "inputTokens": 16888,
+        "outputTokens": 4439,
+        "costRub": 0.29605417,
+        "model": "typesafe/jev",
+        "models": {
+          "topic": "typesafe/jev + deepseek/deepseek-v4-flash only when uncertain",
+          "topicFallback": "deepseek/deepseek-v4-flash",
+          "event": "typesafe/jev selection + deepseek/deepseek-v4-flash evidence and quote review",
+          "eventEvidence": "deepseek/deepseek-v4-flash",
+          "genre": "typesafe/jev"
+        },
+        "classifications": {
+          "topic": {
+            "status": "model",
+            "value": {
+              "qcode": "medtop:20000174",
+              "uri": "http://cv.iptc.org/newscodes/mediatopic/20000174",
+              "label": "bankruptcy"
+            },
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000170",
+                "label": "business information"
+              },
+              {
+                "id": "medtop:20000183",
+                "label": "business financing"
+              },
+              {
+                "id": "medtop:20000174",
+                "label": "bankruptcy"
+              }
+            ],
+            "probability": 1,
+            "calls": 5,
+            "inputTokens": 10597,
+            "outputTokens": 3038,
+            "costRub": 0.18592965,
+            "selectionMode": "jev-top3-deepseek-recovery-shortlist",
+            "confidence": 1,
+            "margin": 1,
+            "evidenceProbability": 0.94,
+            "evidenceQuote": "",
+            "deepseekUsed": false,
+            "recoveryOptionsProvided": 0,
+            "deepseekReason": [],
+            "fallbackError": null,
+            "candidateCount": 10,
+            "recoveryCandidateCount": 73,
+            "reopenedBranches": 0,
+            "recoveryBranchDetails": [],
+            "recoveredCandidateDetails": [],
+            "alternatives": [
+              {
+                "qcode": "medtop:20000174",
+                "label": "bankruptcy",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20000174",
+                    "label": "bankruptcy"
+                  }
+                ],
+                "probability": 1,
+                "evidenceProbability": 0.94,
+                "definition": "News about actual bankruptcy filings."
+              },
+              {
+                "qcode": "medtop:20000204",
+                "label": "merger or acquisition",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000204",
+                    "label": "merger or acquisition"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "Two or more companies forming a new company mergers, takeovers or acquisitions."
+              },
+              {
+                "qcode": "medtop:20001172",
+                "label": "small and medium enterprise",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001172",
+                    "label": "small and medium enterprise"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.09,
+                "definition": "A small and medium enterprise (SME) is a company whose number of employees, balance and turnover cannot exceed certain limits set by the country where it is located"
+              },
+              {
+                "qcode": "medtop:20000197",
+                "label": "company spin-off",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000197",
+                    "label": "company spin-off"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "The creation of new companies being spun off from existing companies."
+              },
+              {
+                "qcode": "medtop:20000201",
+                "label": "leveraged buyout",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000201",
+                    "label": "leveraged buyout"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "Acquiring control over a company by buying its shares with borrowed money."
+              },
+              {
+                "qcode": "medtop:20000203",
+                "label": "management buyout",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000203",
+                    "label": "management buyout"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "Acquiring control over a company by the management buying its shares."
+              },
+              {
+                "qcode": "medtop:20000200",
+                "label": "joint venture",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000200",
+                    "label": "joint venture"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "Two or more companies agreeing on a venture."
+              },
+              {
+                "qcode": "medtop:20000360",
+                "label": "industrial production",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000360",
+                    "label": "industrial production"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.12,
+                "definition": "Manufacture of durable and non-durable goods"
+              },
+              {
+                "qcode": "medtop:20000182",
+                "label": "financially distressed company",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20000182",
+                    "label": "financially distressed company"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.1,
+                "definition": "Indications that a company is financially distressed but not having filed for bankruptcy yet"
+              },
+              {
+                "qcode": "medtop:20000361",
+                "label": "inventories",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000361",
+                    "label": "inventories"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.09,
+                "definition": "Goods not sold and held by the producer, wholesaler or retailer"
+              }
+            ]
+          },
+          "event": {
+            "status": "model",
+            "value": {
+              "id": "sentivent:no_matching_event",
+              "label": "Нет подходящего события",
+              "mainType": "Нет подходящего события",
+              "subType": null
+            },
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "Нет подходящего события"
+              }
+            ],
+            "probability": 0,
+            "event_type": "sentivent:no_matching_event",
+            "proposed_event_type": "sentivent:legal_proceeding",
+            "evidence_text": "",
+            "evidence_verified": false,
+            "evidence_reviewed": true,
+            "evidence_validation_error": "evidence_text_not_found",
+            "support_score": 0,
+            "evidence_model": "deepseek/deepseek-v4-flash",
+            "evidenceThreshold": 0.7,
+            "rejectedEvent": {
+              "id": "sentivent:legal_proceeding",
+              "label": "Legal — Proceeding",
+              "path": [
+                {
+                  "id": "sentivent:legal",
+                  "label": "Legal"
+                },
+                {
+                  "id": "sentivent:legal_proceeding",
+                  "label": "Legal — Proceeding"
+                }
+              ],
+              "probability": 0.99,
+              "evidenceText": "",
+              "supportScore": 0
+            },
+            "pathProbability": 0,
+            "calls": 3,
+            "inputTokens": 3999,
+            "outputTokens": 1043,
+            "costRub": 0.06991023,
+            "selectionMode": "jev-top3",
+            "alternatives": [
+              {
+                "qcode": "sentivent:legal_proceeding",
+                "label": "Legal — Proceeding",
+                "path": [
+                  {
+                    "id": "sentivent:legal",
+                    "label": "Legal"
+                  },
+                  {
+                    "id": "sentivent:legal_proceeding",
+                    "label": "Legal — Proceeding"
+                  }
+                ],
+                "probability": 0.99
+              },
+              {
+                "qcode": "sentivent:financing",
+                "label": "Financing",
+                "path": [
+                  {
+                    "id": "sentivent:financing",
+                    "label": "Financing"
+                  }
+                ],
+                "probability": 0.01
+              },
+              {
+                "qcode": "sentivent:csr_brand",
+                "label": "CSR/Brand",
+                "path": [
+                  {
+                    "id": "sentivent:csr_brand",
+                    "label": "CSR/Brand"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:legal_conviction_settlement",
+                "label": "Legal — Conviction/Settlement",
+                "path": [
+                  {
+                    "id": "sentivent:legal",
+                    "label": "Legal"
+                  },
+                  {
+                    "id": "sentivent:legal_conviction_settlement",
+                    "label": "Legal — Conviction/Settlement"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:legal_acquit",
+                "label": "Legal — Acquit",
+                "path": [
+                  {
+                    "id": "sentivent:legal",
+                    "label": "Legal"
+                  },
+                  {
+                    "id": "sentivent:legal_acquit",
+                    "label": "Legal — Acquit"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event",
+                "path": [
+                  {
+                    "id": "sentivent:no_matching_event",
+                    "label": "No matching SENTiVENT business event"
+                  }
+                ],
+                "probability": 0
+              }
+            ],
+            "evidence_event_type": "sentivent:legal_proceeding"
+          },
+          "genre": {
+            "status": "model",
+            "value": {
+              "qcode": "genre:Current",
+              "uri": "http://cv.iptc.org/newscodes/genre/Current",
+              "label": "Current Events"
+            },
+            "path": [
+              {
+                "id": "genre-nav:factual-news",
+                "label": "Factual news and coverage"
+              },
+              {
+                "id": "genre:Current",
+                "label": "Current Events"
+              }
+            ],
+            "probability": 1,
+            "calls": 2,
+            "inputTokens": 2292,
+            "outputTokens": 358,
+            "costRub": 0.04021429
+          }
+        },
+        "sources": {
+          "topic": {
+            "name": "IPTC Media Topics",
+            "conceptCount": 1085
+          },
+          "event": {
+            "name": "SENTiVENT event typology",
+            "conceptCount": 60
+          },
+          "genre": {
+            "name": "IPTC Genre",
+            "conceptCount": 54
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "id": 3,
+        "name": "Поглощение конкурента",
+        "date": "13 октября 2026",
+        "title": "«ТрансЛайн» приобретает конкурента за 5,6 млрд рублей",
+        "content": "Логистическая компания «ТрансЛайн» объявила о заключении соглашения по покупке 80% акций транспортного оператора «ЭкспрессКарго» за 5,6 млрд рублей. Закрытие сделки ожидается в декабре после получения необходимых согласований. Руководство «ТрансЛайн» планирует объединить складские комплексы двух компаний и сократить административные расходы на 15%. Представители профсоюза выразили опасения относительно возможного сокращения 300 рабочих мест."
+      },
+      "result": {
+        "status": "model",
+        "topic": {
+          "qcode": "medtop:20000204",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20000204",
+          "label": "merger or acquisition"
+        },
+        "path": [
+          {
+            "id": "medtop:04000000",
+            "label": "economy, business and finance"
+          },
+          {
+            "id": "medtop:20000170",
+            "label": "business information"
+          },
+          {
+            "id": "medtop:20001366",
+            "label": "business restructuring"
+          },
+          {
+            "id": "medtop:20000204",
+            "label": "merger or acquisition"
+          }
+        ],
+        "probability": null,
+        "calls": 10,
+        "inputTokens": 17985,
+        "outputTokens": 4270,
+        "costRub": 0.31030441,
+        "model": "typesafe/jev",
+        "models": {
+          "topic": "typesafe/jev + deepseek/deepseek-v4-flash only when uncertain",
+          "topicFallback": "deepseek/deepseek-v4-flash",
+          "event": "typesafe/jev selection + deepseek/deepseek-v4-flash evidence and quote review",
+          "eventEvidence": "deepseek/deepseek-v4-flash",
+          "genre": "typesafe/jev"
+        },
+        "classifications": {
+          "topic": {
+            "status": "model",
+            "value": {
+              "qcode": "medtop:20000204",
+              "uri": "http://cv.iptc.org/newscodes/mediatopic/20000204",
+              "label": "merger or acquisition"
+            },
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000170",
+                "label": "business information"
+              },
+              {
+                "id": "medtop:20001366",
+                "label": "business restructuring"
+              },
+              {
+                "id": "medtop:20000204",
+                "label": "merger or acquisition"
+              }
+            ],
+            "probability": 1,
+            "calls": 6,
+            "inputTokens": 12516,
+            "outputTokens": 3510,
+            "costRub": 0.21959948,
+            "selectionMode": "jev-top3-deepseek-recovery-shortlist",
+            "confidence": 1,
+            "margin": 1,
+            "evidenceProbability": 0.93,
+            "evidenceQuote": "",
+            "deepseekUsed": false,
+            "recoveryOptionsProvided": 0,
+            "deepseekReason": [],
+            "fallbackError": null,
+            "candidateCount": 10,
+            "recoveryCandidateCount": 87,
+            "reopenedBranches": 0,
+            "recoveryBranchDetails": [],
+            "recoveredCandidateDetails": [],
+            "alternatives": [
+              {
+                "qcode": "medtop:20000204",
+                "label": "merger or acquisition",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  },
+                  {
+                    "id": "medtop:20000204",
+                    "label": "merger or acquisition"
+                  }
+                ],
+                "probability": 1,
+                "evidenceProbability": 0.93,
+                "definition": "Two or more companies forming a new company mergers, takeovers or acquisitions."
+              },
+              {
+                "qcode": "medtop:20001172",
+                "label": "small and medium enterprise",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001172",
+                    "label": "small and medium enterprise"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.02,
+                "definition": "A small and medium enterprise (SME) is a company whose number of employees, balance and turnover cannot exceed certain limits set by the country where it is located"
+              },
+              {
+                "qcode": "medtop:20000186",
+                "label": "stock activity",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20000396",
+                    "label": "stocks and securities"
+                  },
+                  {
+                    "id": "medtop:20000186",
+                    "label": "stock activity"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.06,
+                "definition": "Announcements of major stock events: splits, block trades, new highs or lows, etc."
+              },
+              {
+                "qcode": "medtop:20001158",
+                "label": "start-up and entrepreneurial business",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001158",
+                    "label": "start-up and entrepreneurial business"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.02,
+                "definition": "The process of designing, launching and running a new business"
+              },
+              {
+                "qcode": "medtop:20000365",
+                "label": "employment statistics",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000365",
+                    "label": "employment statistics"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.04,
+                "definition": "Trends and statistics about areas such as job growth, unemployment and wage growth"
+              },
+              {
+                "qcode": "medtop:20000196",
+                "label": "commercial contract",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000192",
+                    "label": "business strategy and marketing"
+                  },
+                  {
+                    "id": "medtop:20000196",
+                    "label": "commercial contract"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.65,
+                "definition": "Contracts regarding commercial activities"
+              },
+              {
+                "qcode": "medtop:20000175",
+                "label": "stock buyback",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20000396",
+                    "label": "stocks and securities"
+                  },
+                  {
+                    "id": "medtop:20000175",
+                    "label": "stock buyback"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "Corporate actions in which companies buy back their own shares"
+              },
+              {
+                "qcode": "medtop:20000363",
+                "label": "economic organization",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000363",
+                    "label": "economic organization"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.05,
+                "definition": "Business, industrial and trade associations, societies and other private-sector groups"
+              },
+              {
+                "qcode": "medtop:20001278",
+                "label": "cooperative",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000349",
+                    "label": "business enterprise"
+                  },
+                  {
+                    "id": "medtop:20001278",
+                    "label": "cooperative"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "An organization which is owned and run jointly by its members, who share the profits or benefits of their work"
+              },
+              {
+                "qcode": "medtop:20000362",
+                "label": "productivity",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000362",
+                    "label": "productivity"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.06,
+                "definition": "A measure of output from production or service"
+              }
+            ]
+          },
+          "event": {
+            "status": "model",
+            "value": {
+              "id": "sentivent:merger_acquisition",
+              "label": "Merger/Acquisition",
+              "mainType": "Merger/Acquisition",
+              "subType": null
+            },
+            "path": [
+              {
+                "id": "sentivent:merger_acquisition",
+                "label": "Merger/Acquisition"
+              }
+            ],
+            "probability": 1,
+            "event_type": "sentivent:merger_acquisition",
+            "proposed_event_type": "sentivent:merger_acquisition",
+            "evidence_text": "Логистическая компания «ТрансЛайн» объявила о заключении соглашения по покупке 80% акций транспортного оператора «ЭкспрессКарго» за 5,6 млрд рублей.",
+            "evidence_verified": true,
+            "evidence_reviewed": true,
+            "evidence_validation_error": null,
+            "support_score": 1,
+            "evidence_model": "deepseek/deepseek-v4-flash",
+            "evidenceThreshold": 0.7,
+            "rejectedEvent": null,
+            "pathProbability": 1,
+            "calls": 2,
+            "inputTokens": 3097,
+            "outputTokens": 402,
+            "costRub": 0.049087,
+            "selectionMode": "jev-top3",
+            "alternatives": [
+              {
+                "qcode": "sentivent:merger_acquisition",
+                "label": "Merger/Acquisition",
+                "path": [
+                  {
+                    "id": "sentivent:merger_acquisition",
+                    "label": "Merger/Acquisition"
+                  }
+                ],
+                "probability": 1
+              },
+              {
+                "qcode": "sentivent:csr_brand",
+                "label": "CSR/Brand",
+                "path": [
+                  {
+                    "id": "sentivent:csr_brand",
+                    "label": "CSR/Brand"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:deal",
+                "label": "Deal",
+                "path": [
+                  {
+                    "id": "sentivent:deal",
+                    "label": "Deal"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event",
+                "path": [
+                  {
+                    "id": "sentivent:no_matching_event",
+                    "label": "No matching SENTiVENT business event"
+                  }
+                ],
+                "probability": 0
+              }
+            ],
+            "evidence_event_type": "sentivent:merger_acquisition"
+          },
+          "genre": {
+            "status": "model",
+            "value": {
+              "qcode": "genre:Current",
+              "uri": "http://cv.iptc.org/newscodes/genre/Current",
+              "label": "Current Events"
+            },
+            "path": [
+              {
+                "id": "genre-nav:factual-news",
+                "label": "Factual news and coverage"
+              },
+              {
+                "id": "genre:Current",
+                "label": "Current Events"
+              }
+            ],
+            "probability": 1,
+            "calls": 2,
+            "inputTokens": 2372,
+            "outputTokens": 358,
+            "costRub": 0.04161793
+          }
+        },
+        "sources": {
+          "topic": {
+            "name": "IPTC Media Topics",
+            "conceptCount": 1085
+          },
+          "event": {
+            "name": "SENTiVENT event typology",
+            "conceptCount": 60
+          },
+          "genre": {
+            "name": "IPTC Genre",
+            "conceptCount": 54
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "id": 4,
+        "name": "Интервью о финансовых проблемах",
+        "date": "12 октября 2026",
+        "title": "Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»",
+        "content": "В интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала, что затраты компании на логистику за девять месяцев выросли на 38%. «Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова. При этом руководитель подчеркнула, что решение пока не принято, а действующие предприятия продолжают работать в обычном режиме."
+      },
+      "result": {
+        "status": "model",
+        "topic": {
+          "qcode": "medtop:20001170",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20001170",
+          "label": "logistics"
+        },
+        "path": [
+          {
+            "id": "medtop:04000000",
+            "label": "economy, business and finance"
+          },
+          {
+            "id": "medtop:20000209",
+            "label": "products and services"
+          },
+          {
+            "id": "medtop:20000337",
+            "label": "transport"
+          },
+          {
+            "id": "medtop:20001170",
+            "label": "logistics"
+          }
+        ],
+        "probability": null,
+        "calls": 20,
+        "inputTokens": 41161,
+        "outputTokens": 11835,
+        "costRub": 0.7132430399999999,
+        "model": "typesafe/jev",
+        "models": {
+          "topic": "typesafe/jev + deepseek/deepseek-v4-flash only when uncertain",
+          "topicFallback": "deepseek/deepseek-v4-flash",
+          "event": "typesafe/jev selection + deepseek/deepseek-v4-flash evidence and quote review",
+          "eventEvidence": "deepseek/deepseek-v4-flash",
+          "genre": "typesafe/jev"
+        },
+        "classifications": {
+          "topic": {
+            "status": "model",
+            "value": {
+              "qcode": "medtop:20001170",
+              "uri": "http://cv.iptc.org/newscodes/mediatopic/20001170",
+              "label": "logistics"
+            },
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000209",
+                "label": "products and services"
+              },
+              {
+                "id": "medtop:20000337",
+                "label": "transport"
+              },
+              {
+                "id": "medtop:20001170",
+                "label": "logistics"
+              }
+            ],
+            "probability": 0.64,
+            "calls": 14,
+            "inputTokens": 34612,
+            "outputTokens": 10518,
+            "costRub": 0.5987151399999999,
+            "selectionMode": "jev-top3-deepseek-recovery-shortlist",
+            "confidence": 0.6,
+            "margin": 0.5,
+            "evidenceProbability": 0.27,
+            "evidenceQuote": "затраты компании на логистику за девять месяцев выросли на 38%",
+            "deepseekUsed": true,
+            "recoveryOptionsProvided": 6,
+            "deepseekReason": [
+              "недостаточное подтверждение в тексте"
+            ],
+            "fallbackError": null,
+            "candidateCount": 10,
+            "recoveryCandidateCount": 81,
+            "reopenedBranches": 5,
+            "recoveryBranchDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  }
+                ],
+                "branchSupportProbability": 0.34,
+                "pathProbability": 0.0067
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "branchSupportProbability": 0.26,
+                "pathProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:03000000",
+                    "label": "disaster, accident and emergency incident"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:05000000",
+                    "label": "education"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0
+              }
+            ],
+            "recoveredCandidateDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  }
+                ],
+                "pathProbability": 0.0067,
+                "supportProbability": 0.34
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "pathProbability": 0.01,
+                "supportProbability": 0.26
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:03000000",
+                    "label": "disaster, accident and emergency incident"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:05000000",
+                    "label": "education"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:06000000",
+                    "label": "environment"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.03
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:07000000",
+                    "label": "health"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:08000000",
+                    "label": "human interest"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.09
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:09000000",
+                    "label": "labor"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.05
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:10000000",
+                    "label": "lifestyle and leisure"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:11000000",
+                    "label": "politics and government"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.05
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:12000000",
+                    "label": "religion"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              }
+            ],
+            "alternatives": [
+              {
+                "qcode": "medtop:20001170",
+                "label": "logistics",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20000337",
+                    "label": "transport"
+                  },
+                  {
+                    "id": "medtop:20001170",
+                    "label": "logistics"
+                  }
+                ],
+                "probability": 0.64,
+                "evidenceProbability": 0.27,
+                "definition": "Supply chain, inventory management and transportation of products."
+              },
+              {
+                "qcode": "medtop:20000182",
+                "label": "financially distressed company",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  },
+                  {
+                    "id": "medtop:20000182",
+                    "label": "financially distressed company"
+                  }
+                ],
+                "probability": 0.14,
+                "evidenceProbability": 0.3,
+                "definition": "Indications that a company is financially distressed but not having filed for bankruptcy yet"
+              },
+              {
+                "qcode": "medtop:20000170",
+                "label": "business information",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  }
+                ],
+                "probability": 0.13,
+                "evidenceProbability": 0.86,
+                "definition": "Information about individual business entities, including companies, corporations, charities"
+              },
+              {
+                "qcode": "medtop:20000210",
+                "label": "agriculture",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20000210",
+                    "label": "agriculture"
+                  }
+                ],
+                "probability": 0.04,
+                "evidenceProbability": 0.35,
+                "definition": "The growing and raising of plants and animals for consumption and the processing, cleaning, packing or storage of these products"
+              },
+              {
+                "qcode": "medtop:20001366",
+                "label": "business restructuring",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  }
+                ],
+                "probability": 0.03,
+                "evidenceProbability": 0.22,
+                "definition": "Changes to the structure of a business or organisation"
+              },
+              {
+                "qcode": "medtop:20000208",
+                "label": "research and development",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000192",
+                    "label": "business strategy and marketing"
+                  },
+                  {
+                    "id": "medtop:20000208",
+                    "label": "research and development"
+                  }
+                ],
+                "probability": 0.01,
+                "evidenceProbability": 0.06,
+                "definition": "Research and expenditure on new product or service development"
+              },
+              {
+                "qcode": "medtop:04000000",
+                "label": "economy, business and finance",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  }
+                ],
+                "probability": 0.01,
+                "evidenceProbability": 0.88,
+                "definition": "All matters concerning the planning, production and exchange of wealth."
+              },
+              {
+                "qcode": "medtop:20000370",
+                "label": "inflation",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  },
+                  {
+                    "id": "medtop:20000370",
+                    "label": "inflation"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.07,
+                "definition": "The overall increase in prices and cost of living throughout an economy"
+              },
+              {
+                "qcode": "medtop:20000180",
+                "label": "financial statement",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001365",
+                    "label": "business reporting and performance"
+                  },
+                  {
+                    "id": "medtop:20000180",
+                    "label": "financial statement"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.1,
+                "definition": "Formal statements about the company financials typically delivered annually or quarterly"
+              },
+              {
+                "qcode": "medtop:20000209",
+                "label": "products and services",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.24,
+                "definition": "Products and services consumed by companies and individuals and the companies that manufacture or manage them"
+              }
+            ]
+          },
+          "event": {
+            "status": "model",
+            "value": {
+              "id": "sentivent:no_matching_event",
+              "label": "Нет подходящего события",
+              "mainType": "Нет подходящего события",
+              "subType": null
+            },
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "Нет подходящего события"
+              }
+            ],
+            "probability": 0,
+            "event_type": "sentivent:no_matching_event",
+            "proposed_event_type": "sentivent:investment",
+            "evidence_text": "",
+            "evidence_verified": false,
+            "evidence_reviewed": true,
+            "evidence_validation_error": "evidence_text_not_found",
+            "support_score": 0,
+            "evidence_model": "deepseek/deepseek-v4-flash",
+            "evidenceThreshold": 0.7,
+            "rejectedEvent": {
+              "id": "sentivent:investment",
+              "label": "Investment",
+              "path": [
+                {
+                  "id": "sentivent:investment",
+                  "label": "Investment"
+                }
+              ],
+              "probability": 0.5656565656565656,
+              "evidenceText": "",
+              "supportScore": 0
+            },
+            "pathProbability": 0,
+            "calls": 4,
+            "inputTokens": 4720,
+            "outputTokens": 1094,
+            "costRub": 0.08243718,
+            "selectionMode": "jev-top3",
+            "alternatives": [
+              {
+                "qcode": "sentivent:investment",
+                "label": "Investment",
+                "path": [
+                  {
+                    "id": "sentivent:investment",
+                    "label": "Investment"
+                  }
+                ],
+                "probability": 0.5656565656565656
+              },
+              {
+                "qcode": "sentivent:expense_increase",
+                "label": "Expense — Increase Expense",
+                "path": [
+                  {
+                    "id": "sentivent:expense",
+                    "label": "Expense"
+                  },
+                  {
+                    "id": "sentivent:expense_increase",
+                    "label": "Expense — Increase Expense"
+                  }
+                ],
+                "probability": 0.3232323232323232
+              },
+              {
+                "qcode": "sentivent:facility_close",
+                "label": "Facility — Close",
+                "path": [
+                  {
+                    "id": "sentivent:facility",
+                    "label": "Facility"
+                  },
+                  {
+                    "id": "sentivent:facility_close",
+                    "label": "Facility — Close"
+                  }
+                ],
+                "probability": 0.08888888888888889
+              },
+              {
+                "qcode": "sentivent:facility_open",
+                "label": "Facility — Open",
+                "path": [
+                  {
+                    "id": "sentivent:facility",
+                    "label": "Facility"
+                  },
+                  {
+                    "id": "sentivent:facility_open",
+                    "label": "Facility — Open"
+                  }
+                ],
+                "probability": 0.022222222222222223
+              },
+              {
+                "qcode": "sentivent:expense_decrease",
+                "label": "Expense — Decrease Expense",
+                "path": [
+                  {
+                    "id": "sentivent:expense",
+                    "label": "Expense"
+                  },
+                  {
+                    "id": "sentivent:expense_decrease",
+                    "label": "Expense — Decrease Expense"
+                  }
+                ],
+                "probability": 0
+              },
+              {
+                "qcode": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event",
+                "path": [
+                  {
+                    "id": "sentivent:no_matching_event",
+                    "label": "No matching SENTiVENT business event"
+                  }
+                ],
+                "probability": 0
+              }
+            ],
+            "evidence_event_type": "sentivent:investment"
+          },
+          "genre": {
+            "status": "model",
+            "value": {
+              "qcode": "genre:Interview",
+              "uri": "http://cv.iptc.org/newscodes/genre/Interview",
+              "label": "Interview"
+            },
+            "path": [
+              {
+                "id": "genre-nav:interviews-and-statements",
+                "label": "Interviews and statements"
+              },
+              {
+                "id": "genre:Interview",
+                "label": "Interview"
+              }
+            ],
+            "probability": 0.792,
+            "calls": 2,
+            "inputTokens": 1829,
+            "outputTokens": 223,
+            "costRub": 0.03209072
+          }
+        },
+        "sources": {
+          "topic": {
+            "name": "IPTC Media Topics",
+            "conceptCount": 1085
+          },
+          "event": {
+            "name": "SENTiVENT event typology",
+            "conceptCount": 60
+          },
+          "genre": {
+            "name": "IPTC Genre",
+            "conceptCount": 54
+          }
+        }
+      }
+    },
+    {
+      "input": {
+        "id": 5,
+        "name": "Опровержение сообщения о кибератаке",
+        "date": "11 октября 2026",
+        "title": "Проверка фактов: информация о взломе платёжного сервиса «ФинПоток» не подтвердилась",
+        "content": "В социальных сетях появились сообщения о якобы произошедшей масштабной кибератаке на платёжную платформу «ФинПоток» и утечке данных двух миллионов пользователей. Журналисты запросили комментарий компании. Представитель «ФинПоток» опроверг информацию о взломе, пояснив, что 10 октября сервис был недоступен в течение 25 минут из-за сбоя электропитания в дата-центре. Независимого подтверждения утечки журналисты не обнаружили."
+      },
+      "result": {
+        "status": "model",
+        "topic": {
+          "qcode": "medtop:20000086",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20000086",
+          "label": "cyber crime"
+        },
+        "path": [
+          {
+            "id": "medtop:02000000",
+            "label": "crime, law and justice"
+          },
+          {
+            "id": "medtop:20000082",
+            "label": "crime"
+          },
+          {
+            "id": "medtop:20000086",
+            "label": "cyber crime"
+          }
+        ],
+        "probability": null,
+        "calls": 16,
+        "inputTokens": 31656,
+        "outputTokens": 8229,
+        "costRub": 0.54094944,
+        "model": "typesafe/jev",
+        "models": {
+          "topic": "typesafe/jev + deepseek/deepseek-v4-flash only when uncertain",
+          "topicFallback": "deepseek/deepseek-v4-flash",
+          "event": "typesafe/jev selection + deepseek/deepseek-v4-flash evidence and quote review",
+          "eventEvidence": "deepseek/deepseek-v4-flash",
+          "genre": "typesafe/jev"
+        },
+        "classifications": {
+          "topic": {
+            "status": "model",
+            "value": {
+              "qcode": "medtop:20000086",
+              "uri": "http://cv.iptc.org/newscodes/mediatopic/20000086",
+              "label": "cyber crime"
+            },
+            "path": [
+              {
+                "id": "medtop:02000000",
+                "label": "crime, law and justice"
+              },
+              {
+                "id": "medtop:20000082",
+                "label": "crime"
+              },
+              {
+                "id": "medtop:20000086",
+                "label": "cyber crime"
+              }
+            ],
+            "probability": 0.9400000000000001,
+            "calls": 11,
+            "inputTokens": 25595,
+            "outputTokens": 7521,
+            "costRub": 0.43916847,
+            "selectionMode": "jev-top3-deepseek-recovery-shortlist",
+            "confidence": 0.93,
+            "margin": 0.89,
+            "evidenceProbability": 0.41,
+            "evidenceQuote": "информация о взломе платёжного сервиса «ФинПоток»",
+            "deepseekUsed": true,
+            "recoveryOptionsProvided": 6,
+            "deepseekReason": [
+              "недостаточное подтверждение в тексте"
+            ],
+            "fallbackError": null,
+            "candidateCount": 10,
+            "recoveryCandidateCount": 101,
+            "reopenedBranches": 5,
+            "recoveryBranchDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  }
+                ],
+                "branchSupportProbability": 0.07,
+                "pathProbability": 0.006
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:13000000",
+                    "label": "science and technology"
+                  },
+                  {
+                    "id": "medtop:20000717",
+                    "label": "natural science"
+                  }
+                ],
+                "branchSupportProbability": 0.03,
+                "pathProbability": 0.002
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0.00438
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0.00438
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000188",
+                    "label": "human resources"
+                  }
+                ],
+                "branchSupportProbability": 0.02,
+                "pathProbability": 0.00438
+              }
+            ],
+            "recoveredCandidateDetails": [
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  }
+                ],
+                "pathProbability": 0.006,
+                "supportProbability": 0.07
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:13000000",
+                    "label": "science and technology"
+                  },
+                  {
+                    "id": "medtop:20000717",
+                    "label": "natural science"
+                  }
+                ],
+                "pathProbability": 0.002,
+                "supportProbability": 0.03
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000183",
+                    "label": "business financing"
+                  }
+                ],
+                "pathProbability": 0.00438,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20001366",
+                    "label": "business restructuring"
+                  }
+                ],
+                "pathProbability": 0.00438,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000170",
+                    "label": "business information"
+                  },
+                  {
+                    "id": "medtop:20000188",
+                    "label": "human resources"
+                  }
+                ],
+                "pathProbability": 0.00438,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:13000000",
+                    "label": "science and technology"
+                  },
+                  {
+                    "id": "medtop:20000735",
+                    "label": "scientific research"
+                  },
+                  {
+                    "id": "medtop:20000738",
+                    "label": "scientific exploration"
+                  }
+                ],
+                "pathProbability": 0.00020000000000000004,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:01000000",
+                    "label": "arts, culture, entertainment and media"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.13
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:16000000",
+                    "label": "conflict, war and peace"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.02
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:03000000",
+                    "label": "disaster, accident and emergency incident"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.14
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:05000000",
+                    "label": "education"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.03
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:06000000",
+                    "label": "environment"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              },
+              {
+                "path": [
+                  {
+                    "id": "medtop:07000000",
+                    "label": "health"
+                  }
+                ],
+                "pathProbability": 0,
+                "supportProbability": 0.01
+              }
+            ],
+            "alternatives": [
+              {
+                "qcode": "medtop:20000086",
+                "label": "cyber crime",
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  },
+                  {
+                    "id": "medtop:20000082",
+                    "label": "crime"
+                  },
+                  {
+                    "id": "medtop:20000086",
+                    "label": "cyber crime"
+                  }
+                ],
+                "probability": 0.9400000000000001,
+                "evidenceProbability": 0.41,
+                "definition": "Criminal activities carried out by means of computers or the internet, such as hacking, phishing scams and identity theft"
+              },
+              {
+                "qcode": "medtop:20000274",
+                "label": "banking",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20001370",
+                    "label": "financial service"
+                  },
+                  {
+                    "id": "medtop:20000274",
+                    "label": "banking"
+                  }
+                ],
+                "probability": 0.05,
+                "evidenceProbability": 0.49,
+                "definition": "Financial institutions and services for storing, transmitting, receiving and delivering money"
+              },
+              {
+                "qcode": "medtop:20000231",
+                "label": "software and applications",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000209",
+                    "label": "products and services"
+                  },
+                  {
+                    "id": "medtop:20000225",
+                    "label": "computing and information technology"
+                  },
+                  {
+                    "id": "medtop:20000231",
+                    "label": "software and applications"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.19,
+                "definition": "Computer programs including mobile or web apps and operating systems"
+              },
+              {
+                "qcode": "medtop:20001298",
+                "label": "artificial intelligence",
+                "path": [
+                  {
+                    "id": "medtop:13000000",
+                    "label": "science and technology"
+                  },
+                  {
+                    "id": "medtop:20000756",
+                    "label": "technology and engineering"
+                  },
+                  {
+                    "id": "medtop:20000763",
+                    "label": "information technology and computer science"
+                  },
+                  {
+                    "id": "medtop:20001298",
+                    "label": "artificial intelligence"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "An attempt to let computers simulate how the human brain works by applying statistical, heuristic or machine learning methods and algorithms to large datasets. Enables a long range of automatic functions like image recognition and categorization."
+              },
+              {
+                "qcode": "medtop:20000344",
+                "label": "economy",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.04,
+                "definition": "Production, consumption, distribution and trade activities affecting regions or countries as a whole"
+              },
+              {
+                "qcode": "medtop:20000346",
+                "label": "economic trends and indicators",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000346",
+                    "label": "economic trends and indicators"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.02,
+                "definition": "The behavior and performance of the economy as a whole"
+              },
+              {
+                "qcode": "medtop:20000363",
+                "label": "economic organization",
+                "path": [
+                  {
+                    "id": "medtop:04000000",
+                    "label": "economy, business and finance"
+                  },
+                  {
+                    "id": "medtop:20000344",
+                    "label": "economy"
+                  },
+                  {
+                    "id": "medtop:20000363",
+                    "label": "economic organization"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.03,
+                "definition": "Business, industrial and trade associations, societies and other private-sector groups"
+              },
+              {
+                "qcode": "medtop:20000717",
+                "label": "natural science",
+                "path": [
+                  {
+                    "id": "medtop:13000000",
+                    "label": "science and technology"
+                  },
+                  {
+                    "id": "medtop:20000717",
+                    "label": "natural science"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.01,
+                "definition": "The sciences that deal with matter, energy and the physical world, including physics, biology, chemistry and astronomy"
+              },
+              {
+                "qcode": "medtop:02000000",
+                "label": "crime, law and justice",
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.14,
+                "definition": "The establishment and/or statement of the rules of behavior in society, the enforcement of these rules, breaches of the rules, the punishment of offenders and the organizations and bodies involved in these activities"
+              },
+              {
+                "qcode": "medtop:20000082",
+                "label": "crime",
+                "path": [
+                  {
+                    "id": "medtop:02000000",
+                    "label": "crime, law and justice"
+                  },
+                  {
+                    "id": "medtop:20000082",
+                    "label": "crime"
+                  }
+                ],
+                "probability": 0,
+                "evidenceProbability": 0.25,
+                "definition": "Violations of laws by individuals, companies or organizations"
+              }
+            ]
+          },
+          "event": {
+            "status": "model",
+            "value": {
+              "id": "sentivent:no_matching_event",
+              "label": "Нет подходящего события",
+              "mainType": "Нет подходящего события",
+              "subType": null
+            },
+            "path": [
+              {
+                "id": "sentivent:no_matching_event",
+                "label": "Нет подходящего события"
+              }
+            ],
+            "probability": 0.08510638297872339,
+            "event_type": "sentivent:no_matching_event",
+            "proposed_event_type": "sentivent:product_service_cancellation_recall",
+            "evidence_text": "",
+            "evidence_verified": false,
+            "evidence_reviewed": true,
+            "evidence_validation_error": "evidence_text_not_found",
+            "support_score": 0,
+            "evidence_model": "deepseek/deepseek-v4-flash",
+            "evidenceThreshold": 0.7,
+            "rejectedEvent": {
+              "id": "sentivent:product_service_cancellation_recall",
+              "label": "Product/Service — Cancellation/Recall",
+              "path": [
+                {
+                  "id": "sentivent:product_service",
+                  "label": "Product/Service"
+                },
+                {
+                  "id": "sentivent:product_service_cancellation_recall",
+                  "label": "Product/Service — Cancellation/Recall"
+                }
+              ],
+              "probability": 0.4051063829787234,
+              "evidenceText": "",
+              "supportScore": 0
+            },
+            "pathProbability": 0.08,
+            "calls": 3,
+            "inputTokens": 4048,
+            "outputTokens": 477,
+            "costRub": 0.06646188,
+            "selectionMode": "jev-top3",
+            "alternatives": [
+              {
+                "qcode": "sentivent:product_service_cancellation_recall",
+                "label": "Product/Service — Cancellation/Recall",
+                "path": [
+                  {
+                    "id": "sentivent:product_service",
+                    "label": "Product/Service"
+                  },
+                  {
+                    "id": "sentivent:product_service_cancellation_recall",
+                    "label": "Product/Service — Cancellation/Recall"
+                  }
+                ],
+                "probability": 0.4051063829787234
+              },
+              {
+                "qcode": "sentivent:product_service_launch",
+                "label": "Product/Service — Launch",
+                "path": [
+                  {
+                    "id": "sentivent:product_service",
+                    "label": "Product/Service"
+                  },
+                  {
+                    "id": "sentivent:product_service_launch",
+                    "label": "Product/Service — Launch"
+                  }
+                ],
+                "probability": 0.27489361702127657
+              },
+              {
+                "qcode": "sentivent:csr_brand",
+                "label": "CSR/Brand",
+                "path": [
+                  {
+                    "id": "sentivent:csr_brand",
+                    "label": "CSR/Brand"
+                  }
+                ],
+                "probability": 0.19148936170212763
+              },
+              {
+                "qcode": "sentivent:no_matching_event",
+                "label": "No matching SENTiVENT business event",
+                "path": [
+                  {
+                    "id": "sentivent:no_matching_event",
+                    "label": "No matching SENTiVENT business event"
+                  }
+                ],
+                "probability": 0.08510638297872339
+              },
+              {
+                "qcode": "sentivent:product_service_trial",
+                "label": "Product/Service — Trial",
+                "path": [
+                  {
+                    "id": "sentivent:product_service",
+                    "label": "Product/Service"
+                  },
+                  {
+                    "id": "sentivent:product_service_trial",
+                    "label": "Product/Service — Trial"
+                  }
+                ],
+                "probability": 0.04340425531914893
+              }
+            ],
+            "evidence_event_type": "sentivent:product_service_cancellation_recall"
+          },
+          "genre": {
+            "status": "model",
+            "value": {
+              "qcode": "genre:Fact_Check",
+              "uri": "http://cv.iptc.org/newscodes/genre/Fact_Check",
+              "label": "Fact Check"
+            },
+            "path": [
+              {
+                "id": "genre-nav:analysis-and-commentary",
+                "label": "Analysis and commentary"
+              },
+              {
+                "id": "genre:Fact_Check",
+                "label": "Fact Check"
+              }
+            ],
+            "probability": 0.67,
+            "calls": 2,
+            "inputTokens": 2013,
+            "outputTokens": 231,
+            "costRub": 0.03531909
+          }
+        },
+        "sources": {
+          "topic": {
+            "name": "IPTC Media Topics",
+            "conceptCount": 1085
+          },
+          "event": {
+            "name": "SENTiVENT event typology",
+            "conceptCount": 60
+          },
+          "genre": {
+            "name": "IPTC Genre",
+            "conceptCount": 54
+          }
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-10-15T21:43:43.501Z",
+  "summary": {
+    "newsCount": 5,
+    "completed": 5,
+    "failed": 0,
+    "deepseekFallbackCount": 3,
+    "totalCalls": 75,
+    "totalInputTokens": 146205,
+    "totalCostRub": 2.52503341
+  },
+  "finishedAt": "2026-10-15T21:43:43.503Z"
+}

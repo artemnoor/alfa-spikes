@@ -1,0 +1,567 @@
+{
+  "$id": "https://huggingface.co/datasets/exverbai/sentivent/raw/main/metadata/canonical_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "JSON Schema for one SENTiVENT canonical DocumentGraph JSONL record.",
+  "properties": {
+    "annotator_id": {
+      "type": "string"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "document_title": {
+      "type": "string"
+    },
+    "event_sentiment_links": {
+      "items": {
+        "$ref": "#/$defs/eventSentimentLink"
+      },
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/eventMention"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    },
+    "metadata": {
+      "$ref": "#/$defs/jsonObject"
+    },
+    "participants": {
+      "items": {
+        "$ref": "#/$defs/participantMention"
+      },
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "relations": {
+      "items": {
+        "$ref": "#/$defs/relationEdge"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "sentences": {
+      "items": {
+        "$ref": "#/$defs/sentence"
+      },
+      "type": "array"
+    },
+    "sentiment_expressions": {
+      "items": {
+        "$ref": "#/$defs/sentimentExpression"
+      },
+      "type": "array"
+    },
+    "split": {
+      "$ref": "#/$defs/splitInfo"
+    },
+    "text": {
+      "type": "string"
+    },
+    "tokens": {
+      "items": {
+        "$ref": "#/$defs/token"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "document_id",
+    "document_title",
+    "annotator_id",
+    "split",
+    "text",
+    "provenance",
+    "tokens",
+    "sentences",
+    "participants",
+    "events",
+    "sentiment_expressions",
+    "event_sentiment_links",
+    "relations",
+    "metadata"
+  ],
+  "title": "SENTiVENT DocumentGraph",
+  "type": "object",
+  "$defs": {
+    "eventArgument": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "role": {
+          "type": "string"
+        },
+        "target_id": {
+          "type": "string"
+        },
+        "target_kind": {
+          "enum": [
+            "participant",
+            "filler"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "target_id",
+        "target_kind",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "eventMention": {
+      "additionalProperties": false,
+      "properties": {
+        "arguments": {
+          "items": {
+            "$ref": "#/$defs/eventArgument"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "$ref": "#/$defs/jsonObject"
+        },
+        "event_subtype": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "event_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "span_set": {
+          "$ref": "#/$defs/spanSet"
+        }
+      },
+      "required": [
+        "id",
+        "event_type",
+        "event_subtype",
+        "span_set",
+        "arguments",
+        "provenance",
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "eventSentimentLink": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "sentiment_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "event_id",
+        "sentiment_id",
+        "polarity",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "jsonObject": {
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      },
+      "type": "object"
+    },
+    "jsonValue": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/jsonValue"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/jsonValue"
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "participantMention": {
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "$ref": "#/$defs/jsonObject"
+        },
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "participant",
+            "filler",
+            "canonical_referent",
+            "discontiguous_trigger"
+          ],
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "span_set": {
+          "$ref": "#/$defs/spanSet"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "span_set",
+        "role",
+        "provenance",
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_member": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "archive_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "annotator_id": {
+          "type": "string"
+        },
+        "features": {
+          "$ref": "#/$defs/jsonObject"
+        },
+        "layer": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "xmi_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_path",
+        "archive_path",
+        "archive_member",
+        "xmi_id",
+        "layer",
+        "annotator_id",
+        "features"
+      ],
+      "type": "object"
+    },
+    "relationEdge": {
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "$ref": "#/$defs/jsonObject"
+        },
+        "id": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "relation_type": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "target_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "relation_type",
+        "source_id",
+        "target_id",
+        "provenance",
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "sentence": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "index": {
+          "type": "integer"
+        },
+        "span": {
+          "$ref": "#/$defs/textSpan"
+        },
+        "token_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "xmi_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "index",
+        "span",
+        "token_ids",
+        "xmi_id"
+      ],
+      "type": "object"
+    },
+    "sentimentExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "attributes": {
+          "$ref": "#/$defs/jsonObject"
+        },
+        "id": {
+          "type": "string"
+        },
+        "polarity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "scoped_polarity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "span_set": {
+          "$ref": "#/$defs/spanSet"
+        },
+        "targets": {
+          "items": {
+            "$ref": "#/$defs/sentimentTarget"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "polarity",
+        "scoped_polarity",
+        "span_set",
+        "targets",
+        "provenance",
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "sentimentTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "provenance": {
+          "$ref": "#/$defs/provenance"
+        },
+        "target_id": {
+          "type": "string"
+        },
+        "target_kind": {
+          "enum": [
+            "event",
+            "participant",
+            "filler"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "target_id",
+        "target_kind",
+        "provenance"
+      ],
+      "type": "object"
+    },
+    "spanSet": {
+      "additionalProperties": false,
+      "properties": {
+        "is_discontinuous": {
+          "type": "boolean"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/textSpan"
+          },
+          "type": "array"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "spans",
+        "is_discontinuous",
+        "text"
+      ],
+      "type": "object"
+    },
+    "splitInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "enum": [
+            "train",
+            "dev",
+            "test"
+          ],
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "source"
+      ],
+      "type": "object"
+    },
+    "textSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": "integer"
+        },
+        "sentence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "token_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "text",
+        "token_ids",
+        "sentence_ids"
+      ],
+      "type": "object"
+    },
+    "token": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "index": {
+          "type": "integer"
+        },
+        "sentence_id": {
+          "type": "string"
+        },
+        "span": {
+          "$ref": "#/$defs/textSpan"
+        },
+        "xmi_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "index",
+        "sentence_id",
+        "span",
+        "xmi_id"
+      ],
+      "type": "object"
+    }
+  }
+}

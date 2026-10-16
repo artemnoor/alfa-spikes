@@ -1,0 +1,988 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\jev-recovering-top3-topic-2026-10-15\\news.json",
+  "summary": {
+    "news": 5,
+    "failedNews": 0,
+    "partialNews": 5,
+    "modelCalls": 5,
+    "inputTokens": 2809,
+    "outputTokens": 4351,
+    "costRub": 0.13925841000000003,
+    "registryApiCalls": 9,
+    "entities": 22,
+    "events": 10,
+    "relations": 8,
+    "eventAttributes": 17,
+    "eventStatusCounts": {
+      "completed": 3,
+      "announced": 3,
+      "planned": 1,
+      "conditional": 2,
+      "denied": 1
+    },
+    "rejectedEntities": 6
+  },
+  "results": [
+    {
+      "id": 1,
+      "name": "Получение финансирования",
+      "date": "15 октября 2026",
+      "title": "Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода",
+      "article": "Заголовок: Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода\n\nПресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет. Средства направят на строительство предприятия по производству промышленных роботов в Тульской области. Запуск производства запланирован на третий квартал 2027 года. Компания рассчитывает создать 450 рабочих мест.",
+      "status": "partial",
+      "extractionMode": "partial_validation",
+      "eventGraphMode": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ВекторМаш",
+          "normalized_name": "вектормаш",
+          "normalized_value": "ВекторМаш",
+          "mention": "АО «ВекторМаш»",
+          "legal_form": "АО",
+          "evidence": "АО «ВекторМаш»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-1",
+          "alternate_mentions": [
+            "«ВекторМаш»"
+          ],
+          "link_source": "fns_egrul",
+          "link_status": "insufficient_context"
+        },
+        {
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-2"
+        },
+        {
+          "type": "ORGANIZATION",
+          "name": "Орбита",
+          "normalized_name": "орбита",
+          "normalized_value": "Орбита",
+          "mention": "«Орбита»",
+          "legal_form": null,
+          "evidence": "банком «Орбита»",
+          "source": "article",
+          "role": "lender",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-3",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "type": "FACILITY",
+          "name": "предприятия по производству промышленных роботов",
+          "normalized_name": null,
+          "normalized_value": "предприятия по производству промышленных роботов",
+          "mention": "предприятия по производству промышленных роботов",
+          "alternate_mentions": [
+            "завода"
+          ],
+          "legal_form": null,
+          "evidence": "предприятия по производству промышленных роботов",
+          "source": "article",
+          "role": "facility",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.9,
+          "id": "entity-4"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Тульской области",
+          "normalized_name": null,
+          "normalized_value": "Тульской области",
+          "mention": "Тульской области",
+          "legal_form": null,
+          "evidence": "Тульской области",
+          "source": "article",
+          "role": "location",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.95,
+          "id": "entity-5"
+        }
+      ],
+      "events": [
+        {
+          "type": "",
+          "graph_type": "",
+          "label": "",
+          "evidence": "Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода",
+          "event_status": "completed",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "borrower"
+            },
+            {
+              "entity_id": "entity-3",
+              "role": "lender"
+            },
+            {
+              "entity_id": "entity-4",
+              "role": "facility"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "3,2 млрд рублей",
+              "normalized_value": "3200000000 RUB",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "3,2 млрд рублей",
+              "source": "article"
+            },
+            {
+              "type": "DURATION",
+              "mention": "на семь лет",
+              "normalized_value": {
+                "value": 7,
+                "unit": "years",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "years",
+              "evidence": "на семь лет",
+              "source": "article"
+            },
+            {
+              "type": "DATE",
+              "mention": "третий квартал 2027 года",
+              "normalized_value": "2027-Q3",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "третий квартал 2027 года",
+              "source": "article"
+            },
+            {
+              "type": "QUANTITY",
+              "mention": "450 рабочих мест",
+              "normalized_value": {
+                "value": 450,
+                "unit": "jobs",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "jobs",
+              "evidence": "450 рабочих мест",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-3",
+          "predicate": "provided_credit_to",
+          "object_id": "entity-1",
+          "event_id": "event-1",
+          "label": "выдал кредит заёмщику",
+          "evidence": "Заголовок: Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода\n\nПресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет.",
+          "event_status": "completed"
+        },
+        {
+          "subject_id": "entity-1",
+          "predicate": "plans_to_build",
+          "object_id": "entity-4",
+          "event_id": "event-1",
+          "label": "планирует построить объект",
+          "evidence": "Заголовок: Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода",
+          "event_status": "completed"
+        },
+        {
+          "subject_id": "entity-4",
+          "predicate": "located_in",
+          "object_id": "entity-5",
+          "event_id": "event-1",
+          "label": "находится в",
+          "evidence": "Средства направят на строительство предприятия по производству промышленных роботов в Тульской области.",
+          "event_status": "completed"
+        }
+      ],
+      "rejectedEntities": 3,
+      "duplicateEntities": 1,
+      "rejectedEvents": 0,
+      "rejectedRelations": 3,
+      "rejectedAttributes": 0,
+      "rejectedParticipants": 2,
+      "calls": 1,
+      "inputTokens": 539,
+      "outputTokens": 261,
+      "reasoningTokens": 0,
+      "visibleOutputTokens": 261,
+      "costRub": 0.00638355,
+      "registryLookups": 2,
+      "finishReason": "stop",
+      "partialReason": "validation rejected 3 entities, 0 events, 2 participants, 3 relations, and 0 facts"
+    },
+    {
+      "id": 2,
+      "name": "Проблемы поставщика",
+      "date": "14 октября 2026",
+      "title": "Крупный поставщик упаковки оказался на грани банкротства",
+      "article": "Заголовок: Крупный поставщик упаковки оказался на грани банкротства\n\nООО «ПолимерСнаб», поставляющее упаковочные материалы производителю продуктов питания «СеверПак», подало в арбитражный суд заявление о собственном банкротстве. Задолженность предприятия перед кредиторами составляет 780 млн рублей. На фоне финансовых проблем компания приостановила отгрузки продукции. Представители «СеверПак» заявили, что имеющихся запасов хватит на три недели, после чего возможна частичная остановка производства.",
+      "status": "partial",
+      "extractionMode": "partial_validation",
+      "eventGraphMode": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ПолимерСнаб",
+          "normalized_name": "полимерснаб",
+          "normalized_value": "ПолимерСнаб",
+          "mention": "ООО «ПолимерСнаб»",
+          "legal_form": "ООО",
+          "evidence": "ООО «ПолимерСнаб»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "type": "ORGANIZATION",
+          "name": "СеверПак",
+          "normalized_name": "северпак",
+          "normalized_value": "СеверПак",
+          "mention": "«СеверПак»",
+          "legal_form": null,
+          "evidence": "«СеверПак»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-2",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "type": "DATE",
+          "name": "14 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-14",
+          "mention": "14 октября 2026",
+          "legal_form": null,
+          "evidence": "14 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-3"
+        }
+      ],
+      "events": [
+        {
+          "type": "main_event",
+          "graph_type": "main_event",
+          "label": "main event",
+          "evidence": "ООО «ПолимерСнаб», поставляющее упаковочные материалы производителю продуктов питания «СеверПак», подало в арбитражный суд заявление о собственном банкротстве",
+          "event_status": "completed",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "subject"
+            },
+            {
+              "entity_id": "entity-2",
+              "role": "object"
+            }
+          ],
+          "attributes": [],
+          "event_id": "event-1"
+        },
+        {
+          "type": "main_event",
+          "graph_type": "main_event",
+          "label": "main event",
+          "evidence": "Задолженность предприятия перед кредиторами составляет 780 млн рублей",
+          "event_status": "announced",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "subject"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "780 млн рублей",
+              "normalized_value": "780000000 RUB",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "780 млн рублей",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-2"
+        },
+        {
+          "type": "main_event",
+          "graph_type": "main_event",
+          "label": "main event",
+          "evidence": "имеющихся запасов хватит на три недели",
+          "event_status": "announced",
+          "participants": [
+            {
+              "entity_id": "entity-2",
+              "role": "subject"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DURATION",
+              "mention": "три недели",
+              "normalized_value": {
+                "value": 3,
+                "unit": "weeks",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "weeks",
+              "evidence": "три недели",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-3"
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-1",
+          "predicate": "supplies_to",
+          "object_id": "entity-2",
+          "event_id": "event-1",
+          "label": "поставляет",
+          "evidence": "ООО «ПолимерСнаб», поставляющее упаковочные материалы производителю продуктов питания «СеверПак», подало в арбитражный суд заявление о собственном банкротстве",
+          "event_status": "completed"
+        }
+      ],
+      "rejectedEntities": 1,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 1,
+      "rejectedAttributes": 1,
+      "rejectedParticipants": 0,
+      "calls": 1,
+      "inputTokens": 546,
+      "outputTokens": 362,
+      "reasoningTokens": 0,
+      "visibleOutputTokens": 362,
+      "costRub": 0.0121864,
+      "registryLookups": 2,
+      "finishReason": "stop",
+      "partialReason": "validation rejected 1 entities, 0 events, 0 participants, 1 relations, and 1 facts"
+    },
+    {
+      "id": 3,
+      "name": "Поглощение конкурента",
+      "date": "13 октября 2026",
+      "title": "«ТрансЛайн» приобретает конкурента за 5,6 млрд рублей",
+      "article": "Заголовок: «ТрансЛайн» приобретает конкурента за 5,6 млрд рублей\n\nЛогистическая компания «ТрансЛайн» объявила о заключении соглашения по покупке 80% акций транспортного оператора «ЭкспрессКарго» за 5,6 млрд рублей. Закрытие сделки ожидается в декабре после получения необходимых согласований. Руководство «ТрансЛайн» планирует объединить складские комплексы двух компаний и сократить административные расходы на 15%. Представители профсоюза выразили опасения относительно возможного сокращения 300 рабочих мест.",
+      "status": "partial",
+      "extractionMode": "partial_validation",
+      "eventGraphMode": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ТрансЛайн",
+          "normalized_name": "транслайн",
+          "normalized_value": "ТрансЛайн",
+          "mention": "«ТрансЛайн»",
+          "legal_form": null,
+          "evidence": "«ТрансЛайн»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-1",
+          "alternate_mentions": [],
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "type": "ORGANIZATION",
+          "name": "ЭкспрессКарго",
+          "normalized_name": "экспресскарго",
+          "normalized_value": "ЭкспрессКарго",
+          "mention": "«ЭкспрессКарго»",
+          "legal_form": null,
+          "evidence": "«ЭкспрессКарго»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-2",
+          "alternate_mentions": [],
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "type": "FACILITY",
+          "name": "складские комплексы",
+          "normalized_name": null,
+          "normalized_value": "складские комплексы",
+          "mention": "складские комплексы",
+          "alternate_mentions": [
+            "комплексы",
+            "складские"
+          ],
+          "legal_form": null,
+          "evidence": "складские комплексы",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-3"
+        },
+        {
+          "type": "DATE",
+          "name": "13 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-13",
+          "mention": "13 октября 2026",
+          "legal_form": null,
+          "evidence": "13 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-4"
+        }
+      ],
+      "events": [
+        {
+          "type": "acquisition",
+          "graph_type": "acquisition",
+          "label": "Покупка или поглощение",
+          "evidence": "Логистическая компания «ТрансЛайн» объявила о заключении соглашения по покупке 80% акций транспортного оператора «ЭкспрессКарго» за 5,6 млрд рублей.",
+          "event_status": "announced",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "acquirer"
+            },
+            {
+              "entity_id": "entity-2",
+              "role": "target"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "5,6 млрд рублей",
+              "normalized_value": "5600000000 RUB",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "5,6 млрд рублей",
+              "source": "article"
+            },
+            {
+              "type": "PERCENT",
+              "mention": "80%",
+              "normalized_value": "80%",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "80%",
+              "source": "article"
+            },
+            {
+              "type": "DATE",
+              "mention": "в декабре",
+              "normalized_value": "2026-12",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "в декабре",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        },
+        {
+          "type": "plans_to_merge",
+          "graph_type": "plans_to_merge",
+          "label": "plans to merge",
+          "evidence": "Руководство «ТрансЛайн» планирует объединить складские комплексы двух компаний и сократить административные расходы на 15%.",
+          "event_status": "planned",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "planner"
+            },
+            {
+              "entity_id": "entity-3",
+              "role": "facility"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "PERCENT",
+              "mention": "15%",
+              "normalized_value": "15%",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "15%",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-2"
+        },
+        {
+          "type": "statement",
+          "graph_type": "statement",
+          "label": "statement",
+          "evidence": "Представители профсоюза выразили опасения относительно возможного сокращения 300 рабочих мест.",
+          "event_status": "conditional",
+          "participants": [],
+          "attributes": [
+            {
+              "type": "QUANTITY",
+              "mention": "300 рабочих мест",
+              "normalized_value": {
+                "value": 300,
+                "unit": "jobs",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "jobs",
+              "evidence": "300 рабочих мест",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-3"
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-1",
+          "predicate": "acquisition_of",
+          "object_id": "entity-2",
+          "event_id": "event-1",
+          "label": "приобретает",
+          "evidence": "Логистическая компания «ТрансЛайн» объявила о заключении соглашения по покупке 80% акций транспортного оператора «ЭкспрессКарго» за 5,6 млрд рублей.",
+          "event_status": "announced"
+        },
+        {
+          "subject_id": "entity-1",
+          "predicate": "plans_to_merge",
+          "object_id": "entity-3",
+          "event_id": "event-2",
+          "label": "планирует объединить объект",
+          "evidence": "Руководство «ТрансЛайн» планирует объединить складские комплексы двух компаний и сократить административные расходы на 15%.",
+          "event_status": "planned"
+        }
+      ],
+      "rejectedEntities": 1,
+      "duplicateEntities": 2,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "rejectedAttributes": 0,
+      "rejectedParticipants": 1,
+      "calls": 1,
+      "inputTokens": 563,
+      "outputTokens": 510,
+      "reasoningTokens": 0,
+      "visibleOutputTokens": 510,
+      "costRub": 0.01149902,
+      "registryLookups": 2,
+      "finishReason": "stop",
+      "partialReason": "validation rejected 1 entities, 0 events, 1 participants, 0 relations, and 0 facts"
+    },
+    {
+      "id": 4,
+      "name": "Интервью о финансовых проблемах",
+      "date": "12 октября 2026",
+      "title": "Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»",
+      "article": "Заголовок: Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»\n\nВ интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала, что затраты компании на логистику за девять месяцев выросли на 38%. «Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова. При этом руководитель подчеркнула, что решение пока не принято, а действующие предприятия продолжают работать в обычном режиме.",
+      "status": "partial",
+      "extractionMode": "grounded_fallback",
+      "eventGraphMode": "grounded_sentence_fallback",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "source_id": "recovered-1",
+          "type": "ORGANIZATION",
+          "name": "Бизнес-Вектор",
+          "normalized_name": "бизнес-вектор",
+          "normalized_value": "Бизнес-Вектор",
+          "mention": "«Бизнес-Вектор»",
+          "legal_form": null,
+          "evidence": "изданию «Бизнес-Вектор»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "recovered-2",
+          "type": "ORGANIZATION",
+          "name": "АгроСфера",
+          "normalized_name": "агросфера",
+          "normalized_value": "АгроСфера",
+          "mention": "«АгроСфера»",
+          "legal_form": null,
+          "evidence": "агрохолдинга «АгроСфера»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-2",
+          "link_source": "fns_egrul",
+          "link_status": "ambiguous"
+        },
+        {
+          "source_id": "recovered-3",
+          "type": "FACILITY",
+          "name": "второго комплекса",
+          "normalized_name": null,
+          "normalized_value": "второго комплекса",
+          "mention": "второго комплекса",
+          "legal_form": null,
+          "evidence": "второго комплекса",
+          "source": "article",
+          "role": "facility",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.9,
+          "id": "entity-3"
+        },
+        {
+          "source_id": "fallback-4",
+          "type": "PERSON",
+          "name": "Анна Белова",
+          "normalized_name": null,
+          "normalized_value": "Анна Белова",
+          "mention": "Анна Белова",
+          "legal_form": null,
+          "evidence": "генеральный директор агрохолдинга «АгроСфера» Анна Белова",
+          "source": "article",
+          "role": "speaker",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-4"
+        },
+        {
+          "source_id": "fallback-5",
+          "type": "DATE",
+          "name": "12 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-12",
+          "mention": "12 октября 2026",
+          "legal_form": null,
+          "evidence": "12 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-5"
+        },
+        {
+          "source_id": "fallback-6",
+          "type": "MONEY",
+          "name": "2 млрд рублей",
+          "normalized_name": null,
+          "normalized_value": "2000000000 RUB",
+          "mention": "2 млрд рублей",
+          "legal_form": null,
+          "evidence": "2 млрд рублей",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-6"
+        },
+        {
+          "source_id": "fallback-7",
+          "type": "PERCENT",
+          "name": "38%",
+          "normalized_name": null,
+          "normalized_value": "38%",
+          "mention": "38%",
+          "legal_form": null,
+          "evidence": "38%",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": 0.8,
+          "id": "entity-7"
+        }
+      ],
+      "events": [
+        {
+          "type": "COST_INCREASE",
+          "label": "Рост затрат на логистику",
+          "evidence": "затраты компании на логистику за девять месяцев выросли на 38%.",
+          "participants": [
+            {
+              "entity_id": "entity-2",
+              "role": "company"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DURATION",
+              "mention": "девять месяцев",
+              "normalized_value": {
+                "value": 9,
+                "unit": "months",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "months",
+              "evidence": "девять месяцев",
+              "source": "article"
+            },
+            {
+              "type": "PERCENT",
+              "mention": "38%",
+              "normalized_value": "38%",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "38%",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1",
+          "graph_type": "COST_INCREASE",
+          "event_status": "completed"
+        },
+        {
+          "type": "INVESTMENT_PLAN",
+          "label": "Возможная заморозка инвестиционного проекта",
+          "evidence": "«Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова.",
+          "participants": [
+            {
+              "entity_id": "entity-2",
+              "role": "company"
+            },
+            {
+              "entity_id": "entity-4",
+              "role": "speaker"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "2 млрд рублей",
+              "normalized_value": "2000000000 RUB",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "2 млрд рублей",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-2",
+          "graph_type": "INVESTMENT_PLAN",
+          "event_status": "conditional"
+        }
+      ],
+      "relations": [
+        {
+          "subject_id": "entity-4",
+          "predicate": "executive_of",
+          "object_id": "entity-2",
+          "event_id": null,
+          "label": "генеральный директор компании",
+          "evidence": "генеральный директор агрохолдинга «АгроСфера» Анна Белова",
+          "event_status": null
+        },
+        {
+          "subject_id": "entity-4",
+          "predicate": "interview_published_by",
+          "object_id": "entity-1",
+          "event_id": null,
+          "label": "интервью для издания",
+          "evidence": "В интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала",
+          "event_status": null
+        }
+      ],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "rejectedAttributes": 0,
+      "rejectedParticipants": 0,
+      "calls": 1,
+      "inputTokens": 563,
+      "outputTokens": 3000,
+      "reasoningTokens": 3001,
+      "visibleOutputTokens": 0,
+      "costRub": 0.10220637,
+      "registryLookups": 2,
+      "error": "DeepSeek returned an empty entity response (finish_reason=length, prompt_tokens=563, completion_tokens=3000)",
+      "partialReason": "finish_reason=length",
+      "finishReason": "length"
+    },
+    {
+      "id": 5,
+      "name": "Опровержение сообщения о кибератаке",
+      "date": "11 октября 2026",
+      "title": "Проверка фактов: информация о взломе платёжного сервиса «ФинПоток» не подтвердилась",
+      "article": "Заголовок: Проверка фактов: информация о взломе платёжного сервиса «ФинПоток» не подтвердилась\n\nВ социальных сетях появились сообщения о якобы произошедшей масштабной кибератаке на платёжную платформу «ФинПоток» и утечке данных двух миллионов пользователей. Журналисты запросили комментарий компании. Представитель «ФинПоток» опроверг информацию о взломе, пояснив, что 10 октября сервис был недоступен в течение 25 минут из-за сбоя электропитания в дата-центре. Независимого подтверждения утечки журналисты не обнаружили.",
+      "status": "partial",
+      "extractionMode": "partial_validation",
+      "eventGraphMode": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ФинПоток",
+          "normalized_name": "финпоток",
+          "normalized_value": "ФинПоток",
+          "mention": "«ФинПоток»",
+          "legal_form": null,
+          "evidence": "«ФинПоток»",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-1",
+          "alternate_mentions": [],
+          "link_source": "fns_egrul",
+          "link_status": "insufficient_context"
+        },
+        {
+          "type": "FACILITY",
+          "name": "дата-центре",
+          "normalized_name": null,
+          "normalized_value": "дата-центре",
+          "mention": "дата-центре",
+          "alternate_mentions": [],
+          "legal_form": null,
+          "evidence": "дата-центре",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-2"
+        },
+        {
+          "type": "DATE",
+          "name": "11 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-11",
+          "mention": "11 октября 2026",
+          "legal_form": null,
+          "evidence": "11 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-3"
+        }
+      ],
+      "events": [
+        {
+          "type": "statement",
+          "graph_type": "statement",
+          "label": "statement",
+          "evidence": "Представитель «ФинПоток» опроверг информацию о взломе, пояснив, что 10 октября сервис был недоступен в течение 25 минут из-за сбоя электропитания в дата-центре.",
+          "event_status": "denied",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "subject"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DATE",
+              "mention": "10 октября",
+              "normalized_value": "2026-10-10",
+              "qualifier": "exact",
+              "unit": null,
+              "evidence": "10 октября",
+              "source": "article"
+            },
+            {
+              "type": "DURATION",
+              "mention": "25 минут",
+              "normalized_value": {
+                "value": 25,
+                "unit": "minutes",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "minutes",
+              "evidence": "25 минут",
+              "source": "article"
+            },
+            {
+              "type": "QUANTITY",
+              "mention": "двух миллионов пользователей",
+              "normalized_value": {
+                "value": 2000000,
+                "unit": "users",
+                "qualifier": "exact"
+              },
+              "qualifier": "exact",
+              "unit": "users",
+              "evidence": "двух миллионов пользователей",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 1,
+      "duplicateEntities": 1,
+      "rejectedEvents": 0,
+      "rejectedRelations": 2,
+      "rejectedAttributes": 0,
+      "rejectedParticipants": 1,
+      "calls": 1,
+      "inputTokens": 598,
+      "outputTokens": 218,
+      "reasoningTokens": 0,
+      "visibleOutputTokens": 218,
+      "costRub": 0.00698307,
+      "registryLookups": 1,
+      "finishReason": "stop",
+      "partialReason": "validation rejected 1 entities, 0 events, 1 participants, 2 relations, and 0 facts"
+    }
+  ]
+}

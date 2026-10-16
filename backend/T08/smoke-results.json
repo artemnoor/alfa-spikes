@@ -1,0 +1,239 @@
+{
+  "provider": "Polza AI",
+  "model": "typesafe/jev",
+  "evaluatedAt": "2026-10-15T15:48:52.707Z",
+  "syntheticExamples": 7,
+  "rootMatches": 7,
+  "topicMatches": 6,
+  "averageCalls": 3,
+  "results": [
+    {
+      "id": "ai-product-launch",
+      "expectedRoot": "medtop:13000000",
+      "actualRoot": "medtop:13000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20001298",
+      "actualTopic": "medtop:20001298",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20001298",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+        "label": "artificial intelligence"
+      },
+      "path": [
+        {
+          "qcode": "medtop:13000000",
+          "label": "science and technology"
+        },
+        {
+          "qcode": "medtop:20000756",
+          "label": "technology and engineering"
+        },
+        {
+          "qcode": "medtop:20000763",
+          "label": "information technology and computer science"
+        },
+        {
+          "qcode": "medtop:20001298",
+          "label": "artificial intelligence"
+        }
+      ],
+      "probability": 1,
+      "calls": 3,
+      "inputTokens": 3138,
+      "status": "model"
+    },
+    {
+      "id": "central-bank-rates",
+      "expectedRoot": "medtop:04000000",
+      "actualRoot": "medtop:04000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20000371",
+      "actualTopic": "medtop:20000371",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20000371",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20000371",
+        "label": "interest rates"
+      },
+      "path": [
+        {
+          "qcode": "medtop:04000000",
+          "label": "economy, business and finance"
+        },
+        {
+          "qcode": "medtop:20000344",
+          "label": "economy"
+        },
+        {
+          "qcode": "medtop:20000379",
+          "label": "monetary policy"
+        },
+        {
+          "qcode": "medtop:20000371",
+          "label": "interest rates"
+        }
+      ],
+      "probability": 1,
+      "calls": 3,
+      "inputTokens": 2984,
+      "status": "model"
+    },
+    {
+      "id": "football-final",
+      "expectedRoot": "medtop:15000000",
+      "actualRoot": "medtop:15000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20001343",
+      "actualTopic": "medtop:20001343",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20001343",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20001343",
+        "label": "final game"
+      },
+      "path": [
+        {
+          "qcode": "medtop:15000000",
+          "label": "sport"
+        },
+        {
+          "qcode": "medtop:20001108",
+          "label": "sport event"
+        },
+        {
+          "qcode": "medtop:20001343",
+          "label": "final game"
+        }
+      ],
+      "probability": 0.92,
+      "calls": 3,
+      "inputTokens": 3001,
+      "status": "model"
+    },
+    {
+      "id": "flood-evacuation",
+      "expectedRoot": "medtop:03000000",
+      "actualRoot": "medtop:03000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20000168",
+      "actualTopic": "medtop:20000168",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20000168",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20000168",
+        "label": "emergency response"
+      },
+      "path": [
+        {
+          "qcode": "medtop:03000000",
+          "label": "disaster, accident and emergency incident"
+        },
+        {
+          "qcode": "medtop:20000168",
+          "label": "emergency response"
+        }
+      ],
+      "probability": 0.83,
+      "calls": 2,
+      "inputTokens": 1946,
+      "status": "model"
+    },
+    {
+      "id": "parliament-election",
+      "expectedRoot": "medtop:11000000",
+      "actualRoot": "medtop:11000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20000579",
+      "actualTopic": "medtop:20000579",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20000579",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20000579",
+        "label": "national elections"
+      },
+      "path": [
+        {
+          "qcode": "medtop:11000000",
+          "label": "politics and government"
+        },
+        {
+          "qcode": "medtop:20000574",
+          "label": "election"
+        },
+        {
+          "qcode": "medtop:20000579",
+          "label": "national elections"
+        }
+      ],
+      "probability": 0.76,
+      "calls": 3,
+      "inputTokens": 3268,
+      "status": "model"
+    },
+    {
+      "id": "american-football-playoff",
+      "expectedRoot": "medtop:15000000",
+      "actualRoot": "medtop:15000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20000823",
+      "actualTopic": "medtop:20001342",
+      "topicMatch": false,
+      "topic": {
+        "qcode": "medtop:20001342",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20001342",
+        "label": "playoff championship"
+      },
+      "path": [
+        {
+          "qcode": "medtop:15000000",
+          "label": "sport"
+        },
+        {
+          "qcode": "medtop:20001108",
+          "label": "sport event"
+        },
+        {
+          "qcode": "medtop:20001342",
+          "label": "playoff championship"
+        }
+      ],
+      "probability": 0.98,
+      "calls": 3,
+      "inputTokens": 3130,
+      "status": "model"
+    },
+    {
+      "id": "american-football-discipline",
+      "expectedRoot": "medtop:15000000",
+      "actualRoot": "medtop:15000000",
+      "rootMatch": true,
+      "expectedTopic": "medtop:20000823",
+      "actualTopic": "medtop:20000823",
+      "topicMatch": true,
+      "topic": {
+        "qcode": "medtop:20000823",
+        "uri": "http://cv.iptc.org/newscodes/mediatopic/20000823",
+        "label": "American football"
+      },
+      "path": [
+        {
+          "qcode": "medtop:15000000",
+          "label": "sport"
+        },
+        {
+          "qcode": "medtop:20000822",
+          "label": "competition discipline"
+        },
+        {
+          "qcode": "medtop:20000823",
+          "label": "American football"
+        }
+      ],
+      "probability": 0.28,
+      "calls": 4,
+      "inputTokens": 4859,
+      "status": "model"
+    }
+  ]
+}

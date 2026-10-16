@@ -1,0 +1,91 @@
+{
+  "status": "model",
+  "extractionMode": "model",
+  "eventGraphMode": "model",
+  "model": "deepseek/deepseek-v4-flash",
+  "entities": [
+    {
+      "type": "ORGANIZATION",
+      "name": "ТехноПульс",
+      "normalized_name": "технопульс",
+      "normalized_value": "ТехноПульс",
+      "mention": "«ТехноПульс»",
+      "legal_form": null,
+      "evidence": "«ТехноПульс»",
+      "source": "article",
+      "role": null,
+      "entity_id": null,
+      "inn": null,
+      "confidence": null,
+      "id": "entity-1",
+      "alternate_mentions": [],
+      "link_source": "fns_egrul",
+      "link_status": "ambiguous"
+    },
+    {
+      "type": "PERSON",
+      "name": "Мария Волкова",
+      "normalized_name": null,
+      "normalized_value": "Мария Волкова",
+      "mention": "Мария Волкова",
+      "legal_form": null,
+      "evidence": "Мария Волкова",
+      "source": "article",
+      "role": null,
+      "entity_id": null,
+      "inn": null,
+      "confidence": null,
+      "id": "entity-2"
+    }
+  ],
+  "events": [
+    {
+      "type": "launch",
+      "graph_type": "launch",
+      "label": "Запуск",
+      "evidence": "запустила новую производственную линию аккумуляторов",
+      "event_status": "completed",
+      "participants": [
+        {
+          "entity_id": "entity-1",
+          "role": "company"
+        }
+      ],
+      "attributes": [
+        {
+          "type": "DURATION",
+          "mention": "40 тысяч батарей в месяц",
+          "normalized_value": {
+            "value": 40000,
+            "unit": "months"
+          },
+          "unit": "months",
+          "evidence": "40 тысяч батарей в месяц",
+          "source": "article"
+        },
+        {
+          "type": "DATE",
+          "mention": "15 октября",
+          "normalized_value": "2026-10-15",
+          "unit": null,
+          "evidence": "15 октября",
+          "source": "article"
+        }
+      ],
+      "event_id": "event-1"
+    }
+  ],
+  "relations": [],
+  "rejectedEntities": 1,
+  "duplicateEntities": 1,
+  "rejectedEvents": 0,
+  "rejectedRelations": 2,
+  "calls": 1,
+  "inputTokens": 464,
+  "outputTokens": 140,
+  "reasoningTokens": 0,
+  "visibleOutputTokens": 140,
+  "costRub": 0.00482812,
+  "registryLookups": 1,
+  "finishReason": "stop"
+}

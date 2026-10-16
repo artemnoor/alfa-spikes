@@ -1,0 +1,250 @@
+{
+  "result": {
+    "status": "model",
+    "topic": {
+      "qcode": "medtop:20001298",
+      "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+      "label": "artificial intelligence"
+    },
+    "path": [
+      {
+        "id": "medtop:13000000",
+        "label": "science and technology"
+      },
+      {
+        "id": "medtop:20000756",
+        "label": "technology and engineering"
+      },
+      {
+        "id": "medtop:20000763",
+        "label": "information technology and computer science"
+      },
+      {
+        "id": "medtop:20001298",
+        "label": "artificial intelligence"
+      }
+    ],
+    "probability": null,
+    "calls": 26,
+    "inputTokens": 25244,
+    "outputTokens": 4749,
+    "costRub": 0.44291860000000005,
+    "model": "typesafe/jev",
+    "models": {
+      "topic": "typesafe/jev",
+      "event": "typesafe/jev",
+      "genre": "typesafe/jev"
+    },
+    "topicMode": "jev-top3",
+    "classifications": {
+      "topic": {
+        "status": "model",
+        "value": {
+          "qcode": "medtop:20001298",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20001298",
+          "label": "artificial intelligence"
+        },
+        "path": [
+          {
+            "id": "medtop:13000000",
+            "label": "science and technology"
+          },
+          {
+            "id": "medtop:20000756",
+            "label": "technology and engineering"
+          },
+          {
+            "id": "medtop:20000763",
+            "label": "information technology and computer science"
+          },
+          {
+            "id": "medtop:20001298",
+            "label": "artificial intelligence"
+          }
+        ],
+        "probability": 0.7338085481032858,
+        "pathProbability": 0.17099999999999999,
+        "calls": 22,
+        "inputTokens": 20252,
+        "outputTokens": 4079,
+        "costRub": 0.35533147000000004,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "medtop:20001298",
+            "label": "artificial intelligence",
+            "path": [
+              {
+                "id": "medtop:13000000",
+                "label": "science and technology"
+              },
+              {
+                "id": "medtop:20000756",
+                "label": "technology and engineering"
+              },
+              {
+                "id": "medtop:20000763",
+                "label": "information technology and computer science"
+              },
+              {
+                "id": "medtop:20001298",
+                "label": "artificial intelligence"
+              }
+            ],
+            "probability": 0.7338085481032858
+          },
+          {
+            "qcode": "medtop:20000205",
+            "label": "new product or service",
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000170",
+                "label": "business information"
+              },
+              {
+                "id": "medtop:20000192",
+                "label": "business strategy and marketing"
+              },
+              {
+                "id": "medtop:20000205",
+                "label": "new product or service"
+              }
+            ],
+            "probability": 0.1445073582136186
+          },
+          {
+            "qcode": "medtop:20000274",
+            "label": "banking",
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000209",
+                "label": "products and services"
+              },
+              {
+                "id": "medtop:20001370",
+                "label": "financial service"
+              },
+              {
+                "id": "medtop:20000274",
+                "label": "banking"
+              }
+            ],
+            "probability": 0.12122431389105101
+          },
+          {
+            "qcode": "medtop:20000736",
+            "label": "scientific innovation",
+            "path": [
+              {
+                "id": "medtop:13000000",
+                "label": "science and technology"
+              },
+              {
+                "id": "medtop:20000735",
+                "label": "scientific research"
+              },
+              {
+                "id": "medtop:20000736",
+                "label": "scientific innovation"
+              }
+            ],
+            "probability": 0.00045977979204466526
+          },
+          {
+            "qcode": "medtop:20001158",
+            "label": "start-up and entrepreneurial business",
+            "path": [
+              {
+                "id": "medtop:04000000",
+                "label": "economy, business and finance"
+              },
+              {
+                "id": "medtop:20000349",
+                "label": "business enterprise"
+              },
+              {
+                "id": "medtop:20001158",
+                "label": "start-up and entrepreneurial business"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      },
+      "event": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:product_service_launch",
+          "label": "Launch",
+          "mainType": "Product/Service",
+          "subType": "Launch"
+        },
+        "path": [
+          {
+            "id": "sentivent:product_service",
+            "label": "Product/Service"
+          },
+          {
+            "id": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch"
+          }
+        ],
+        "probability": 0.71,
+        "calls": 2,
+        "inputTokens": 3064,
+        "outputTokens": 312,
+        "costRub": 0.05375941
+      },
+      "genre": {
+        "status": "model",
+        "value": {
+          "qcode": "genre:Current",
+          "uri": "http://cv.iptc.org/newscodes/genre/Current",
+          "label": "Current Events"
+        },
+        "path": [
+          {
+            "id": "genre-nav:factual-news",
+            "label": "Factual news and coverage"
+          },
+          {
+            "id": "genre:Current",
+            "label": "Current Events"
+          }
+        ],
+        "probability": 0.7056,
+        "calls": 2,
+        "inputTokens": 1928,
+        "outputTokens": 358,
+        "costRub": 0.033827720000000006
+      }
+    },
+    "sources": {
+      "topic": {
+        "name": "IPTC Media Topics",
+        "conceptCount": 1085
+      },
+      "event": {
+        "name": "SENTiVENT event typology",
+        "conceptCount": 60
+      },
+      "genre": {
+        "name": "IPTC Genre",
+        "conceptCount": 54
+      }
+    }
+  },
+  "evaluatedAt": "2026-10-15T19:11:44.3510449Z",
+  "request": {
+    "state": "Заголовок: Альфа-Банк представил AI-модель для поддержки клиентов\n\nКомпания объявила о запуске новой модели искусственного интеллекта для автоматизации поддержки клиентов. Сервис уже проходит испытания и станет доступен клиентам в следующем месяце.",
+    "topicMode": "jev-top3"
+  }
+}

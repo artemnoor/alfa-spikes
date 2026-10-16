@@ -1,0 +1,208 @@
+{
+  "request": {
+    "state": "Заголовок: Альфа-Банк представил AI-модель для поддержки клиентов\n\nКомпания объявила о запуске новой модели искусственного интеллекта для автоматизации поддержки клиентов. Сервис уже проходит испытания и станет доступен клиентам в следующем месяце."
+  },
+  "result": {
+    "status": "model",
+    "topic": {
+      "qcode": "medtop:20000274",
+      "uri": "http://cv.iptc.org/newscodes/mediatopic/20000274",
+      "label": "banking"
+    },
+    "path": [
+      {
+        "id": "medtop:04000000",
+        "label": "economy, business and finance"
+      },
+      {
+        "id": "medtop:20000209",
+        "label": "products and services"
+      },
+      {
+        "id": "medtop:20001370",
+        "label": "financial service"
+      },
+      {
+        "id": "medtop:20000274",
+        "label": "banking"
+      }
+    ],
+    "probability": null,
+    "calls": 6,
+    "inputTokens": 61553,
+    "outputTokens": 1509,
+    "costRub": 0.36368677,
+    "model": "typesafe/jev",
+    "models": {
+      "topic": "deepseek/deepseek-v4-flash",
+      "event": "typesafe/jev",
+      "genre": "typesafe/jev"
+    },
+    "classifications": {
+      "topic": {
+        "status": "model",
+        "value": {
+          "qcode": "medtop:20000274",
+          "uri": "http://cv.iptc.org/newscodes/mediatopic/20000274",
+          "label": "banking"
+        },
+        "path": [
+          {
+            "id": "medtop:04000000",
+            "label": "economy, business and finance"
+          },
+          {
+            "id": "medtop:20000209",
+            "label": "products and services"
+          },
+          {
+            "id": "medtop:20001370",
+            "label": "financial service"
+          },
+          {
+            "id": "medtop:20000274",
+            "label": "banking"
+          }
+        ],
+        "probability": null,
+        "calls": 1,
+        "inputTokens": 55649,
+        "outputTokens": 751,
+        "costRub": 0.26009813
+      },
+      "event": {
+        "status": "model",
+        "value": {
+          "id": "sentivent:product_service_launch",
+          "label": "Launch",
+          "mainType": "Product/Service",
+          "subType": "Launch"
+        },
+        "path": [
+          {
+            "id": "sentivent:product_service",
+            "label": "Product/Service"
+          },
+          {
+            "id": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch"
+          }
+        ],
+        "probability": 0.5702247191011236,
+        "pathProbability": 0.49,
+        "calls": 3,
+        "inputTokens": 3976,
+        "outputTokens": 400,
+        "costRub": 0.06976092,
+        "selectionMode": "jev-top3",
+        "alternatives": [
+          {
+            "qcode": "sentivent:product_service_launch",
+            "label": "Product/Service — Launch",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_launch",
+                "label": "Product/Service — Launch"
+              }
+            ],
+            "probability": 0.5702247191011236
+          },
+          {
+            "qcode": "sentivent:product_service_trial",
+            "label": "Product/Service — Trial",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_trial",
+                "label": "Product/Service — Trial"
+              }
+            ],
+            "probability": 0.42977528089887646
+          },
+          {
+            "qcode": "sentivent:csr_brand",
+            "label": "CSR/Brand",
+            "path": [
+              {
+                "id": "sentivent:csr_brand",
+                "label": "CSR/Brand"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:deal",
+            "label": "Deal",
+            "path": [
+              {
+                "id": "sentivent:deal",
+                "label": "Deal"
+              }
+            ],
+            "probability": 0
+          },
+          {
+            "qcode": "sentivent:product_service_cancellation_recall",
+            "label": "Product/Service — Cancellation/Recall",
+            "path": [
+              {
+                "id": "sentivent:product_service",
+                "label": "Product/Service"
+              },
+              {
+                "id": "sentivent:product_service_cancellation_recall",
+                "label": "Product/Service — Cancellation/Recall"
+              }
+            ],
+            "probability": 0
+          }
+        ]
+      },
+      "genre": {
+        "status": "model",
+        "value": {
+          "qcode": "genre:Current",
+          "uri": "http://cv.iptc.org/newscodes/genre/Current",
+          "label": "Current Events"
+        },
+        "path": [
+          {
+            "id": "genre-nav:factual-news",
+            "label": "Factual news and coverage"
+          },
+          {
+            "id": "genre:Current",
+            "label": "Current Events"
+          }
+        ],
+        "probability": 0.776,
+        "calls": 2,
+        "inputTokens": 1928,
+        "outputTokens": 358,
+        "costRub": 0.033827720000000006
+      }
+    },
+    "sources": {
+      "topic": {
+        "name": "IPTC Media Topics",
+        "conceptCount": 1085
+      },
+      "event": {
+        "name": "SENTiVENT event typology",
+        "conceptCount": 60
+      },
+      "genre": {
+        "name": "IPTC Genre",
+        "conceptCount": 54
+      }
+    }
+  },
+  "evaluatedAt": "2026-10-15T19:22:11.0963255Z"
+}

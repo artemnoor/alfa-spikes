@@ -1,0 +1,243 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "input": "C:\\Users\\Артём\\Documents\\ChatGPT\\Альфа spikes\\backend\\T08\\benchmark\\runs\\jev-recovering-top3-topic-2026-10-15\\news.json",
+  "summary": {
+    "news": 3,
+    "failedNews": 1,
+    "modelCalls": 3,
+    "inputTokens": 1351,
+    "outputTokens": 9422,
+    "costRub": null,
+    "registryApiCalls": 2,
+    "entities": 4,
+    "events": 3,
+    "relations": 0,
+    "eventAttributes": 5,
+    "rejectedEntities": null
+  },
+  "results": [
+    {
+      "id": 1,
+      "name": "Получение финансирования",
+      "date": "15 октября 2026",
+      "title": "Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода",
+      "article": "Заголовок: Компания «ВекторМаш» получила кредит на 3,2 млрд рублей для строительства завода\n\nПресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет. Средства направят на строительство предприятия по производству промышленных роботов в Тульской области. Запуск производства запланирован на третий квартал 2027 года. Компания рассчитывает создать 450 рабочих мест.",
+      "status": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ВекторМаш",
+          "normalized_name": "вектормаш",
+          "normalized_value": "ВекторМаш",
+          "mention": "АО «ВекторМаш»",
+          "legal_form": "АО",
+          "evidence": "Пресс-служба АО «ВекторМаш» сообщила",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "insufficient_context"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Тульской области",
+          "normalized_name": null,
+          "normalized_value": "Тульской области",
+          "mention": "Тульской области",
+          "legal_form": null,
+          "evidence": "в Тульской области",
+          "source": "article",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-2"
+        },
+        {
+          "type": "DATE",
+          "name": "15 октября 2026",
+          "normalized_name": null,
+          "normalized_value": "2026-10-15",
+          "mention": "15 октября 2026",
+          "legal_form": null,
+          "evidence": "15 октября 2026",
+          "source": "metadata",
+          "role": null,
+          "entity_id": null,
+          "inn": null,
+          "confidence": null,
+          "id": "entity-3"
+        }
+      ],
+      "events": [
+        {
+          "type": "CREDIT_AGREEMENT",
+          "label": "Подписание кредитного соглашения",
+          "evidence": "Пресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет.",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "borrower"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "MONEY",
+              "mention": "3,2 млрд рублей",
+              "normalized_value": "3200000000 RUB",
+              "unit": null,
+              "evidence": "на сумму 3,2 млрд рублей",
+              "source": "article"
+            },
+            {
+              "type": "DURATION",
+              "mention": "семь лет",
+              "normalized_value": {
+                "value": 7,
+                "unit": "years"
+              },
+              "unit": "years",
+              "evidence": "сроком на семь лет",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        },
+        {
+          "type": "CONSTRUCTION",
+          "label": "Строительство завода",
+          "evidence": "Пресс-служба АО «ВекторМаш» сообщила о подписании кредитного соглашения с банком «Орбита» на сумму 3,2 млрд рублей сроком на семь лет. Средства направят на строительство предприятия по производству промышленных роботов в Тульской области. Запуск производства запланирован на третий квартал 2027 года. Компания рассчитывает создать 450 рабочих мест.",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "builder"
+            },
+            {
+              "entity_id": "entity-2",
+              "role": "location"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "QUANTITY",
+              "mention": "450 рабочих мест",
+              "normalized_value": {
+                "value": 450,
+                "unit": "jobs"
+              },
+              "unit": "jobs",
+              "evidence": "создать 450 рабочих мест",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-2"
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 6,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 2,
+      "calls": 1,
+      "inputTokens": 646,
+      "outputTokens": 8739,
+      "costRub": 0.14711579,
+      "registryLookups": 1
+    },
+    {
+      "id": 4,
+      "name": "Интервью о финансовых проблемах",
+      "date": "12 октября 2026",
+      "title": "Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»",
+      "article": "Заголовок: Глава «АгроСферы»: «Мы можем отказаться от строительства второго комплекса»\n\nВ интервью деловому изданию «Бизнес-Вектор» генеральный директор агрохолдинга «АгроСфера» Анна Белова рассказала, что затраты компании на логистику за девять месяцев выросли на 38%. «Если ситуация не изменится, мы будем вынуждены заморозить инвестиционный проект стоимостью 2 млрд рублей», — заявила Белова. При этом руководитель подчеркнула, что решение пока не принято, а действующие предприятия продолжают работать в обычном режиме.",
+      "status": "unavailable",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [],
+      "events": [],
+      "relations": [],
+      "calls": 1,
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "costRub": null,
+      "registryLookups": 0,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "id": 5,
+      "name": "Опровержение сообщения о кибератаке",
+      "date": "11 октября 2026",
+      "title": "Проверка фактов: информация о взломе платёжного сервиса «ФинПоток» не подтвердилась",
+      "article": "Заголовок: Проверка фактов: информация о взломе платёжного сервиса «ФинПоток» не подтвердилась\n\nВ социальных сетях появились сообщения о якобы произошедшей масштабной кибератаке на платёжную платформу «ФинПоток» и утечке данных двух миллионов пользователей. Журналисты запросили комментарий компании. Представитель «ФинПоток» опроверг информацию о взломе, пояснив, что 10 октября сервис был недоступен в течение 25 минут из-за сбоя электропитания в дата-центре. Независимого подтверждения утечки журналисты не обнаружили.",
+      "status": "model",
+      "model": "deepseek/deepseek-v4-flash",
+      "entities": [
+        {
+          "type": "ORGANIZATION",
+          "name": "ФинПоток",
+          "normalized_name": "финпоток",
+          "normalized_value": "ФинПоток",
+          "mention": "«ФинПоток»",
+          "legal_form": null,
+          "evidence": "«ФинПоток»",
+          "source": "article",
+          "role": "service_provider",
+          "entity_id": null,
+          "inn": null,
+          "confidence": 1,
+          "id": "entity-1",
+          "link_source": "fns_egrul",
+          "link_status": "insufficient_context"
+        }
+      ],
+      "events": [
+        {
+          "type": "event",
+          "label": "service_unavailable",
+          "evidence": "10 октября сервис был недоступен в течение 25 минут из-за сбоя электропитания в дата-центре",
+          "participants": [
+            {
+              "entity_id": "entity-1",
+              "role": "affected_service"
+            }
+          ],
+          "attributes": [
+            {
+              "type": "DATE",
+              "mention": "10 октября",
+              "normalized_value": "2026-10-10",
+              "unit": null,
+              "evidence": "10 октября",
+              "source": "article"
+            },
+            {
+              "type": "DURATION",
+              "mention": "25 минут",
+              "normalized_value": {
+                "value": 25,
+                "unit": "minutes"
+              },
+              "unit": "minutes",
+              "evidence": "25 минут",
+              "source": "article"
+            }
+          ],
+          "event_id": "event-1"
+        }
+      ],
+      "relations": [],
+      "rejectedEntities": 0,
+      "duplicateEntities": 0,
+      "rejectedEvents": 0,
+      "rejectedRelations": 0,
+      "calls": 1,
+      "inputTokens": 705,
+      "outputTokens": 683,
+      "costRub": 0.00942526,
+      "registryLookups": 1
+    }
+  ]
+}

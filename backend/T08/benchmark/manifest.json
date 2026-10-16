@@ -1,0 +1,83 @@
+{
+  "name": "T08 Synthetic News Classification Benchmark",
+  "version": "1.0.0",
+  "generatedAt": "reproducible",
+  "synthetic": true,
+  "modelEvaluated": false,
+  "records": 300,
+  "storyFamilies": 30,
+  "splitPolicy": "split is assigned by familyId before variants; all variants in a family stay together",
+  "splits": {
+    "train": 210,
+    "dev": 30,
+    "test": 60
+  },
+  "distributions": {
+    "topicQCode": {
+      "medtop:05000000": 10,
+      "medtop:20000086": 10,
+      "medtop:20000107": 10,
+      "medtop:20000152": 10,
+      "medtop:20000153": 10,
+      "medtop:20000154": 10,
+      "medtop:20000210": 10,
+      "medtop:20000223": 10,
+      "medtop:20000226": 10,
+      "medtop:20000257": 10,
+      "medtop:20000274": 10,
+      "medtop:20000331": 10,
+      "medtop:20000338": 10,
+      "medtop:20000340": 10,
+      "medtop:20000365": 10,
+      "medtop:20000370": 10,
+      "medtop:20000371": 10,
+      "medtop:20000418": 10,
+      "medtop:20000579": 20,
+      "medtop:20000628": 10,
+      "medtop:20000739": 10,
+      "medtop:20000823": 10,
+      "medtop:20001182": 10,
+      "medtop:20001202": 10,
+      "medtop:20001298": 30,
+      "medtop:20001300": 10,
+      "medtop:20001354": 10
+    },
+    "eventId": {
+      "sentivent:deal": 10,
+      "sentivent:investment": 20,
+      "sentivent:legal_proceeding": 20,
+      "sentivent:macroeconomics": 30,
+      "sentivent:no_matching_event": 130,
+      "sentivent:product_service_launch": 70,
+      "sentivent:product_service_trial": 10,
+      "sentivent:revenue_increase": 10
+    },
+    "genreQCode": {
+      "genre:Analysis": 30,
+      "genre:Current": 180,
+      "genre:Feature": 10,
+      "genre:Forecast": 10,
+      "genre:Interview": 10,
+      "genre:Opinion": 10,
+      "genre:Press_Release": 20,
+      "genre:Results_Listings_and_Statistics": 20,
+      "genre:Review": 10
+    }
+  },
+  "taxonomies": {
+    "topic": {
+      "name": "IPTC Media Topics",
+      "source": "https://www.iptc.org/std/NewsCodes/IPTC-MediaTopic-NewsCodes.xlsx",
+      "license": "CC BY 4.0"
+    },
+    "event": {
+      "name": "SENTiVENT event typology",
+      "source": "https://github.com/GillesJ/sentivent_webannoparser/blob/master/sentivent_en_event_typology.json"
+    },
+    "genre": {
+      "name": "IPTC Genre",
+      "source": "https://www.iptc.org/std/NewsCodes/treeview/genre/genre-en-GB.html",
+      "license": "CC BY 4.0"
+    }
+  }
+}

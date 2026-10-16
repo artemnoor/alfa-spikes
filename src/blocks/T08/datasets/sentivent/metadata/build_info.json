@@ -1,0 +1,59 @@
+{
+  "build_timestamp_utc": "2026-07-14T23:04:09.400815+00:00",
+  "conversion_profiles_schema_version": "1.0.0",
+  "converter_versions": {
+    "absa_quad_triplet_v1": "0.1.0",
+    "absa_raw_line_v2": "0.1.0",
+    "canonical_loss_preserving": "0.1.0",
+    "dygiepp_upstream_v1": "0.1.0",
+    "legacy_clean_duplicate_documents": "0.1.0",
+    "legacy_dygiepp_v1": "0.1.0",
+    "legacy_gts_v1": "0.1.0",
+    "legacy_implicit_polar_v1": "0.1.0",
+    "llm_schema_structured_v1": "0.1.0",
+    "omnievent_compatible_v1": "0.1.0",
+    "oneie_compatible_v1": "0.1.0",
+    "sentivent.sentivent_unified_document.v1": "0.1.0",
+    "sentivent.sentivent_unified_document_continuous.v1": "0.1.0",
+    "sentivent.sentivent_unified_document_with_canonical_referents.v1": "0.1.0",
+    "sentivent.sentivent_unified_sentence.v1": "0.1.0",
+    "sentivent.sentivent_unified_sentence_continuous.v1": "0.1.0",
+    "sentivent.sentivent_unified_sentence_with_canonical_referents.v1": "0.1.0",
+    "task_hf_structured_v1": "0.1.0",
+    "textee_event_v1": "0.1.0",
+    "token_label_bio_v1": "0.1.0",
+    "uie_spot_asoc_v1": "0.1.0"
+  },
+  "dataset": {
+    "annotation_guidelines_version": "1.1",
+    "content_version": "1.1",
+    "name": "SENTiVENT",
+    "split_policy": "v1"
+  },
+  "git": {
+    "branch": "feat/llm-evals",
+    "commit": "7b759a38329c177b7ffa923997a4bb2c2c2e7484",
+    "is_dirty": false,
+    "short_commit": "7b759a38329c"
+  },
+  "graph": {
+    "cleaning_policy": "legacy_clean_duplicate_documents",
+    "graph_count": 288,
+    "schema_version": "0.1.0",
+    "source_graph": {
+      "bytes": 156097316,
+      "path": "_build/canonical-graph.jsonl",
+      "rows": 302,
+      "sha256": "2b67ed51e4ddfd000fc8ada5eae5cc4f0e6c799a62b8a31b01fa1f02ce93263c"
+    }
+  },
+  "package": {
+    "name": "sentivent",
+    "version": "0.1.0"
+  },
+  "python": {
+    "implementation": "CPython",
+    "version": "3.14.6"
+  },
+  "schema_version": "1.0.0"
+}
