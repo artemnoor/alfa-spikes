@@ -1,0 +1,888 @@
+{
+  "runId": "2026-10-16T17-55-59-494Z-f382e89e",
+  "generatedAt": "2026-10-16T17:56:24.198Z",
+  "baseUrl": "http://127.0.0.1:8092",
+  "health": {
+    "ok": true,
+    "configured": true,
+    "provider": "Polza AI",
+    "model": "qwen/qwen3-embedding-8b",
+    "pgvector": {
+      "ready": true,
+      "dimensions": 4096,
+      "news_count": 23,
+      "indexed_news_count": 23
+    },
+    "blockWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    }
+  },
+  "models": {
+    "embedding": "qwen/qwen3-embedding-8b",
+    "jev": "typesafe/jev",
+    "deepseek": "deepseek/deepseek-v4-flash"
+  },
+  "totals": {
+    "count": 5,
+    "relationCorrect": 4,
+    "relationAccuracy": 0.8,
+    "candidateRecall": 5,
+    "candidateCorrect": 3,
+    "candidateCount": 4,
+    "candidateAccuracy": 0.75,
+    "embeddingCalls": 5,
+    "embeddingInputTokens": 778,
+    "jevCalls": 5,
+    "jevInputTokens": 36242,
+    "jevOutputTokens": 3188,
+    "deepseekCalls": 1,
+    "deepseekInputTokens": 1204,
+    "deepseekOutputTokens": 277,
+    "reportedProviderCostRub": 0.6630200300000001
+  },
+  "weightEvaluation": {
+    "serverWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    },
+    "profiles": {
+      "equal": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "genre_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 2
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_event_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 3,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 3,
+          "genre": 1
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "no_genre": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 0
+        },
+        "evaluated": 5,
+        "candidateFound": 5,
+        "hitAt10": 5,
+        "reciprocalRankSum": 5,
+        "rankSum": 5,
+        "meanRank": 1,
+        "mrr": 1
+      }
+    },
+    "recommended": "equal"
+  },
+  "tokenComparison": {
+    "baselineRunId": "2026-10-16T16-08-39-879Z-c7ed9f74",
+    "overlap": 5,
+    "baselineAverage": 6607,
+    "currentAverage": 7248,
+    "changePercent": 9.7
+  },
+  "cases": [
+    {
+      "id": "same_loan_paraphrase",
+      "scenario": "Paraphrased duplicate with amount and project repeated",
+      "expectedRelation": "SAME",
+      "expectedCandidateId": "demo-001",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "SAME",
+        "resolution": "APPEND_TO_EVENT",
+        "candidateId": "demo-001",
+        "candidateTitle": "«ВекторМаш» получил кредит на строительство завода роботов",
+        "confidence": 1,
+        "decidedBy": "JEV",
+        "reason": "JEV определил связь SAME с кандидатом по конкретному событию.",
+        "evidence": null,
+        "fallback": {
+          "called": false,
+          "reasons": [],
+          "status": "not_needed",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 156,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 6938,
+          "outputTokens": 638,
+          "costRub": 0.12161412
+        },
+        "deepseek": {
+          "calls": 0,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "costRub": 0
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": null
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-001",
+          "title": "«ВекторМаш» получил кредит на строительство завода роботов",
+          "similarity": 0.7359924255181449,
+          "relation": "SAME",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-014",
+          "title": "«Новая Линия» разместит биржевые облигации на 4 млрд рублей",
+          "similarity": 0.4635355274429246,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.4550999801165033,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "0ce78828-6b68-4647-93ce-a14dba1612e2",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.4419046472346786,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.4396245380733331,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "2b6fd113-0907-46a6-b1ec-bc1cdb6d7b4a",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.43876252856142606,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "1e14b052-dcd5-4d6f-aba6-c2ff6ec43202",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.43773367236464056,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-016",
+          "title": "«Банк Орбита» и «Клевер Маркет» запустили оплату частями",
+          "similarity": 0.436578021039718,
+          "relation": "DIFFERENT",
+          "confidence": 0.95
+        },
+        {
+          "candidateId": "demo-010",
+          "title": "«Северный Ветер» начал строить ветропарк в Архангельской области",
+          "similarity": 0.4182683074393926,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.41729000017029727,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "c9d4aa0d-0f88-4e16-ab08-1a0696d824da",
+      "newsId": "t09-bench-2026-10-16T17-55-59-494Z-f382e89e-same_loan_paraphrase"
+    },
+    {
+      "id": "same_acquisition_closing",
+      "scenario": "Transaction follow-up with closing date and same parties",
+      "expectedRelation": "SAME",
+      "expectedCandidateId": "demo-003",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "SAME",
+        "resolution": "APPEND_TO_EVENT",
+        "candidateId": "demo-003",
+        "candidateTitle": "«ТрансЛайн» договорился о покупке 80% «ЭкспрессКарго»",
+        "confidence": 0.8,
+        "decidedBy": "JEV",
+        "reason": "JEV определил связь SAME с кандидатом по конкретному событию.",
+        "evidence": null,
+        "fallback": {
+          "called": false,
+          "reasons": [],
+          "status": "not_needed",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 145,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 7485,
+          "outputTokens": 638,
+          "costRub": 0.13120232
+        },
+        "deepseek": {
+          "calls": 0,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "costRub": 0
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": null
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-003",
+          "title": "«ТрансЛайн» договорился о покупке 80% «ЭкспрессКарго»",
+          "similarity": 0.6806389319481405,
+          "relation": "SAME",
+          "confidence": 0.8
+        },
+        {
+          "candidateId": "demo-013",
+          "title": "«РитейлСфера» покупает сеть складов «ГородЛогистик»",
+          "similarity": 0.5069557756786561,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-014",
+          "title": "«Новая Линия» разместит биржевые облигации на 4 млрд рублей",
+          "similarity": 0.42652140660473614,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.40534678362465476,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-019",
+          "title": "Шторм задержал отправку контейнеров компании «ВостокТранс»",
+          "similarity": 0.3908608613024796,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.38046887244514604,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-012",
+          "title": "Сотрудники «БалтикКарго» объявили предупредительную забастовку",
+          "similarity": 0.3721000381438563,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.3700839959376041,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-016",
+          "title": "«Банк Орбита» и «Клевер Маркет» запустили оплату частями",
+          "similarity": 0.36287059287925294,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.3501979954437337,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "fe0a08b8-f9a4-4d5f-97dc-0bce36d352b3",
+      "newsId": "t09-bench-2026-10-16T17-55-59-494Z-f382e89e-same_acquisition_closing"
+    },
+    {
+      "id": "related_supplier_disruption",
+      "scenario": "Direct operational consequence of supplier bankruptcy, a separate event",
+      "expectedRelation": "RELATED",
+      "expectedCandidateId": "demo-002",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "UNSURE",
+        "resolution": "MANUAL_REVIEW",
+        "candidateId": null,
+        "candidateTitle": null,
+        "confidence": 0,
+        "decidedBy": "DeepSeek V4 Flash",
+        "reason": "Связь RELATED не подтверждена точными цитатами из обеих новостей.",
+        "evidence": null,
+        "fallback": {
+          "called": true,
+          "reasons": [
+            "RELATED требует проверки связи между конкретными событиями"
+          ],
+          "status": "invalid_response",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 159,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 7429,
+          "outputTokens": 637,
+          "costRub": 0.13022071
+        },
+        "deepseek": {
+          "calls": 1,
+          "inputTokens": 1204,
+          "outputTokens": 277,
+          "costRub": 0.02774489
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": "deepseek/deepseek-v4-flash"
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.6116590551635341,
+          "relation": "RELATED",
+          "confidence": 0.92
+        },
+        {
+          "candidateId": "demo-019",
+          "title": "Шторм задержал отправку контейнеров компании «ВостокТранс»",
+          "similarity": 0.47155863645722884,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.4202237047960805,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-005",
+          "title": "«ФинПоток» опроверг сообщения о взломе платёжного сервиса",
+          "similarity": 0.39701413585444134,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.3945345385055343,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.3845179583327518,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-012",
+          "title": "Сотрудники «БалтикКарго» объявили предупредительную забастовку",
+          "similarity": 0.37928234668955363,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-013",
+          "title": "«РитейлСфера» покупает сеть складов «ГородЛогистик»",
+          "similarity": 0.37426522459875655,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-001",
+          "title": "«ВекторМаш» получил кредит на строительство завода роботов",
+          "similarity": 0.3738942033744751,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-003",
+          "title": "«ТрансЛайн» договорился о покупке 80% «ЭкспрессКарго»",
+          "similarity": 0.3690396401782807,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "e5c88803-a77f-44fa-9e63-de974b65ef18",
+      "newsId": "t09-bench-2026-10-16T17-55-59-494Z-f382e89e-related_supplier_disruption"
+    },
+    {
+      "id": "different_same_company_other_deal",
+      "scenario": "Same company and industry, unrelated transaction",
+      "expectedRelation": "DIFFERENT",
+      "expectedCandidateId": "demo-003",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "DIFFERENT",
+        "resolution": "CREATE_NEW_EVENT",
+        "candidateId": null,
+        "candidateTitle": null,
+        "confidence": 0.88,
+        "decidedBy": "JEV",
+        "reason": "JEV уверенно не нашёл то же или напрямую связанное событие среди кандидатов.",
+        "evidence": null,
+        "fallback": {
+          "called": false,
+          "reasons": [],
+          "status": "not_needed",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 147,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 7366,
+          "outputTokens": 637,
+          "costRub": 0.1291164
+        },
+        "deepseek": {
+          "calls": 0,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "costRub": 0
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": null
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-003",
+          "title": "«ТрансЛайн» договорился о покупке 80% «ЭкспрессКарго»",
+          "similarity": 0.547655703357661,
+          "relation": "DIFFERENT",
+          "confidence": 0.81
+        },
+        {
+          "candidateId": "demo-013",
+          "title": "«РитейлСфера» покупает сеть складов «ГородЛогистик»",
+          "similarity": 0.5021419563125752,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.4105066560941686,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.4020884456460946,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-019",
+          "title": "Шторм задержал отправку контейнеров компании «ВостокТранс»",
+          "similarity": 0.3962526827815614,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-014",
+          "title": "«Новая Линия» разместит биржевые облигации на 4 млрд рублей",
+          "similarity": 0.3958959488784669,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.3753184799544568,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-001",
+          "title": "«ВекторМаш» получил кредит на строительство завода роботов",
+          "similarity": 0.37090847688519035,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-016",
+          "title": "«Банк Орбита» и «Клевер Маркет» запустили оплату частями",
+          "similarity": 0.3494216038563129,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.3411863580058532,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "7e2d61b0-8138-4205-88eb-ad92d9e3ba65",
+      "newsId": "t09-bench-2026-10-16T17-55-59-494Z-f382e89e-different_same_company_other_deal"
+    },
+    {
+      "id": "same_finpotok_outage",
+      "scenario": "Confirmed cause of the same previously reported outage",
+      "expectedRelation": "SAME",
+      "expectedCandidateId": "demo-005",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "SAME",
+        "resolution": "APPEND_TO_EVENT",
+        "candidateId": "demo-005",
+        "candidateTitle": "«ФинПоток» опроверг сообщения о взломе платёжного сервиса",
+        "confidence": 0.96,
+        "decidedBy": "JEV",
+        "reason": "JEV определил связь SAME с кандидатом по конкретному событию.",
+        "evidence": null,
+        "fallback": {
+          "called": false,
+          "reasons": [],
+          "status": "not_needed",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 171,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 7024,
+          "outputTokens": 638,
+          "costRub": 0.12312159
+        },
+        "deepseek": {
+          "calls": 0,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "costRub": 0
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": null
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-005",
+          "title": "«ФинПоток» опроверг сообщения о взломе платёжного сервиса",
+          "similarity": 0.6762124208483717,
+          "relation": "SAME",
+          "confidence": 0.96
+        },
+        {
+          "candidateId": "demo-020",
+          "title": "Регулятор оштрафовал «КвантСеть» за нарушение правил хранения данных",
+          "similarity": 0.4565445620026282,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-019",
+          "title": "Шторм задержал отправку контейнеров компании «ВостокТранс»",
+          "similarity": 0.4205556893100643,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.40100156579451873,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "0ce78828-6b68-4647-93ce-a14dba1612e2",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.3857034711688086,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-016",
+          "title": "«Банк Орбита» и «Клевер Маркет» запустили оплату частями",
+          "similarity": 0.3852479063249114,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.3843482640899583,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-011",
+          "title": "«ВольтЭлемент» отзывает партию аккумуляторов после перегрева",
+          "similarity": 0.3822334124850792,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "1e14b052-dcd5-4d6f-aba6-c2ff6ec43202",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.3813489850613128,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "2b6fd113-0907-46a6-b1ec-bc1cdb6d7b4a",
+          "title": "Альфа-Банк представил AI-модель для поддержки клиентов",
+          "similarity": 0.3809494776271631,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "0bcc689d-c86c-4973-b81b-245856a36267",
+      "newsId": "t09-bench-2026-10-16T17-55-59-494Z-f382e89e-same_finpotok_outage"
+    }
+  ]
+}

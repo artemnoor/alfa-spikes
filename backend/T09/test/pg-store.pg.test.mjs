@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { randomUUID } from 'node:crypto'
 import pg from 'pg'
 import { after, before, describe, it } from 'node:test'
-import { closePgVector, findTopSimilarNews, initializePgVector, saveNewsEmbeddings } from '../src/pg-store.mjs'
+import { closePgVector, findTopSimilarNews, getBlockWeights, initializePgVector, saveNewsEmbeddings } from '../src/pg-store.mjs'
 
 const { Client } = pg
 const keys = ['topic', 'event', 'entities', 'genre']
@@ -74,6 +74,10 @@ describe('T09 PostgreSQL + pgvector store', () => {
     assert.equal(matches[0].matchedBlocks, 4)
     assert.equal(matches[0].blocks.length, 4)
     assert.ok(matches.every((match, index) => index === 0 || matches[index - 1].similarity >= match.similarity))
+
+    const eventOnly = await findTopSimilarNews(queryId, queryBlocks, 'test-qwen', 10, { topic: 0, event: 1, entities: 0, genre: 0 })
+    assert.equal(eventOnly[0].newsId, candidateIds[0])
+    assert.equal(Object.values(getBlockWeights()).reduce((sum, value) => sum + value, 0), 1)
   })
 
   it('rejects missing, duplicated and malformed four-block inputs before writing', async () => {

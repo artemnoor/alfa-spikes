@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "start": "node --env-file=../pipeline/.env src/server.mjs",
-    "test": "node --test test/deduplication.test.mjs",
+    "test": "node --test test/deduplication.test.mjs test/event-registry.test.mjs",
     "test:pg": "node --env-file=../pipeline/.env --test test/pg-store.pg.test.mjs",
     "test:api": "node --env-file=../pipeline/.env --test test/api.integration.test.mjs",
     "test:all": "npm run test && npm run test:pg && npm run test:api",
-    "benchmark:live": "node --env-file=../pipeline/.env benchmark/live-benchmark.mjs"
+    "benchmark:generate": "node benchmark/generate-live-cases.mjs",
+    "benchmark:live": "npm run benchmark:generate && node --env-file=../pipeline/.env benchmark/live-benchmark.mjs"
   },
   "engines": {
     "node": ">=22"
