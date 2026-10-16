@@ -24,7 +24,7 @@ The backend listens on `http://127.0.0.1:8091` by default. The API and model con
 
 Общая SQLite-база хранится отдельно от папок этапов: `data/news_pipeline.sqlite`. Локальный файл базы игнорируется Git; его можно пересоздать из `backend/pipeline/news-seed.json` командами ниже. Таблица `news_items` содержит новость на входе, а `stage_runs` — отдельную запись каждого запуска T08/T09 с входом, статусом, полным результатом, моделью и метриками. Повторные запуски сохраняются в истории, не заменяя предыдущие.
 
-Вкладка «База» показывает новости и последние результаты этапов. T08 записывает каждую классификацию, T09 сохраняет векторы и связан с исходной новостью. Архив API слушает порт 8093.
+Вкладка «База» показывает новости, результаты этапов и реестр событий. T08 записывает каждую классификацию, T09 сохраняет векторы и объединяет дубли в общие события. Архив API слушает порт 8094.
 
 ```powershell
 npm run db:seed
@@ -40,7 +40,7 @@ The final five-news entity graph benchmark is saved in [`backend/T08/benchmark/r
 
 ## T09 tests and live deduplication benchmark
 
-Run T09 unit and integration checks with `npm --prefix backend/T09 run test:all`. The 11-case live Qwen + JEV + DeepSeek benchmark, including measured provider usage and cost, is saved in [`backend/T09/benchmark/runs/2026-10-16T16-08-39-879Z-c7ed9f74/RESULTS.md`](backend/T09/benchmark/runs/2026-10-16T16-08-39-879Z-c7ed9f74/RESULTS.md). Its JSON contains the per-news classifications and candidate lists.
+Run T09 unit and integration checks with `npm --prefix backend/T09 run test:all`. The 111-case live Qwen + JEV + DeepSeek benchmark, including per-news classifications, candidate lists, weight comparisons, and reported costs, is saved in [`backend/T09/benchmark/runs/2026-10-16T18-26-23-708Z-9e0495a9/RESULTS.md`](backend/T09/benchmark/runs/2026-10-16T18-26-23-708Z-9e0495a9/RESULTS.md).
 
 - 5 sample news articles and 5 DeepSeek V4 Flash requests.
 - 7,160 tokens total (2,809 input; 4,351 output); reported cost: ₽0.13925841.

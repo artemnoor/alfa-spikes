@@ -111,25 +111,55 @@ describe('T09 relation decisions', () => {
     assert.equal(requests[0].body.state.includes('Архивная новость 10'), true)
   })
 
-  it('sends all ten candidates to one DeepSeek review when JEV confidence is low', async () => {
+  it('bounds JEV article context and uses compact, explicit relation definitions', async () => {
+    const longCandidates = candidates.map((candidate) => ({ ...candidate, content: 'Текст архивной новости. '.repeat(400) }))
+    await moduleApi.classifyEventRelation({
+      article: { title: 'Длинная новость', content: 'Текст новой новости. '.repeat(500) },
+      candidates: longCandidates,
+    })
+
+    const state = JSON.parse(requests[0].body.state)
+    assert.ok(state.new_article.text.length <= 2200)
+    assert.ok(state.new_article.text.length > 2000)
+    assert.ok(state.candidate_articles.every((candidate) => candidate.text.length <= 700 && candidate.text.length > 600))
+    const criteria = requests[0].body.questions.relation_candidate_1.criteria
+    assert.match(criteria.SAME, /Different actions in one project are distinct/u)
+    assert.match(criteria.RELATED, /Financing and later opening/u)
+    assert.match(criteria.RELATED, /explicit link/u)
+    assert.match(criteria.DIFFERENT, /Shared participants/u)
+  })
+
+  it('sends five prioritized candidates to one DeepSeek review when JEV confidence is low', async () => {
     nextJev = jevPayload({ match: 'candidate_1', confidence: 0.52, margin: 0.72 })
-    nextDeepSeek = deepSeekPayload({ relation: 'RELATED', candidate_key: 'candidate_2', confidence: 0.88, reason: 'Прямое продолжение истории.' })
-    const result = await moduleApi.classifyEventRelation({ article: { title: 'Продолжение', content: 'Новый этап этой истории.' }, candidates })
+    const article = { title: 'Последствие банкротства', content: 'После банкротства поставщика ООО «Тест» остановило одну производственную линию.' }
+    const candidatesWithEvidence = candidates.map((candidate, index) => index === 1
+      ? { ...candidate, content: 'ООО «Тест» подало заявление о собственном банкротстве.' }
+      : candidate)
+    nextDeepSeek = deepSeekPayload({
+      relation: 'RELATED', candidate_key: 'candidate_2', confidence: 0.88, reason: 'Последствие подтверждено текстом.',
+      evidence: { new_article: 'После банкротства поставщика ООО «Тест» остановило одну производственную линию.', candidate_article: 'ООО «Тест» подало заявление о собственном банкротстве.' },
+    })
+    const result = await moduleApi.classifyEventRelation({ article, candidates: candidatesWithEvidence })
 
     assert.equal(result.decision.relation, 'RELATED')
     assert.equal(result.decision.resolution, 'CREATE_RELATED_EVENT')
     assert.equal(result.decision.candidateId, 'candidate-2')
     assert.equal(result.decision.decidedBy, 'DeepSeek V4 Flash')
     assert.equal(result.decision.fallback.status, 'resolved')
+    assert.equal(result.decision.evidence.new_article, article.content)
     assert.equal(result.usage.jev.calls, 1)
     assert.equal(result.usage.deepseek.calls, 1)
     assert.equal(result.usage.deepseek.inputTokens, 900)
     assert.equal(result.usage.deepseek.outputTokens, 55)
     assert.equal(requests.length, 2)
     assert.equal(requests[1].path, '/api/v1/chat/completions')
+    assert.deepEqual(requests[1].body.reasoning, { enabled: false })
+    assert.equal(requests[1].body.include_reasoning, false)
+    assert.equal(requests[1].body.max_tokens, 900)
     const sent = JSON.parse(requests[1].body.messages[1].content)
-    assert.equal(sent.candidates.length, 10)
-    assert.equal(sent.candidates[9].candidate_key, 'candidate_10')
+    assert.equal(sent.candidates.length, 5)
+    assert.equal(sent.candidates[0].candidate_key, 'candidate_1')
+    assert.equal(sent.candidates[4].candidate_key, 'candidate_5')
   })
 
   it('lets DeepSeek repair a conflict between JEV candidate comparison and best match', async () => {
@@ -151,6 +181,8 @@ describe('T09 relation decisions', () => {
 
     assert.equal(result.decision.relation, 'UNSURE')
     assert.equal(result.decision.resolution, 'MANUAL_REVIEW')
+    assert.equal(result.decision.candidateId, 'candidate-1')
+    assert.match(result.decision.reason, /ниже автоматического порога/u)
     assert.equal(result.decision.fallback.status, 'still_uncertain')
   })
 
@@ -160,7 +192,7 @@ describe('T09 relation decisions', () => {
     const result = await moduleApi.classifyEventRelation({ article: { title: 'Несовпадающий ID', content: 'Проверка.' }, candidates })
 
     assert.equal(result.decision.relation, 'UNSURE')
-    assert.equal(result.decision.candidateId, null)
+    assert.equal(result.decision.candidateId, 'candidate-1')
     assert.equal(result.decision.fallback.status, 'invalid_response')
   })
 
@@ -181,6 +213,7 @@ describe('T09 relation decisions', () => {
 
     assert.equal(result.decision.relation, 'UNSURE')
     assert.equal(result.decision.resolution, 'MANUAL_REVIEW')
+    assert.equal(result.decision.candidateId, 'candidate-1')
     assert.equal(result.decision.fallback.status, 'failed')
     assert.match(result.decision.fallback.error, /simulated provider outage/)
     assert.equal(result.usage.deepseek.calls, 1)
@@ -198,13 +231,73 @@ describe('T09 relation decisions', () => {
     assert.equal(requests.length, 1)
   })
 
-  it('accepts a confident RELATED match and chooses the correct candidate', async () => {
+  it('requires DeepSeek to verify RELATED with exact quotes from both articles', async () => {
     nextJev = jevPayload({ match: 'candidate_3', relations: { candidate_3: 'RELATED' } })
-    const result = await moduleApi.classifyEventRelation({ article: { title: 'Следующий этап', content: 'Прямое продолжение проекта.' }, candidates })
+    const article = { title: 'Следующий этап', content: 'В рамках проекта по договору № 42 начались отдельные работы.' }
+    const candidatesWithEvidence = candidates.map((candidate, index) => index === 2
+      ? { ...candidate, content: 'По договору № 42 компания сообщила о начале проекта.' }
+      : candidate)
+    nextDeepSeek = deepSeekPayload({
+      relation: 'RELATED', candidate_key: 'candidate_3', confidence: 0.91, reason: 'Следующий этап проекта.',
+      evidence: { new_article: 'В рамках проекта по договору № 42 начались отдельные работы.', candidate_article: 'По договору № 42 компания сообщила о начале проекта.' },
+    })
+    const result = await moduleApi.classifyEventRelation({ article, candidates: candidatesWithEvidence })
 
     assert.equal(result.decision.relation, 'RELATED')
     assert.equal(result.decision.candidateId, 'candidate-3')
     assert.equal(result.decision.resolution, 'CREATE_RELATED_EVENT')
+    assert.equal(result.usage.deepseek.calls, 1)
+    assert.equal(result.decision.fallback.called, true)
+  })
+
+  it('sends a SAME versus RELATED disagreement on the same candidate to manual review', async () => {
+    nextJev = jevPayload({ match: 'candidate_1', relations: { candidate_1: 'RELATED' } })
+    nextDeepSeek = deepSeekPayload({ relation: 'SAME', candidate_key: 'candidate_1', confidence: 0.92, reason: 'Одно событие.' })
+    const result = await moduleApi.classifyEventRelation({
+      article: { title: 'Следующий этап проекта', content: 'Состоялось отдельное действие по проекту.' },
+      candidates,
+    })
+
+    assert.equal(result.decision.relation, 'UNSURE')
+    assert.equal(result.decision.candidateId, 'candidate-1')
+    assert.equal(result.decision.resolution, 'MANUAL_REVIEW')
+    assert.equal(result.decision.fallback.status, 'relation_disagreement')
+    assert.match(result.decision.reason, /разошлись между RELATED и SAME/)
+  })
+
+  it('does not accept RELATED when either quoted fragment is absent from its article', async () => {
+    nextJev = jevPayload({ match: 'candidate_3', relations: { candidate_3: 'RELATED' } })
+    nextDeepSeek = deepSeekPayload({
+      relation: 'RELATED', candidate_key: 'candidate_3', confidence: 0.99, reason: 'Похоже на продолжение.',
+      evidence: { new_article: 'Фрагмент, которого в тексте нет.', candidate_article: 'Содержание архивной новости 3' },
+    })
+    const result = await moduleApi.classifyEventRelation({ article: { title: 'Не подтверждено', content: 'Другая новость без связи.' }, candidates })
+
+    assert.equal(result.decision.relation, 'UNSURE')
+    assert.equal(result.decision.resolution, 'MANUAL_REVIEW')
+    assert.equal(result.decision.fallback.status, 'invalid_response')
+    assert.match(result.decision.reason, /Цитата/)
+  })
+
+  it('rejects a same-company incident with a different date and cause when the article marks it as separate', async () => {
+    // Even when JEV says DIFFERENT with low confidence (which would normally
+    // trigger DeepSeek), explicit source text must block a false RELATED link.
+    nextJev = jevPayload({ match: 'candidate_5', confidence: 0.51, relations: { candidate_5: 'DIFFERENT' } })
+    const candidateText = '10 октября платёжный сервис «ФинПоток» не работал из-за сбоя электропитания в дата-центре.'
+    const candidatesWithIncident = candidates.map((candidate, index) => index === 4
+      ? { ...candidate, content: candidateText }
+      : candidate)
+    const result = await moduleApi.classifyEventRelation({
+      article: {
+        title: '«ФинПоток» предупредил о плановых работах 2 ноября',
+        content: 'Платформа «ФинПоток» сообщила, что 2 ноября сервис будет недоступен из-за планового обновления. Это отдельное событие, а не сбой электропитания 10 октября.',
+      },
+      candidates: candidatesWithIncident,
+    })
+
+    assert.equal(result.decision.relation, 'DIFFERENT')
+    assert.equal(result.decision.decidedBy, 'T09 contradiction check')
+    assert.equal(result.decision.candidateId, null)
     assert.equal(result.usage.deepseek.calls, 0)
   })
 

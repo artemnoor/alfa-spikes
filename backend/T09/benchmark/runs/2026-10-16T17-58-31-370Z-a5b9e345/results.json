@@ -1,0 +1,355 @@
+{
+  "runId": "2026-10-16T17-58-31-370Z-a5b9e345",
+  "generatedAt": "2026-10-16T17:58:52.986Z",
+  "baseUrl": "http://127.0.0.1:8092",
+  "health": {
+    "ok": true,
+    "configured": true,
+    "provider": "Polza AI",
+    "model": "qwen/qwen3-embedding-8b",
+    "pgvector": {
+      "ready": true,
+      "dimensions": 4096,
+      "news_count": 23,
+      "indexed_news_count": 23
+    },
+    "blockWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    }
+  },
+  "models": {
+    "embedding": "qwen/qwen3-embedding-8b",
+    "jev": "typesafe/jev",
+    "deepseek": "deepseek/deepseek-v4-flash"
+  },
+  "totals": {
+    "count": 1,
+    "relationCorrect": 1,
+    "relationAccuracy": 1,
+    "candidateRecall": 1,
+    "candidateCorrect": 1,
+    "candidateCount": 1,
+    "candidateAccuracy": 1,
+    "embeddingCalls": 1,
+    "embeddingInputTokens": 159,
+    "jevCalls": 1,
+    "jevInputTokens": 7430,
+    "jevOutputTokens": 637,
+    "deepseekCalls": 1,
+    "deepseekInputTokens": 1366,
+    "deepseekOutputTokens": 499,
+    "reportedProviderCostRub": 0.15573633
+  },
+  "weightEvaluation": {
+    "serverWeights": {
+      "topic": 0.25,
+      "event": 0.25,
+      "entities": 0.25,
+      "genre": 0.25
+    },
+    "profiles": {
+      "equal": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 1,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "genre_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 1,
+          "genre": 2
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_entities_2x": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "topic_event_2x": {
+        "weights": {
+          "topic": 2,
+          "event": 2,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "event_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 3,
+          "entities": 1,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "entities_3x": {
+        "weights": {
+          "topic": 1,
+          "event": 1,
+          "entities": 3,
+          "genre": 1
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      },
+      "no_genre": {
+        "weights": {
+          "topic": 1,
+          "event": 2,
+          "entities": 2,
+          "genre": 0
+        },
+        "evaluated": 1,
+        "candidateFound": 1,
+        "hitAt10": 1,
+        "reciprocalRankSum": 1,
+        "rankSum": 1,
+        "meanRank": 1,
+        "mrr": 1
+      }
+    },
+    "recommended": "equal"
+  },
+  "tokenComparison": {
+    "baselineRunId": "2026-10-16T16-08-39-879Z-c7ed9f74",
+    "overlap": 1,
+    "baselineAverage": 6788,
+    "currentAverage": 7430,
+    "changePercent": 9.5
+  },
+  "cases": [
+    {
+      "id": "related_supplier_disruption",
+      "scenario": "Direct operational consequence of supplier bankruptcy, a separate event",
+      "expectedRelation": "RELATED",
+      "expectedCandidateId": "demo-002",
+      "expectedCandidateInTop10": true,
+      "expectedCandidateRankByWeight": {
+        "equal": 1,
+        "event_2x": 1,
+        "entities_2x": 1,
+        "topic_2x": 1,
+        "genre_2x": 1,
+        "event_entities_2x": 1,
+        "topic_event_2x": 1,
+        "event_3x": 1,
+        "entities_3x": 1,
+        "no_genre": 1
+      },
+      "decision": {
+        "relation": "RELATED",
+        "resolution": "CREATE_RELATED_EVENT",
+        "candidateId": "demo-002",
+        "candidateTitle": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+        "confidence": 0.92,
+        "decidedBy": "DeepSeek V4 Flash",
+        "reason": "Прямая связь подтверждена короткими точными цитатами из обеих новостей.",
+        "evidence": {
+          "new_article": "Производитель продуктов «СеверПак» остановил одну линию розлива после того, как поставщик упаковки «ПолимерСнаб» прекратил отгрузки.",
+          "candidate_article": "ООО «ПолимерСнаб», поставляющее упаковку производителю продуктов «СеверПак», обратилось в арбитражный суд с заявлением о собственном банкротстве."
+        },
+        "fallback": {
+          "called": true,
+          "reasons": [
+            "RELATED требует проверки связи между конкретными событиями"
+          ],
+          "status": "resolved",
+          "error": null
+        }
+      },
+      "usage": {
+        "embedding": {
+          "calls": 1,
+          "inputTokens": 159,
+          "outputTokens": 0,
+          "costRub": null
+        },
+        "jev": {
+          "calls": 1,
+          "inputTokens": 7430,
+          "outputTokens": 637,
+          "costRub": 0.13023824
+        },
+        "deepseek": {
+          "calls": 1,
+          "inputTokens": 1366,
+          "outputTokens": 499,
+          "costRub": 0.02549809
+        }
+      },
+      "models": {
+        "embedding": "Qwen/Qwen3-Embedding-8B",
+        "jev": "typesafe/jev",
+        "deepseek": "deepseek/deepseek-v4-flash"
+      },
+      "topCandidates": [
+        {
+          "candidateId": "demo-002",
+          "title": "Поставщик упаковки «ПолимерСнаб» подал заявление о банкротстве",
+          "similarity": 0.6171950363771748,
+          "relation": "RELATED",
+          "confidence": 0.92
+        },
+        {
+          "candidateId": "demo-019",
+          "title": "Шторм задержал отправку контейнеров компании «ВостокТранс»",
+          "similarity": 0.47415872259068137,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-004",
+          "title": "«АгроСфера» может заморозить инвестиционный проект",
+          "similarity": 0.4244782162028752,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-005",
+          "title": "«ФинПоток» опроверг сообщения о взломе платёжного сервиса",
+          "similarity": 0.4028619197967881,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-006",
+          "title": "Сервис «Ладога Софт» запустил платформу для автоматизации закупок",
+          "similarity": 0.40035649066092205,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-008",
+          "title": "«УралТехЭкспорт» заключил контракт на поставку насосов",
+          "similarity": 0.3899438081254692,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-012",
+          "title": "Сотрудники «БалтикКарго» объявили предупредительную забастовку",
+          "similarity": 0.38450043625670755,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-013",
+          "title": "«РитейлСфера» покупает сеть складов «ГородЛогистик»",
+          "similarity": 0.381002472741229,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-001",
+          "title": "«ВекторМаш» получил кредит на строительство завода роботов",
+          "similarity": 0.378461283864451,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        },
+        {
+          "candidateId": "demo-003",
+          "title": "«ТрансЛайн» договорился о покупке 80% «ЭкспрессКарго»",
+          "similarity": 0.37441183847716536,
+          "relation": "DIFFERENT",
+          "confidence": 1
+        }
+      ],
+      "stageRunId": "a1fd529a-7e10-449c-83ae-05fd1eeae13a",
+      "newsId": "t09-bench-2026-10-16T17-58-31-370Z-a5b9e345-related_supplier_disruption"
+    }
+  ]
+}
