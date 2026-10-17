@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node --env-file-if-exists=.env src/server.mjs",
     "test": "npm run test:unit && npm run test:api",
-    "test:unit": "node --test test/contracts.test.mjs test/identity.test.mjs test/documents.test.mjs test/entities.test.mjs test/entity-resolution.test.mjs test/relationship-resolution.test.mjs test/relationships.test.mjs test/semantic-evidence.test.mjs test/retrieval.test.mjs test/negative-benchmark.test.mjs test/independent-holdout.test.mjs test/gaps-profile.test.mjs test/public-fetch.test.mjs test/benchmark.test.mjs",
+    "test:unit": "node --test test/contracts.test.mjs test/identity.test.mjs test/documents.test.mjs test/entities.test.mjs test/entity-resolution.test.mjs test/relationship-resolution.test.mjs test/relationships.test.mjs test/semantic-evidence.test.mjs test/retrieval.test.mjs test/negative-benchmark.test.mjs test/independent-holdout.test.mjs test/context-benchmark.test.mjs test/gaps-profile.test.mjs test/public-fetch.test.mjs test/benchmark.test.mjs",
     "test:api": "node --env-file-if-exists=.env --test test/api.integration.test.mjs",
     "benchmark": "node benchmark/run.mjs",
     "benchmark:live": "node --env-file-if-exists=.env benchmark/run-live.mjs",
@@ -18,6 +18,7 @@
     "benchmark:negative-live": "node --env-file-if-exists=.env benchmark/run-negative-live.mjs",
     "benchmark:holdout-live": "node --env-file-if-exists=.env benchmark/run-independent-holdout-live.mjs",
     "benchmark:holdout-retrieval-live": "node --env-file-if-exists=.env benchmark/run-independent-retrieval-live.mjs",
+    "benchmark:context-live": "node --env-file-if-exists=.env benchmark/run-context-live.mjs",
     "benchmark:evaluate-real": "node benchmark/evaluate-real-run.mjs",
     "benchmark:gaps": "node benchmark/run-gaps.mjs"
   },

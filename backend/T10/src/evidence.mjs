@@ -52,6 +52,16 @@ function validateClaimStatus(proposal, quote) {
   return null
 }
 
+function validatePartOfPredicate(proposal, quote) {
+  if (proposal.predicate !== 'PART_OF') return null
+  const text = normalizeRoleText(quote)
+  const partCue = /(?:part of|subsidiary of|division of|business unit of|belongs to|within|includes?|comprises?|consists? of|arm of|brand of|часть компании|частью компании|входит в состав|включа[а-яё]*|состоит из|дочерн[а-яё]*|подразделени[а-яё]*|филиал[а-яё]*)/iu
+  if (partCue.test(text)) return null
+  const mergerCue = /(?:merged? with|merger|amalgamat|слияни[а-яё]*|объединил[а-яё]*с)/iu
+  if (mergerCue.test(text)) return 'PART_OF не подтверждается: цитата описывает объединение компаний, но не отношение части и целого'
+  return 'PART_OF не подтверждается явным указанием на включение, подразделение или отношение части и целого'
+}
+
 function flattenAttributes(value, prefix = '') {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return [[prefix, value]]
   return Object.entries(value).flatMap(([key, child])=>flattenAttributes(child,prefix ? `${prefix}.${key}` : key))
@@ -136,21 +146,25 @@ export function verifyBusinessProposal(proposal, { sourceText, sourceId, sourceS
     const reference = proposal.sourceResolution?.evidenceTerm ?? subject.resolution?.evidenceTerm
     const method = proposal.sourceResolution?.method ?? subject.resolution?.method
     const aliasQuoted = method === 'exact_alias_quote' && reference && normalizeText(quote).includes(normalizeText(reference))
+    const inflectedMentionQuoted = ['exact_surface_variant','exact_alias_variant'].includes(method) && reference && normalizeText(quote).includes(normalizeText(reference))
     const uniqueLocalReference = method === 'unique_preceding_mention' && reference && normalizeText(quote).includes(normalizeText(reference))
-    if (!aliasQuoted && !uniqueLocalReference) errors.push('Цитата не содержит субъект и не имеет однозначной локальной ссылки')
+    if (!aliasQuoted && !inflectedMentionQuoted && !uniqueLocalReference) errors.push('Цитата не содержит субъект и не имеет однозначной локальной ссылки')
   }
   if (object && !objectQuoted) {
     const reference = proposal.targetResolution?.evidenceTerm ?? object.resolution?.evidenceTerm
     const method = proposal.targetResolution?.method ?? object.resolution?.method
     const aliasQuoted = method === 'exact_alias_quote' && reference && normalizeText(quote).includes(normalizeText(reference))
+    const inflectedMentionQuoted = ['exact_surface_variant','exact_alias_variant'].includes(method) && reference && normalizeText(quote).includes(normalizeText(reference))
     const uniqueLocalReference = method === 'unique_preceding_mention' && reference && normalizeText(quote).includes(normalizeText(reference))
-    if (!aliasQuoted && !uniqueLocalReference) errors.push('Цитата не содержит объект и не имеет однозначной локальной ссылки')
+    if (!aliasQuoted && !inflectedMentionQuoted && !uniqueLocalReference) errors.push('Цитата не содержит объект и не имеет однозначной локальной ссылки')
   }
   if (proposal.status && !['CURRENT','PLANNED','CONDITIONAL','ENDED','UNKNOWN'].includes(proposal.status)) errors.push('Недопустимый статус отношения')
   const directionProblem = validateRelationDirection(proposal, quote, subject, object)
   if (directionProblem) errors.push(directionProblem)
   const statusProblem = validateClaimStatus(proposal, quote)
   if (statusProblem) errors.push(statusProblem)
+  const predicateProblem = validatePartOfPredicate(proposal, quote)
+  if (predicateProblem) errors.push(predicateProblem)
   const date = proposal.attributes?.validFrom ?? proposal.attributes?.validTo
   if (date != null && Number.isNaN(Date.parse(date))) errors.push('Дата отношения не распознана backend')
   errors.push(...validateAttributesAgainstQuote(proposal.attributes ?? {}, quote))

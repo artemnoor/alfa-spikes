@@ -1,0 +1,4509 @@
+{
+  "runId": "2026-10-17-independent-holdout-live-v3",
+  "benchmarkId": "T10-independent-holdout-2026-10",
+  "testedAt": "2026-10-17T03:58:05.896Z",
+  "datasetType": "frozen source-disjoint holdout; 30 manually labeled passages from official primary-source filings and annual reports; labels were not used to tune prompts or retrieval",
+  "scoring": "strict normalized exact label match; no substring or partial-name match",
+  "models": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "matcher": "typesafe/jev",
+    "embeddings": "qwen/qwen3-embedding-8b"
+  },
+  "maxCostRub": 1.5,
+  "aggregate": {
+    "cases": 30,
+    "calls": 212,
+    "failedCalls": 0,
+    "inputTokens": 122890,
+    "outputTokens": 17315,
+    "reportedCostRub": 0.5243570000000002,
+    "meanModelCallLatencyMs": 2566.5990566037735,
+    "p95ModelCallLatencyMs": 6028,
+    "modelLatencySamples": 212,
+    "entity": {
+      "tp": 62,
+      "fp": 23,
+      "fn": 17,
+      "precision": 0.7294117647058823,
+      "recall": 0.7848101265822784,
+      "f1": 0.7560975609756098
+    },
+    "relationship": {
+      "tp": 8,
+      "fp": 10,
+      "fn": 18,
+      "precision": 0.4444444444444444,
+      "recall": 0.3076923076923077,
+      "f1": 0.3636363636363637,
+      "directionAccuracy": 1,
+      "directionChecked": 8,
+      "statusAccuracy": 0.875,
+      "statusChecked": 8
+    }
+  },
+  "cases": [
+    {
+      "scenarioId": "H01",
+      "industry": "fertilizer manufacturing",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "PhosAgro Integrated Report 2024 — Operational performance",
+        "url": "https://ar2024.phosagro.com/perfomance-review/operational-results",
+        "publicationDate": "2025",
+        "excerpt": "PhosAgro Group: In 2024, PhosAgro Group set a new record in annual agrochemical production, with output rising to 11.8 mt."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "PhosAgro Group"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "agrochemical"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "PhosAgro Group",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "agrochemicals",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "PhosAgro Group",
+          "target": "agrochemical",
+          "status": "CURRENT",
+          "quote": "PhosAgro Group set a new record in annual agrochemical production"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "PhosAgro Group",
+          "target": "agrochemicals",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "PhosAgro Group",
+          "target": "agrochemical",
+          "status": "CURRENT",
+          "quote": "PhosAgro Group set a new record in annual agrochemical production"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4494,
+        "outputTokens": 513,
+        "costRub": 0.022479,
+        "latencyMs": 16368
+      }
+    },
+    {
+      "scenarioId": "H02",
+      "industry": "aluminium manufacturing",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "RUSAL 2024 Interim Results",
+        "url": "https://rusal.ru/sustainability/social-investment/index-gorodov/29.08.2024_RUSAL%20announces%20its%202024%20Interim%20results.pdf",
+        "publicationDate": "2024-08-29",
+        "excerpt": "RUSAL: Aluminum production grew by 2.3% to 1,957 thousand tons as the Taishet Smelter gradually increased output."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "RUSAL"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "Aluminum"
+        },
+        {
+          "type": "FACILITY",
+          "name": "Taishet Smelter"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "RUSAL",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "Aluminum",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "Taishet Smelter",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "RUSAL",
+          "target": "Aluminum",
+          "status": "CURRENT",
+          "quote": "RUSAL: Aluminum production grew by 2.3% to 1,957 thousand tons"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "RUSAL",
+          "target": "Aluminum",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4574,
+        "outputTokens": 693,
+        "costRub": 0.023124,
+        "latencyMs": 22876
+      }
+    },
+    {
+      "scenarioId": "H03",
+      "industry": "uranium mining",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Rosatom Mining Division 2024 Results",
+        "url": "https://report.rosatom.ru/en/armz",
+        "publicationDate": "2025",
+        "excerpt": "Rosatom Mining Division: The Mining Division produced 2,700 tonnes of natural uranium, 2% above target."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Rosatom Mining Division"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "natural uranium"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Mining Division",
+          "found": false
+        },
+        {
+          "type": "PRODUCT",
+          "name": "natural uranium",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Mining Division",
+          "target": "natural uranium",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3277,
+        "outputTokens": 310,
+        "costRub": 0.008119,
+        "latencyMs": 10026
+      }
+    },
+    {
+      "scenarioId": "H04",
+      "industry": "specialty chemicals",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Chemours 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1627223/000095017025021787/cc-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Chemours: At December 31, 2024, the Company operated 28 major production facilities globally."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Chemours"
+        },
+        {
+          "type": "FACILITY",
+          "name": "28 major production facilities"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Chemours",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "production facilities",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Chemours",
+          "target": "28 major production facilities",
+          "status": "CURRENT",
+          "quote": "the Company operated 28 major production facilities"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Chemours",
+          "target": "production facilities",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Chemours",
+          "target": "28 major production facilities",
+          "status": "CURRENT",
+          "quote": "the Company operated 28 major production facilities"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4368,
+        "outputTokens": 477,
+        "costRub": 0.018794,
+        "latencyMs": 22763
+      }
+    },
+    {
+      "scenarioId": "H05",
+      "industry": "packaging manufacturing",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Sealed Air 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1012100/000162828025008091/see-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Sealed Air: We manufacture products in 102 facilities, with 15 facilities serving both reportable segments."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Sealed Air"
+        },
+        {
+          "type": "FACILITY",
+          "name": "102 facilities"
+        },
+        {
+          "type": "FACILITY",
+          "name": "15 facilities"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Sealed Air",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "facilities",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Sealed Air",
+          "target": "facilities",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3495,
+        "outputTokens": 595,
+        "costRub": 0.012249,
+        "latencyMs": 26791
+      }
+    },
+    {
+      "scenarioId": "H06",
+      "industry": "paper and packaging",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Packaging Corporation of America 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/75677/000095017025028533/pkg-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Packaging Corporation of America: Our Packaging segment produced 294 billion square feet of containerboard at our mills in 2024."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Packaging Corporation of America"
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Packaging segment"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "containerboard"
+        },
+        {
+          "type": "FACILITY",
+          "name": "mills"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Packaging segment",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "containerboard",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Packaging segment",
+          "target": "containerboard",
+          "status": "CURRENT",
+          "quote": "Our Packaging segment produced 294 billion square feet of containerboard at our mills in 2024."
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Packaging segment",
+          "target": "containerboard",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4639,
+        "outputTokens": 833,
+        "costRub": 0.023883,
+        "latencyMs": 22093
+      }
+    },
+    {
+      "scenarioId": "H07",
+      "industry": "fertilizer and energy",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "CF Industries 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1324404/000132440425000006/cf-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "CF Industries: We operate six U.S. manufacturing facilities, including the Donaldsonville ammonia production complex."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "CF Industries"
+        },
+        {
+          "type": "FACILITY",
+          "name": "Donaldsonville ammonia production complex"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "CF Industries",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "manufacturing facilities",
+          "found": false
+        },
+        {
+          "type": "FACILITY",
+          "name": "Donaldsonville ammonia production complex",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "CF Industries",
+          "target": "Donaldsonville ammonia production complex",
+          "status": "CURRENT",
+          "quote": "We operate six U.S. manufacturing facilities, including the Donaldsonville ammonia production complex."
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "CF Industries",
+          "target": "manufacturing facilities",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "CF Industries",
+          "target": "Donaldsonville ammonia production complex",
+          "status": "CURRENT",
+          "quote": "We operate six U.S. manufacturing facilities, including the Donaldsonville ammonia production complex."
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4422,
+        "outputTokens": 463,
+        "costRub": 0.021814,
+        "latencyMs": 15688
+      }
+    },
+    {
+      "scenarioId": "H08",
+      "industry": "department-store retail and logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Kohl’s 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/885639/000095017025042662/kss-20250201.htm",
+        "publicationDate": "2025",
+        "excerpt": "Kohl’s: We receive substantially all merchandise at our nine retail distribution centers and five operational e-fulfillment centers."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Kohl’s"
+        },
+        {
+          "type": "FACILITY",
+          "name": "retail distribution centers"
+        },
+        {
+          "type": "FACILITY",
+          "name": "operational e-fulfillment centers"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Kohl’s",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "retail distribution centers",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "e-fulfillment centers",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3420,
+        "outputTokens": 513,
+        "costRub": 0.010327,
+        "latencyMs": 16802
+      }
+    },
+    {
+      "scenarioId": "H09",
+      "industry": "automotive retail and logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "O’Reilly Automotive 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/898173/000089817325000008/orly-20241231x10k.htm",
+        "publicationDate": "2025",
+        "excerpt": "O’Reilly Automotive: We operated 6,378 stores at December 31, 2024."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "O’Reilly Automotive"
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "O’Reilly Automotive",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "O’Reilly Automotive",
+          "target": "stores",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3194,
+        "outputTokens": 329,
+        "costRub": 0.009365,
+        "latencyMs": 10722
+      }
+    },
+    {
+      "scenarioId": "H10",
+      "industry": "parcel logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "UPS 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/ups-20241231.htm",
+        "publicationDate": "2025-02-18",
+        "excerpt": "United Parcel Service: In 2024, we delivered an average of 22.4 million packages per day, totaling 5.7 billion packages."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "United Parcel Service"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "United Parcel Service",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "package delivery",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "United Parcel Service",
+          "target": "package delivery",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3573,
+        "outputTokens": 239,
+        "costRub": 0.008609,
+        "latencyMs": 10366
+      }
+    },
+    {
+      "scenarioId": "H11",
+      "industry": "parcel logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "FedEx 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1048911/000095017024083577/fdx-20240531.htm",
+        "publicationDate": "2024",
+        "excerpt": "FedEx: FedEx Express is the world’s largest express transportation company; FedEx Ground provides small-package ground delivery services."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "partial",
+          "errors": [
+            {
+              "proposal": {
+                "sourceName": "FedEx Express",
+                "sourceType": "BUSINESS_UNIT",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "FedEx Express",
+                    "type": "BUSINESS_UNIT",
+                    "startOffset": 7,
+                    "entityId": "6ea0ddf0-fcdc-48d9-acae-a180fa64c01a"
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "FedEx Express"
+                },
+                "predicate": "PART_OF",
+                "targetName": "FedEx",
+                "targetType": "COMPANY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "FedEx",
+                    "type": "COMPANY",
+                    "startOffset": 0,
+                    "entityId": "00fff079-3d6f-4e12-ba05-f606bedd8e9e",
+                    "aliases": []
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "FedEx"
+                },
+                "quote": "FedEx: FedEx Express is the world’s largest express transportation company",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "28118283-7b23-46b9-9416-23fba05e9f21",
+                "chunkId": "1a7bf945-b987-477c-af14-a5f17b1483aa",
+                "startOffset": 0,
+                "subject": {
+                  "type": "BUSINESS_UNIT",
+                  "name": "FedEx Express",
+                  "resolution": {
+                    "entity": {
+                      "name": "FedEx Express",
+                      "type": "BUSINESS_UNIT",
+                      "startOffset": 7,
+                      "entityId": "6ea0ddf0-fcdc-48d9-acae-a180fa64c01a"
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "FedEx Express"
+                  }
+                },
+                "object": {
+                  "type": "COMPANY",
+                  "name": "FedEx",
+                  "resolution": {
+                    "entity": {
+                      "name": "FedEx",
+                      "type": "COMPANY",
+                      "startOffset": 0,
+                      "entityId": "00fff079-3d6f-4e12-ba05-f606bedd8e9e",
+                      "aliases": []
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "FedEx"
+                  }
+                }
+              },
+              "sourceId": "28118283-7b23-46b9-9416-23fba05e9f21",
+              "code": "semantic_not_supported",
+              "reason": "原文只提到FedEx Express是FedEx的一部分，但未明确说它是FedEx的业务单元，PART_OF关系不直接支持。",
+              "reviewId": "R2"
+            },
+            {
+              "proposal": {
+                "sourceName": "FedEx Ground",
+                "sourceType": "BUSINESS_UNIT",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "FedEx Ground",
+                    "type": "BUSINESS_UNIT",
+                    "startOffset": 76,
+                    "entityId": "e043921c-adcb-4c7d-a537-8f41a27efe60"
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "FedEx Ground"
+                },
+                "predicate": "PART_OF",
+                "targetName": "FedEx",
+                "targetType": "COMPANY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "FedEx",
+                    "type": "COMPANY",
+                    "startOffset": 0,
+                    "entityId": "00fff079-3d6f-4e12-ba05-f606bedd8e9e",
+                    "aliases": []
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "FedEx"
+                },
+                "quote": "FedEx Ground provides small-package ground delivery services",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "28118283-7b23-46b9-9416-23fba05e9f21",
+                "chunkId": "1a7bf945-b987-477c-af14-a5f17b1483aa",
+                "startOffset": 76,
+                "subject": {
+                  "type": "BUSINESS_UNIT",
+                  "name": "FedEx Ground",
+                  "resolution": {
+                    "entity": {
+                      "name": "FedEx Ground",
+                      "type": "BUSINESS_UNIT",
+                      "startOffset": 76,
+                      "entityId": "e043921c-adcb-4c7d-a537-8f41a27efe60"
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "FedEx Ground"
+                  }
+                },
+                "object": {
+                  "type": "COMPANY",
+                  "name": "FedEx",
+                  "resolution": {
+                    "entity": {
+                      "name": "FedEx",
+                      "type": "COMPANY",
+                      "startOffset": 0,
+                      "entityId": "00fff079-3d6f-4e12-ba05-f606bedd8e9e",
+                      "aliases": []
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "FedEx"
+                  }
+                }
+              },
+              "sourceId": "28118283-7b23-46b9-9416-23fba05e9f21",
+              "code": "semantic_not_supported",
+              "reason": "原文只提到FedEx Ground提供小包裹地面递送服务，但未明确说它是FedEx的一部分，PART_OF关系不直接支持。",
+              "reviewId": "R3"
+            }
+          ]
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "FedEx"
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "FedEx Express"
+        },
+        {
+          "type": "SERVICE",
+          "name": "express transportation"
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "FedEx Ground"
+        },
+        {
+          "type": "SERVICE",
+          "name": "small-package ground delivery services"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "FedEx Express",
+          "found": true
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "FedEx Ground",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "small-package ground delivery services",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "FedEx Express",
+          "target": "express transportation",
+          "status": "CURRENT",
+          "quote": "FedEx Express is the world’s largest express transportation company"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "FedEx Ground",
+          "target": "small-package ground delivery services",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "FedEx Express",
+          "target": "express transportation",
+          "status": "CURRENT",
+          "quote": "FedEx Express is the world’s largest express transportation company"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "failedCalls": 0,
+        "inputTokens": 5164,
+        "outputTokens": 1075,
+        "costRub": 0.022957,
+        "latencyMs": 23402
+      }
+    },
+    {
+      "scenarioId": "H12",
+      "industry": "general merchandise retail",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Target Corporation 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000018/tgt-20250201.htm",
+        "publicationDate": "2025",
+        "excerpt": "Target Corporation: We expect to open about 20 new stores during 2025."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Target Corporation"
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Target Corporation",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Target Corporation",
+          "target": "stores",
+          "status": "PLANNED",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3217,
+        "outputTokens": 305,
+        "costRub": 0.007985,
+        "latencyMs": 10537
+      }
+    },
+    {
+      "scenarioId": "H13",
+      "industry": "retail and distribution",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Walmart 2025 Form 10-K (FY2024 operating data)",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+        "publicationDate": "2025",
+        "excerpt": "Walmart: Total distribution facilities numbered 379 as of January 31, 2025."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Walmart"
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution facilities"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Walmart",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution facilities",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Walmart",
+          "target": "distribution facilities",
+          "status": "CURRENT",
+          "quote": "Walmart: Total distribution facilities numbered 379 as of January 31, 2025."
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Walmart",
+          "target": "distribution facilities",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4349,
+        "outputTokens": 537,
+        "costRub": 0.031363,
+        "latencyMs": 15371
+      }
+    },
+    {
+      "scenarioId": "H14",
+      "industry": "discount retail and logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Dollar Tree 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/935703/000093570325000015/dltr-20250201.htm",
+        "publicationDate": "2025",
+        "excerpt": "Dollar Tree: As of February 1, 2025, we operated 15 distribution centers in the United States."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Dollar Tree"
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centers"
+        },
+        {
+          "type": "LOCATION",
+          "name": "United States"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Dollar Tree",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centers",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "United States",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "LOCATED_IN",
+          "source": "distribution centers",
+          "target": "United States",
+          "status": "CURRENT",
+          "quote": "distribution centers in the United States"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Dollar Tree",
+          "target": "distribution centers",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "LOCATED_IN",
+          "source": "distribution centers",
+          "target": "United States",
+          "status": "CURRENT",
+          "quote": "distribution centers in the United States"
+        }
+      ],
+      "usage": {
+        "calls": 7,
+        "failedCalls": 0,
+        "inputTokens": 3983,
+        "outputTokens": 505,
+        "costRub": 0.013325,
+        "latencyMs": 16800
+      }
+    },
+    {
+      "scenarioId": "H15",
+      "industry": "semiconductors and AI computing",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "NVIDIA FY2024 Annual Report",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000106/a2024annualreport.pdf",
+        "publicationDate": "2024",
+        "excerpt": "NVIDIA: Data Center revenue more than tripled in fiscal 2024 on higher shipments of the NVIDIA Hopper GPU computing platform."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "partial",
+          "errors": [
+            {
+              "proposal": {
+                "sourceName": "Data Center",
+                "sourceType": "BUSINESS_UNIT",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "Data Center",
+                    "type": "BUSINESS_UNIT",
+                    "startOffset": 8,
+                    "entityId": "7d13ff0d-4d7a-459e-be6c-ca97fdb4114a"
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "Data Center"
+                },
+                "predicate": "PART_OF",
+                "targetName": "NVIDIA",
+                "targetType": "COMPANY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "NVIDIA",
+                    "type": "COMPANY",
+                    "startOffset": 0,
+                    "entityId": "78e0c764-7dd6-47ab-afde-7371b8b74f3e",
+                    "aliases": []
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "NVIDIA"
+                },
+                "quote": "NVIDIA: Data Center revenue more than tripled",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "32edcb92-c931-4d00-a0cd-d0b2dac2e9b7",
+                "chunkId": "a28abd49-e45f-4606-bbe8-a8654933db45",
+                "startOffset": 0,
+                "subject": {
+                  "type": "BUSINESS_UNIT",
+                  "name": "Data Center",
+                  "resolution": {
+                    "entity": {
+                      "name": "Data Center",
+                      "type": "BUSINESS_UNIT",
+                      "startOffset": 8,
+                      "entityId": "7d13ff0d-4d7a-459e-be6c-ca97fdb4114a"
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "Data Center"
+                  }
+                },
+                "object": {
+                  "type": "COMPANY",
+                  "name": "NVIDIA",
+                  "resolution": {
+                    "entity": {
+                      "name": "NVIDIA",
+                      "type": "COMPANY",
+                      "startOffset": 0,
+                      "entityId": "78e0c764-7dd6-47ab-afde-7371b8b74f3e",
+                      "aliases": []
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "NVIDIA"
+                  }
+                },
+                "semanticVerification": {
+                  "status": "SUPPORTED",
+                  "reason": "原文‘Data Center revenue more than tripled’表明Data Center是NVIDIA的一部分，状态为当前。",
+                  "model": "deepseek/deepseek-v4-flash"
+                }
+              },
+              "sourceId": "32edcb92-c931-4d00-a0cd-d0b2dac2e9b7",
+              "reason": "PART_OF не подтверждается явным указанием на включение, подразделение или отношение части и целого"
+            }
+          ]
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "NVIDIA"
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Data Center"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "NVIDIA Hopper GPU computing platform"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "NVIDIA",
+          "found": true
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Data Center",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "NVIDIA Hopper GPU computing platform",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "NVIDIA",
+          "target": "NVIDIA Hopper GPU computing platform",
+          "status": "CURRENT",
+          "quote": "higher shipments of the NVIDIA Hopper GPU computing platform"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "NVIDIA",
+          "target": "NVIDIA Hopper GPU computing platform",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4694,
+        "outputTokens": 760,
+        "costRub": 0.021558,
+        "latencyMs": 17058
+      }
+    },
+    {
+      "scenarioId": "H16",
+      "industry": "cloud computing and software",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Microsoft FY2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+        "publicationDate": "2024",
+        "excerpt": "Microsoft: Azure offers developer productivity, data and AI capabilities, trusted security and compliance."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Microsoft"
+        },
+        {
+          "type": "SERVICE",
+          "name": "Azure"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Microsoft",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "Azure",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Microsoft",
+          "target": "Azure",
+          "status": "CURRENT",
+          "quote": "Microsoft: Azure offers developer productivity, data and AI capabilities, trusted security and compliance"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Microsoft",
+          "target": "Azure",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 2688,
+        "outputTokens": 284,
+        "costRub": 0.012984,
+        "latencyMs": 8778
+      }
+    },
+    {
+      "scenarioId": "H17",
+      "industry": "enterprise software and IT services",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "IBM 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114325000015/ibm-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "IBM: Our hybrid cloud and AI platforms allow clients to realize their digital and AI transformations."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "IBM"
+        },
+        {
+          "type": "TECHNOLOGY",
+          "name": "hybrid cloud"
+        },
+        {
+          "type": "TECHNOLOGY",
+          "name": "AI platforms"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "IBM",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "hybrid cloud and AI platforms",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "IBM",
+          "target": "hybrid cloud and AI platforms",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3332,
+        "outputTokens": 508,
+        "costRub": 0.011545,
+        "latencyMs": 13425
+      }
+    },
+    {
+      "scenarioId": "H18",
+      "industry": "telecommunications",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "T-Mobile US 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1283699/000128369925000012/tmus-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "T-Mobile US: As of December 31, 2024, we provided wireless communications services to 129.5 million postpaid and prepaid customers."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "T-Mobile US"
+        },
+        {
+          "type": "SERVICE",
+          "name": "wireless communications services"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "T-Mobile US",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "wireless communications services",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "T-Mobile US",
+          "target": "wireless communications services",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3264,
+        "outputTokens": 347,
+        "costRub": 0.006666,
+        "latencyMs": 10005
+      }
+    },
+    {
+      "scenarioId": "H19",
+      "industry": "telecommunications",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "AT&T 2024 Annual Report",
+        "url": "https://www.sec.gov/Archives/edgar/data/732717/000073271725000013/t-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "AT&T: As of December 31, 2024, we served 141 million wireless subscribers in North America."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "AT&T"
+        },
+        {
+          "type": "SERVICE",
+          "name": "wireless subscribers"
+        },
+        {
+          "type": "LOCATION",
+          "name": "North America"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "AT&T",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "wireless service",
+          "found": false
+        },
+        {
+          "type": "LOCATION",
+          "name": "North America",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "AT&T",
+          "target": "wireless service",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3273,
+        "outputTokens": 398,
+        "costRub": 0.006683,
+        "latencyMs": 10228
+      }
+    },
+    {
+      "scenarioId": "H20",
+      "industry": "pharmaceuticals",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Pfizer 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/pfe-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Pfizer: Our manufacturing facility in Rocky Mount, North Carolina, is a key producer of sterile injectables."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Pfizer"
+        },
+        {
+          "type": "FACILITY",
+          "name": "manufacturing facility in Rocky Mount, North Carolina"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "sterile injectables"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Pfizer",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "manufacturing facility in Rocky Mount",
+          "found": false
+        },
+        {
+          "type": "PRODUCT",
+          "name": "sterile injectables",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "North Carolina",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Pfizer",
+          "target": "sterile injectables",
+          "status": "CURRENT",
+          "quote": "Pfizer: Our manufacturing facility in Rocky Mount, North Carolina, is a key producer of sterile injectables."
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "source": "manufacturing facility in Rocky Mount, North Carolina",
+          "target": "Rocky Mount, North Carolina",
+          "status": "CURRENT",
+          "quote": "manufacturing facility in Rocky Mount, North Carolina"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "LOCATED_IN",
+          "source": "manufacturing facility in Rocky Mount",
+          "target": "North Carolina",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Pfizer",
+          "target": "sterile injectables",
+          "status": "CURRENT",
+          "quote": "Pfizer: Our manufacturing facility in Rocky Mount, North Carolina, is a key producer of sterile injectables."
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "source": "manufacturing facility in Rocky Mount, North Carolina",
+          "target": "Rocky Mount, North Carolina",
+          "status": "CURRENT",
+          "quote": "manufacturing facility in Rocky Mount, North Carolina"
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4565,
+        "outputTokens": 887,
+        "costRub": 0.029336,
+        "latencyMs": 32048
+      }
+    },
+    {
+      "scenarioId": "H21",
+      "industry": "pharmaceuticals",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Merck & Co. 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/mrk-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Merck & Co.: Pharmaceutical segment profits grew 15% in 2024, primarily due to higher sales."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Merck & Co."
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Pharmaceutical segment"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Merck & Co.",
+          "found": true
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Pharmaceutical segment",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 5,
+        "failedCalls": 0,
+        "inputTokens": 3234,
+        "outputTokens": 283,
+        "costRub": 0.006845,
+        "latencyMs": 8697
+      }
+    },
+    {
+      "scenarioId": "H22",
+      "industry": "pharmaceuticals",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Eli Lilly 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/59478/000005947825000067/lly-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "Eli Lilly and Company: Revenue of Mounjaro increased 85 percent in the U.S. in 2024, driven by strong demand and increased supply."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Eli Lilly and Company"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "Mounjaro"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Eli Lilly and Company",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "Mounjaro",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Eli Lilly and Company",
+          "target": "Mounjaro",
+          "status": "CURRENT",
+          "quote": "Eli Lilly and Company: Revenue of Mounjaro increased 85 percent in the U.S. in 2024, driven by strong demand and increased supply."
+        }
+      ],
+      "expectedRelationships": [],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Eli Lilly and Company",
+          "target": "Mounjaro",
+          "status": "CURRENT",
+          "quote": "Eli Lilly and Company: Revenue of Mounjaro increased 85 percent in the U.S. in 2024, driven by strong demand and increased supply."
+        }
+      ],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4567,
+        "outputTokens": 517,
+        "costRub": 0.019704,
+        "latencyMs": 31816
+      }
+    },
+    {
+      "scenarioId": "H23",
+      "industry": "electric infrastructure construction",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Quanta Services 2024 Results",
+        "url": "https://www.sec.gov/Archives/edgar/data/1050915/000119312525030081/d893759dex991.htm",
+        "publicationDate": "2025-02-20",
+        "excerpt": "Quanta Services was selected by Lumen Technologies to provide construction services for long-haul fiber networks."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Quanta Services"
+        },
+        {
+          "type": "COMPANY",
+          "name": "Lumen Technologies"
+        },
+        {
+          "type": "SERVICE",
+          "name": "construction services"
+        },
+        {
+          "type": "COMPONENT",
+          "name": "long-haul fiber networks"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Quanta Services",
+          "found": true
+        },
+        {
+          "type": "COMPANY",
+          "name": "Lumen Technologies",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "construction services",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "fiber networks",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Quanta Services",
+          "target": "construction services",
+          "status": "CURRENT",
+          "quote": "Quanta Services was selected by Lumen Technologies to provide construction services"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Quanta Services",
+          "target": "construction services",
+          "status": "PLANNED",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 10,
+        "failedCalls": 0,
+        "inputTokens": 5424,
+        "outputTokens": 873,
+        "costRub": 0.031635,
+        "latencyMs": 28276
+      }
+    },
+    {
+      "scenarioId": "H24",
+      "industry": "oil and gas",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "ExxonMobil 2024 Results",
+        "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000006/f8k4q24991.htm",
+        "publicationDate": "2025-01-31",
+        "excerpt": "ExxonMobil: Achieved record production in Permian and Guyana, and record sales volumes of high-value products."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ExxonMobil"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Permian"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Guyana"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "high-value products"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "ExxonMobil",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "Permian",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "Guyana",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "high-value products",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 7,
+        "failedCalls": 0,
+        "inputTokens": 4359,
+        "outputTokens": 671,
+        "costRub": 0.02103,
+        "latencyMs": 20476
+      }
+    },
+    {
+      "scenarioId": "H25",
+      "industry": "electric utilities",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Duke Energy 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/17797/000132616025000072/duk-20241231.htm",
+        "publicationDate": "2025-02-27",
+        "excerpt": "Duke Energy: Reliable and safe operation of our power generating facilities and electric distribution system in our communities."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Duke Energy"
+        },
+        {
+          "type": "FACILITY",
+          "name": "power generating facilities"
+        },
+        {
+          "type": "FACILITY",
+          "name": "electric distribution system"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Duke Energy",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "power generating facilities",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "electric distribution system",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Duke Energy",
+          "target": "power generating facilities",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3420,
+        "outputTokens": 487,
+        "costRub": 0.007742,
+        "latencyMs": 18667
+      }
+    },
+    {
+      "scenarioId": "H26",
+      "industry": "warehouse retail",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Costco 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983224000049/cost-20240901.htm",
+        "publicationDate": "2024-10-08",
+        "excerpt": "Costco Wholesale Corporation operated 890 membership warehouses at September 1, 2024."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "1 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Costco Wholesale Corporation"
+        },
+        {
+          "type": "FACILITY",
+          "name": "membership warehouses"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Costco Wholesale Corporation",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "membership warehouses",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Costco Wholesale Corporation",
+          "target": "membership warehouses",
+          "status": "CURRENT",
+          "quote": "Costco Wholesale Corporation operated 890 membership warehouses"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Costco Wholesale Corporation",
+          "target": "membership warehouses",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4410,
+        "outputTokens": 480,
+        "costRub": 0.016201,
+        "latencyMs": 22160
+      }
+    },
+    {
+      "scenarioId": "H27",
+      "industry": "home improvement retail and logistics",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "The Home Depot Fiscal 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/354950/000035495025000085/hd-20250202.htm",
+        "publicationDate": "2025",
+        "excerpt": "The Home Depot: We utilize our network of distribution centers to serve our stores and customers."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "The Home Depot"
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centers"
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "The Home Depot",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centers",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "The Home Depot",
+          "target": "distribution centers",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 6,
+        "failedCalls": 0,
+        "inputTokens": 3387,
+        "outputTokens": 466,
+        "costRub": 0.007006,
+        "latencyMs": 13410
+      }
+    },
+    {
+      "scenarioId": "H28",
+      "industry": "steel manufacturing",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "U.S. Steel 2024 Form 10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1163302/000116330225000018/x-20241231.htm",
+        "publicationDate": "2025",
+        "excerpt": "U.S. Steel: The Mini Mill segment produces hot-rolled, cold-rolled and coated sheets and electrical steels."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "partial",
+          "errors": [
+            {
+              "proposal": {
+                "sourceName": "Mini Mill segment",
+                "sourceType": "BUSINESS_UNIT",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "Mini Mill segment",
+                    "type": "BUSINESS_UNIT",
+                    "startOffset": 16,
+                    "entityId": "bd1c73de-523f-4052-b191-a3492b9ede3c"
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "Mini Mill segment"
+                },
+                "predicate": "PART_OF",
+                "targetName": "U.S. Steel",
+                "targetType": "COMPANY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "U.S. Steel",
+                    "type": "COMPANY",
+                    "startOffset": 0,
+                    "entityId": "fdc87eda-c5b5-423c-bc69-e0ab546dfc27"
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "U.S. Steel"
+                },
+                "quote": "U.S. Steel: The Mini Mill segment produces hot-rolled, cold-rolled and coated sheets and electrical steels.",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "79fcb5b4-141e-4e57-8b10-14e090d65061",
+                "chunkId": "4a73a03e-be26-440e-982e-e388d3f11155",
+                "startOffset": 0,
+                "subject": {
+                  "type": "BUSINESS_UNIT",
+                  "name": "Mini Mill segment",
+                  "resolution": {
+                    "entity": {
+                      "name": "Mini Mill segment",
+                      "type": "BUSINESS_UNIT",
+                      "startOffset": 16,
+                      "entityId": "bd1c73de-523f-4052-b191-a3492b9ede3c"
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "Mini Mill segment"
+                  }
+                },
+                "object": {
+                  "type": "COMPANY",
+                  "name": "U.S. Steel",
+                  "resolution": {
+                    "entity": {
+                      "name": "U.S. Steel",
+                      "type": "COMPANY",
+                      "startOffset": 0,
+                      "entityId": "fdc87eda-c5b5-423c-bc69-e0ab546dfc27"
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "U.S. Steel"
+                  }
+                },
+                "semanticVerification": {
+                  "status": "SUPPORTED",
+                  "reason": "Контекст 'U.S. Steel: The Mini Mill segment...' указывает на принадлежность сегмента компании.",
+                  "model": "deepseek/deepseek-v4-flash"
+                }
+              },
+              "sourceId": "79fcb5b4-141e-4e57-8b10-14e090d65061",
+              "reason": "PART_OF не подтверждается явным указанием на включение, подразделение или отношение части и целого"
+            }
+          ]
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "U.S. Steel"
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Mini Mill segment"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "coated sheets"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "electrical steels"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "U.S. Steel",
+          "found": true
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "Mini Mill segment",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "hot-rolled, cold-rolled and coated sheets",
+          "found": false
+        },
+        {
+          "type": "PRODUCT",
+          "name": "electrical steels",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Mini Mill segment",
+          "target": "coated sheets",
+          "status": "CURRENT",
+          "quote": "The Mini Mill segment produces hot-rolled, cold-rolled and coated sheets and electrical steels."
+        },
+        {
+          "predicate": "PRODUCES",
+          "source": "Mini Mill segment",
+          "target": "electrical steels",
+          "status": "CURRENT",
+          "quote": "The Mini Mill segment produces hot-rolled, cold-rolled and coated sheets and electrical steels."
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Mini Mill segment",
+          "target": "hot-rolled, cold-rolled and coated sheets",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        },
+        {
+          "predicate": "PRODUCES",
+          "source": "Mini Mill segment",
+          "target": "electrical steels",
+          "status": "CURRENT",
+          "found": true,
+          "predictedStatus": "CURRENT",
+          "statusCorrect": true
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "Mini Mill segment",
+          "target": "coated sheets",
+          "status": "CURRENT",
+          "quote": "The Mini Mill segment produces hot-rolled, cold-rolled and coated sheets and electrical steels."
+        }
+      ],
+      "usage": {
+        "calls": 11,
+        "failedCalls": 0,
+        "inputTokens": 6540,
+        "outputTokens": 1279,
+        "costRub": 0.040183,
+        "latencyMs": 23275
+      }
+    },
+    {
+      "scenarioId": "H29",
+      "industry": "cloud computing and e-commerce",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Amazon 2024 Annual Report",
+        "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
+        "publicationDate": "2025-02-07",
+        "excerpt": "Amazon.com, Inc. serves developers and enterprises through AWS, which offers compute, storage, database, analytics and machine-learning services."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "6 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Amazon.com, Inc."
+        },
+        {
+          "type": "SERVICE",
+          "name": "AWS"
+        },
+        {
+          "type": "SERVICE",
+          "name": "compute"
+        },
+        {
+          "type": "SERVICE",
+          "name": "storage"
+        },
+        {
+          "type": "SERVICE",
+          "name": "database"
+        },
+        {
+          "type": "SERVICE",
+          "name": "analytics"
+        },
+        {
+          "type": "SERVICE",
+          "name": "machine-learning services"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Amazon.com, Inc.",
+          "found": true
+        },
+        {
+          "type": "BUSINESS_UNIT",
+          "name": "AWS",
+          "found": false
+        },
+        {
+          "type": "SERVICE",
+          "name": "compute, storage, database, analytics and machine-learning services",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Amazon.com, Inc.",
+          "target": "AWS",
+          "status": "CURRENT",
+          "quote": "Amazon.com, Inc. serves developers and enterprises through AWS"
+        }
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "AWS",
+          "target": "compute, storage, database, analytics and machine-learning services",
+          "status": "CURRENT",
+          "found": false,
+          "predictedStatus": null,
+          "statusCorrect": false
+        }
+      ],
+      "unexpectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Amazon.com, Inc.",
+          "target": "AWS",
+          "status": "CURRENT",
+          "quote": "Amazon.com, Inc. serves developers and enterprises through AWS"
+        }
+      ],
+      "usage": {
+        "calls": 9,
+        "failedCalls": 0,
+        "inputTokens": 5021,
+        "outputTokens": 1216,
+        "costRub": 0.021299,
+        "latencyMs": 25777
+      }
+    },
+    {
+      "scenarioId": "H30",
+      "industry": "commercial aviation",
+      "language": "en",
+      "status": "completed",
+      "source": {
+        "title": "Air Astana Group Integrated Annual Report 2024",
+        "url": "https://ir.airastana.com/media/8dde6b57b3789f8/annual-report-2024.pdf",
+        "publicationDate": "2025",
+        "excerpt": "Air Astana Group: As at 31 December 2024, the passenger network covered 107 routes, 74 international and 33 domestic."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Air Astana Group"
+        },
+        {
+          "type": "SERVICE",
+          "name": "passenger network"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Air Astana Group",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "passenger network",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "international routes",
+          "found": false
+        },
+        {
+          "type": "LOCATION",
+          "name": "domestic routes",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationships": [],
+      "unexpectedRelationships": [],
+      "usage": {
+        "calls": 8,
+        "failedCalls": 0,
+        "inputTokens": 4543,
+        "outputTokens": 472,
+        "costRub": 0.029547,
+        "latencyMs": 19418
+      }
+    }
+  ]
+}

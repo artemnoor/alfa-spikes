@@ -18,7 +18,38 @@ Tested 2026-10-17 with DeepSeek V4 Flash, JEV and Qwen3-Embedding-8B through Pol
 | Failed model calls | 0 | 0 | unchanged |
 | Total recorded latency | 287,639 ms | 262,286 ms | −25,353 ms |
 
-The current run improves entity precision/recall and relation precision slightly, while exact relation recall remains 12.5%. It still does not meet the requested quality targets. The earlier hardening iteration (`hardening-real-R04-R16-v1`) measured 60.5% entity F1 and 16.7% relation F1; it remains available as an intermediate iteration, not the final current-checkout score.
+The saved `final-live-R04-R16-v1` comparison improved entity F1 and relation precision slightly, while exact relation recall remained 12.5%. It did not meet the requested quality targets. The earlier hardening iteration (`hardening-real-R04-R16-v1`) measured 60.5% entity F1 and 16.7% relation F1; it remains an intermediate historical iteration.
+
+## B06 development iteration on the same R04–R16 cases
+
+After the above current-checkout comparison, two concrete error sources were addressed: a named company was not resolved from a clear `production` context, and Russian inflected mentions such as `Доставка` / `Доставку` failed exact participant matching. Company references now require exactly one preceding candidate, so multiple-company contexts remain unresolved. B06 also has a bounded second pass for cue-bearing empty chunks (maximum 12 by default; zero disables it).
+
+| Metric | Saved baseline | Previous B06 iteration | Latest B06 rerun | Latest vs baseline |
+|---|---:|---:|---:|---:|
+| Entity precision / recall / F1 | 70.8 / 70.8 / 70.8% | 70.8 / 70.8 / 70.8% | 69.6 / 66.7 / 68.1% | F1 −2.7 pp |
+| Relation precision | 16.7% (1 TP, 5 FP) | 50.0% (4 TP, 4 FP) | 33.3% (2 TP, 4 FP) | +16.6 pp |
+| Relation recall | 12.5% (1/8) | 50.0% (4/8) | 25.0% (2/8) | +12.5 pp |
+| Relation F1 | 14.3% | 50.0% | 28.6% | +14.3 pp |
+| Calls / failed responses | 99 / 0 | 99 / 1 malformed JSON response | 97 / 0 | −2 calls |
+| Reported cost | ₽0.266928 | ₽0.293422 | ₽0.226312 | −₽0.040616 |
+
+The previous iteration is [`b06-final-R04-R16-v1`](benchmark/runs/2026-10-17-b06-final-R04-R16-v1/RESULTS.md); the latest rerun is [`b06-joint-recovery-final-R04-R16-v1`](benchmark/runs/2026-10-17-b06-joint-recovery-final-R04-R16-v1/RESULTS.md). The lower latest relation score demonstrates substantial model variability. B06 completeness retry did not itself recover additional relations in these matched runs. The PART_OF gate and targeted context probe close specific observed failure modes; neither establishes broad accuracy.
+
+## Final independent holdout re-evaluation
+
+The frozen H01–H30 labels were not changed. None of the three runs tuned prompts or retrieval on these labels; v3 was a verification rerun.
+
+| Metric | Holdout v1 | Holdout v2 | Holdout v3 | v3 vs v2 |
+|---|---:|---:|---:|---:|
+| Entity precision / recall / F1 | 73.5 / 77.2 / 75.3% | 73.3 / 79.7 / 76.4% | 72.9 / 78.5 / 75.6% | F1 −0.8 pp |
+| Relation precision | 43.5% | 38.1% | 44.4% | +6.3 pp |
+| Relation recall | 38.5% | 30.8% | 30.8% | no change |
+| Relation F1 | 40.8% | 34.0% | 36.4% | +2.4 pp |
+| Calls / failures | 216 / 0 | 215 / 1 | 212 / 0 | — |
+| Input / output tokens | 114,776 / 16,484 | 115,635 / 17,724 | 122,890 / 17,315 | — |
+| Reported cost | ₽0.910891 | ₽0.552483 | ₽0.524357 | run-to-run variation |
+
+The latest case-level report is [`independent-holdout-live-v3`](benchmark/runs/2026-10-17-independent-holdout-live-v3/RESULTS.md); mean/P95 latency was 2,567/6,028 ms. Repeated relation F1 values of 40.8%, 34.0%, and 36.4% show meaningful run variance. Keep all artifacts and do not claim the matched development result generalized to holdout.
 
 ## What was actually run
 
@@ -68,8 +99,8 @@ The separate B07 live negative probe had 10 synthetic cases, one DeepSeek call, 
 
 | Measure | Result |
 |---|---|
-| Direction accuracy on real independent labels | `NOT_RUN`; a small synthetic live probe is diagnostic only and the 13-case gold does not separately annotate direction. |
-| Relation status accuracy on real independent labels | `NOT_RUN`; the 13-case gold triples do not consistently annotate temporal status. |
+| Direction accuracy on the independent holdout | 100% on 8 exact-match-eligible relationships in v2; denominator is too small for a stable estimate. |
+| Relation status accuracy on the independent holdout | 87.5% on 8 exact triples in v2; denominator is too small for a stable estimate. |
 | Precision restricted to supported claims | `NOT_RUN` as a separate denominator; accepted claims include exact quote plus a model entailment review, but no independent support labels exist. |
 | Retrieval metrics on a production-sized corpus | `NOT_RUN`; the source-disjoint evaluation has 30 documents and 30 queries per variant. |
 | Gap precision/recall, usefulness, automatic closure rate | `NOT_RUN`; existing gap benchmark is synthetic and is not an independent business-profile annotation. |

@@ -1,0 +1,265 @@
+{
+  "runId": "2026-10-17-b06-context-live-v1",
+  "testedAt": "2026-10-17T03:46:51.543Z",
+  "datasetType": "three frozen targeted live cases for B06 document context and exact quoted-participant recovery",
+  "models": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "semanticReviewer": "deepseek/deepseek-v4-flash"
+  },
+  "maxCostRub": 0.15,
+  "metrics": {
+    "n": 3,
+    "tp": 2,
+    "fp": 1,
+    "fn": 0,
+    "tn": 0,
+    "accuracy": 0.6666666666666666,
+    "falseAcceptanceRate": 1
+  },
+  "usage": {
+    "calls": 6,
+    "failedCalls": 0,
+    "inputTokens": 4701,
+    "outputTokens": 488,
+    "costRub": 0.015260909999999999,
+    "meanLatencyMs": 2161.3333333333335
+  },
+  "cases": [
+    {
+      "id": "CC01",
+      "family": "unique-cross-chunk-company-reference",
+      "expectedSupported": true,
+      "accepted": true,
+      "pass": true,
+      "matched": true,
+      "expected": {
+        "predicate": "PRODUCES",
+        "sourceName": "Northstar Metals",
+        "targetName": "cobalt"
+      },
+      "entities": [],
+      "relationships": [
+        {
+          "sourceName": "Northstar Metals",
+          "sourceType": "COMPANY",
+          "sourceResolution": {
+            "entity": {
+              "name": "Northstar Metals",
+              "type": "COMPANY",
+              "startOffset": 0,
+              "entityId": "CC01-E1",
+              "canonicalEntityId": "CC01-E1",
+              "contextOnly": true
+            },
+            "method": "unique_preceding_mention",
+            "evidenceTerm": "Company"
+          },
+          "predicate": "PRODUCES",
+          "targetName": "cobalt",
+          "targetType": "PRODUCT",
+          "targetResolution": {
+            "entity": {
+              "name": "cobalt",
+              "type": "PRODUCT",
+              "startOffset": 52,
+              "entityId": "CC01-E2"
+            },
+            "method": "exact_quote",
+            "evidenceTerm": "cobalt"
+          },
+          "quote": "The Company’s cobalt production rose to 20,000 tonnes in 2025.",
+          "status": "CURRENT",
+          "attributes": {},
+          "sourceId": "CC01-S",
+          "chunkId": "CC01-B",
+          "startOffset": 38
+        }
+      ],
+      "semanticRejected": [],
+      "calls": [
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 1276,
+          "outputTokens": 120,
+          "costRub": 0.00407531,
+          "latencyMs": 2289
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 325,
+          "outputTokens": 51,
+          "costRub": 0.00114786,
+          "latencyMs": 2124
+        }
+      ],
+      "recovery": {
+        "chunks": 0,
+        "maxChunks": 12
+      }
+    },
+    {
+      "id": "CC02",
+      "family": "ambiguous-cross-chunk-company-reference",
+      "expectedSupported": false,
+      "accepted": true,
+      "pass": false,
+      "matched": false,
+      "expected": null,
+      "entities": [],
+      "relationships": [
+        {
+          "sourceName": "Aster Corp",
+          "sourceType": "COMPANY",
+          "sourceResolution": {
+            "entity": {
+              "name": "Aster Corp",
+              "type": "COMPANY",
+              "startOffset": 0,
+              "entityId": "CC02-E1"
+            },
+            "method": "exact_quote",
+            "evidenceTerm": "Aster Corp"
+          },
+          "predicate": "PART_OF",
+          "targetName": "Beacon Ltd",
+          "targetType": "COMPANY",
+          "targetResolution": {
+            "entity": {
+              "name": "Beacon Ltd",
+              "type": "COMPANY",
+              "startOffset": 21,
+              "entityId": "CC02-E2"
+            },
+            "method": "exact_quote",
+            "evidenceTerm": "Beacon Ltd"
+          },
+          "quote": "Aster Corp merged with Beacon Ltd",
+          "status": "CURRENT",
+          "attributes": {},
+          "sourceId": "CC02-S",
+          "chunkId": "CC02-A",
+          "startOffset": 0
+        }
+      ],
+      "semanticRejected": [],
+      "calls": [
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 1331,
+          "outputTokens": 171,
+          "costRub": 0.00449736,
+          "latencyMs": 2698
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 304,
+          "outputTokens": 46,
+          "costRub": 0.00106453,
+          "latencyMs": 1705
+        }
+      ],
+      "recovery": {
+        "chunks": 0,
+        "maxChunks": 12
+      }
+    },
+    {
+      "id": "CC03",
+      "family": "quoted-unique-type-participant-recovery",
+      "expectedSupported": true,
+      "accepted": true,
+      "pass": true,
+      "matched": true,
+      "expected": {
+        "predicate": "PRODUCES",
+        "sourceName": "Palladium Works",
+        "targetName": "rhodium"
+      },
+      "entities": [
+        {
+          "type": "PRODUCT",
+          "name": "rhodium",
+          "aliases": [],
+          "quote": "rhodium",
+          "startOffset": 25,
+          "endOffset": 32,
+          "sourceId": "CC03-S",
+          "chunkId": "CC03-A",
+          "identifiers": {},
+          "attributes": {},
+          "extractionMethod": "B06 quoted relation participant"
+        }
+      ],
+      "relationships": [
+        {
+          "sourceName": "Palladium Works",
+          "sourceType": "COMPANY",
+          "sourceResolution": {
+            "entity": {
+              "name": "Palladium Works",
+              "type": "COMPANY",
+              "startOffset": 0,
+              "entityId": "CC03-E1"
+            },
+            "method": "exact_quote",
+            "evidenceTerm": "Palladium Works"
+          },
+          "predicate": "PRODUCES",
+          "targetName": "rhodium",
+          "targetType": "PRODUCT",
+          "targetResolution": {
+            "entity": {
+              "type": "PRODUCT",
+              "name": "rhodium",
+              "aliases": [],
+              "quote": "rhodium",
+              "startOffset": 25,
+              "endOffset": 32,
+              "sourceId": "CC03-S",
+              "chunkId": "CC03-A",
+              "identifiers": {},
+              "attributes": {},
+              "extractionMethod": "B06 quoted relation participant",
+              "entityId": null
+            },
+            "method": "exact_quote",
+            "evidenceTerm": "rhodium"
+          },
+          "quote": "Palladium Works produces rhodium",
+          "status": "CURRENT",
+          "attributes": {},
+          "sourceId": "CC03-S",
+          "chunkId": "CC03-A",
+          "startOffset": 0
+        }
+      ],
+      "semanticRejected": [],
+      "calls": [
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 1168,
+          "outputTokens": 60,
+          "costRub": 0.0034624,
+          "latencyMs": 2295
+        },
+        {
+          "model": "deepseek/deepseek-v4-flash",
+          "status": "completed",
+          "inputTokens": 297,
+          "outputTokens": 40,
+          "costRub": 0.00101345,
+          "latencyMs": 1857
+        }
+      ],
+      "recovery": {
+        "chunks": 0,
+        "maxChunks": 12
+      }
+    }
+  ]
+}

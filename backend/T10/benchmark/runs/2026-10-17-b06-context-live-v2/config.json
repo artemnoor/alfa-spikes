@@ -1,0 +1,10 @@
+{
+  "runId": "2026-10-17-b06-context-live-v2",
+  "runner": "benchmark/run-context-live.mjs",
+  "scenarioFile": "benchmark/context-live-scenarios.mjs",
+  "scenarioCount": 3,
+  "labelsFrozenBeforeRun": true,
+  "oneAmbiguousNegativeControl": true,
+  "maxCostRub": 0.15,
+  "scoring": "acceptance after B06 quote/type checks and B07 semantic gate"
+}

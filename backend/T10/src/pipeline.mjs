@@ -254,12 +254,16 @@ export async function processCompanyProfile(profileId, config = {}) {
     await runBlock(run.run_id, 'B05', b05, { resolved: resolvedEntities.length, unresolved: unresolvedEntities.length, candidates:candidateResolution.candidates.length, modelCalls:candidateResolution.modelCalls })
     stages.push(b05)
 
-    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, entityId: entity.entity_id, startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
+    const canonicalIdByEntityId = new Map(dataAfterRanking.entities.map((entity) => [entity.entity_id, entity.canonical_entity_id ?? entity.global_company_id ?? entity.entity_id]))
+    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, entityId: entity.entity_id, canonicalEntityId: canonicalIdByEntityId.get(entity.entity_id), startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
     const profileCompany = {
       type: 'COMPANY', name: dataAfterRanking.profile.legal_name, entityId: dataAfterRanking.profile.company_id,
       aliases: companyNameAliases(dataAfterRanking.profile.legal_name),
     }
     const relationshipResult = await extractRelationshipsFromChunks(chunks, extractionRows, { profileCompany })
+    const recoveredParticipantEntities = relationshipResult.recoveredEntities.length
+      ? await persistEntityExtraction(profileId, { mentions: relationshipResult.recoveredEntities, rejected: [] })
+      : { entities: [] }
     let relationRankingError = null
     let relationRankingUsage = null
     let relationRankingCalls = 0
@@ -280,10 +284,10 @@ export async function processCompanyProfile(profileId, config = {}) {
         await recordModelCall({ profileId, runId: run.run_id, model: process.env.T10_MATCH_MODEL || 'typesafe/jev', purpose: 'B06 JEV relationship predicate disambiguation', status: 'failed', inputTokens: error.inputTokens ?? null, outputTokens: error.outputTokens ?? null, costRub: error.costRub ?? null, latencyMs: error.latencyMs ?? null, response: error.response ?? null, error: error.message })
       }
     }
-    for (const result of relationshipResult.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: 'B06 business relationship extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    for (const result of relationshipResult.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: result.purpose ?? 'B06 business relationship extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
     const b06 = envelope('B06', { profileId, chunks: chunks.map(({ chunk_id, source_id }) => ({ chunkId: chunk_id, sourceId: source_id })), entities: extractionRows.map(({ name, type }) => ({ name, type })) }, {
-      relationships: relationshipResult.relationships, rejected: relationshipResult.rejected,
-    }, { status: relationshipResult.status === 'partial' || relationRankingError ? 'partial' : relationshipResult.status, errors: [...relationshipResult.rejected.filter((item) => item.code === 'model_error'), ...(relationRankingError ? [relationRankingError] : [])], usage: [
+      relationships: relationshipResult.relationships, recoveredEntities: recoveredParticipantEntities.entities, rejected: relationshipResult.rejected, recovery: relationshipResult.recovery,
+    }, { status: relationshipResult.status === 'partial' || relationRankingError ? 'partial' : relationshipResult.status, errors: [...relationshipResult.rejected.filter((item) => item.code === 'model_error'), ...(relationRankingError ? [relationRankingError] : [])], recoveryChunks: relationshipResult.recovery?.chunks ?? 0, recoveredEntities: recoveredParticipantEntities.entities.length, usage: [
       ...relationshipResult.modelCalls.map((item) => ({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })),
       ...(relationRankingUsage?.calls ? [{ model: process.env.T10_MATCH_MODEL || 'typesafe/jev', ...relationRankingUsage }] : []),
     ] })

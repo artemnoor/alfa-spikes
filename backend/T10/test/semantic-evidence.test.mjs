@@ -72,6 +72,22 @@ test('B07 deterministic gate rejects a CURRENT status for explicit plans and neg
   }
 })
 
+test('B07 rejects PART_OF for mergers while accepting direct inclusion evidence', () => {
+  const merger='Aster Corp merged with Beacon Ltd.'
+  const rejected=verifyBusinessProposal({predicate:'PART_OF',status:'CURRENT',quote:merger},{
+    sourceId:'s-merger',sourceText:merger,sourceStatus:'processed',
+    subject:{type:'COMPANY',name:'Aster Corp'},object:{type:'COMPANY',name:'Beacon Ltd'},
+  })
+  assert.equal(rejected.accepted,false)
+  assert.ok(rejected.errors.some((error)=>error.includes('объединение компаний')))
+  const inclusion='MWS will include all CloudMTS cloud services.'
+  const accepted=verifyBusinessProposal({predicate:'PART_OF',status:'PLANNED',quote:inclusion},{
+    sourceId:'s-inclusion',sourceText:inclusion,sourceStatus:'processed',
+    subject:{type:'SERVICE',name:'CloudMTS cloud services'},object:{type:'COMPANY',name:'MWS'},
+  })
+  assert.equal(accepted.accepted,true)
+})
+
 test('B04 retries sparse chunks once and adds only exact-quote entities', async () => {
   const chunks = [{ chunk_id: 'c1', source_id: 's1', start_offset: 0, text_content: 'ООО «Металл» поставляет сталь АО «Вектор».' }]
   const result = await recoverSparseChunkEntities(chunks, [{ type: 'COMPANY', name: 'ООО «Металл»', sourceId: 's1', chunkId: 'c1' }], {

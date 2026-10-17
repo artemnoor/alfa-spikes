@@ -425,7 +425,7 @@ export async function persistEntityExtraction(profileId, extraction) {
         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb)
         ON CONFLICT DO NOTHING RETURNING mention_id
       `, [randomUUID(), profileId, entity.entity_id, mention.sourceId, mention.chunkId, name,
-        mention.quote, mention.startOffset, mention.endOffset, JSON.stringify({ attributes: mention.attributes ?? {}, identifiers:mention.identifiers ?? {}, extractionMethod: 'DeepSeek V4 Flash', quoteVerified: true })])
+        mention.quote, mention.startOffset, mention.endOffset, JSON.stringify({ attributes: mention.attributes ?? {}, identifiers:mention.identifiers ?? {}, extractionMethod: mention.extractionMethod ?? 'DeepSeek V4 Flash', quoteVerified: true })])
       saved.push({ ...entity, mentionId: mentionRows[0]?.mention_id ?? null, sourceId: mention.sourceId, chunkId: mention.chunkId, quote: mention.quote, startOffset: mention.startOffset, endOffset: mention.endOffset })
     }
     for (const rejected of extraction.rejected) {

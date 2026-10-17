@@ -241,6 +241,20 @@ test('stores entity vectors in pgvector and retrieves top same-type candidates f
   assert.equal((await getGraph(profileId)).nodes.filter((node)=>node.type==='PRODUCT').length,1)
 })
 
+test('persists the extraction provenance of a relation-recovered participant', async () => {
+  const created=await jsonRequest('/profiles','POST',{companyName:`Participant recovery ${crypto.randomUUID()}`})
+  createdProfiles.push(created.body.profile)
+  const sourceText='Company Volna produces palladium.'
+  const source=await saveSource(created.body.profile.profileId,{sourceType:'document',title:'Quoted participant',contentText:sourceText})
+  await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'PRODUCT',name:'palladium',quote:'palladium',sourceId:source.source_id,chunkId:null,
+    startOffset:sourceText.indexOf('palladium'),endOffset:sourceText.indexOf('palladium')+'palladium'.length,attributes:{},identifiers:{},extractionMethod:'B06 quoted relation participant',
+  }],rejected:[]})
+  const stored=await pool.query('SELECT extraction->>\'extractionMethod\' AS method, evidence_quote FROM t10.entity_mentions WHERE source_id=$1',[source.source_id])
+  assert.equal(stored.rows[0].method,'B06 quoted relation participant')
+  assert.equal(stored.rows[0].evidence_quote,'palladium')
+})
+
 test('links source mentions to the profile entity by an exact checksum-valid INN', async () => {
   const created=await jsonRequest('/profiles','POST',{companyName:'ООО «Каноническая компания»',inn:'7707083893'})
   createdProfiles.push(created.body.profile)
