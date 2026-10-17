@@ -1,0 +1,19 @@
+{
+  "runId": "2026-10-17-retrieval-32-live-v2",
+  "runner": "benchmark/run-retrieval-live.mjs",
+  "queryFile": "benchmark/retrieval-scenarios.mjs",
+  "corpusFile": "benchmark/real-scenarios.mjs",
+  "maxCostRub": 0.15,
+  "metricDefinitions": {
+    "recallAt5": "share of manually relevant chunks present in first five results",
+    "recallAt10": "share of manually relevant chunks present in first ten results",
+    "mrr": "mean reciprocal rank of first manually relevant chunk"
+  },
+  "comparison": [
+    "Qwen cosine via production pgvector query",
+    "PostgreSQL Russian+English FTS query",
+    "BM25 token scorer fallback",
+    "production reciprocal-rank fusion of FTS and Qwen results"
+  ],
+  "indexedInTemporaryProfile": true
+}

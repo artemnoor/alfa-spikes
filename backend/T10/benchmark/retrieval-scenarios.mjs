@@ -1,0 +1,38 @@
+// Queries were authored independently of model predictions. Each expected chunk
+// is the short, manually reviewed primary-source excerpt in real-scenarios.mjs.
+// This isolates retrieval judgment from relation/entity scoring, but reuses the
+// existing 16-source regression corpus and therefore is not a source-disjoint holdout.
+export const retrievalQueries = [
+  { id:'Q01', query:'What was NLMK Group steel output in the 2024 reporting period?', relevantChunkIds:['R01'] },
+  { id:'Q02', query:'Find the annual steel production volume and year-on-year change for NLMK.', relevantChunkIds:['R01'] },
+  { id:'Q03', query:'Сколько распределительных центров в логистической инфраструктуре Пятёрочки?', relevantChunkIds:['R02'] },
+  { id:'Q04', query:'Найди сведения о логистике и числе магазинов сети Pyaterochka.', relevantChunkIds:['R02'] },
+  { id:'Q05', query:'Какие услуги Ростелекома относятся к широкополосному доступу?', relevantChunkIds:['R03'] },
+  { id:'Q06', query:'В каком фрагменте описаны цифровые решения и мобильная связь Ростелекома?', relevantChunkIds:['R03'] },
+  { id:'Q07', query:'Which cloud and cybersecurity services are planned for MTS Web Services?', relevantChunkIds:['R04'] },
+  { id:'Q08', query:'Find the MWS announcement mentioning CloudMTS and MTS RED.', relevantChunkIds:['R04'] },
+  { id:'Q09', query:'Какой сервис Яндекса выполняет доставку средней и последней мили?', relevantChunkIds:['R05'] },
+  { id:'Q10', query:'Найди описание O2O-сервисов и Яндекс Доставки.', relevantChunkIds:['R05'] },
+  { id:'Q11', query:'What hydrocarbon production volume did Rosneft report for 2024?', relevantChunkIds:['R06'] },
+  { id:'Q12', query:'Find Rosneft annual results with the million tonnes of oil equivalent figure.', relevantChunkIds:['R06'] },
+  { id:'Q13', query:'Какой металл Норникель называет крупнейшим мировым направлением производства?', relevantChunkIds:['R07'] },
+  { id:'Q14', query:'Найди утверждение о производстве палладия группой «Норильский никель».', relevantChunkIds:['R07'] },
+  { id:'Q15', query:'How much natural gas did NOVATEK produce in 2024?', relevantChunkIds:['R08'] },
+  { id:'Q16', query:'Which NOVATEK excerpt reports hydrocarbon output and natural gas volumes?', relevantChunkIds:['R08'] },
+  { id:'Q17', query:'Какой рекордный объем производства золота у компании «Полюс»?', relevantChunkIds:['R09'] },
+  { id:'Q18', query:'Найди данные о количестве унций золота, произведенных «Полюсом».', relevantChunkIds:['R09'] },
+  { id:'Q19', query:'Какие направления деятельности объединяет компания «Магнит»?', relevantChunkIds:['R10'] },
+  { id:'Q20', query:'Find the Magnit passage about food manufacturing and logistics operations.', relevantChunkIds:['R10'] },
+  { id:'Q21', query:'Где описаны финансовые результаты и устойчивое развитие «Северстали»?', relevantChunkIds:['R11'] },
+  { id:'Q22', query:'Find the Severstal integrated report excerpt about sustainability reporting.', relevantChunkIds:['R11'] },
+  { id:'Q23', query:'Which stages of the gas value chain does Gazprom say it works across?', relevantChunkIds:['R12'] },
+  { id:'Q24', query:'Find Gazprom facts mentioning storage, processing and sales of oil or gas.', relevantChunkIds:['R12'] },
+  { id:'Q25', query:'Какое подразделение СИБУРа занимается вторичной переработкой пластика?', relevantChunkIds:['R13'] },
+  { id:'Q26', query:'Найди инициативу СИБУРа по возвращению пластика в производственный цикл.', relevantChunkIds:['R13'] },
+  { id:'Q27', query:'How many passengers did Aeroflot carry on domestic routes in 2024?', relevantChunkIds:['R14'] },
+  { id:'Q28', query:'Найди показатель перевозок «Аэрофлота» на внутренних авиалиниях.', relevantChunkIds:['R14'] },
+  { id:'Q29', query:'What warehouse floor area does Ozon report after its expansion?', relevantChunkIds:['R15'] },
+  { id:'Q30', query:'Найди сведения о росте числа складов и площадях Ozon.', relevantChunkIds:['R15'] },
+  { id:'Q31', query:'How many new production lines did Ozon Pharmaceuticals launch?', relevantChunkIds:['R16'] },
+  { id:'Q32', query:'Найди данные о росте продаж в упаковках у «Озон Фармацевтика».', relevantChunkIds:['R16'] },
+]

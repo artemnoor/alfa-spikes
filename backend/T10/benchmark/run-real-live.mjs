@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createProfile, initializeT10Store, saveSource, closeT10Store } from '../src/store.mjs'
+import { createProfile, initializeT10Store, saveSource, closeT10Store, pool } from '../src/store.mjs'
 import { processCompanyProfile } from '../src/pipeline.mjs'
 import { realScenarios } from './real-scenarios.mjs'
 import { scoreLiveRelationTriples } from './live-expected-relations.mjs'
@@ -23,8 +23,9 @@ const benchmarkId=process.env.T10_REAL_BENCHMARK_ID||`T10-real-${scenarios.lengt
 try {
   for(const [index,scenario] of scenarios.entries()){
     const created=await createProfile({companyName:scenario.company,profileName:`T10 live ${scenario.id} — ${scenario.industry}`})
-    await saveSource(created.profileId,{sourceType:'annual_report',title:scenario.documentTitle,url:scenario.sourceUrl,contentText:scenario.text,contentType:'text/plain; charset=utf-8',accessLevel:'public',metadata:{benchmark:`T10-real-${scenarios.length}-v1`,scenarioId:scenario.id,publishedAt:scenario.publicationDate,sourceLanguage:scenario.language,sourcePage:scenario.page,primarySource:true}})
-    const result=await processCompanyProfile(created.profileId,{trigger:'manual',benchmark:`T10-real-${scenarios.length}-v1`,scenarioId:scenario.id})
+    try {
+    await saveSource(created.profileId,{sourceType:'annual_report',title:scenario.documentTitle,url:scenario.sourceUrl,contentText:scenario.text,contentType:'text/plain; charset=utf-8',accessLevel:'public',metadata:{benchmark:benchmarkId,scenarioId:scenario.id,publishedAt:scenario.publicationDate,sourceLanguage:scenario.language,sourcePage:scenario.page,primarySource:true}})
+    const result=await processCompanyProfile(created.profileId,{trigger:'manual',benchmark:benchmarkId,scenarioId:scenario.id})
     const entities=result.stages.find((stage)=>stage.blockId==='B04')?.output?.entities??[]
     const claims=result.stages.find((stage)=>stage.blockId==='B07')?.output?.accepted??[]
     const relationships=claims.map((item)=>({predicate:item.proposal?.predicate??item.predicate,subject:item.proposal?.sourceName??item.proposal?.subject?.name??item.sourceName,object:item.proposal?.targetName??item.proposal?.object?.name??item.targetName,quote:item.proposal?.quote??item.quote}))
@@ -41,6 +42,10 @@ try {
     await writeFile(resolve(outputDirectory,'checkpoint.json'),`${JSON.stringify({ benchmarkId, savedAt: new Date().toISOString(), completedCases: cases }, null, 2)}\n`,'utf8')
     const spent=cases.reduce((sum,item)=>sum+Number(item.usage.reported_cost_rub??0),0)
     if(maxCostRub>0&&spent>=maxCostRub){process.stdout.write(`Stopping at configured run budget ${maxCostRub} RUB after ${cases.length} complete cases.\n`);break}
+    } finally {
+      await pool.query('DELETE FROM t10.profiles WHERE profile_id=$1',[created.profileId]).catch(()=>{})
+      await pool.query('DELETE FROM t10.companies WHERE company_id=$1 AND NOT EXISTS (SELECT 1 FROM t10.profiles WHERE company_id=$1)',[created.companyId]).catch(()=>{})
+    }
   }
 } finally { await closeT10Store() }
 const relationScore=scoreLiveRelationTriples(cases)

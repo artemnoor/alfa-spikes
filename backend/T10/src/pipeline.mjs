@@ -3,6 +3,7 @@ import { processDocument } from './documents.mjs'
 import { extractEntitiesFromChunks, recoverSparseChunkEntities } from './entities.mjs'
 import { verifyBatch } from './evidence.mjs'
 import { verifyRelationshipSemantics } from './semantic-evidence.mjs'
+import { rankHybridChunks } from './retrieval.mjs'
 import { detectBusinessGaps } from './gaps.mjs'
 import { buildBusinessProfile } from './profile.mjs'
 import { companyNameAliases, extractRelationshipsFromChunks } from './relationships.mjs'
@@ -15,7 +16,7 @@ import {
   createRun, finishRun, getBusinessData, getRunUsage, getSourceContent, listDocumentChunks, listSources,
   persistDetectedGaps, persistEntityExtraction, persistProfileVersion, persistRelationshipClaims, persistResolutionDecisions, persistRejectedProposals,
   recordEnrichmentAttempt, recordModelCall, saveChunkEmbeddings, saveProcessedDocument, updateBlockRun,
-  linkExactProfileCompanyMentions, linkEntitiesByUniqueIdentifiers, saveEntityEmbeddings, findSimilarEntityCandidates, findSimilarDocumentChunks, saveSource,
+  linkExactProfileCompanyMentions, linkEntitiesByUniqueIdentifiers, saveEntityEmbeddings, findSimilarEntityCandidates, findSimilarDocumentChunks, findLexicalDocumentChunks, saveSource,
 } from './store.mjs'
 
 function envelope(blockId, input, output, { status = 'completed', errors = [], usage = [] } = {}) {
@@ -341,8 +342,10 @@ export async function processCompanyProfile(profileId, config = {}) {
         b10Usage = [{ model: queryResult.model, inputTokens: queryResult.inputTokens, outputTokens: queryResult.outputTokens, costRub: queryResult.costRub, latencyMs: queryResult.latencyMs }]
         for (let index = 0; index < openGaps.length; index += 1) {
           const gap = openGaps[index]
-          const candidates = await findSimilarDocumentChunks(profileId, queryResult.vectors[index], 3)
-          if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: Number(item.similarity), excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
+          const vectorCandidates = await findSimilarDocumentChunks(profileId, queryResult.vectors[index], 20)
+          const lexicalCandidates = await findLexicalDocumentChunks(profileId, gap.question, 20).catch(() => null)
+          const candidates = rankHybridChunks({ query: gap.question, chunks, vectorCandidates, lexicalCandidates, limit: 5 })
+          if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: item.similarity, lexicalRank: item.lexicalRank, vectorRank: item.vectorRank, matchSignals: item.matchSignals, score: item.score, excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
         }
       } catch (error) {
         b10Usage = error.model ? [{ model: error.model, inputTokens: error.inputTokens ?? null, outputTokens: error.outputTokens ?? null, costRub: error.costRub ?? null, latencyMs: error.latencyMs ?? null }] : []
@@ -350,17 +353,11 @@ export async function processCompanyProfile(profileId, config = {}) {
       }
     }
     for (const gap of openGaps) {
-      const terms = gap.missing_fact.toLocaleLowerCase('ru-RU').split(/\W+/u).filter((term) => term.length > 4)
-      const candidates = chunks.filter((chunk) => terms.some((term) => chunk.text_content.toLocaleLowerCase('ru-RU').includes(term))).slice(0, 3)
       const existingEvidence = candidateEvidence.find((item) => item.gapId === gap.gap_id)
-      if (candidates.length) {
-        const lexicalIds = candidates.map((item) => item.chunk_id)
-        const merged = [...new Set([...(existingEvidence?.candidateChunkIds ?? []), ...lexicalIds])].slice(0, 5)
-        const lexicalDetails = candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, match: 'lexical', excerpt: item.text_content.slice(0, 1200) }))
-        if (existingEvidence) {
-          existingEvidence.candidateChunkIds = merged
-          existingEvidence.candidates.push(...lexicalDetails.filter((item) => !existingEvidence.candidates.some((candidate) => candidate.chunkId === item.chunkId)))
-        } else candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: merged, candidates: lexicalDetails, requiresVerification: true })
+      if (!existingEvidence) {
+        const lexicalCandidates = await findLexicalDocumentChunks(profileId, gap.question, 20).catch(() => null)
+        const candidates = rankHybridChunks({ query: gap.question, chunks, lexicalCandidates, limit: 5 })
+        if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: null, lexicalRank: item.lexicalRank, vectorRank: null, matchSignals: item.matchSignals, score: item.score, excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
       }
       const evidence = candidateEvidence.find((item) => item.gapId === gap.gap_id)
       await recordEnrichmentAttempt(profileId, gap.gap_id, run.run_id, {

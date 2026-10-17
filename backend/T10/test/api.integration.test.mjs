@@ -1,7 +1,7 @@
 import test, { after, before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createT10Server } from '../src/server.mjs'
-import { closeT10Store, findSimilarDocumentChunks, findSimilarEntityCandidates, getGraph, initializeT10Store, linkEntitiesByUniqueIdentifiers, linkExactProfileCompanyMentions, listDocumentChunks, listEntities, persistEntityExtraction, persistResolutionDecisions, pool, saveChunkEmbeddings, saveEntityEmbeddings, saveSource } from '../src/store.mjs'
+import { closeT10Store, findLexicalDocumentChunks, findSimilarDocumentChunks, findSimilarEntityCandidates, getGraph, initializeT10Store, linkEntitiesByUniqueIdentifiers, linkExactProfileCompanyMentions, listDocumentChunks, listEntities, persistEntityExtraction, persistResolutionDecisions, pool, saveChunkEmbeddings, saveEntityEmbeddings, saveSource } from '../src/store.mjs'
 
 let server
 let baseUrl
@@ -67,6 +67,10 @@ test('stores a document idempotently with provenance and customer access level',
   const chunks = await jsonRequest(`/profiles/${createdProfile.profileId}/chunks?sourceId=${first.body.source.source_id}`)
   assert.equal(chunks.body.chunks.length, 1)
   assert.equal(chunks.body.chunks[0].text_content, contentText)
+  const lexical = await findLexicalDocumentChunks(createdProfile.profileId, 'насосов площадки Перми', 5)
+  assert.equal(lexical[0].chunk_id, chunks.body.chunks[0].chunk_id)
+  const broadQuestion = await findLexicalDocumentChunks(createdProfile.profileId, 'Какое оборудование компания выпускает на производственной площадке города Перми?', 5)
+  assert.equal(broadQuestion[0].chunk_id, chunks.body.chunks[0].chunk_id)
 })
 
 test('records a user-asserted fact with exact quote and exposes it in the graph', async () => {

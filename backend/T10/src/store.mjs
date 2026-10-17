@@ -347,7 +347,7 @@ export async function findSimilarEntityCandidates(profileId, entityId, limit = 5
 }
 
 export async function findSimilarDocumentChunks(profileId, queryVector, limit = 3) {
-  const safeLimit = Math.max(1, Math.min(10, Number.isInteger(limit) ? limit : 3))
+  const safeLimit = Math.max(1, Math.min(50, Number.isInteger(limit) ? limit : 3))
   const { rows } = await pool.query(`
     SELECT c.chunk_id, c.source_id, c.chunk_index, c.text_content, c.page_number,
       c.section_path, s.title AS source_title, 1 - (c.embedding <=> $2::vector) AS similarity
@@ -357,6 +357,35 @@ export async function findSimilarDocumentChunks(profileId, queryVector, limit = 
     ORDER BY c.embedding <=> $2::vector
     LIMIT $3
   `, [profileId, vectorLiteral(queryVector), safeLimit])
+  return rows
+}
+
+export async function findLexicalDocumentChunks(profileId, queryText, limit = 10) {
+  const safeLimit = Math.max(1, Math.min(50, Number.isInteger(limit) ? limit : 10))
+  const { rows } = await pool.query(`
+    WITH search AS (
+      SELECT websearch_to_tsquery('russian', regexp_replace($2, '[[:space:]]+', ' OR ', 'g')) AS russian_query,
+             websearch_to_tsquery('english', regexp_replace($2, '[[:space:]]+', ' OR ', 'g')) AS english_query
+    ), documents AS (
+      SELECT c.chunk_id, c.source_id, c.chunk_index, c.text_content, c.page_number,
+        c.section_path, s.title AS source_title,
+        ts_rank_cd(to_tsvector('russian', COALESCE(c.text_content, '')), search.russian_query) AS russian_rank,
+        ts_rank_cd(to_tsvector('english', COALESCE(c.text_content, '')), search.english_query) AS english_rank,
+        to_tsvector('russian', COALESCE(c.text_content, '')) @@ search.russian_query AS russian_match,
+        to_tsvector('english', COALESCE(c.text_content, '')) @@ search.english_query AS english_match
+      FROM t10.document_chunks c
+      JOIN t10.sources s USING (source_id)
+      CROSS JOIN search
+      WHERE c.profile_id = $1
+    )
+    SELECT chunk_id, source_id, chunk_index, text_content, page_number, section_path, source_title,
+      GREATEST(russian_rank, english_rank) AS score
+    FROM documents
+    WHERE (numnode((SELECT russian_query FROM search)) > 0 AND russian_match)
+       OR (numnode((SELECT english_query FROM search)) > 0 AND english_match)
+    ORDER BY score DESC, chunk_id
+    LIMIT $3
+  `, [profileId, String(queryText ?? '').slice(0, 2_000), safeLimit])
   return rows
 }
 

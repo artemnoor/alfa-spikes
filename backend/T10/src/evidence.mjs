@@ -5,6 +5,53 @@ const numericAttributeKeys = new Set(['amount','quantity','volume','capacity','p
 const dateAttributeKeys = new Set(['validfrom','validto','date','publishedat','startdate','enddate'])
 const ignoredAttributeKeys = new Set(['relationshipstatus','status','source','sourceid','chunkid'])
 
+function normalizeRoleText(value) {
+  return String(value ?? '').normalize('NFKC').toLocaleLowerCase('ru-RU')
+    .replace(/[«»“”„‟"'`]+/gu, '').replace(/\s+/gu, ' ').trim()
+}
+
+function commercialRoleInQuote(quote, participant) {
+  const text = normalizeRoleText(quote)
+  const name = normalizeRoleText(participant?.name)
+  if (!name) return null
+  const index = text.indexOf(name)
+  if (index < 0) return null
+  const boundaryBefore = Math.max(text.lastIndexOf('.', index), text.lastIndexOf(';', index), text.lastIndexOf('!', index), text.lastIndexOf('?', index))
+  const boundaryAfter = [text.indexOf('.', index + name.length), text.indexOf(';', index + name.length), text.indexOf('!', index + name.length), text.indexOf('?', index + name.length)].filter((position) => position >= 0)
+  const clauseStart = boundaryBefore < 0 ? 0 : boundaryBefore + 1
+  const clauseEnd = boundaryAfter.length ? Math.min(...boundaryAfter) : text.length
+  const before = text.slice(clauseStart, index)
+  const clause = text.slice(clauseStart, clauseEnd)
+  const supplierCue = /поставщик[а-яё]*|поставля[а-яё]*|продавец|прода[её]т|продал[а-яё]*|supplier|suppl(?:y|ies|ied)|seller|sells|sold|deliver(?:s|ed|y)/iu.test(clause)
+  const buyerCue = /закуп[а-яё]*|покупа[а-яё]*|приобрета[а-яё]*|покупател[а-яё]*|заказчик|получател[а-яё]*|buyer|customer|purchas(?:e|es|ed|ing)|bought|buys|recipient/iu.test(clause)
+  const isSellerSource = /(?:^|\s)(?:у|от|from|by)\s*$/iu.test(before)
+  return { supplier: supplierCue || isSellerSource, buyer: buyerCue }
+}
+
+function validateRelationDirection(proposal, quote, subject, object) {
+  if (!['SUPPLIES','PURCHASES'].includes(proposal.predicate) || subject?.type !== 'COMPANY') return null
+  const role = commercialRoleInQuote(quote, subject)
+  if (!role) return null
+  if (proposal.predicate === 'SUPPLIES' && role.buyer && !role.supplier) {
+    return 'Направление SUPPLIES отклонено: субъект в цитате обозначен как покупатель, а не поставщик'
+  }
+  if (proposal.predicate === 'PURCHASES' && role.supplier && !role.buyer) {
+    return 'Направление PURCHASES отклонено: субъект в цитате обозначен как поставщик, а не покупатель'
+  }
+  return null
+}
+
+function validateClaimStatus(proposal, quote) {
+  const text = normalizeRoleText(quote)
+  if (proposal.status === 'CURRENT' && /(?:не\s+(?!только\b)(?:поставля|закуп|покупа|приобрета)|не\s+осуществля[а-яё]*\s+поставк|нет\s+(?:текущих\s+)?поставок|расторгнут[а-яё]*|прекращён[а-яё]*|прекращен[а-яё]*|истёк|истек|terminated|expired|has ended|no current supplies)/iu.test(text)) {
+    return 'Статус CURRENT противоречит отрицанию или прекращению в цитате'
+  }
+  if (proposal.status === 'CURRENT' && /(?:планирует|планируют|планируем|запланирован|намерен|собирается|будет\s+поставля|будут\s+поставля|если\s+.*(?:постав|закуп)|при\s+условии|в\s+случае|plans? to|intends? to|will\s+(?:supply|purchase|deliver)|subject to)/iu.test(text)) {
+    return 'Статус CURRENT не подтверждён: цитата описывает план или условие'
+  }
+  return null
+}
+
 function flattenAttributes(value, prefix = '') {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return [[prefix, value]]
   return Object.entries(value).flatMap(([key, child])=>flattenAttributes(child,prefix ? `${prefix}.${key}` : key))
@@ -100,6 +147,10 @@ export function verifyBusinessProposal(proposal, { sourceText, sourceId, sourceS
     if (!aliasQuoted && !uniqueLocalReference) errors.push('Цитата не содержит объект и не имеет однозначной локальной ссылки')
   }
   if (proposal.status && !['CURRENT','PLANNED','CONDITIONAL','ENDED','UNKNOWN'].includes(proposal.status)) errors.push('Недопустимый статус отношения')
+  const directionProblem = validateRelationDirection(proposal, quote, subject, object)
+  if (directionProblem) errors.push(directionProblem)
+  const statusProblem = validateClaimStatus(proposal, quote)
+  if (statusProblem) errors.push(statusProblem)
   const date = proposal.attributes?.validFrom ?? proposal.attributes?.validTo
   if (date != null && Number.isNaN(Date.parse(date))) errors.push('Дата отношения не распознана backend')
   errors.push(...validateAttributesAgainstQuote(proposal.attributes ?? {}, quote))

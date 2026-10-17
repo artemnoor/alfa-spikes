@@ -1,0 +1,4256 @@
+{
+  "runId": "2026-10-17-retrieval-32-live-v1",
+  "generatedAt": "2026-10-17T02:28:12.130Z",
+  "dataset": {
+    "queries": 32,
+    "documents": 16,
+    "sources": 16,
+    "sourceSet": "real-scenarios.mjs R01–R16; short excerpts from public primary sources",
+    "independentJudgments": true,
+    "sourceDisjointHoldout": false
+  },
+  "model": "Qwen/Qwen3-Embedding-8B",
+  "calls": 1,
+  "inputTokens": 1471,
+  "outputTokens": 0,
+  "costRub": 0.00174354,
+  "latencyMs": 6898,
+  "maxCostRub": 0.15,
+  "metrics": {
+    "vector": {
+      "recallAt5": 1,
+      "recallAt10": 1,
+      "mrr": 1,
+      "queries": 32
+    },
+    "bm25": {
+      "recallAt5": 0.9375,
+      "recallAt10": 0.9375,
+      "mrr": 0.875,
+      "queries": 32
+    },
+    "hybrid": {
+      "recallAt5": 1,
+      "recallAt10": 1,
+      "mrr": 1,
+      "queries": 32
+    }
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "query": "What was NLMK Group steel output in the 2024 reporting period?",
+      "relevantChunkIds": [
+        "R01"
+      ],
+      "vector": {
+        "ranking": [
+          "R01",
+          "R08",
+          "R11",
+          "R09",
+          "R06",
+          "R07",
+          "R16",
+          "R14",
+          "R03",
+          "R13",
+          "R15",
+          "R02",
+          "R05",
+          "R10",
+          "R04",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R01",
+          "R14",
+          "R02",
+          "R06",
+          "R08",
+          "R13",
+          "R09",
+          "R05",
+          "R11",
+          "R07",
+          "R16",
+          "R15",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R01",
+          "R08",
+          "R06",
+          "R14",
+          "R09",
+          "R11",
+          "R02",
+          "R07",
+          "R13",
+          "R16",
+          "R05",
+          "R03",
+          "R15",
+          "R10",
+          "R04",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.8986235838859516,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.5232373627312622,
+          "lexicalRank": 5,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.47675030764641096,
+          "lexicalRank": 4,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R14",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.39297082496114083,
+          "lexicalRank": 2,
+          "vectorRank": 8,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.48400078489645565,
+          "lexicalRank": 7,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "query": "Find the annual steel production volume and year-on-year change for NLMK.",
+      "relevantChunkIds": [
+        "R01"
+      ],
+      "vector": {
+        "ranking": [
+          "R01",
+          "R08",
+          "R11",
+          "R07",
+          "R06",
+          "R09",
+          "R16",
+          "R15",
+          "R02",
+          "R13",
+          "R03",
+          "R14",
+          "R10",
+          "R05",
+          "R04",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R01",
+          "R06",
+          "R07",
+          "R02",
+          "R08",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R01",
+          "R08",
+          "R06",
+          "R07",
+          "R02",
+          "R12",
+          "R11",
+          "R09",
+          "R16",
+          "R15",
+          "R13",
+          "R03",
+          "R14",
+          "R10",
+          "R05",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.7918594323153012,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.45318528227030325,
+          "lexicalRank": 5,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.40404440286212945,
+          "lexicalRank": 2,
+          "vectorRank": 5,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4333429985877894,
+          "lexicalRank": 3,
+          "vectorRank": 4,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.29232587728491655,
+          "lexicalRank": 4,
+          "vectorRank": 9,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "query": "Сколько распределительных центров в логистической инфраструктуре Пятёрочки?",
+      "relevantChunkIds": [
+        "R02"
+      ],
+      "vector": {
+        "ranking": [
+          "R02",
+          "R15",
+          "R10",
+          "R05",
+          "R04",
+          "R14",
+          "R16",
+          "R13",
+          "R07",
+          "R03",
+          "R11",
+          "R08",
+          "R09",
+          "R06",
+          "R01",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "hybrid": {
+        "ranking": [
+          "R02",
+          "R15",
+          "R10",
+          "R05",
+          "R04",
+          "R14",
+          "R16",
+          "R13",
+          "R07",
+          "R03",
+          "R11",
+          "R08",
+          "R09",
+          "R06",
+          "R01",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.7442738467093967,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.44283495178137083,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.30625303951983096,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.2894204385028601,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.23941989676005107,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "query": "Найди сведения о логистике и числе магазинов сети Pyaterochka.",
+      "relevantChunkIds": [
+        "R02"
+      ],
+      "vector": {
+        "ranking": [
+          "R02",
+          "R10",
+          "R15",
+          "R05",
+          "R16",
+          "R14",
+          "R03",
+          "R07",
+          "R08",
+          "R13",
+          "R11",
+          "R01",
+          "R06",
+          "R09",
+          "R04",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R10",
+          "R02",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "R02",
+          "R10",
+          "R03",
+          "R15",
+          "R05",
+          "R16",
+          "R14",
+          "R07",
+          "R08",
+          "R13",
+          "R11",
+          "R01",
+          "R06",
+          "R09",
+          "R04",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.7628064823465853,
+          "lexicalRank": 2,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.5028624298090193,
+          "lexicalRank": 1,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3090018323183701,
+          "lexicalRank": 3,
+          "vectorRank": 7,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.5006786359014479,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3605517782765513,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "query": "Какие услуги Ростелекома относятся к широкополосному доступу?",
+      "relevantChunkIds": [
+        "R03"
+      ],
+      "vector": {
+        "ranking": [
+          "R03",
+          "R05",
+          "R04",
+          "R15",
+          "R11",
+          "R02",
+          "R06",
+          "R10",
+          "R16",
+          "R14",
+          "R07",
+          "R12",
+          "R13",
+          "R08",
+          "R01",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "hybrid": {
+        "ranking": [
+          "R03",
+          "R05",
+          "R04",
+          "R15",
+          "R11",
+          "R02",
+          "R06",
+          "R10",
+          "R16",
+          "R14",
+          "R07",
+          "R12",
+          "R13",
+          "R08",
+          "R01",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.6263353378184414,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.41198160557847,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.3542821077793311,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.27140409197899196,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.2560291294100316,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "query": "В каком фрагменте описаны цифровые решения и мобильная связь Ростелекома?",
+      "relevantChunkIds": [
+        "R03"
+      ],
+      "vector": {
+        "ranking": [
+          "R03",
+          "R05",
+          "R04",
+          "R13",
+          "R11",
+          "R14",
+          "R02",
+          "R15",
+          "R16",
+          "R10",
+          "R06",
+          "R12",
+          "R07",
+          "R08",
+          "R01",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R03",
+          "R05",
+          "R04",
+          "R13",
+          "R11",
+          "R14",
+          "R02",
+          "R15",
+          "R16",
+          "R10",
+          "R06",
+          "R12",
+          "R07",
+          "R08",
+          "R01",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.6049595819993178,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.33453623199722043,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.3189658088390082,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.30272188998731836,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.28296228474548374,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "query": "Which cloud and cybersecurity services are planned for MTS Web Services?",
+      "relevantChunkIds": [
+        "R04"
+      ],
+      "vector": {
+        "ranking": [
+          "R04",
+          "R05",
+          "R03",
+          "R15",
+          "R02",
+          "R13",
+          "R11",
+          "R01",
+          "R10",
+          "R08",
+          "R06",
+          "R12",
+          "R16",
+          "R14",
+          "R07",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R04",
+          "R05",
+          "R03",
+          "R15",
+          "R02",
+          "R13",
+          "R11",
+          "R01",
+          "R10",
+          "R08",
+          "R06",
+          "R12",
+          "R16",
+          "R14",
+          "R07",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.8222760016635225,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.4272817559806025,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.4003145973410827,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.3533191570247756,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3516437416186019,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "query": "Find the MWS announcement mentioning CloudMTS and MTS RED.",
+      "relevantChunkIds": [
+        "R04"
+      ],
+      "vector": {
+        "ranking": [
+          "R04",
+          "R05",
+          "R11",
+          "R15",
+          "R02",
+          "R03",
+          "R01",
+          "R13",
+          "R06",
+          "R10",
+          "R08",
+          "R16",
+          "R12",
+          "R07",
+          "R14",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R04",
+          "R13"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R04",
+          "R13",
+          "R05",
+          "R11",
+          "R15",
+          "R02",
+          "R03",
+          "R01",
+          "R06",
+          "R10",
+          "R08",
+          "R16",
+          "R12",
+          "R07",
+          "R14",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.7375541714973726,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.29544085273625376,
+          "lexicalRank": 2,
+          "vectorRank": 8,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.342663087680558,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.34071082219298077,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.33870165618965725,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "query": "Какой сервис Яндекса выполняет доставку средней и последней мили?",
+      "relevantChunkIds": [
+        "R05"
+      ],
+      "vector": {
+        "ranking": [
+          "R05",
+          "R15",
+          "R02",
+          "R03",
+          "R04",
+          "R10",
+          "R14",
+          "R13",
+          "R16",
+          "R07",
+          "R11",
+          "R01",
+          "R12",
+          "R06",
+          "R08",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R05"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R05",
+          "R15",
+          "R02",
+          "R03",
+          "R04",
+          "R10",
+          "R14",
+          "R13",
+          "R16",
+          "R07",
+          "R11",
+          "R01",
+          "R12",
+          "R06",
+          "R08",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.7459228424227365,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.39427853742719104,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3792971726853402,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.36974932898226315,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.36497237422671286,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "query": "Найди описание O2O-сервисов и Яндекс Доставки.",
+      "relevantChunkIds": [
+        "R05"
+      ],
+      "vector": {
+        "ranking": [
+          "R05",
+          "R15",
+          "R04",
+          "R10",
+          "R03",
+          "R02",
+          "R16",
+          "R13",
+          "R07",
+          "R14",
+          "R11",
+          "R12",
+          "R01",
+          "R08",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R05"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R05",
+          "R15",
+          "R04",
+          "R10",
+          "R03",
+          "R02",
+          "R16",
+          "R13",
+          "R07",
+          "R14",
+          "R11",
+          "R12",
+          "R01",
+          "R08",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.7861905042014743,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.47905879841511717,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R04",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.39615574620943655,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.39050198658368424,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3774507546100488,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "query": "What hydrocarbon production volume did Rosneft report for 2024?",
+      "relevantChunkIds": [
+        "R06"
+      ],
+      "vector": {
+        "ranking": [
+          "R06",
+          "R08",
+          "R09",
+          "R16",
+          "R01",
+          "R14",
+          "R13",
+          "R07",
+          "R11",
+          "R03",
+          "R15",
+          "R05",
+          "R02",
+          "R12",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R06",
+          "R08",
+          "R02",
+          "R01",
+          "R11",
+          "R07",
+          "R13",
+          "R03",
+          "R14",
+          "R09",
+          "R05",
+          "R16",
+          "R15",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R06",
+          "R08",
+          "R01",
+          "R09",
+          "R11",
+          "R13",
+          "R07",
+          "R14",
+          "R16",
+          "R02",
+          "R03",
+          "R05",
+          "R15",
+          "R12",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.8381169972050011,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.7364693308491719,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4272949574794799,
+          "lexicalRank": 5,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.5525989324169709,
+          "lexicalRank": 11,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.3984989677292905,
+          "lexicalRank": 6,
+          "vectorRank": 9,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "query": "Find Rosneft annual results with the million tonnes of oil equivalent figure.",
+      "relevantChunkIds": [
+        "R06"
+      ],
+      "vector": {
+        "ranking": [
+          "R06",
+          "R08",
+          "R01",
+          "R03",
+          "R11",
+          "R09",
+          "R16",
+          "R15",
+          "R07",
+          "R14",
+          "R02",
+          "R05",
+          "R13",
+          "R12",
+          "R04",
+          "R10"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R08",
+          "R06",
+          "R07",
+          "R12",
+          "R02",
+          "R09",
+          "R14",
+          "R05",
+          "R16",
+          "R15"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "R06",
+          "R08",
+          "R07",
+          "R09",
+          "R02",
+          "R16",
+          "R14",
+          "R12",
+          "R15",
+          "R05",
+          "R01",
+          "R03",
+          "R11",
+          "R13",
+          "R04",
+          "R10"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.6956997170076217,
+          "lexicalRank": 2,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.6106148733752524,
+          "lexicalRank": 1,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.39285810019326545,
+          "lexicalRank": 3,
+          "vectorRank": 9,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.4293450077397587,
+          "lexicalRank": 6,
+          "vectorRank": 6,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3838861988698721,
+          "lexicalRank": 5,
+          "vectorRank": 11,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "query": "Какой металл Норникель называет крупнейшим мировым направлением производства?",
+      "relevantChunkIds": [
+        "R07"
+      ],
+      "vector": {
+        "ranking": [
+          "R07",
+          "R10",
+          "R09",
+          "R01",
+          "R11",
+          "R12",
+          "R08",
+          "R13",
+          "R03",
+          "R06",
+          "R05",
+          "R16",
+          "R15",
+          "R02",
+          "R14",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R09",
+          "R07"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "R07",
+          "R09",
+          "R10",
+          "R01",
+          "R11",
+          "R12",
+          "R08",
+          "R13",
+          "R03",
+          "R06",
+          "R05",
+          "R16",
+          "R15",
+          "R02",
+          "R14",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.6967879791254291,
+          "lexicalRank": 2,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.3436041933434565,
+          "lexicalRank": 1,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.40662300267980395,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.31951724365925993,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.3002262961714875,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "query": "Найди утверждение о производстве палладия группой «Норильский никель».",
+      "relevantChunkIds": [
+        "R07"
+      ],
+      "vector": {
+        "ranking": [
+          "R07",
+          "R09",
+          "R01",
+          "R11",
+          "R13",
+          "R08",
+          "R03",
+          "R06",
+          "R16",
+          "R02",
+          "R14",
+          "R10",
+          "R05",
+          "R15",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R07"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R07",
+          "R09",
+          "R01",
+          "R11",
+          "R13",
+          "R08",
+          "R03",
+          "R06",
+          "R16",
+          "R02",
+          "R14",
+          "R10",
+          "R05",
+          "R15",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.7561279747386225,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.4424308633895182,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4046792590600201,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.40015290120878694,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.36977741584379675,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "query": "How much natural gas did NOVATEK produce in 2024?",
+      "relevantChunkIds": [
+        "R08"
+      ],
+      "vector": {
+        "ranking": [
+          "R08",
+          "R06",
+          "R09",
+          "R01",
+          "R07",
+          "R16",
+          "R13",
+          "R14",
+          "R12",
+          "R11",
+          "R15",
+          "R05",
+          "R03",
+          "R02",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R08",
+          "R06",
+          "R14",
+          "R13",
+          "R09",
+          "R01",
+          "R05",
+          "R11",
+          "R07",
+          "R16",
+          "R15",
+          "R02",
+          "R03",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R08",
+          "R06",
+          "R09",
+          "R01",
+          "R14",
+          "R13",
+          "R07",
+          "R16",
+          "R11",
+          "R05",
+          "R15",
+          "R03",
+          "R02",
+          "R12",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.8067889129696313,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.5737246286055135,
+          "lexicalRank": 3,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.5263071833221604,
+          "lexicalRank": 6,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4804175629663644,
+          "lexicalRank": 7,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R14",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.40485900173129286,
+          "lexicalRank": 4,
+          "vectorRank": 8,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "query": "Which NOVATEK excerpt reports hydrocarbon output and natural gas volumes?",
+      "relevantChunkIds": [
+        "R08"
+      ],
+      "vector": {
+        "ranking": [
+          "R08",
+          "R06",
+          "R01",
+          "R11",
+          "R09",
+          "R13",
+          "R07",
+          "R03",
+          "R12",
+          "R16",
+          "R02",
+          "R15",
+          "R05",
+          "R14",
+          "R04",
+          "R10"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R08",
+          "R01",
+          "R12",
+          "R06"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R08",
+          "R01",
+          "R06",
+          "R12",
+          "R11",
+          "R09",
+          "R13",
+          "R07",
+          "R03",
+          "R16",
+          "R02",
+          "R15",
+          "R05",
+          "R14",
+          "R04",
+          "R10"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.7633634319224651,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.49140955604179715,
+          "lexicalRank": 2,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.5483724455104068,
+          "lexicalRank": 4,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.37130631701520606,
+          "lexicalRank": 3,
+          "vectorRank": 9,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.44890023462179063,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "query": "Какой рекордный объем производства золота у компании «Полюс»?",
+      "relevantChunkIds": [
+        "R09"
+      ],
+      "vector": {
+        "ranking": [
+          "R09",
+          "R07",
+          "R16",
+          "R06",
+          "R08",
+          "R01",
+          "R13",
+          "R14",
+          "R10",
+          "R11",
+          "R15",
+          "R12",
+          "R03",
+          "R02",
+          "R05",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R09",
+          "R11",
+          "R16",
+          "R13"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R09",
+          "R16",
+          "R13",
+          "R11",
+          "R07",
+          "R06",
+          "R08",
+          "R01",
+          "R14",
+          "R10",
+          "R15",
+          "R12",
+          "R03",
+          "R02",
+          "R05",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.765275368129608,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.36796655748093654,
+          "lexicalRank": 3,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.28700793589945417,
+          "lexicalRank": 4,
+          "vectorRank": 7,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.2717352140832971,
+          "lexicalRank": 2,
+          "vectorRank": 10,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4551884192574735,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "query": "Найди данные о количестве унций золота, произведенных «Полюсом».",
+      "relevantChunkIds": [
+        "R09"
+      ],
+      "vector": {
+        "ranking": [
+          "R09",
+          "R07",
+          "R16",
+          "R08",
+          "R15",
+          "R06",
+          "R01",
+          "R14",
+          "R11",
+          "R13",
+          "R02",
+          "R10",
+          "R05",
+          "R03",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R09",
+          "R07",
+          "R16",
+          "R08",
+          "R15",
+          "R06",
+          "R01",
+          "R14",
+          "R11",
+          "R13",
+          "R02",
+          "R10",
+          "R05",
+          "R03",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.7089532528600546,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.42727237186048067,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.4187419260287864,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.3846631127839595,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.37848911139723296,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q19",
+      "query": "Какие направления деятельности объединяет компания «Магнит»?",
+      "relevantChunkIds": [
+        "R10"
+      ],
+      "vector": {
+        "ranking": [
+          "R10",
+          "R03",
+          "R05",
+          "R12",
+          "R11",
+          "R07",
+          "R02",
+          "R15",
+          "R13",
+          "R04",
+          "R16",
+          "R14",
+          "R01",
+          "R08",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R10",
+          "R11",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R10",
+          "R03",
+          "R11",
+          "R05",
+          "R12",
+          "R07",
+          "R02",
+          "R15",
+          "R13",
+          "R04",
+          "R16",
+          "R14",
+          "R01",
+          "R08",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.64664250671857,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.4286396085960213,
+          "lexicalRank": 3,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.32966466517040127,
+          "lexicalRank": 2,
+          "vectorRank": 5,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.352219365898717,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.33992924088538656,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q20",
+      "query": "Find the Magnit passage about food manufacturing and logistics operations.",
+      "relevantChunkIds": [
+        "R10"
+      ],
+      "vector": {
+        "ranking": [
+          "R10",
+          "R02",
+          "R15",
+          "R05",
+          "R16",
+          "R12",
+          "R07",
+          "R03",
+          "R11",
+          "R04",
+          "R13",
+          "R01",
+          "R08",
+          "R14",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R10",
+          "R02"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R10",
+          "R02",
+          "R15",
+          "R05",
+          "R16",
+          "R12",
+          "R07",
+          "R03",
+          "R11",
+          "R04",
+          "R13",
+          "R01",
+          "R08",
+          "R14",
+          "R06",
+          "R09"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.6191622851713972,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.4566961598880756,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.36523400455125254,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3643630521804928,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.319494067658567,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q21",
+      "query": "Где описаны финансовые результаты и устойчивое развитие «Северстали»?",
+      "relevantChunkIds": [
+        "R11"
+      ],
+      "vector": {
+        "ranking": [
+          "R11",
+          "R07",
+          "R13",
+          "R03",
+          "R01",
+          "R05",
+          "R06",
+          "R16",
+          "R09",
+          "R08",
+          "R10",
+          "R14",
+          "R02",
+          "R15",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R11"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R11",
+          "R07",
+          "R13",
+          "R03",
+          "R01",
+          "R05",
+          "R06",
+          "R16",
+          "R09",
+          "R08",
+          "R10",
+          "R14",
+          "R02",
+          "R15",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.7633472914992552,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.41082325446700446,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.4049331613123757,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3836099373554754,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.357332444131681,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q22",
+      "query": "Find the Severstal integrated report excerpt about sustainability reporting.",
+      "relevantChunkIds": [
+        "R11"
+      ],
+      "vector": {
+        "ranking": [
+          "R11",
+          "R13",
+          "R01",
+          "R07",
+          "R03",
+          "R06",
+          "R02",
+          "R08",
+          "R09",
+          "R05",
+          "R04",
+          "R12",
+          "R16",
+          "R15",
+          "R10",
+          "R14"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R11",
+          "R13",
+          "R02",
+          "R01",
+          "R07",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R11",
+          "R13",
+          "R01",
+          "R07",
+          "R02",
+          "R03",
+          "R06",
+          "R08",
+          "R09",
+          "R05",
+          "R04",
+          "R12",
+          "R16",
+          "R15",
+          "R10",
+          "R14"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.8055702583859455,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.45017773312638987,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4051863463292071,
+          "lexicalRank": 4,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.3959954210902121,
+          "lexicalRank": 5,
+          "vectorRank": 4,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.31119330444020155,
+          "lexicalRank": 3,
+          "vectorRank": 7,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q23",
+      "query": "Which stages of the gas value chain does Gazprom say it works across?",
+      "relevantChunkIds": [
+        "R12"
+      ],
+      "vector": {
+        "ranking": [
+          "R12",
+          "R08",
+          "R03",
+          "R02",
+          "R05",
+          "R11",
+          "R04",
+          "R13",
+          "R16",
+          "R06",
+          "R07",
+          "R15",
+          "R10",
+          "R01",
+          "R09",
+          "R14"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R12",
+          "R02",
+          "R08"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R12",
+          "R08",
+          "R02",
+          "R03",
+          "R05",
+          "R11",
+          "R04",
+          "R13",
+          "R16",
+          "R06",
+          "R07",
+          "R15",
+          "R10",
+          "R01",
+          "R09",
+          "R14"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.5831778222277436,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.40537645184063986,
+          "lexicalRank": 3,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3241664697364709,
+          "lexicalRank": 2,
+          "vectorRank": 4,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3639607424966576,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3052183279030529,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q24",
+      "query": "Find Gazprom facts mentioning storage, processing and sales of oil or gas.",
+      "relevantChunkIds": [
+        "R12"
+      ],
+      "vector": {
+        "ranking": [
+          "R12",
+          "R08",
+          "R06",
+          "R02",
+          "R03",
+          "R16",
+          "R07",
+          "R15",
+          "R13",
+          "R10",
+          "R11",
+          "R09",
+          "R01",
+          "R05",
+          "R14",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R12",
+          "R08"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R12",
+          "R08",
+          "R06",
+          "R02",
+          "R03",
+          "R16",
+          "R07",
+          "R15",
+          "R13",
+          "R10",
+          "R11",
+          "R09",
+          "R01",
+          "R05",
+          "R14",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.6599826334815226,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.5393422097229603,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.4054051841527512,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.4019403839347338,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3918568435925818,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q25",
+      "query": "Какое подразделение СИБУРа занимается вторичной переработкой пластика?",
+      "relevantChunkIds": [
+        "R13"
+      ],
+      "vector": {
+        "ranking": [
+          "R13",
+          "R07",
+          "R11",
+          "R12",
+          "R03",
+          "R05",
+          "R14",
+          "R02",
+          "R09",
+          "R10",
+          "R08",
+          "R16",
+          "R15",
+          "R01",
+          "R06",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R13"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R13",
+          "R07",
+          "R11",
+          "R12",
+          "R03",
+          "R05",
+          "R14",
+          "R02",
+          "R09",
+          "R10",
+          "R08",
+          "R16",
+          "R15",
+          "R01",
+          "R06",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.7106383828593607,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.31818156013823334,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.2802752876871445,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.2489452056703565,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.24874522232929486,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q26",
+      "query": "Найди инициативу СИБУРа по возвращению пластика в производственный цикл.",
+      "relevantChunkIds": [
+        "R13"
+      ],
+      "vector": {
+        "ranking": [
+          "R13",
+          "R07",
+          "R11",
+          "R09",
+          "R08",
+          "R03",
+          "R05",
+          "R16",
+          "R10",
+          "R12",
+          "R14",
+          "R15",
+          "R02",
+          "R06",
+          "R01",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R13"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R13",
+          "R07",
+          "R11",
+          "R09",
+          "R08",
+          "R03",
+          "R05",
+          "R16",
+          "R10",
+          "R12",
+          "R14",
+          "R15",
+          "R02",
+          "R06",
+          "R01",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R13",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.6904330433015411,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R07",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.3268589569815224,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R11",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.31270498986681367,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.27001811584309754,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.26638070729146046,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q27",
+      "query": "How many passengers did Aeroflot carry on domestic routes in 2024?",
+      "relevantChunkIds": [
+        "R14"
+      ],
+      "vector": {
+        "ranking": [
+          "R14",
+          "R06",
+          "R08",
+          "R16",
+          "R02",
+          "R09",
+          "R15",
+          "R05",
+          "R03",
+          "R01",
+          "R13",
+          "R11",
+          "R07",
+          "R10",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R14",
+          "R06",
+          "R08",
+          "R13",
+          "R09",
+          "R01",
+          "R05",
+          "R11",
+          "R07",
+          "R16",
+          "R15",
+          "R02",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R14",
+          "R06",
+          "R08",
+          "R09",
+          "R16",
+          "R13",
+          "R05",
+          "R01",
+          "R02",
+          "R15",
+          "R11",
+          "R03",
+          "R07",
+          "R10",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R14",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.817390158051551,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.4340296080065708,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.4163134381327964,
+          "lexicalRank": 3,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R09",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.36091903217462284,
+          "lexicalRank": 5,
+          "vectorRank": 6,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.38308213308513517,
+          "lexicalRank": 10,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q28",
+      "query": "Найди показатель перевозок «Аэрофлота» на внутренних авиалиниях.",
+      "relevantChunkIds": [
+        "R14"
+      ],
+      "vector": {
+        "ranking": [
+          "R14",
+          "R16",
+          "R15",
+          "R05",
+          "R03",
+          "R02",
+          "R06",
+          "R09",
+          "R10",
+          "R11",
+          "R08",
+          "R07",
+          "R01",
+          "R13",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R14"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R14",
+          "R16",
+          "R15",
+          "R05",
+          "R03",
+          "R02",
+          "R06",
+          "R09",
+          "R10",
+          "R11",
+          "R08",
+          "R07",
+          "R01",
+          "R13",
+          "R12",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R14",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.7751821573196305,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.3921085391844546,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.3586025737040348,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3380527371453905,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R03",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3107170137663922,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q29",
+      "query": "What warehouse floor area does Ozon report after its expansion?",
+      "relevantChunkIds": [
+        "R15"
+      ],
+      "vector": {
+        "ranking": [
+          "R15",
+          "R16",
+          "R02",
+          "R05",
+          "R04",
+          "R01",
+          "R10",
+          "R08",
+          "R13",
+          "R11",
+          "R06",
+          "R03",
+          "R09",
+          "R14",
+          "R12",
+          "R07"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R15",
+          "R06",
+          "R16",
+          "R02",
+          "R01",
+          "R11",
+          "R07",
+          "R13",
+          "R03"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R15",
+          "R16",
+          "R02",
+          "R01",
+          "R06",
+          "R11",
+          "R13",
+          "R03",
+          "R07",
+          "R05",
+          "R04",
+          "R10",
+          "R08",
+          "R09",
+          "R14",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.7580588539975261,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.5654087867685117,
+          "lexicalRank": 3,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.4837395130052892,
+          "lexicalRank": 4,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R01",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.3409164345754406,
+          "lexicalRank": 5,
+          "vectorRank": 6,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.3174251772940964,
+          "lexicalRank": 2,
+          "vectorRank": 11,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q30",
+      "query": "Найди сведения о росте числа складов и площадях Ozon.",
+      "relevantChunkIds": [
+        "R15"
+      ],
+      "vector": {
+        "ranking": [
+          "R15",
+          "R16",
+          "R02",
+          "R05",
+          "R10",
+          "R11",
+          "R13",
+          "R14",
+          "R08",
+          "R01",
+          "R09",
+          "R03",
+          "R04",
+          "R06",
+          "R07",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R15",
+          "R16"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R15",
+          "R16",
+          "R02",
+          "R05",
+          "R10",
+          "R11",
+          "R13",
+          "R14",
+          "R08",
+          "R01",
+          "R09",
+          "R03",
+          "R04",
+          "R06",
+          "R07",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.8162409181295741,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.593359390684422,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R02",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.4726402198069853,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3910404037692509,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R10",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.320116787689487,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q31",
+      "query": "How many new production lines did Ozon Pharmaceuticals launch?",
+      "relevantChunkIds": [
+        "R16"
+      ],
+      "vector": {
+        "ranking": [
+          "R16",
+          "R15",
+          "R08",
+          "R02",
+          "R05",
+          "R09",
+          "R13",
+          "R06",
+          "R01",
+          "R14",
+          "R11",
+          "R03",
+          "R04",
+          "R10",
+          "R07",
+          "R12"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R15",
+          "R16",
+          "R08",
+          "R12",
+          "R06"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "R16",
+          "R15",
+          "R08",
+          "R06",
+          "R12",
+          "R02",
+          "R05",
+          "R09",
+          "R13",
+          "R01",
+          "R14",
+          "R11",
+          "R03",
+          "R04",
+          "R10",
+          "R07"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.763775517734864,
+          "lexicalRank": 2,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.5584529169641042,
+          "lexicalRank": 1,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.37811671934650315,
+          "lexicalRank": 3,
+          "vectorRank": 3,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R06",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.3524421086770391,
+          "lexicalRank": 5,
+          "vectorRank": 8,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R12",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.2192770303817624,
+          "lexicalRank": 4,
+          "vectorRank": 16,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q32",
+      "query": "Найди данные о росте продаж в упаковках у «Озон Фармацевтика».",
+      "relevantChunkIds": [
+        "R16"
+      ],
+      "vector": {
+        "ranking": [
+          "R16",
+          "R15",
+          "R05",
+          "R14",
+          "R08",
+          "R09",
+          "R01",
+          "R11",
+          "R06",
+          "R13",
+          "R03",
+          "R02",
+          "R07",
+          "R12",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25": {
+        "ranking": [
+          "R16"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "R16",
+          "R15",
+          "R05",
+          "R14",
+          "R08",
+          "R09",
+          "R01",
+          "R11",
+          "R06",
+          "R13",
+          "R03",
+          "R02",
+          "R07",
+          "R12",
+          "R10",
+          "R04"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "R16",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.8170803813241996,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R15",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.522656177161281,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R05",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.33441368385344283,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R14",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.2953821545416251,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "R08",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.270642809889775,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceReferences": [
+    {
+      "id": "R01",
+      "title": "NLMK issuer report for 12 months 2024",
+      "url": "https://nlmk.com/download_file.php?ELEMENT_ID=169812&FILE_ID=182477&NAME=Issuer%27s+report+for+12+months+2024&PAGE_URL=%2Fen%2Fabout%2Fdocuments%2F",
+      "company": "NLMK Group",
+      "industry": "steel manufacturing"
+    },
+    {
+      "id": "R02",
+      "title": "X5 Group 2024 Annual Report — strategic report",
+      "url": "https://www.x5.ru/wp-content/uploads/reports/2024/en/strategic-report/",
+      "company": "Pyaterochka",
+      "industry": "food retail and logistics"
+    },
+    {
+      "id": "R03",
+      "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+      "url": "https://www.company.rt.ru/upload/protected/iblock/0e7/p34heurcokdbqxjcc34tipp0wg39fo27/Issuer_report_12mo2024_abriged_.pdf",
+      "company": "Ростелеком",
+      "industry": "telecommunications"
+    },
+    {
+      "id": "R04",
+      "title": "MTS Web Services cloud-platform announcement",
+      "url": "https://ir.mts.ru/news_and_events/technology_news/details/741906",
+      "company": "MTS Web Services",
+      "industry": "telecommunications and cloud"
+    },
+    {
+      "id": "R05",
+      "title": "Яндекс financial results for 2024",
+      "url": "https://ir.yandex.ru/financial-releases?report=q4&year=2024",
+      "company": "Яндекс",
+      "industry": "technology and delivery"
+    },
+    {
+      "id": "R06",
+      "title": "Rosneft full-year 2024 IFRS results",
+      "url": "https://rosneft.com/press/releases/item/221793/",
+      "company": "Роснефть",
+      "industry": "oil and gas"
+    },
+    {
+      "id": "R07",
+      "title": "Nornickel 2024 annual report — operational performance",
+      "url": "https://supply-chain2024.nornickel.com/ru/about-nornickel.html",
+      "company": "Норникель",
+      "industry": "mining and metals"
+    },
+    {
+      "id": "R08",
+      "title": "NOVATEK preliminary operating data for 2024",
+      "url": "https://www.novatek.ru/en/press/releases/index.php?from_24=11&id=7BsD5&id_4=6921",
+      "company": "NOVATEK",
+      "industry": "natural gas and LNG"
+    },
+    {
+      "id": "R09",
+      "title": "Polyus operating results for 2024",
+      "url": "https://polyus.com/ru/media/press-releases/operating-results-for-the-second-halff-of-2024-and-full-year-2024/",
+      "company": "Полюс",
+      "industry": "gold mining"
+    },
+    {
+      "id": "R10",
+      "title": "Magnit company overview",
+      "url": "https://www.magnit.com/ru/about-company/about-magnit/",
+      "company": "Магнит",
+      "industry": "food retail and logistics"
+    },
+    {
+      "id": "R11",
+      "title": "Severstal integrated report 2024 presentation notice",
+      "url": "https://promo.severstal.com/report-2024",
+      "company": "Северсталь",
+      "industry": "steel and metallurgy"
+    },
+    {
+      "id": "R12",
+      "title": "Gazprom company profile",
+      "url": "https://www.gazprom.com/about/",
+      "company": "Газпром",
+      "industry": "integrated energy"
+    },
+    {
+      "id": "R13",
+      "title": "SIBUR integrated report 2024 announcement",
+      "url": "https://www.sibur.ru/ru/press-center/news-and-press/sibur-predstavil-integrirovannyy-otchet-za-2024-god-ustoychivost-innovatsii-i-vklad-v-dostizhenie-na/",
+      "company": "СИБУР",
+      "industry": "petrochemicals"
+    },
+    {
+      "id": "R14",
+      "title": "Aeroflot group 2024 operating results",
+      "url": "https://ir.aeroflot.ru/fileadmin/user_upload/files/mfso2024/2025_03_04_AFLT_12M_2024_IFRS_press_release.pdf",
+      "company": "Аэрофлот",
+      "industry": "commercial aviation"
+    },
+    {
+      "id": "R15",
+      "title": "Ozon 2024 results for pickup-point partners",
+      "url": "https://t.me/s/ozonapvz?before=1705",
+      "company": "Ozon",
+      "industry": "e-commerce and logistics"
+    },
+    {
+      "id": "R16",
+      "title": "Ozon Pharma 2024 operating results",
+      "url": "https://ozonpharm.ru/news/press-releases/ozon-farmacevtika-obyavlyaet-finansovye-i-operacionnye-rezultaty-2024-goda/",
+      "company": "Озон Фармацевтика",
+      "industry": "pharmaceutical manufacturing"
+    }
+  ]
+}

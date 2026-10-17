@@ -8,9 +8,9 @@ T10 is an independently callable company-profile workflow. It stores data in Pos
 2. **B03:** parse supported documents, retain source/page offsets, chunk content and store Qwen3-Embedding-8B vectors in pgvector.
 3. **B04–B05:** extract business entities, check source evidence, perform a bounded completeness retry for sparse chunks, and resolve identities using identifiers/exact names before vector/JEV candidates.
 4. **B06:** infer typed relation candidates from chunks. It may extract several triples from one sentence. Relation predicates are constrained by entity-type pairs and JEV helps only when multiple predicates fit.
-5. **B07:** verify exact quote, source, participants, types, attributes and conflicts; then batch-review semantic entailment, direction and temporal status. A missing semantic judgment fails closed.
+5. **B07:** verify exact quote, source, participants, types, attributes and conflicts; deterministic safeguards reject explicit supplier/buyer role mismatches and quoted `CURRENT` claims that are negated, conditional, planned or ended; then batch-review semantic entailment, direction and temporal status. A missing semantic judgment fails closed.
 6. **B08–B09:** persist claims/evidence and derive open questions from graph gaps.
-7. **B10:** retrieve up to 12 existing document chunks for gaps, run one focused extraction and the same evidence gates, save only verified new claims, then recalculate gaps. There is no unbounded retry loop.
+7. **B10:** combine PostgreSQL Russian/English full-text results and pgvector Qwen similarity with reciprocal-rank fusion, promoting exact identifier hits; retrieve a bounded number of existing document chunks for gaps, run one focused extraction and the same evidence gates, save only verified new claims, then recalculate gaps. There is no unbounded retry loop.
 8. **B11:** persist a versioned JSON profile and report processing, identity, source coverage, entity resolution, evidence quality and completeness separately.
 
 ## Evidence and graph rules
@@ -26,6 +26,7 @@ T10 is an independently callable company-profile workflow. It stores data in Pos
 
 - Polza AI supplies DeepSeek V4 Flash, JEV and Qwen embeddings.
 - B07 reviews at most 40 candidate relations in one call. B10 considers at most 12 candidate chunks by default and runs one iteration.
+- Migration `009_document_search_indexes.sql` adds Russian and English GIN full-text indexes. The live 32-query pilot compares the production FTS, pgvector and fusion paths; its 16 source excerpts overlap the extraction regression set and do not constitute a source-disjoint holdout.
 - B04 sparse recovery is capped at 60 chunks per profile run by default; `config.b04RecoveryMaxChunks` may lower the bound.
 - External document text is treated as untrusted input by extraction and semantic-review prompts.
 - No FNS integration, broad public web search or customer-internal connector is configured.

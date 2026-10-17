@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { verifyRelationshipSemantics } from '../src/semantic-evidence.mjs'
+import { verifyBusinessProposal } from '../src/evidence.mjs'
 import { recoverSparseChunkEntities } from '../src/entities.mjs'
 
 const proposal = { sourceId: 's1', predicate: 'SUPPLIES', status: 'CURRENT', quote: 'ООО «Металл» поставляет лист компании «Вектор».', subject: { type: 'COMPANY', name: 'ООО «Металл»' }, object: { type: 'COMPANY', name: 'АО «Вектор»' } }
@@ -30,6 +31,45 @@ test('B07 fails closed when the model is unavailable', async () => {
   assert.equal(result.accepted.length, 0)
   assert.equal(result.rejected[0].code, 'semantic_validation_failed')
   assert.equal(result.modelCall.status, 'failed')
+})
+
+test('B07 deterministic gate rejects supplier claims whose quoted subject is explicitly the buyer', () => {
+  const quote = 'Насосы поставляет АО «Маяк»; ООО «Вектор» выступает покупателем.'
+  const result = verifyBusinessProposal({ predicate:'SUPPLIES', status:'CURRENT', quote }, {
+    sourceId:'s1', sourceText:quote, sourceStatus:'processed',
+    subject:{ type:'COMPANY', name:'ООО «Вектор»' }, object:{ type:'PRODUCT', name:'Насосы' },
+  })
+  assert.equal(result.accepted, false)
+  assert.ok(result.errors.some((error) => error.includes('субъект в цитате обозначен как покупатель')))
+})
+
+test('B07 accepts explicit buyer and supplier roles in their correct directions', () => {
+  const supplierQuote = 'АО «Маяк» поставляет насосы ООО «Вектор».'
+  const supplier = verifyBusinessProposal({ predicate:'SUPPLIES', status:'CURRENT', quote:supplierQuote }, {
+    sourceId:'s1', sourceText:supplierQuote, sourceStatus:'processed',
+    subject:{ type:'COMPANY', name:'АО «Маяк»' }, object:{ type:'PRODUCT', name:'насосы' },
+  })
+  const buyerQuote = 'ООО «Вектор» закупает насосы у АО «Маяк».'
+  const buyer = verifyBusinessProposal({ predicate:'PURCHASES', status:'CURRENT', quote:buyerQuote }, {
+    sourceId:'s2', sourceText:buyerQuote, sourceStatus:'processed',
+    subject:{ type:'COMPANY', name:'ООО «Вектор»' }, object:{ type:'PRODUCT', name:'насосы' },
+  })
+  assert.equal(supplier.accepted, true)
+  assert.equal(buyer.accepted, true)
+})
+
+test('B07 deterministic gate rejects a CURRENT status for explicit plans and negation', () => {
+  const cases = [
+    'ООО «Вектор» планирует поставлять насосы.',
+    'ООО «Вектор» не поставляет насосы.',
+  ]
+  for (const quote of cases) {
+    const result = verifyBusinessProposal({ predicate:'SUPPLIES', status:'CURRENT', quote }, {
+      sourceId:'s1', sourceText:quote, sourceStatus:'processed',
+      subject:{ type:'COMPANY', name:'ООО «Вектор»' }, object:{ type:'PRODUCT', name:'насосы' },
+    })
+    assert.equal(result.accepted, false, quote)
+  }
 })
 
 test('B04 retries sparse chunks once and adds only exact-quote entities', async () => {
