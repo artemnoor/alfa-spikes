@@ -454,12 +454,15 @@ export async function persistRelationshipClaims(profileId, verifiedRelationships
       const { rows: evidence } = await client.query(`
         INSERT INTO t10.claim_evidence
           (evidence_id, claim_id, profile_id, source_id, chunk_id, quote, start_offset, end_offset, quote_matches_source, fact_validation, notes)
-        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,true,'text_match_only',$9)
+        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,true,$9,$10)
         ON CONFLICT (claim_id, source_id, quote) DO UPDATE SET notes = EXCLUDED.notes
         RETURNING evidence_id
       `, [randomUUID(), claim.claim_id, profileId, proposal.sourceId, proposal.chunkId ?? null, proposal.quote,
         proposal.startOffset ?? source.content_text.indexOf(proposal.quote), (proposal.startOffset ?? source.content_text.indexOf(proposal.quote)) + proposal.quote.length,
-        'Точная цитата подтверждена в сохранённом документе; независимый реестр факта не проверялся.'])
+        proposal.semanticVerification?.status === 'SUPPORTED' ? 'model_supported' : 'text_match_only',
+        proposal.semanticVerification?.status === 'SUPPORTED'
+          ? `Цитата совпала с источником; семантическое соответствие проверено ${proposal.semanticVerification.model ?? 'моделью'}: ${String(proposal.semanticVerification.reason ?? '').slice(0, 300)}. Реестр факта не проверялся.`
+          : 'Точная цитата подтверждена в сохранённом документе; семантическая проверка не выполнялась.'])
       saved.push({ ...claim, evidenceId: evidence[0].evidence_id, subject: subject.canonical_name, predicate: proposal.predicate, object: object.canonical_name })
     }
     return saved

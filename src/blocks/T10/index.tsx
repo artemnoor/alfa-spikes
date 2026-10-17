@@ -162,6 +162,18 @@ export default function T10() {
     } catch (cause) { setError(cause instanceof Error?cause.message:'Не удалось сохранить ответ') } finally { setBusy(false) }
   }
 
+  const exportLatestProfile = () => {
+    const latest = versions[0]
+    if (!latest) return
+    const blob = new Blob([JSON.stringify(latest.profile_json, null, 2)], { type: 'application/json;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `t10-business-profile-v${latest.version}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
   const inspectGraphNode = (node: GraphNode) => {
     const entity = entities.find((item) => item.entity_id === node.id)
     setSelectedEntity(entity ?? {
@@ -197,10 +209,11 @@ export default function T10() {
       </section>
       <section className="t10-panel"><div className="t10-panel-title"><div><span>05</span><div><h2>Сущности и неизвестное</h2><p>Показываются извлечённые объекты, цитаты и открытые вопросы из реального запуска.</p></div></div><small>{entities.length} сущностей · {gaps.filter((gap)=>gap.status==='open').length} пробелов</small></div>
         {runStages.length>0&&<div className="t10-stages"><div className="t10-stage-title"><b>Последний запуск</b><span>{String(runMetrics?.inputTokens??0)} входных · {String(runMetrics?.outputTokens??0)} выходных токенов · {String(runMetrics?.costRub??'0')} ₽</span></div>{runStages.map((stage)=><article key={stage.blockId}><b>{stage.blockId}</b><span>{stage.status}</span>{stage.errors?.[0]?.message&&<small>{stage.errors[0].message}</small>}{stage.blockId==='B10'&&stage.output?.attempts?.flatMap((attempt)=>attempt.candidates??[]).map((candidate)=><details className="t10-enrichment-candidate" key={candidate.chunkId}><summary>{candidate.sourceTitle} · {candidate.similarity!==undefined?`${Math.round(candidate.similarity*100)}% сходства`:candidate.match==='lexical'?'текстовое совпадение':'кандидат'}</summary><q>{candidate.excerpt}</q><small>Кандидат для ручной проверки; факт не добавлен автоматически.</small></details>)}</article>)}</div>}
+        {Boolean(versions[0]?.profile_json.statuses)&&<details className="t10-history"><summary>Статусы профиля</summary><pre>{JSON.stringify(versions[0]?.profile_json.statuses,null,2)}</pre></details>}
         {entities.length>0&&<div className="t10-entity-list">{entities.map((entity)=><button type="button" className="t10-entity-card" key={entity.entity_id} onClick={()=>setSelectedEntity(entity)}><div><small>{entity.entity_type} · {entity.canonical_entity_name?`объединено с ${entity.canonical_entity_name}`:entity.resolution_status}</small><b>{entity.canonical_name}</b></div>{entity.mentions.slice(0,1).map((mention,index)=><blockquote key={`${entity.entity_id}-${index}`}><q>{mention.quote}</q><small>{mention.sourceTitle}</small></blockquote>)}</button>)}</div>}
         {gaps.length>0?<div className="t10-gap-list">{gaps.map((gap)=><article key={gap.gap_id}><span>Приоритет {gap.priority} · {gap.related_entity_name??'Компания'} · {gap.status==='open'?'нужен ответ':'ответ сохранён'}</span><b>{gap.missing_fact}</b><p>{gap.rationale}</p><q>{gap.question}</q>{gap.answers?.map((answer)=><blockquote key={answer.answerId}>{answer.answerText}<small>Пользовательский ответ · {answer.answerStatus}</small></blockquote>)}{gap.status==='open'&&<div className="t10-gap-answer"><Textarea label="Ответ" labelView="outer" value={gapAnswers[gap.gap_id]??''} onChange={(_,p)=>setGapAnswers((current)=>({...current,[gap.gap_id]:p.value}))} block minRows={2} maxRows={5} autosize maxLength={20000}/><Button view="secondary" size={40} disabled={busy||!gapAnswers[gap.gap_id]?.trim()} onClick={()=>void answerGap(gap.gap_id)}>Сохранить ответ</Button></div>}</article>)}</div>:<p className="t10-empty">Открытых пробелов не обнаружено.</p>}
       </section>
-      <section className="t10-panel"><div className="t10-panel-title"><div><span>06</span><div><h2>История и версии</h2><p>Запуски, статусы этапов, расход и сохранённые версии профиля.</p></div></div><small>{runHistory.length} запусков · {versions.length} версий</small></div>
+      <section className="t10-panel"><div className="t10-panel-title"><div><span>06</span><div><h2>История и версии</h2><p>Запуски, статусы этапов, расход и сохранённые версии профиля.</p></div></div><div className="t10-version-actions"><small>{runHistory.length} запусков · {versions.length} версий</small>{versions.length>0&&<Button view="secondary" size={40} onClick={exportLatestProfile}>Скачать JSON профиля</Button>}</div></div>
         {runHistory.length===0?<p className="t10-empty">Запусков ещё нет.</p>:<div className="t10-run-history">{runHistory.map((run)=><details key={run.run_id}><summary><b>Запуск #{run.run_number}</b><span>{run.status}</span><time>{new Date(run.started_at).toLocaleString('ru-RU')}</time><small>{run.input_tokens??0} входных · {run.output_tokens??0} выходных · {run.reported_cost_rub??'0'} ₽</small></summary><div>{run.blocks.map((stage)=><p key={`${run.run_id}-${stage.blockId}`}><b>{stage.blockId}</b> · {stage.status}{stage.error&&<small>{stage.error}</small>}</p>)}</div></details>)}</div>}
         {versions.length>0&&<details className="t10-history"><summary>Версии профиля</summary>{versions.map((version)=><details key={version.version}><summary>Версия {version.version} · {new Date(version.created_at).toLocaleString('ru-RU')}</summary><pre>{JSON.stringify(version.profile_json,null,2)}</pre></details>)}</details>}
       </section>

@@ -1,7 +1,8 @@
 import { createBlockResult, T10_BLOCK_SCHEMAS } from './contracts.mjs'
 import { processDocument } from './documents.mjs'
-import { extractEntitiesFromChunks } from './entities.mjs'
+import { extractEntitiesFromChunks, recoverSparseChunkEntities } from './entities.mjs'
 import { verifyBatch } from './evidence.mjs'
+import { verifyRelationshipSemantics } from './semantic-evidence.mjs'
 import { detectBusinessGaps } from './gaps.mjs'
 import { buildBusinessProfile } from './profile.mjs'
 import { companyNameAliases, extractRelationshipsFromChunks } from './relationships.mjs'
@@ -214,7 +215,16 @@ export async function processCompanyProfile(profileId, config = {}) {
     await runBlock(run.run_id, 'B03', b03, { chunks: chunks.length, vectorizedChunks: chunks.length - missingVectors, missingVectors })
     stages.push(b03)
 
-    const extraction = await extractEntitiesFromChunks(chunks)
+    const initialExtraction = await extractEntitiesFromChunks(chunks)
+    const recovery = await recoverSparseChunkEntities(chunks, initialExtraction.entities, { maxChunks: Math.max(0, Math.min(60, Number(config.b04RecoveryMaxChunks ?? 60))) })
+    const extraction = {
+      ...initialExtraction,
+      entities: [...initialExtraction.entities, ...recovery.entities],
+      mentions: [...initialExtraction.mentions, ...recovery.entities],
+      rejected: [...initialExtraction.rejected, ...recovery.rejected],
+      modelCalls: [...initialExtraction.modelCalls, ...recovery.modelCalls],
+      status: [...initialExtraction.modelCalls, ...recovery.modelCalls].some((item) => item.status === 'failed') ? 'partial' : initialExtraction.status,
+    }
     const persistedEntities = await persistEntityExtraction(profileId, extraction)
     for (const result of extraction.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: 'B04 business entity extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
     const b04 = envelope('B04', { profileId, chunks: chunks.map(({ chunk_id, source_id }) => ({ chunkId: chunk_id, sourceId: source_id })) }, {
@@ -284,10 +294,20 @@ export async function processCompanyProfile(profileId, config = {}) {
     const proposals = relationshipResult.relationships.map((item) => ({
       ...item, subject: { type: item.sourceType, name: item.sourceName, resolution: item.sourceResolution }, object: { type: item.targetType, name: item.targetName, resolution: item.targetResolution },
     }))
-    const b07Result = verifyBatch(proposals, (sourceId) => sourceMap.get(sourceId), dataAfterRanking.claims)
+    const semantic = await verifyRelationshipSemantics(proposals, (sourceId) => sourceMap.get(sourceId))
+    if (semantic.modelCall) {
+      const item = semantic.modelCall
+      await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: item.purpose ?? 'B07 relationship semantic entailment verification', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+    }
+    const semanticallyAccepted = semantic.accepted
+    const semanticallyRejected = semantic.rejected
+    const b07Result = verifyBatch(semanticallyAccepted, (sourceId) => sourceMap.get(sourceId), dataAfterRanking.claims)
+    b07Result.rejected.push(...semanticallyRejected)
+    if (semanticallyRejected.length && !b07Result.accepted.length) b07Result.status = 'failed'
+    else if (semanticallyRejected.length) b07Result.status = 'partial'
     const b07 = envelope('B07', { profileId, proposals: proposals.map(({ sourceId, predicate, quote }) => ({ sourceId, predicate, quote })) }, {
       accepted: b07Result.accepted, rejected: [...b07Result.rejected, ...relationshipResult.rejected], conflicts: b07Result.conflicts,
-    }, { status: b07Result.status, errors: b07Result.rejected })
+    }, { status: b07Result.status, errors: b07Result.rejected, usage: semantic.modelCall && semantic.modelCall.status !== 'failed' ? [{ model: semantic.modelCall.model, inputTokens: semantic.modelCall.inputTokens ?? null, outputTokens: semantic.modelCall.outputTokens ?? null, costRub: semantic.modelCall.costRub ?? null, latencyMs: semantic.modelCall.latencyMs ?? null }] : [] })
     const savedClaims = await persistRelationshipClaims(profileId, b07Result.accepted, run.run_id)
     const savedRejected = await persistRejectedProposals(profileId, run.run_id, [...relationshipResult.rejected, ...b07Result.rejected])
     await runBlock(run.run_id, 'B07', b07, { accepted: b07Result.accepted.length, rejected: b07Result.rejected.length + relationshipResult.rejected.length, savedRejected })
@@ -301,7 +321,7 @@ export async function processCompanyProfile(profileId, config = {}) {
     stages.push(b08)
 
     const detected = detectBusinessGaps({ profileId, entities: graph.entities, claims: graph.claims })
-    const savedGaps = await persistDetectedGaps(profileId, detected, run.run_id)
+    let savedGaps = await persistDetectedGaps(profileId, detected, run.run_id)
     const b09 = envelope('B09', { profileId, graph: { nodes: graph.entities.length, edges: graph.claims.length } }, { gaps: savedGaps })
     await runBlock(run.run_id, 'B09', b09, { gaps: savedGaps.filter((gap) => gap.status === 'open').length })
     stages.push(b09)
@@ -312,6 +332,7 @@ export async function processCompanyProfile(profileId, config = {}) {
     const enrichmentSources = await listSources(profileId)
     const processedWebsite = enrichmentSources.find((source) => source.source_type === 'company_website' && source.access_level === 'public' && source.source_status === 'processed') ?? null
     let b10Usage = []
+    const b10ExtraUsage = []
     const vectorized = chunks.some((chunk) => chunk.vectorized)
     if (openGaps.length && vectorized && polzaConfigured()) {
       try {
@@ -356,6 +377,46 @@ export async function processCompanyProfile(profileId, config = {}) {
       })
       if (!evidence) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: [], candidates: [], requiresVerification: true })
     }
+    // B10 gets exactly one bounded retrieval→extraction→B07→recheck pass.
+    const maxEnrichmentChunks = Math.max(0, Math.min(12, Number(config.b10MaxCandidates ?? 8)))
+    const candidateIds = [...new Set(candidateEvidence.flatMap((item) => item.candidateChunkIds ?? []))].slice(0, maxEnrichmentChunks)
+    const enrichmentChunks = chunks.filter((chunk) => candidateIds.includes(chunk.chunk_id))
+    let enrichedClaims = []
+    let enrichmentStatus = enrichmentChunks.length ? 'partial' : 'skipped'
+    if (enrichmentChunks.length) {
+      try {
+        const focusedExtraction = await extractRelationshipsFromChunks(enrichmentChunks, extractionRows, { profileCompany })
+        for (const item of focusedExtraction.modelCalls) {
+          await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: 'B10 focused gap fact extraction', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+          b10ExtraUsage.push({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })
+        }
+        const focusedProposals = focusedExtraction.relationships.map((item) => ({ ...item, subject: { type: item.sourceType, name: item.sourceName, resolution: item.sourceResolution }, object: { type: item.targetType, name: item.targetName, resolution: item.targetResolution } }))
+        const focusedSemantic = await verifyRelationshipSemantics(focusedProposals, (sourceId) => sourceMap.get(sourceId), { maxProposals: 12 })
+        if (focusedSemantic.modelCall) {
+          const item = focusedSemantic.modelCall
+          await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: 'B10 focused fact semantic verification', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+          b10ExtraUsage.push({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })
+        }
+        const verified = verifyBatch(focusedSemantic.accepted, (sourceId) => sourceMap.get(sourceId), (await getBusinessData(profileId)).claims)
+        if (verified.accepted.length) {
+          const persisted = await persistRelationshipClaims(profileId, verified.accepted, run.run_id)
+          enrichedClaims = persisted.filter((claim) => claim.duplicate !== true)
+        }
+        enrichmentStatus = focusedExtraction.rejected.some((item) => item.code === 'model_error') || focusedSemantic.rejected.length || verified.rejected.length ? 'partial' : 'completed'
+        if (verified.accepted.length) {
+          const updatedGraph = await getBusinessData(profileId)
+          savedGaps = await persistDetectedGaps(profileId, detectBusinessGaps({ profileId, entities: updatedGraph.entities, claims: updatedGraph.claims }), run.run_id)
+        }
+        for (const gap of openGaps) {
+          if (candidateEvidence.some((entry) => entry.gapId === gap.gap_id && entry.candidateChunkIds?.some((id) => candidateIds.includes(id)))) {
+            await recordEnrichmentAttempt(profileId, gap.gap_id, run.run_id, { sourceType: 'internal_document_search', queryText: gap.question, status: enrichmentStatus, errorText: enrichmentStatus === 'partial' ? 'Кандидаты проверены; нового полностью подтверждённого факта не получено.' : null })
+          }
+        }
+      } catch (error) {
+        enrichmentStatus = 'failed'
+        if (openGaps[0]) await recordEnrichmentAttempt(profileId, openGaps[0].gap_id, run.run_id, { sourceType: 'internal_document_search', queryText: 'B10 bounded evidence recovery', status: 'failed', errorText: error.message })
+      }
+    }
     const registryStatusMessage = `Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен.${processedWebsite ? ' Указанный сайт компании обработан как публичный источник.' : ' Добавьте сайт компании, чтобы подключить его к сбору открытых источников.'}`
     const b10Errors = [{ code: 'official_registry_access_not_configured', message: registryStatusMessage }]
     const b10Attempts = candidateEvidence.map((item) => ({ gapId: item.gapId, sourceType: 'internal_document_search', status: 'completed', candidateChunkIds: item.candidateChunkIds, candidates: item.candidates, requiresVerification: true }))
@@ -364,25 +425,27 @@ export async function processCompanyProfile(profileId, config = {}) {
       b10Attempts.push({ gapId: gap.gap_id, sourceType: 'official_registry', status: 'skipped', reason: b10Errors[0].message })
     }
     const b10 = envelope('B10', { profileId, gaps: savedGaps.filter((item) => item.status === 'open').map((item) => ({ gapId: item.gap_id, question: item.question })), sourceIds: sources.map((item) => item.source_id) }, {
-      attempts: b10Attempts,
+      attempts: [...b10Attempts, ...(enrichmentChunks.length ? [{ sourceType: 'internal_document_fact_recovery', status: enrichmentStatus, candidateChunkIds: candidateIds, verifiedClaims: enrichedClaims.length, boundedIterations: 1 }] : [])],
       questions: savedGaps.filter((item) => item.status === 'open').map((item) => ({ gapId: item.gap_id, question: item.question, status: 'open' })),
       errors: b10Errors,
-    }, { status: 'partial', errors: b10Errors, usage: b10Usage })
+    }, { status: 'partial', errors: b10Errors, usage: [...b10Usage, ...b10ExtraUsage] })
     await runBlock(run.run_id, 'B10', b10, { openGaps: b10.output.questions.length, internalCandidates: candidateEvidence.length })
     stages.push(b10)
 
     const finalData = await getBusinessData(profileId)
     const version = finalData.profile.current_version + 1
-    const generated = buildBusinessProfile({ profile: finalData.profile, entities: finalData.entities, claims: finalData.claims, gaps: finalData.gaps, sources: finalData.sources, version })
+    const operationalErrorCodes = new Set(['model_error', 'embedding_failed', 'embedding_not_configured', 'entity_embeddings_failed', 'entity_embeddings_not_configured', 'jev_entity_ranking_failed', 'jev_relation_ranking_failed', 'semantic_validation_failed'])
+    const processingStatus = stages.some((stage) => stage.status === 'failed' || stage.errors.some((error) => operationalErrorCodes.has(error.code))) ? 'partial' : 'completed'
+    const generated = buildBusinessProfile({ profile: finalData.profile, entities: finalData.entities, claims: finalData.claims, gaps: finalData.gaps, sources: finalData.sources, version, processingStatus })
     const savedVersion = await persistProfileVersion(profileId, run.run_id, generated)
     const b11 = envelope('B11', { profileId, graph: { nodes: finalData.entities.length, edges: finalData.claims.length }, gaps: finalData.gaps, sources: finalData.sources.map(({ source_id, title, source_status }) => ({ sourceId: source_id, title, status: source_status })) }, {
       profileId, version: savedVersion.version, company: generated.company, business: generated.business,
-      unknowns: generated.unknowns, conflicts: generated.conflicts, generatedAt: generated.generatedAt,
+      unknowns: generated.unknowns, conflicts: generated.conflicts, statuses: generated.statuses, generatedAt: generated.generatedAt,
     })
     await runBlock(run.run_id, 'B11', b11, { version: savedVersion.version })
     stages.push(b11)
 
-    hasErrors = stages.some((stage) => stage.status === 'partial' || stage.status === 'failed')
+    hasErrors = processingStatus === 'partial'
     const completed = await finishRun(run.run_id, { status: hasErrors ? 'partial' : 'completed' })
     return { run: completed, stages, profile: generated, metrics: await getRunUsage(run.run_id) }
   } catch (error) {

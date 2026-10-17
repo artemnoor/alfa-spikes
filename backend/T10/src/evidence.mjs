@@ -109,7 +109,7 @@ export function verifyBusinessProposal(proposal, { sourceText, sourceId, sourceS
   } : {
     accepted: true,
     claimStatus: 'SUPPORTED', // Exact text evidence does not establish independent truth.
-    evidence: { sourceId, quote, startOffset: offset, endOffset: offset + quote.length, quoteMatchesSource: true, sourceAccessLevel, factValidation: 'text_match_only' },
+    evidence: { sourceId, quote, startOffset: offset, endOffset: offset + quote.length, quoteMatchesSource: true, sourceAccessLevel, factValidation: proposal.semanticVerification?.status === 'SUPPORTED' ? 'model_supported' : 'text_match_only' },
     relationshipStatus: proposal.status ?? 'UNKNOWN',
   }
 }
