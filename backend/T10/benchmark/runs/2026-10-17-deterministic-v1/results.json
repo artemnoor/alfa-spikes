@@ -1,0 +1,1052 @@
+{
+  "benchmarkId": "2026-10-17-deterministic-v1",
+  "generatedAt": "2026-10-16T23:35:45.447Z",
+  "datasetType": "synthetic deterministic unit benchmark",
+  "modelCalls": 0,
+  "costRub": 0,
+  "total": 100,
+  "passed": 100,
+  "failed": 0,
+  "falseAccepted": [],
+  "falseRejected": [],
+  "truePositive": 50,
+  "falsePositive": 0,
+  "falseNegative": 0,
+  "precision": 1,
+  "recall": 1,
+  "f1": 1,
+  "families": {
+    "direct-supported": {
+      "cases": 40,
+      "passed": 40,
+      "expectedAccepts": 40,
+      "actualAccepts": 40
+    },
+    "incompatible-types": {
+      "cases": 20,
+      "passed": 20,
+      "expectedAccepts": 0,
+      "actualAccepts": 0
+    },
+    "fabricated-quote": {
+      "cases": 20,
+      "passed": 20,
+      "expectedAccepts": 0,
+      "actualAccepts": 0
+    },
+    "unique-local-coreference": {
+      "cases": 10,
+      "passed": 10,
+      "expectedAccepts": 10,
+      "actualAccepts": 10
+    },
+    "ambiguous-coreference": {
+      "cases": 10,
+      "passed": 10,
+      "expectedAccepts": 0,
+      "actualAccepts": 0
+    }
+  },
+  "results": [
+    {
+      "id": "T10-D-001",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-002",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-003",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-004",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-005",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-006",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-007",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-008",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-009",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-010",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-011",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-012",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-013",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-014",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-015",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-016",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-017",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-018",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-019",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-020",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-021",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-022",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-023",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-024",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-025",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-026",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-027",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-028",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-029",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-030",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-031",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-032",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-033",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-034",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-035",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-036",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-037",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-038",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-039",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-D-040",
+      "family": "direct-supported",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-I-041",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-042",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-043",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-044",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-045",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-046",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-047",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-048",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-049",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-050",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-051",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-052",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-053",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-054",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-055",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-056",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-057",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-058",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-059",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-I-060",
+      "family": "incompatible-types",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Типы COMPANY → PRODUCES → LOCATION несовместимы"
+    },
+    {
+      "id": "T10-Q-061",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-062",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-063",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-064",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-065",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-066",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-067",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-068",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-069",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-070",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-071",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-072",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-073",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-074",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-075",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-076",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-077",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-078",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-079",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-Q-080",
+      "family": "fabricated-quote",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Цитата отсутствует в исходном фрагменте"
+    },
+    {
+      "id": "T10-C-081",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-082",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-083",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-084",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-085",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-086",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-087",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-088",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-089",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-C-090",
+      "family": "unique-local-coreference",
+      "expectedAccepted": true,
+      "b06Accepted": true,
+      "b07Accepted": true,
+      "accepted": true,
+      "pass": true,
+      "reason": ""
+    },
+    {
+      "id": "T10-A-091",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-092",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-093",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-094",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-095",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-096",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-097",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-098",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-099",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    },
+    {
+      "id": "T10-A-100",
+      "family": "ambiguous-coreference",
+      "expectedAccepted": false,
+      "b06Accepted": false,
+      "b07Accepted": false,
+      "accepted": false,
+      "pass": true,
+      "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту"
+    }
+  ]
+}

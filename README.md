@@ -56,3 +56,17 @@ npm run build
 ```
 
 The benchmark report explains the comparison limits and the reason `partial` is preserved in every result.
+
+## T10 Business Understanding
+
+T10 is an independent company-profile pipeline with a separate PostgreSQL `t10` schema and profile-scoped run ledger. It does not use T08/T09 news records or code. It provides B01–B11 contracts, profile/source/fact APIs, provenance-aware facts and a live T10 tab. See [`backend/T10/README.md`](backend/T10/README.md) for setup, status and known limitations.
+
+Saved model evaluations:
+
+- [Synthetic live run v8](backend/T10/benchmark/runs/2026-10-17-live-13-case-v8/RESULTS.md) and [relation-level comparison](backend/T10/benchmark/runs/2026-10-17-live-13-case-v8/RELATION_EVALUATION.md).
+- [Three-case real-source pilot](backend/T10/benchmark/runs/2026-10-17-real-3-case-v1/RESULTS.md): 8/12 expected entities and 1/4 expected relation triples found; no false positives in this small sample. Cost: ₽0.041027.
+- [13 additional real-source cases, baseline](backend/T10/benchmark/runs/2026-10-17-real-13-case-v1/RESULTS.md): 8/24 expected entities found; 0/8 relation triples. Cost: ₽0.161954.
+- [13 additional real-source cases, rerun after fixes](backend/T10/benchmark/runs/2026-10-17-real-13-case-v2/RESULTS.md): 15/24 expected entities found (62.5% precision, recall and F1); 1/8 relation triples, with 6 additional predicted relations. Cost: ₽0.319121. Recall improved, while relation quality and precision still need work; this small manually annotated pilot is diagnostic, not a production accuracy estimate.
+- Synthetic B06/B07 and B09 benchmarks, scripts, inputs and annotations are under [`backend/T10/benchmark`](backend/T10/benchmark/).
+
+Copy `backend/T10/.env.example` to `backend/T10/.env`, configure `T10_DATABASE_URL`, then run `npm --prefix backend/T10 start`. Run unit and PostgreSQL API checks with `npm --prefix backend/T10 test`.

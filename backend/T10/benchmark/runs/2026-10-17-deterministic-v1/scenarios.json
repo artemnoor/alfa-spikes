@@ -1,0 +1,2592 @@
+[
+  {
+    "id": "T10-D-001",
+    "family": "direct-supported",
+    "text": "ООО 1 производит Продукт 1.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО 1",
+      "predicate": "PRODUCES",
+      "targetName": "Продукт 1",
+      "quote": "ООО 1 производит Продукт 1.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО 1",
+        "startOffset": 0
+      },
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 1",
+        "startOffset": 17
+      }
+    ]
+  },
+  {
+    "id": "T10-D-002",
+    "family": "direct-supported",
+    "text": "АО 2 оказывает услугу Услуга 2.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "АО 2",
+      "predicate": "PROVIDES_SERVICE",
+      "targetName": "Услуга 2",
+      "quote": "АО 2 оказывает услугу Услуга 2.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "АО 2",
+        "startOffset": 0
+      },
+      {
+        "type": "SERVICE",
+        "name": "Услуга 2",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-003",
+    "family": "direct-supported",
+    "text": "Поставщик 3 поставляет Компонент 3.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Поставщик 3",
+      "predicate": "SUPPLIES",
+      "targetName": "Компонент 3",
+      "quote": "Поставщик 3 поставляет Компонент 3.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Поставщик 3",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 3",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-D-004",
+    "family": "direct-supported",
+    "text": "Компания 4 закупает Ресурс 4.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 4",
+      "predicate": "PURCHASES",
+      "targetName": "Ресурс 4",
+      "quote": "Компания 4 закупает Ресурс 4.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 4",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 4",
+        "startOffset": 20
+      }
+    ]
+  },
+  {
+    "id": "T10-D-005",
+    "family": "direct-supported",
+    "text": "Компания 5 эксплуатирует Площадка 5.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 5",
+      "predicate": "OPERATES",
+      "targetName": "Площадка 5",
+      "quote": "Компания 5 эксплуатирует Площадка 5.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 5",
+        "startOffset": 0
+      },
+      {
+        "type": "FACILITY",
+        "name": "Площадка 5",
+        "startOffset": 25
+      }
+    ]
+  },
+  {
+    "id": "T10-D-006",
+    "family": "direct-supported",
+    "text": "Завод 6 расположен в Регион 6.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Завод 6",
+      "predicate": "LOCATED_IN",
+      "targetName": "Регион 6",
+      "quote": "Завод 6 расположен в Регион 6.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Завод 6",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Регион 6",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-007",
+    "family": "direct-supported",
+    "text": "Изделие 7 использует технологию Технология 7.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Изделие 7",
+      "predicate": "USES",
+      "targetName": "Технология 7",
+      "quote": "Изделие 7 использует технологию Технология 7.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Изделие 7",
+        "startOffset": 0
+      },
+      {
+        "type": "TECHNOLOGY",
+        "name": "Технология 7",
+        "startOffset": 32
+      }
+    ]
+  },
+  {
+    "id": "T10-D-008",
+    "family": "direct-supported",
+    "text": "Продукт 8 требует компонент Материал 8.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Продукт 8",
+      "predicate": "REQUIRES",
+      "targetName": "Материал 8",
+      "quote": "Продукт 8 требует компонент Материал 8.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 8",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Материал 8",
+        "startOffset": 28
+      }
+    ]
+  },
+  {
+    "id": "T10-D-009",
+    "family": "direct-supported",
+    "text": "Комплекс 9 входит в Группа 9.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Комплекс 9",
+      "predicate": "PART_OF",
+      "targetName": "Группа 9",
+      "quote": "Комплекс 9 входит в Группа 9.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Комплекс 9",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "Группа 9",
+        "startOffset": 20
+      }
+    ]
+  },
+  {
+    "id": "T10-D-010",
+    "family": "direct-supported",
+    "text": "Процесс 10 зависит от Ресурс 10.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Процесс 10",
+      "predicate": "DEPENDS_ON",
+      "targetName": "Ресурс 10",
+      "quote": "Процесс 10 зависит от Ресурс 10.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PROCESS",
+        "name": "Процесс 10",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 10",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-011",
+    "family": "direct-supported",
+    "text": "ООО 11 производит Продукт 11.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО 11",
+      "predicate": "PRODUCES",
+      "targetName": "Продукт 11",
+      "quote": "ООО 11 производит Продукт 11.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО 11",
+        "startOffset": 0
+      },
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 11",
+        "startOffset": 18
+      }
+    ]
+  },
+  {
+    "id": "T10-D-012",
+    "family": "direct-supported",
+    "text": "АО 12 оказывает услугу Услуга 12.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "АО 12",
+      "predicate": "PROVIDES_SERVICE",
+      "targetName": "Услуга 12",
+      "quote": "АО 12 оказывает услугу Услуга 12.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "АО 12",
+        "startOffset": 0
+      },
+      {
+        "type": "SERVICE",
+        "name": "Услуга 12",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-D-013",
+    "family": "direct-supported",
+    "text": "Поставщик 13 поставляет Компонент 13.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Поставщик 13",
+      "predicate": "SUPPLIES",
+      "targetName": "Компонент 13",
+      "quote": "Поставщик 13 поставляет Компонент 13.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Поставщик 13",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 13",
+        "startOffset": 24
+      }
+    ]
+  },
+  {
+    "id": "T10-D-014",
+    "family": "direct-supported",
+    "text": "Компания 14 закупает Ресурс 14.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 14",
+      "predicate": "PURCHASES",
+      "targetName": "Ресурс 14",
+      "quote": "Компания 14 закупает Ресурс 14.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 14",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 14",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-015",
+    "family": "direct-supported",
+    "text": "Компания 15 эксплуатирует Площадка 15.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 15",
+      "predicate": "OPERATES",
+      "targetName": "Площадка 15",
+      "quote": "Компания 15 эксплуатирует Площадка 15.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 15",
+        "startOffset": 0
+      },
+      {
+        "type": "FACILITY",
+        "name": "Площадка 15",
+        "startOffset": 26
+      }
+    ]
+  },
+  {
+    "id": "T10-D-016",
+    "family": "direct-supported",
+    "text": "Завод 16 расположен в Регион 16.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Завод 16",
+      "predicate": "LOCATED_IN",
+      "targetName": "Регион 16",
+      "quote": "Завод 16 расположен в Регион 16.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Завод 16",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Регион 16",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-017",
+    "family": "direct-supported",
+    "text": "Изделие 17 использует технологию Технология 17.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Изделие 17",
+      "predicate": "USES",
+      "targetName": "Технология 17",
+      "quote": "Изделие 17 использует технологию Технология 17.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Изделие 17",
+        "startOffset": 0
+      },
+      {
+        "type": "TECHNOLOGY",
+        "name": "Технология 17",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-D-018",
+    "family": "direct-supported",
+    "text": "Продукт 18 требует компонент Материал 18.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Продукт 18",
+      "predicate": "REQUIRES",
+      "targetName": "Материал 18",
+      "quote": "Продукт 18 требует компонент Материал 18.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 18",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Материал 18",
+        "startOffset": 29
+      }
+    ]
+  },
+  {
+    "id": "T10-D-019",
+    "family": "direct-supported",
+    "text": "Комплекс 19 входит в Группа 19.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Комплекс 19",
+      "predicate": "PART_OF",
+      "targetName": "Группа 19",
+      "quote": "Комплекс 19 входит в Группа 19.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Комплекс 19",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "Группа 19",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-020",
+    "family": "direct-supported",
+    "text": "Процесс 20 зависит от Ресурс 20.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Процесс 20",
+      "predicate": "DEPENDS_ON",
+      "targetName": "Ресурс 20",
+      "quote": "Процесс 20 зависит от Ресурс 20.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PROCESS",
+        "name": "Процесс 20",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 20",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-021",
+    "family": "direct-supported",
+    "text": "ООО 21 производит Продукт 21.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО 21",
+      "predicate": "PRODUCES",
+      "targetName": "Продукт 21",
+      "quote": "ООО 21 производит Продукт 21.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО 21",
+        "startOffset": 0
+      },
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 21",
+        "startOffset": 18
+      }
+    ]
+  },
+  {
+    "id": "T10-D-022",
+    "family": "direct-supported",
+    "text": "АО 22 оказывает услугу Услуга 22.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "АО 22",
+      "predicate": "PROVIDES_SERVICE",
+      "targetName": "Услуга 22",
+      "quote": "АО 22 оказывает услугу Услуга 22.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "АО 22",
+        "startOffset": 0
+      },
+      {
+        "type": "SERVICE",
+        "name": "Услуга 22",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-D-023",
+    "family": "direct-supported",
+    "text": "Поставщик 23 поставляет Компонент 23.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Поставщик 23",
+      "predicate": "SUPPLIES",
+      "targetName": "Компонент 23",
+      "quote": "Поставщик 23 поставляет Компонент 23.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Поставщик 23",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 23",
+        "startOffset": 24
+      }
+    ]
+  },
+  {
+    "id": "T10-D-024",
+    "family": "direct-supported",
+    "text": "Компания 24 закупает Ресурс 24.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 24",
+      "predicate": "PURCHASES",
+      "targetName": "Ресурс 24",
+      "quote": "Компания 24 закупает Ресурс 24.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 24",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 24",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-025",
+    "family": "direct-supported",
+    "text": "Компания 25 эксплуатирует Площадка 25.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 25",
+      "predicate": "OPERATES",
+      "targetName": "Площадка 25",
+      "quote": "Компания 25 эксплуатирует Площадка 25.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 25",
+        "startOffset": 0
+      },
+      {
+        "type": "FACILITY",
+        "name": "Площадка 25",
+        "startOffset": 26
+      }
+    ]
+  },
+  {
+    "id": "T10-D-026",
+    "family": "direct-supported",
+    "text": "Завод 26 расположен в Регион 26.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Завод 26",
+      "predicate": "LOCATED_IN",
+      "targetName": "Регион 26",
+      "quote": "Завод 26 расположен в Регион 26.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Завод 26",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Регион 26",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-027",
+    "family": "direct-supported",
+    "text": "Изделие 27 использует технологию Технология 27.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Изделие 27",
+      "predicate": "USES",
+      "targetName": "Технология 27",
+      "quote": "Изделие 27 использует технологию Технология 27.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Изделие 27",
+        "startOffset": 0
+      },
+      {
+        "type": "TECHNOLOGY",
+        "name": "Технология 27",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-D-028",
+    "family": "direct-supported",
+    "text": "Продукт 28 требует компонент Материал 28.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Продукт 28",
+      "predicate": "REQUIRES",
+      "targetName": "Материал 28",
+      "quote": "Продукт 28 требует компонент Материал 28.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 28",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Материал 28",
+        "startOffset": 29
+      }
+    ]
+  },
+  {
+    "id": "T10-D-029",
+    "family": "direct-supported",
+    "text": "Комплекс 29 входит в Группа 29.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Комплекс 29",
+      "predicate": "PART_OF",
+      "targetName": "Группа 29",
+      "quote": "Комплекс 29 входит в Группа 29.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Комплекс 29",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "Группа 29",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-030",
+    "family": "direct-supported",
+    "text": "Процесс 30 зависит от Ресурс 30.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Процесс 30",
+      "predicate": "DEPENDS_ON",
+      "targetName": "Ресурс 30",
+      "quote": "Процесс 30 зависит от Ресурс 30.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PROCESS",
+        "name": "Процесс 30",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 30",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-031",
+    "family": "direct-supported",
+    "text": "ООО 31 производит Продукт 31.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО 31",
+      "predicate": "PRODUCES",
+      "targetName": "Продукт 31",
+      "quote": "ООО 31 производит Продукт 31.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО 31",
+        "startOffset": 0
+      },
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 31",
+        "startOffset": 18
+      }
+    ]
+  },
+  {
+    "id": "T10-D-032",
+    "family": "direct-supported",
+    "text": "АО 32 оказывает услугу Услуга 32.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "АО 32",
+      "predicate": "PROVIDES_SERVICE",
+      "targetName": "Услуга 32",
+      "quote": "АО 32 оказывает услугу Услуга 32.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "АО 32",
+        "startOffset": 0
+      },
+      {
+        "type": "SERVICE",
+        "name": "Услуга 32",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-D-033",
+    "family": "direct-supported",
+    "text": "Поставщик 33 поставляет Компонент 33.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Поставщик 33",
+      "predicate": "SUPPLIES",
+      "targetName": "Компонент 33",
+      "quote": "Поставщик 33 поставляет Компонент 33.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Поставщик 33",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 33",
+        "startOffset": 24
+      }
+    ]
+  },
+  {
+    "id": "T10-D-034",
+    "family": "direct-supported",
+    "text": "Компания 34 закупает Ресурс 34.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 34",
+      "predicate": "PURCHASES",
+      "targetName": "Ресурс 34",
+      "quote": "Компания 34 закупает Ресурс 34.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 34",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 34",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-035",
+    "family": "direct-supported",
+    "text": "Компания 35 эксплуатирует Площадка 35.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Компания 35",
+      "predicate": "OPERATES",
+      "targetName": "Площадка 35",
+      "quote": "Компания 35 эксплуатирует Площадка 35.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 35",
+        "startOffset": 0
+      },
+      {
+        "type": "FACILITY",
+        "name": "Площадка 35",
+        "startOffset": 26
+      }
+    ]
+  },
+  {
+    "id": "T10-D-036",
+    "family": "direct-supported",
+    "text": "Завод 36 расположен в Регион 36.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Завод 36",
+      "predicate": "LOCATED_IN",
+      "targetName": "Регион 36",
+      "quote": "Завод 36 расположен в Регион 36.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Завод 36",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Регион 36",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-D-037",
+    "family": "direct-supported",
+    "text": "Изделие 37 использует технологию Технология 37.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Изделие 37",
+      "predicate": "USES",
+      "targetName": "Технология 37",
+      "quote": "Изделие 37 использует технологию Технология 37.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Изделие 37",
+        "startOffset": 0
+      },
+      {
+        "type": "TECHNOLOGY",
+        "name": "Технология 37",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-D-038",
+    "family": "direct-supported",
+    "text": "Продукт 38 требует компонент Материал 38.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Продукт 38",
+      "predicate": "REQUIRES",
+      "targetName": "Материал 38",
+      "quote": "Продукт 38 требует компонент Материал 38.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PRODUCT",
+        "name": "Продукт 38",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Материал 38",
+        "startOffset": 29
+      }
+    ]
+  },
+  {
+    "id": "T10-D-039",
+    "family": "direct-supported",
+    "text": "Комплекс 39 входит в Группа 39.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Комплекс 39",
+      "predicate": "PART_OF",
+      "targetName": "Группа 39",
+      "quote": "Комплекс 39 входит в Группа 39.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "FACILITY",
+        "name": "Комплекс 39",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "Группа 39",
+        "startOffset": 21
+      }
+    ]
+  },
+  {
+    "id": "T10-D-040",
+    "family": "direct-supported",
+    "text": "Процесс 40 зависит от Ресурс 40.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "Процесс 40",
+      "predicate": "DEPENDS_ON",
+      "targetName": "Ресурс 40",
+      "quote": "Процесс 40 зависит от Ресурс 40.",
+      "status": "CURRENT"
+    },
+    "entities": [
+      {
+        "type": "PROCESS",
+        "name": "Процесс 40",
+        "startOffset": 0
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Ресурс 40",
+        "startOffset": 22
+      }
+    ]
+  },
+  {
+    "id": "T10-I-041",
+    "family": "incompatible-types",
+    "text": "ООО Завод 41 производит в городе Пермь 41.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 41",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 41",
+      "quote": "ООО Завод 41 производит в городе Пермь 41."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 41",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 41",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-042",
+    "family": "incompatible-types",
+    "text": "ООО Завод 42 производит в городе Пермь 42.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 42",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 42",
+      "quote": "ООО Завод 42 производит в городе Пермь 42."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 42",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 42",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-043",
+    "family": "incompatible-types",
+    "text": "ООО Завод 43 производит в городе Пермь 43.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 43",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 43",
+      "quote": "ООО Завод 43 производит в городе Пермь 43."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 43",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 43",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-044",
+    "family": "incompatible-types",
+    "text": "ООО Завод 44 производит в городе Пермь 44.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 44",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 44",
+      "quote": "ООО Завод 44 производит в городе Пермь 44."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 44",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 44",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-045",
+    "family": "incompatible-types",
+    "text": "ООО Завод 45 производит в городе Пермь 45.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 45",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 45",
+      "quote": "ООО Завод 45 производит в городе Пермь 45."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 45",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 45",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-046",
+    "family": "incompatible-types",
+    "text": "ООО Завод 46 производит в городе Пермь 46.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 46",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 46",
+      "quote": "ООО Завод 46 производит в городе Пермь 46."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 46",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 46",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-047",
+    "family": "incompatible-types",
+    "text": "ООО Завод 47 производит в городе Пермь 47.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 47",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 47",
+      "quote": "ООО Завод 47 производит в городе Пермь 47."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 47",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 47",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-048",
+    "family": "incompatible-types",
+    "text": "ООО Завод 48 производит в городе Пермь 48.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 48",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 48",
+      "quote": "ООО Завод 48 производит в городе Пермь 48."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 48",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 48",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-049",
+    "family": "incompatible-types",
+    "text": "ООО Завод 49 производит в городе Пермь 49.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 49",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 49",
+      "quote": "ООО Завод 49 производит в городе Пермь 49."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 49",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 49",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-050",
+    "family": "incompatible-types",
+    "text": "ООО Завод 50 производит в городе Пермь 50.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 50",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 50",
+      "quote": "ООО Завод 50 производит в городе Пермь 50."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 50",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 50",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-051",
+    "family": "incompatible-types",
+    "text": "ООО Завод 51 производит в городе Пермь 51.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 51",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 51",
+      "quote": "ООО Завод 51 производит в городе Пермь 51."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 51",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 51",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-052",
+    "family": "incompatible-types",
+    "text": "ООО Завод 52 производит в городе Пермь 52.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 52",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 52",
+      "quote": "ООО Завод 52 производит в городе Пермь 52."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 52",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 52",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-053",
+    "family": "incompatible-types",
+    "text": "ООО Завод 53 производит в городе Пермь 53.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 53",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 53",
+      "quote": "ООО Завод 53 производит в городе Пермь 53."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 53",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 53",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-054",
+    "family": "incompatible-types",
+    "text": "ООО Завод 54 производит в городе Пермь 54.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 54",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 54",
+      "quote": "ООО Завод 54 производит в городе Пермь 54."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 54",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 54",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-055",
+    "family": "incompatible-types",
+    "text": "ООО Завод 55 производит в городе Пермь 55.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 55",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 55",
+      "quote": "ООО Завод 55 производит в городе Пермь 55."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 55",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 55",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-056",
+    "family": "incompatible-types",
+    "text": "ООО Завод 56 производит в городе Пермь 56.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 56",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 56",
+      "quote": "ООО Завод 56 производит в городе Пермь 56."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 56",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 56",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-057",
+    "family": "incompatible-types",
+    "text": "ООО Завод 57 производит в городе Пермь 57.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 57",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 57",
+      "quote": "ООО Завод 57 производит в городе Пермь 57."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 57",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 57",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-058",
+    "family": "incompatible-types",
+    "text": "ООО Завод 58 производит в городе Пермь 58.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 58",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 58",
+      "quote": "ООО Завод 58 производит в городе Пермь 58."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 58",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 58",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-059",
+    "family": "incompatible-types",
+    "text": "ООО Завод 59 производит в городе Пермь 59.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 59",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 59",
+      "quote": "ООО Завод 59 производит в городе Пермь 59."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 59",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 59",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-I-060",
+    "family": "incompatible-types",
+    "text": "ООО Завод 60 производит в городе Пермь 60.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "ООО Завод 60",
+      "predicate": "PRODUCES",
+      "targetName": "Пермь 60",
+      "quote": "ООО Завод 60 производит в городе Пермь 60."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Завод 60",
+        "startOffset": 0
+      },
+      {
+        "type": "LOCATION",
+        "name": "Пермь 60",
+        "startOffset": 33
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-061",
+    "family": "fabricated-quote",
+    "text": "Компания 61 использует Компонент 61.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 61",
+      "predicate": "USES",
+      "targetName": "Компонент 61",
+      "quote": "Компания 61 производит Компонент 61."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 61",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 61",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-062",
+    "family": "fabricated-quote",
+    "text": "Компания 62 использует Компонент 62.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 62",
+      "predicate": "USES",
+      "targetName": "Компонент 62",
+      "quote": "Компания 62 производит Компонент 62."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 62",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 62",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-063",
+    "family": "fabricated-quote",
+    "text": "Компания 63 использует Компонент 63.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 63",
+      "predicate": "USES",
+      "targetName": "Компонент 63",
+      "quote": "Компания 63 производит Компонент 63."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 63",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 63",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-064",
+    "family": "fabricated-quote",
+    "text": "Компания 64 использует Компонент 64.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 64",
+      "predicate": "USES",
+      "targetName": "Компонент 64",
+      "quote": "Компания 64 производит Компонент 64."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 64",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 64",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-065",
+    "family": "fabricated-quote",
+    "text": "Компания 65 использует Компонент 65.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 65",
+      "predicate": "USES",
+      "targetName": "Компонент 65",
+      "quote": "Компания 65 производит Компонент 65."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 65",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 65",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-066",
+    "family": "fabricated-quote",
+    "text": "Компания 66 использует Компонент 66.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 66",
+      "predicate": "USES",
+      "targetName": "Компонент 66",
+      "quote": "Компания 66 производит Компонент 66."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 66",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 66",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-067",
+    "family": "fabricated-quote",
+    "text": "Компания 67 использует Компонент 67.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 67",
+      "predicate": "USES",
+      "targetName": "Компонент 67",
+      "quote": "Компания 67 производит Компонент 67."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 67",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 67",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-068",
+    "family": "fabricated-quote",
+    "text": "Компания 68 использует Компонент 68.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 68",
+      "predicate": "USES",
+      "targetName": "Компонент 68",
+      "quote": "Компания 68 производит Компонент 68."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 68",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 68",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-069",
+    "family": "fabricated-quote",
+    "text": "Компания 69 использует Компонент 69.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 69",
+      "predicate": "USES",
+      "targetName": "Компонент 69",
+      "quote": "Компания 69 производит Компонент 69."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 69",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 69",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-070",
+    "family": "fabricated-quote",
+    "text": "Компания 70 использует Компонент 70.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 70",
+      "predicate": "USES",
+      "targetName": "Компонент 70",
+      "quote": "Компания 70 производит Компонент 70."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 70",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 70",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-071",
+    "family": "fabricated-quote",
+    "text": "Компания 71 использует Компонент 71.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 71",
+      "predicate": "USES",
+      "targetName": "Компонент 71",
+      "quote": "Компания 71 производит Компонент 71."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 71",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 71",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-072",
+    "family": "fabricated-quote",
+    "text": "Компания 72 использует Компонент 72.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 72",
+      "predicate": "USES",
+      "targetName": "Компонент 72",
+      "quote": "Компания 72 производит Компонент 72."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 72",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 72",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-073",
+    "family": "fabricated-quote",
+    "text": "Компания 73 использует Компонент 73.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 73",
+      "predicate": "USES",
+      "targetName": "Компонент 73",
+      "quote": "Компания 73 производит Компонент 73."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 73",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 73",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-074",
+    "family": "fabricated-quote",
+    "text": "Компания 74 использует Компонент 74.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 74",
+      "predicate": "USES",
+      "targetName": "Компонент 74",
+      "quote": "Компания 74 производит Компонент 74."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 74",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 74",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-075",
+    "family": "fabricated-quote",
+    "text": "Компания 75 использует Компонент 75.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 75",
+      "predicate": "USES",
+      "targetName": "Компонент 75",
+      "quote": "Компания 75 производит Компонент 75."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 75",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 75",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-076",
+    "family": "fabricated-quote",
+    "text": "Компания 76 использует Компонент 76.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 76",
+      "predicate": "USES",
+      "targetName": "Компонент 76",
+      "quote": "Компания 76 производит Компонент 76."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 76",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 76",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-077",
+    "family": "fabricated-quote",
+    "text": "Компания 77 использует Компонент 77.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 77",
+      "predicate": "USES",
+      "targetName": "Компонент 77",
+      "quote": "Компания 77 производит Компонент 77."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 77",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 77",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-078",
+    "family": "fabricated-quote",
+    "text": "Компания 78 использует Компонент 78.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 78",
+      "predicate": "USES",
+      "targetName": "Компонент 78",
+      "quote": "Компания 78 производит Компонент 78."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 78",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 78",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-079",
+    "family": "fabricated-quote",
+    "text": "Компания 79 использует Компонент 79.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 79",
+      "predicate": "USES",
+      "targetName": "Компонент 79",
+      "quote": "Компания 79 производит Компонент 79."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 79",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 79",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-Q-080",
+    "family": "fabricated-quote",
+    "text": "Компания 80 использует Компонент 80.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания 80",
+      "predicate": "USES",
+      "targetName": "Компонент 80",
+      "quote": "Компания 80 производит Компонент 80."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "Компания 80",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPONENT",
+        "name": "Компонент 80",
+        "startOffset": 23
+      }
+    ]
+  },
+  {
+    "id": "T10-C-081",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 81 производит оборудование. Компания закупает Сталь 81 у АО Поставщик 81.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 81",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 81",
+      "quote": "Компания закупает Сталь 81 у АО Поставщик 81."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 81",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 81",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 81",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 81",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-082",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 82 производит оборудование. Компания закупает Сталь 82 у АО Поставщик 82.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 82",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 82",
+      "quote": "Компания закупает Сталь 82 у АО Поставщик 82."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 82",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 82",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 82",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 82",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-083",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 83 производит оборудование. Компания закупает Сталь 83 у АО Поставщик 83.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 83",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 83",
+      "quote": "Компания закупает Сталь 83 у АО Поставщик 83."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 83",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 83",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 83",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 83",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-084",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 84 производит оборудование. Компания закупает Сталь 84 у АО Поставщик 84.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 84",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 84",
+      "quote": "Компания закупает Сталь 84 у АО Поставщик 84."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 84",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 84",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 84",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 84",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-085",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 85 производит оборудование. Компания закупает Сталь 85 у АО Поставщик 85.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 85",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 85",
+      "quote": "Компания закупает Сталь 85 у АО Поставщик 85."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 85",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 85",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 85",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 85",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-086",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 86 производит оборудование. Компания закупает Сталь 86 у АО Поставщик 86.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 86",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 86",
+      "quote": "Компания закупает Сталь 86 у АО Поставщик 86."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 86",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 86",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 86",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 86",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-087",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 87 производит оборудование. Компания закупает Сталь 87 у АО Поставщик 87.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 87",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 87",
+      "quote": "Компания закупает Сталь 87 у АО Поставщик 87."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 87",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 87",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 87",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 87",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-088",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 88 производит оборудование. Компания закупает Сталь 88 у АО Поставщик 88.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 88",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 88",
+      "quote": "Компания закупает Сталь 88 у АО Поставщик 88."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 88",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 88",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 88",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 88",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-089",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 89 производит оборудование. Компания закупает Сталь 89 у АО Поставщик 89.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 89",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 89",
+      "quote": "Компания закупает Сталь 89 у АО Поставщик 89."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 89",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 89",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 89",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 89",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-C-090",
+    "family": "unique-local-coreference",
+    "text": "ООО Клиент 90 производит оборудование. Компания закупает Сталь 90 у АО Поставщик 90.",
+    "expectedAccepted": true,
+    "proposal": {
+      "sourceName": "ООО Клиент 90",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 90",
+      "quote": "Компания закупает Сталь 90 у АО Поставщик 90."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Клиент 90",
+        "startOffset": 0
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Поставщик 90",
+        "startOffset": 68
+      },
+      {
+        "type": "PRODUCT",
+        "name": "оборудование 90",
+        "startOffset": 25
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 90",
+        "startOffset": 57
+      }
+    ]
+  },
+  {
+    "id": "T10-A-091",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 91 и АО Вторая 91 работают вместе. Компания закупает Сталь 91.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 91",
+      "quote": "Компания закупает Сталь 91."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 91",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 91",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 91",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-092",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 92 и АО Вторая 92 работают вместе. Компания закупает Сталь 92.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 92",
+      "quote": "Компания закупает Сталь 92."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 92",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 92",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 92",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-093",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 93 и АО Вторая 93 работают вместе. Компания закупает Сталь 93.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 93",
+      "quote": "Компания закупает Сталь 93."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 93",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 93",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 93",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-094",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 94 и АО Вторая 94 работают вместе. Компания закупает Сталь 94.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 94",
+      "quote": "Компания закупает Сталь 94."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 94",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 94",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 94",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-095",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 95 и АО Вторая 95 работают вместе. Компания закупает Сталь 95.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 95",
+      "quote": "Компания закупает Сталь 95."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 95",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 95",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 95",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-096",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 96 и АО Вторая 96 работают вместе. Компания закупает Сталь 96.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 96",
+      "quote": "Компания закупает Сталь 96."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 96",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 96",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 96",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-097",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 97 и АО Вторая 97 работают вместе. Компания закупает Сталь 97.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 97",
+      "quote": "Компания закупает Сталь 97."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 97",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 97",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 97",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-098",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 98 и АО Вторая 98 работают вместе. Компания закупает Сталь 98.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 98",
+      "quote": "Компания закупает Сталь 98."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 98",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 98",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 98",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-099",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 99 и АО Вторая 99 работают вместе. Компания закупает Сталь 99.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 99",
+      "quote": "Компания закупает Сталь 99."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 99",
+        "startOffset": 45
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 99",
+        "startOffset": 45
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 99",
+        "startOffset": 64
+      }
+    ]
+  },
+  {
+    "id": "T10-A-100",
+    "family": "ambiguous-coreference",
+    "text": "ООО Первая 100 и АО Вторая 100 работают вместе. Компания закупает Сталь 100.",
+    "expectedAccepted": false,
+    "proposal": {
+      "sourceName": "Компания",
+      "predicate": "PURCHASES",
+      "targetName": "Сталь 100",
+      "quote": "Компания закупает Сталь 100."
+    },
+    "entities": [
+      {
+        "type": "COMPANY",
+        "name": "ООО Первая 100",
+        "startOffset": 47
+      },
+      {
+        "type": "COMPANY",
+        "name": "АО Вторая 100",
+        "startOffset": 47
+      },
+      {
+        "type": "RESOURCE",
+        "name": "Сталь 100",
+        "startOffset": 66
+      }
+    ]
+  }
+]

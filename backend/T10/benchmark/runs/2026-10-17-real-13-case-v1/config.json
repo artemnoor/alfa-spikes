@@ -1,0 +1,15 @@
+{
+  "benchmarkId": "2026-10-17-real-13-case-v1",
+  "scenarioCount": 13,
+  "startIndex": 3,
+  "scenarioFile": "real-scenarios.mjs",
+  "runner": "benchmark/run-real-through-api.mjs",
+  "annotation": "manual entity types and subject-predicate-object triples",
+  "allTextExcerptsUnder25WordsPerSource": true,
+  "models": {
+    "extractor": "DeepSeek V4 Flash through Polza AI",
+    "matcher": "JEV",
+    "embeddings": "Qwen3 Embedding 8B"
+  },
+  "runtimeNote": "Executed through the already-running local T10 API. Its loaded backend revision could not be confirmed against the current checkout."
+}

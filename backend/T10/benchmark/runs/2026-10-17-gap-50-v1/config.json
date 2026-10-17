@@ -1,0 +1,33 @@
+{
+  "benchmarkId": "2026-10-17-gap-50-v1",
+  "targetBlock": "B09",
+  "seed": 17,
+  "scenarioCount": 50,
+  "syntheticOnly": true,
+  "generator": "gap-scenarios.mjs",
+  "implementation": "detectBusinessGaps",
+  "modelCalls": 0,
+  "costRub": 0,
+  "families": [
+    {
+      "family": "complete-multi-site",
+      "count": 10
+    },
+    {
+      "family": "missing-product-inputs",
+      "count": 10
+    },
+    {
+      "family": "missing-facility-data",
+      "count": 10
+    },
+    {
+      "family": "supplier-contract-process-risk",
+      "count": 10
+    },
+    {
+      "family": "incomplete-profile",
+      "count": 10
+    }
+  ]
+}

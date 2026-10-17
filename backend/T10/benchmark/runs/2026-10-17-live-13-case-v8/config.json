@@ -1,0 +1,14 @@
+{
+  "benchmarkId": "T10-live-13-v8",
+  "scenarioCount": 13,
+  "scenarioFile": "live-scenarios.mjs",
+  "syntheticOnly": true,
+  "models": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "matcher": "typesafe/jev",
+    "embeddings": "qwen/qwen3-embedding-8b"
+  },
+  "runner": "benchmark/run-live.mjs",
+  "maxSourcesPerProfile": 1,
+  "externalNetworkEnrichment": false
+}

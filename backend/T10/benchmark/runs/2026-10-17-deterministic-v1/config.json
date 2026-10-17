@@ -1,0 +1,17 @@
+{
+  "benchmarkId": "2026-10-17-deterministic-v1",
+  "targetBlocks": [
+    "B06",
+    "B07"
+  ],
+  "datasetType": "synthetic deterministic relation verification",
+  "scenarioCount": 100,
+  "modelCalls": 0,
+  "costRub": 0,
+  "checks": [
+    "participant type compatibility",
+    "evidence quote provenance",
+    "unique local coreference",
+    "ambiguous coreference rejection"
+  ]
+}

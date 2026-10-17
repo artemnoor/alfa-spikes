@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "db:seed": "npm --prefix backend/pipeline run seed",
     "db:run:t08": "npm --prefix backend/pipeline run run:t08",
-    "db:server": "npm --prefix backend/pipeline start"
+    "db:server": "npm --prefix backend/pipeline start",
+    "backend:t10": "npm --prefix backend/T10 start"
   },
   "devDependencies": {
     "@types/react": "^18.3.31",

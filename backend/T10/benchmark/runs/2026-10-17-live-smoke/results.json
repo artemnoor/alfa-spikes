@@ -1,0 +1,626 @@
+{
+  "testedAt": "2026-10-16T22:01:17.419Z",
+  "runId": "d7ba8f34-cc7f-4a37-a064-5ff68f402bf2",
+  "runStatus": "partial",
+  "metrics": {
+    "calls": 3,
+    "failed_calls": 0,
+    "input_tokens": "938",
+    "output_tokens": "705",
+    "reported_cost_rub": "0.010047",
+    "total_latency_ms": "11398"
+  },
+  "stages": [
+    {
+      "blockId": "B01",
+      "status": "partial",
+      "errors": [
+        {
+          "code": "registry_verification_pending",
+          "message": "Идентификатор не подтверждён внешним реестром."
+        }
+      ]
+    },
+    {
+      "blockId": "B02",
+      "status": "completed",
+      "errors": []
+    },
+    {
+      "blockId": "B03",
+      "status": "completed",
+      "errors": []
+    },
+    {
+      "blockId": "B04",
+      "status": "completed",
+      "errors": [],
+      "output": {
+        "entities": [
+          {
+            "entity_id": "900b6aa9-d6f2-47ca-9cec-e7a0c1b40f1b",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «ТехноТест»",
+            "normalized_name": "ооо технотест",
+            "mentionId": "e0b57820-4af5-45b2-b89d-8c08125d556b",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми",
+            "startOffset": 0,
+            "endOffset": 64
+          },
+          {
+            "entity_id": "9f40bbba-fe86-47bb-b47c-bb3fd779a174",
+            "entity_type": "PRODUCT",
+            "canonical_name": "промышленные насосы",
+            "normalized_name": "промышленные насосы",
+            "mentionId": "b28c248f-789c-4d69-bf22-3832b495cb28",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "промышленные насосы",
+            "startOffset": 27,
+            "endOffset": 46
+          },
+          {
+            "entity_id": "cc91882b-850d-4a1f-aa6a-02eb9c61faee",
+            "entity_type": "FACILITY",
+            "canonical_name": "заводе в Перми",
+            "normalized_name": "заводе в перми",
+            "mentionId": "4298e7dd-36ec-406c-b0d9-0cf6c9f10e31",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "заводе в Перми",
+            "startOffset": 50,
+            "endOffset": 64
+          },
+          {
+            "entity_id": "7fa8fa8a-b267-4f65-9344-7623e5240287",
+            "entity_type": "COMPANY",
+            "canonical_name": "«СтальСервис»",
+            "normalized_name": "стальсервис",
+            "mentionId": "2354c1c4-b2cf-4068-ab3e-22397a8a8506",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "поставщика «СтальСервис»",
+            "startOffset": 117,
+            "endOffset": 141
+          },
+          {
+            "entity_id": "41e8aa2a-6bd7-4559-a9ac-4bb2668b343a",
+            "entity_type": "RESOURCE",
+            "canonical_name": "нержавеющую сталь",
+            "normalized_name": "нержавеющую сталь",
+            "mentionId": "e5a2f3c0-ae11-4732-a7d3-6f789c00090b",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "нержавеющую сталь",
+            "startOffset": 97,
+            "endOffset": 114
+          },
+          {
+            "entity_id": "42c4dc6d-d694-49fc-9fa3-5a4fb03219f0",
+            "entity_type": "LOCATION",
+            "canonical_name": "Перми",
+            "normalized_name": "перми",
+            "mentionId": "b45810f7-1761-4018-b79c-961903f43729",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "Перми",
+            "startOffset": 59,
+            "endOffset": 64
+          }
+        ],
+        "mentions": [
+          {
+            "entityId": "900b6aa9-d6f2-47ca-9cec-e7a0c1b40f1b",
+            "mentionId": "e0b57820-4af5-45b2-b89d-8c08125d556b",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми",
+            "startOffset": 0,
+            "endOffset": 64
+          },
+          {
+            "entityId": "9f40bbba-fe86-47bb-b47c-bb3fd779a174",
+            "mentionId": "b28c248f-789c-4d69-bf22-3832b495cb28",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "промышленные насосы",
+            "startOffset": 27,
+            "endOffset": 46
+          },
+          {
+            "entityId": "cc91882b-850d-4a1f-aa6a-02eb9c61faee",
+            "mentionId": "4298e7dd-36ec-406c-b0d9-0cf6c9f10e31",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "заводе в Перми",
+            "startOffset": 50,
+            "endOffset": 64
+          },
+          {
+            "entityId": "7fa8fa8a-b267-4f65-9344-7623e5240287",
+            "mentionId": "2354c1c4-b2cf-4068-ab3e-22397a8a8506",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "поставщика «СтальСервис»",
+            "startOffset": 117,
+            "endOffset": 141
+          },
+          {
+            "entityId": "41e8aa2a-6bd7-4559-a9ac-4bb2668b343a",
+            "mentionId": "e5a2f3c0-ae11-4732-a7d3-6f789c00090b",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "нержавеющую сталь",
+            "startOffset": 97,
+            "endOffset": 114
+          },
+          {
+            "entityId": "42c4dc6d-d694-49fc-9fa3-5a4fb03219f0",
+            "mentionId": "b45810f7-1761-4018-b79c-961903f43729",
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "quote": "Перми",
+            "startOffset": 59,
+            "endOffset": 64
+          }
+        ],
+        "rejected": []
+      }
+    },
+    {
+      "blockId": "B05",
+      "status": "partial",
+      "errors": [
+        {
+          "code": "manual_resolution_required",
+          "message": "5 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+        }
+      ]
+    },
+    {
+      "blockId": "B06",
+      "status": "completed",
+      "errors": [],
+      "output": {
+        "relationships": [
+          {
+            "sourceName": "ООО «ТехноТест»",
+            "sourceType": "COMPANY",
+            "predicate": "PRODUCES",
+            "targetName": "промышленные насосы",
+            "targetType": "PRODUCT",
+            "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми.",
+            "status": "CURRENT",
+            "attributes": {},
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "startOffset": 0
+          },
+          {
+            "sourceName": "«СтальСервис»",
+            "sourceType": "COMPANY",
+            "predicate": "SUPPLIES",
+            "targetName": "нержавеющую сталь",
+            "targetType": "RESOURCE",
+            "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+            "status": "CURRENT",
+            "attributes": {},
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "startOffset": 66
+          }
+        ],
+        "rejected": [
+          {
+            "ok": false,
+            "code": "relationship_validation_failed",
+            "reason": "Субъект не подтверждается цитатой",
+            "proposal": {
+              "sourceName": "ООО «ТехноТест»",
+              "predicate": "PURCHASES",
+              "targetName": "нержавеющую сталь",
+              "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+              "status": "CURRENT",
+              "attributes": {}
+            },
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8"
+          },
+          {
+            "ok": false,
+            "code": "relationship_validation_failed",
+            "reason": "Субъект не подтверждается цитатой",
+            "proposal": {
+              "sourceName": "ООО «ТехноТест»",
+              "predicate": "LOCATED_IN",
+              "targetName": "Перми",
+              "quote": "Завод расположен в Перми.",
+              "status": "CURRENT",
+              "attributes": {}
+            },
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8"
+          }
+        ]
+      }
+    },
+    {
+      "blockId": "B07",
+      "status": "completed",
+      "errors": [],
+      "output": {
+        "accepted": [
+          {
+            "sourceName": "ООО «ТехноТест»",
+            "sourceType": "COMPANY",
+            "predicate": "PRODUCES",
+            "targetName": "промышленные насосы",
+            "targetType": "PRODUCT",
+            "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми.",
+            "status": "CURRENT",
+            "attributes": {},
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "startOffset": 0,
+            "subject": {
+              "type": "COMPANY",
+              "name": "ООО «ТехноТест»"
+            },
+            "object": {
+              "type": "PRODUCT",
+              "name": "промышленные насосы"
+            },
+            "accepted": true,
+            "claimStatus": "SUPPORTED",
+            "evidence": {
+              "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+              "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми.",
+              "startOffset": 0,
+              "endOffset": 65,
+              "quoteMatchesSource": true,
+              "sourceAccessLevel": "customer_internal",
+              "factValidation": "text_match_only"
+            },
+            "relationshipStatus": "CURRENT"
+          },
+          {
+            "sourceName": "«СтальСервис»",
+            "sourceType": "COMPANY",
+            "predicate": "SUPPLIES",
+            "targetName": "нержавеющую сталь",
+            "targetType": "RESOURCE",
+            "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+            "status": "CURRENT",
+            "attributes": {},
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8",
+            "startOffset": 66,
+            "subject": {
+              "type": "COMPANY",
+              "name": "«СтальСервис»"
+            },
+            "object": {
+              "type": "RESOURCE",
+              "name": "нержавеющую сталь"
+            },
+            "accepted": true,
+            "claimStatus": "SUPPORTED",
+            "evidence": {
+              "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+              "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+              "startOffset": 66,
+              "endOffset": 142,
+              "quoteMatchesSource": true,
+              "sourceAccessLevel": "customer_internal",
+              "factValidation": "text_match_only"
+            },
+            "relationshipStatus": "CURRENT"
+          }
+        ],
+        "rejected": [
+          {
+            "ok": false,
+            "code": "relationship_validation_failed",
+            "reason": "Субъект не подтверждается цитатой",
+            "proposal": {
+              "sourceName": "ООО «ТехноТест»",
+              "predicate": "PURCHASES",
+              "targetName": "нержавеющую сталь",
+              "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+              "status": "CURRENT",
+              "attributes": {}
+            },
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8"
+          },
+          {
+            "ok": false,
+            "code": "relationship_validation_failed",
+            "reason": "Субъект не подтверждается цитатой",
+            "proposal": {
+              "sourceName": "ООО «ТехноТест»",
+              "predicate": "LOCATED_IN",
+              "targetName": "Перми",
+              "quote": "Завод расположен в Перми.",
+              "status": "CURRENT",
+              "attributes": {}
+            },
+            "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+            "chunkId": "3874d597-ad67-4081-9dda-e4d45c2708c8"
+          }
+        ],
+        "conflicts": []
+      }
+    },
+    {
+      "blockId": "B08",
+      "status": "completed",
+      "errors": []
+    },
+    {
+      "blockId": "B09",
+      "status": "completed",
+      "errors": [],
+      "output": {
+        "gaps": [
+          {
+            "gap_id": "8092fcdd-03ab-439f-a861-40665affcaf0",
+            "profile_id": "8a1f8140-4bb4-4fad-807c-727a966f9133",
+            "related_entity_id": "9f40bbba-fe86-47bb-b47c-bb3fd779a174",
+            "gap_key": "product:9f40bbba-fe86-47bb-b47c-bb3fd779a174:inputs",
+            "missing_fact": "Компоненты, материалы и ресурсы продукта",
+            "importance": "supply_dependency",
+            "rationale": "Состав ключевого продукта нужен для выявления операционных и поставочных зависимостей.",
+            "priority": 4,
+            "suggested_source": "Спецификация изделия, технологическая карта или BOM",
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «промышленные насосы»?",
+            "status": "open",
+            "created_in_run_id": "d7ba8f34-cc7f-4a37-a064-5ff68f402bf2",
+            "created_at": "2026-10-16T22:01:17.390Z",
+            "updated_at": "2026-10-16T22:01:17.390Z"
+          },
+          {
+            "gap_id": "156f6da0-4267-4581-9d3f-c499c91b4b93",
+            "profile_id": "8a1f8140-4bb4-4fad-807c-727a966f9133",
+            "related_entity_id": "cc91882b-850d-4a1f-aa6a-02eb9c61faee",
+            "gap_key": "facility:cc91882b-850d-4a1f-aa6a-02eb9c61faee:location",
+            "missing_fact": "Местоположение площадки",
+            "importance": "operations",
+            "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+            "priority": 3,
+            "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+            "question": "Где расположена площадка «заводе в Перми»?",
+            "status": "open",
+            "created_in_run_id": "d7ba8f34-cc7f-4a37-a064-5ff68f402bf2",
+            "created_at": "2026-10-16T22:01:17.390Z",
+            "updated_at": "2026-10-16T22:01:17.390Z"
+          }
+        ]
+      }
+    },
+    {
+      "blockId": "B10",
+      "status": "partial",
+      "errors": [
+        {
+          "code": "external_enrichment_not_configured",
+          "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+        }
+      ]
+    },
+    {
+      "blockId": "B11",
+      "status": "completed",
+      "errors": [],
+      "output": {
+        "profileId": "8a1f8140-4bb4-4fad-807c-727a966f9133",
+        "version": 1,
+        "company": {
+          "companyId": "139b9b9d-4c49-4dd8-b2ce-9d04b3524ab9",
+          "legalName": "ООО «ТехноТест»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "промышленные насосы"
+          ],
+          "services": [],
+          "facilities": [
+            "заводе в Перми"
+          ],
+          "suppliers": [
+            {
+              "subject": "«СтальСервис»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "нержавеющую сталь",
+              "objectType": "RESOURCE",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+                  "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+                  "evidenceId": "8951c75e-cd07-4ff6-8482-22eea8cb1378",
+                  "sourceTitle": "ТехноТест — тестовая справка.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "customers": [],
+          "processes": [],
+          "resources": [
+            "нержавеющую сталь"
+          ],
+          "relations": [
+            {
+              "subject": "ООО «ТехноТест»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "промышленные насосы",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «ТехноТест» производит промышленные насосы на заводе в Перми.",
+                  "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+                  "evidenceId": "30c5c7d5-2922-468a-901f-cc5958ccff8e",
+                  "sourceTitle": "ТехноТест — тестовая справка.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "«СтальСервис»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "нержавеющую сталь",
+              "objectType": "RESOURCE",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис».",
+                  "sourceId": "bbb7b95b-bb63-4a55-b03b-397efa47a5b4",
+                  "evidenceId": "8951c75e-cd07-4ff6-8482-22eea8cb1378",
+                  "sourceTitle": "ТехноТест — тестовая справка.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "unknowns": [
+          {
+            "gapId": "8092fcdd-03ab-439f-a861-40665affcaf0",
+            "relatedEntityId": "9f40bbba-fe86-47bb-b47c-bb3fd779a174",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «промышленные насосы»?",
+            "status": "open"
+          },
+          {
+            "gapId": "156f6da0-4267-4581-9d3f-c499c91b4b93",
+            "relatedEntityId": "cc91882b-850d-4a1f-aa6a-02eb9c61faee",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «заводе в Перми»?",
+            "status": "open"
+          }
+        ],
+        "conflicts": [],
+        "generatedAt": "2026-10-16T22:01:17.407Z"
+      }
+    }
+  ],
+  "entities": [
+    {
+      "type": "COMPANY",
+      "name": "ООО «ТехноТест»",
+      "status": "candidate",
+      "quotes": [
+        "ООО «ТехноТест» производит промышленные насосы на заводе в Перми"
+      ]
+    },
+    {
+      "type": "COMPANY",
+      "name": "«СтальСервис»",
+      "status": "unresolved",
+      "quotes": [
+        "поставщика «СтальСервис»"
+      ]
+    },
+    {
+      "type": "FACILITY",
+      "name": "заводе в Перми",
+      "status": "unresolved",
+      "quotes": [
+        "заводе в Перми"
+      ]
+    },
+    {
+      "type": "LOCATION",
+      "name": "Перми",
+      "status": "unresolved",
+      "quotes": [
+        "Перми"
+      ]
+    },
+    {
+      "type": "PRODUCT",
+      "name": "промышленные насосы",
+      "status": "unresolved",
+      "quotes": [
+        "промышленные насосы"
+      ]
+    },
+    {
+      "type": "RESOURCE",
+      "name": "нержавеющую сталь",
+      "status": "unresolved",
+      "quotes": [
+        "нержавеющую сталь"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "predicate": "PRODUCES",
+      "status": "SUPPORTED",
+      "attributes": {
+        "relationshipStatus": "CURRENT"
+      },
+      "quotes": [
+        "ООО «ТехноТест» производит промышленные насосы на заводе в Перми."
+      ]
+    },
+    {
+      "predicate": "SUPPLIES",
+      "status": "SUPPORTED",
+      "attributes": {
+        "relationshipStatus": "CURRENT"
+      },
+      "quotes": [
+        "Для корпусов компания закупает нержавеющую сталь у поставщика «СтальСервис»."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "gapId": "8092fcdd-03ab-439f-a861-40665affcaf0",
+      "relatedEntityId": "9f40bbba-fe86-47bb-b47c-bb3fd779a174",
+      "missingFact": "Компоненты, материалы и ресурсы продукта",
+      "priority": 4,
+      "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «промышленные насосы»?",
+      "status": "open"
+    },
+    {
+      "gapId": "156f6da0-4267-4581-9d3f-c499c91b4b93",
+      "relatedEntityId": "cc91882b-850d-4a1f-aa6a-02eb9c61faee",
+      "missingFact": "Местоположение площадки",
+      "priority": 3,
+      "question": "Где расположена площадка «заводе в Перми»?",
+      "status": "open"
+    }
+  ],
+  "version": 1
+}

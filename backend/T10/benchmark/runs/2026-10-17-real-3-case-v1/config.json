@@ -1,0 +1,14 @@
+{
+  "benchmarkId": "T10-real-3-v1",
+  "scenarioCount": 3,
+  "datasetType": "real company reports; open primary sources; manually annotated excerpts",
+  "scenarioFile": "real-scenarios.mjs",
+  "runner": "benchmark/run-real-live.mjs",
+  "annotation": "manual entity types and subject-predicate-object triples",
+  "allTextExcerptsUnder25WordsPerSource": true,
+  "models": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "matcher": "typesafe/jev",
+    "embeddings": "qwen/qwen3-embedding-8b"
+  }
+}

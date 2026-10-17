@@ -1,0 +1,3142 @@
+[
+  {
+    "id": "G001",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-1",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 1"
+      },
+      {
+        "entity_id": "product-1",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 1"
+      },
+      {
+        "entity_id": "facility-1",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 1"
+      },
+      {
+        "entity_id": "location-1",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 1"
+      },
+      {
+        "entity_id": "facility2-1",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 1"
+      },
+      {
+        "entity_id": "location2-1",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 1"
+      },
+      {
+        "entity_id": "component-1",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 1"
+      },
+      {
+        "entity_id": "resource-1",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 1"
+      },
+      {
+        "entity_id": "supplier-1",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 1"
+      },
+      {
+        "entity_id": "tier2-1",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 1"
+      },
+      {
+        "entity_id": "contract-1",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 1",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-1",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 1"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-1",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-1",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-1",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-1",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-1",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-1",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-1",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-1",
+        "predicate": "USES",
+        "object_entity_id": "resource-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-1",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-1",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-1",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-1",
+        "predicate": "USES",
+        "object_entity_id": "resource-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-1",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-1",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G002",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-2",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 2"
+      },
+      {
+        "entity_id": "product-2",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 2"
+      },
+      {
+        "entity_id": "facility-2",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 2"
+      },
+      {
+        "entity_id": "location-2",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 2"
+      },
+      {
+        "entity_id": "facility2-2",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 2"
+      },
+      {
+        "entity_id": "location2-2",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 2"
+      },
+      {
+        "entity_id": "component-2",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 2"
+      },
+      {
+        "entity_id": "resource-2",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 2"
+      },
+      {
+        "entity_id": "supplier-2",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 2"
+      },
+      {
+        "entity_id": "tier2-2",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 2"
+      },
+      {
+        "entity_id": "contract-2",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 2",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-2",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 2"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-2",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-2",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-2",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-2",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-2",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-2",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-2",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-2",
+        "predicate": "USES",
+        "object_entity_id": "resource-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-2",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-2",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-2",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-2",
+        "predicate": "USES",
+        "object_entity_id": "resource-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-2",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-2",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G003",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-3",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 3"
+      },
+      {
+        "entity_id": "product-3",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 3"
+      },
+      {
+        "entity_id": "facility-3",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 3"
+      },
+      {
+        "entity_id": "location-3",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 3"
+      },
+      {
+        "entity_id": "facility2-3",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 3"
+      },
+      {
+        "entity_id": "location2-3",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 3"
+      },
+      {
+        "entity_id": "component-3",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 3"
+      },
+      {
+        "entity_id": "resource-3",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 3"
+      },
+      {
+        "entity_id": "supplier-3",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 3"
+      },
+      {
+        "entity_id": "tier2-3",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 3"
+      },
+      {
+        "entity_id": "contract-3",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 3",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-3",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 3"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-3",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-3",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-3",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-3",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-3",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-3",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-3",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-3",
+        "predicate": "USES",
+        "object_entity_id": "resource-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-3",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-3",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-3",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-3",
+        "predicate": "USES",
+        "object_entity_id": "resource-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-3",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-3",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G004",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-4",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 4"
+      },
+      {
+        "entity_id": "product-4",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 4"
+      },
+      {
+        "entity_id": "facility-4",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 4"
+      },
+      {
+        "entity_id": "location-4",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 4"
+      },
+      {
+        "entity_id": "facility2-4",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 4"
+      },
+      {
+        "entity_id": "location2-4",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 4"
+      },
+      {
+        "entity_id": "component-4",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 4"
+      },
+      {
+        "entity_id": "resource-4",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 4"
+      },
+      {
+        "entity_id": "supplier-4",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 4"
+      },
+      {
+        "entity_id": "tier2-4",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 4"
+      },
+      {
+        "entity_id": "contract-4",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 4",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-4",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 4"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-4",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-4",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-4",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-4",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-4",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-4",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-4",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-4",
+        "predicate": "USES",
+        "object_entity_id": "resource-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-4",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-4",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-4",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-4",
+        "predicate": "USES",
+        "object_entity_id": "resource-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-4",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-4",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G005",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-5",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 5"
+      },
+      {
+        "entity_id": "product-5",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 5"
+      },
+      {
+        "entity_id": "facility-5",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 5"
+      },
+      {
+        "entity_id": "location-5",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 5"
+      },
+      {
+        "entity_id": "facility2-5",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 5"
+      },
+      {
+        "entity_id": "location2-5",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 5"
+      },
+      {
+        "entity_id": "component-5",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 5"
+      },
+      {
+        "entity_id": "resource-5",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 5"
+      },
+      {
+        "entity_id": "supplier-5",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 5"
+      },
+      {
+        "entity_id": "tier2-5",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 5"
+      },
+      {
+        "entity_id": "contract-5",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 5",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-5",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 5"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-5",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-5",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-5",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-5",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-5",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-5",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-5",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-5",
+        "predicate": "USES",
+        "object_entity_id": "resource-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-5",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-5",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-5",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-5",
+        "predicate": "USES",
+        "object_entity_id": "resource-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-5",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-5",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G006",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-6",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 6"
+      },
+      {
+        "entity_id": "product-6",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 6"
+      },
+      {
+        "entity_id": "facility-6",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 6"
+      },
+      {
+        "entity_id": "location-6",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 6"
+      },
+      {
+        "entity_id": "facility2-6",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 6"
+      },
+      {
+        "entity_id": "location2-6",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 6"
+      },
+      {
+        "entity_id": "component-6",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 6"
+      },
+      {
+        "entity_id": "resource-6",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 6"
+      },
+      {
+        "entity_id": "supplier-6",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 6"
+      },
+      {
+        "entity_id": "tier2-6",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 6"
+      },
+      {
+        "entity_id": "contract-6",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 6",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-6",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 6"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-6",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-6",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-6",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-6",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-6",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-6",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-6",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-6",
+        "predicate": "USES",
+        "object_entity_id": "resource-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-6",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-6",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-6",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-6",
+        "predicate": "USES",
+        "object_entity_id": "resource-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-6",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-6",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G007",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-7",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 7"
+      },
+      {
+        "entity_id": "product-7",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 7"
+      },
+      {
+        "entity_id": "facility-7",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 7"
+      },
+      {
+        "entity_id": "location-7",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 7"
+      },
+      {
+        "entity_id": "facility2-7",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 7"
+      },
+      {
+        "entity_id": "location2-7",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 7"
+      },
+      {
+        "entity_id": "component-7",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 7"
+      },
+      {
+        "entity_id": "resource-7",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 7"
+      },
+      {
+        "entity_id": "supplier-7",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 7"
+      },
+      {
+        "entity_id": "tier2-7",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 7"
+      },
+      {
+        "entity_id": "contract-7",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 7",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-7",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 7"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-7",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-7",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-7",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-7",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-7",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-7",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-7",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-7",
+        "predicate": "USES",
+        "object_entity_id": "resource-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-7",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-7",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-7",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-7",
+        "predicate": "USES",
+        "object_entity_id": "resource-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-7",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-7",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G008",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-8",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 8"
+      },
+      {
+        "entity_id": "product-8",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 8"
+      },
+      {
+        "entity_id": "facility-8",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 8"
+      },
+      {
+        "entity_id": "location-8",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 8"
+      },
+      {
+        "entity_id": "facility2-8",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 8"
+      },
+      {
+        "entity_id": "location2-8",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 8"
+      },
+      {
+        "entity_id": "component-8",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 8"
+      },
+      {
+        "entity_id": "resource-8",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 8"
+      },
+      {
+        "entity_id": "supplier-8",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 8"
+      },
+      {
+        "entity_id": "tier2-8",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 8"
+      },
+      {
+        "entity_id": "contract-8",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 8",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-8",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 8"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-8",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-8",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-8",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-8",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-8",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-8",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-8",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-8",
+        "predicate": "USES",
+        "object_entity_id": "resource-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-8",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-8",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-8",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-8",
+        "predicate": "USES",
+        "object_entity_id": "resource-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-8",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-8",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G009",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-9",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 9"
+      },
+      {
+        "entity_id": "product-9",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 9"
+      },
+      {
+        "entity_id": "facility-9",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 9"
+      },
+      {
+        "entity_id": "location-9",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 9"
+      },
+      {
+        "entity_id": "facility2-9",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 9"
+      },
+      {
+        "entity_id": "location2-9",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 9"
+      },
+      {
+        "entity_id": "component-9",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 9"
+      },
+      {
+        "entity_id": "resource-9",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 9"
+      },
+      {
+        "entity_id": "supplier-9",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 9"
+      },
+      {
+        "entity_id": "tier2-9",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 9"
+      },
+      {
+        "entity_id": "contract-9",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 9",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-9",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 9"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-9",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-9",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-9",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-9",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-9",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-9",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-9",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-9",
+        "predicate": "USES",
+        "object_entity_id": "resource-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-9",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-9",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-9",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-9",
+        "predicate": "USES",
+        "object_entity_id": "resource-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-9",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-9",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G010",
+    "family": "complete-multi-site",
+    "entities": [
+      {
+        "entity_id": "co-10",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 10"
+      },
+      {
+        "entity_id": "product-10",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 10"
+      },
+      {
+        "entity_id": "facility-10",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 10"
+      },
+      {
+        "entity_id": "location-10",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 10"
+      },
+      {
+        "entity_id": "facility2-10",
+        "entity_type": "FACILITY",
+        "canonical_name": "Резервная площадка 10"
+      },
+      {
+        "entity_id": "location2-10",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион резервной площадки 10"
+      },
+      {
+        "entity_id": "component-10",
+        "entity_type": "COMPONENT",
+        "canonical_name": "Материал 10"
+      },
+      {
+        "entity_id": "resource-10",
+        "entity_type": "RESOURCE",
+        "canonical_name": "Энергия 10"
+      },
+      {
+        "entity_id": "supplier-10",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 10"
+      },
+      {
+        "entity_id": "tier2-10",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик второго уровня 10"
+      },
+      {
+        "entity_id": "contract-10",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 10",
+        "attributes": {
+          "validFrom": "2026-01-01"
+        }
+      },
+      {
+        "entity_id": "process-10",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 10"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-10",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "product-10",
+        "predicate": "REQUIRES",
+        "object_entity_id": "component-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-10",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-10",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility-10",
+        "predicate": "REQUIRES",
+        "object_entity_id": "resource-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-10",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility2-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-10",
+        "predicate": "LOCATED_IN",
+        "object_entity_id": "location2-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "facility2-10",
+        "predicate": "USES",
+        "object_entity_id": "resource-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "supplier-10",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "component-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "tier2-10",
+        "predicate": "SUPPLIES",
+        "object_entity_id": "supplier-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-10",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "alternativeSuppliersKnown": true
+        }
+      },
+      {
+        "subject_entity_id": "process-10",
+        "predicate": "USES",
+        "object_entity_id": "resource-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-10",
+        "predicate": "CONTRACTED_WITH",
+        "object_entity_id": "contract-10",
+        "claim_status": "SUPPORTED",
+        "attributes": {
+          "relationshipStatus": "CURRENT",
+          "validFrom": "2026-01-01"
+        }
+      }
+    ],
+    "expectedGapKeys": []
+  },
+  {
+    "id": "G011",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-11",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 11"
+      },
+      {
+        "entity_id": "product-11",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 11"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-11",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-11",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-11",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-11",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-11:inputs"
+    ]
+  },
+  {
+    "id": "G012",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-12",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 12"
+      },
+      {
+        "entity_id": "product-12",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 12"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-12",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-12",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-12",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-12",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-12:inputs"
+    ]
+  },
+  {
+    "id": "G013",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-13",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 13"
+      },
+      {
+        "entity_id": "product-13",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 13"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-13",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-13",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-13",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-13",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-13:inputs"
+    ]
+  },
+  {
+    "id": "G014",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-14",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 14"
+      },
+      {
+        "entity_id": "product-14",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 14"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-14",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-14",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-14",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-14",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-14:inputs"
+    ]
+  },
+  {
+    "id": "G015",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-15",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 15"
+      },
+      {
+        "entity_id": "product-15",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 15"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-15",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-15",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-15",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-15",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-15:inputs"
+    ]
+  },
+  {
+    "id": "G016",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-16",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 16"
+      },
+      {
+        "entity_id": "product-16",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 16"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-16",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-16",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-16",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-16",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-16:inputs"
+    ]
+  },
+  {
+    "id": "G017",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-17",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 17"
+      },
+      {
+        "entity_id": "product-17",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 17"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-17",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-17",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-17",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-17",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-17:inputs"
+    ]
+  },
+  {
+    "id": "G018",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-18",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 18"
+      },
+      {
+        "entity_id": "product-18",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 18"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-18",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-18",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-18",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-18",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-18:inputs"
+    ]
+  },
+  {
+    "id": "G019",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-19",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 19"
+      },
+      {
+        "entity_id": "product-19",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 19"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-19",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-19",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-19",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-19",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-19:inputs"
+    ]
+  },
+  {
+    "id": "G020",
+    "family": "missing-product-inputs",
+    "entities": [
+      {
+        "entity_id": "co-20",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 20"
+      },
+      {
+        "entity_id": "product-20",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 20"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-20",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-20",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-20",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-20",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-20:inputs"
+    ]
+  },
+  {
+    "id": "G021",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-21",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 21"
+      },
+      {
+        "entity_id": "product-21",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 21"
+      },
+      {
+        "entity_id": "facility-21",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 21"
+      },
+      {
+        "entity_id": "location-21",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 21"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-21",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-21",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-21",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-21",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-21",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-21",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-21:inputs",
+      "facility:facility-21:location",
+      "facility:facility-21:resources"
+    ]
+  },
+  {
+    "id": "G022",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-22",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 22"
+      },
+      {
+        "entity_id": "product-22",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 22"
+      },
+      {
+        "entity_id": "facility-22",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 22"
+      },
+      {
+        "entity_id": "location-22",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 22"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-22",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-22",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-22",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-22",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-22",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-22",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-22:inputs",
+      "facility:facility-22:location",
+      "facility:facility-22:resources"
+    ]
+  },
+  {
+    "id": "G023",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-23",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 23"
+      },
+      {
+        "entity_id": "product-23",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 23"
+      },
+      {
+        "entity_id": "facility-23",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 23"
+      },
+      {
+        "entity_id": "location-23",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 23"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-23",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-23",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-23",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-23",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-23",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-23",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-23:inputs",
+      "facility:facility-23:location",
+      "facility:facility-23:resources"
+    ]
+  },
+  {
+    "id": "G024",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-24",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 24"
+      },
+      {
+        "entity_id": "product-24",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 24"
+      },
+      {
+        "entity_id": "facility-24",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 24"
+      },
+      {
+        "entity_id": "location-24",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 24"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-24",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-24",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-24",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-24",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-24",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-24",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-24:inputs",
+      "facility:facility-24:location",
+      "facility:facility-24:resources"
+    ]
+  },
+  {
+    "id": "G025",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-25",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 25"
+      },
+      {
+        "entity_id": "product-25",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 25"
+      },
+      {
+        "entity_id": "facility-25",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 25"
+      },
+      {
+        "entity_id": "location-25",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 25"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-25",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-25",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-25",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-25",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-25",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-25",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-25:inputs",
+      "facility:facility-25:location",
+      "facility:facility-25:resources"
+    ]
+  },
+  {
+    "id": "G026",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-26",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 26"
+      },
+      {
+        "entity_id": "product-26",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 26"
+      },
+      {
+        "entity_id": "facility-26",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 26"
+      },
+      {
+        "entity_id": "location-26",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 26"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-26",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-26",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-26",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-26",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-26",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-26",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-26:inputs",
+      "facility:facility-26:location",
+      "facility:facility-26:resources"
+    ]
+  },
+  {
+    "id": "G027",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-27",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 27"
+      },
+      {
+        "entity_id": "product-27",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 27"
+      },
+      {
+        "entity_id": "facility-27",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 27"
+      },
+      {
+        "entity_id": "location-27",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 27"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-27",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-27",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-27",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-27",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-27",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-27",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-27:inputs",
+      "facility:facility-27:location",
+      "facility:facility-27:resources"
+    ]
+  },
+  {
+    "id": "G028",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-28",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 28"
+      },
+      {
+        "entity_id": "product-28",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 28"
+      },
+      {
+        "entity_id": "facility-28",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 28"
+      },
+      {
+        "entity_id": "location-28",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 28"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-28",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-28",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-28",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-28",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-28",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-28",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-28:inputs",
+      "facility:facility-28:location",
+      "facility:facility-28:resources"
+    ]
+  },
+  {
+    "id": "G029",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-29",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 29"
+      },
+      {
+        "entity_id": "product-29",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 29"
+      },
+      {
+        "entity_id": "facility-29",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 29"
+      },
+      {
+        "entity_id": "location-29",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 29"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-29",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-29",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-29",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-29",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-29",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-29",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-29:inputs",
+      "facility:facility-29:location",
+      "facility:facility-29:resources"
+    ]
+  },
+  {
+    "id": "G030",
+    "family": "missing-facility-data",
+    "entities": [
+      {
+        "entity_id": "co-30",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 30"
+      },
+      {
+        "entity_id": "product-30",
+        "entity_type": "PRODUCT",
+        "canonical_name": "Изделие 30"
+      },
+      {
+        "entity_id": "facility-30",
+        "entity_type": "FACILITY",
+        "canonical_name": "Площадка 30"
+      },
+      {
+        "entity_id": "location-30",
+        "entity_type": "LOCATION",
+        "canonical_name": "Регион 30"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-30",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-30",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-30",
+        "predicate": "PRODUCES",
+        "object_entity_id": "product-30",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      },
+      {
+        "subject_entity_id": "co-30",
+        "predicate": "OPERATES",
+        "object_entity_id": "facility-30",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "product:product-30:inputs",
+      "facility:facility-30:location",
+      "facility:facility-30:resources"
+    ]
+  },
+  {
+    "id": "G031",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-31",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 31"
+      },
+      {
+        "entity_id": "supplier-31",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 31"
+      },
+      {
+        "entity_id": "contract-31",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 31",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-31",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 31"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-31",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-31",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-31:offering",
+      "supplier:supplier-31:alternatives",
+      "contract:contract-31:term",
+      "process:process-31:inputs"
+    ]
+  },
+  {
+    "id": "G032",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-32",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 32"
+      },
+      {
+        "entity_id": "supplier-32",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 32"
+      },
+      {
+        "entity_id": "contract-32",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 32",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-32",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 32"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-32",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-32",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-32:offering",
+      "supplier:supplier-32:alternatives",
+      "contract:contract-32:term",
+      "process:process-32:inputs"
+    ]
+  },
+  {
+    "id": "G033",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-33",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 33"
+      },
+      {
+        "entity_id": "supplier-33",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 33"
+      },
+      {
+        "entity_id": "contract-33",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 33",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-33",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 33"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-33",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-33",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-33:offering",
+      "supplier:supplier-33:alternatives",
+      "contract:contract-33:term",
+      "process:process-33:inputs"
+    ]
+  },
+  {
+    "id": "G034",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-34",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 34"
+      },
+      {
+        "entity_id": "supplier-34",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 34"
+      },
+      {
+        "entity_id": "contract-34",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 34",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-34",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 34"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-34",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-34",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-34:offering",
+      "supplier:supplier-34:alternatives",
+      "contract:contract-34:term",
+      "process:process-34:inputs"
+    ]
+  },
+  {
+    "id": "G035",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-35",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 35"
+      },
+      {
+        "entity_id": "supplier-35",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 35"
+      },
+      {
+        "entity_id": "contract-35",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 35",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-35",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 35"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-35",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-35",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-35:offering",
+      "supplier:supplier-35:alternatives",
+      "contract:contract-35:term",
+      "process:process-35:inputs"
+    ]
+  },
+  {
+    "id": "G036",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-36",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 36"
+      },
+      {
+        "entity_id": "supplier-36",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 36"
+      },
+      {
+        "entity_id": "contract-36",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 36",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-36",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 36"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-36",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-36",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-36:offering",
+      "supplier:supplier-36:alternatives",
+      "contract:contract-36:term",
+      "process:process-36:inputs"
+    ]
+  },
+  {
+    "id": "G037",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-37",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 37"
+      },
+      {
+        "entity_id": "supplier-37",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 37"
+      },
+      {
+        "entity_id": "contract-37",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 37",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-37",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 37"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-37",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-37",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-37:offering",
+      "supplier:supplier-37:alternatives",
+      "contract:contract-37:term",
+      "process:process-37:inputs"
+    ]
+  },
+  {
+    "id": "G038",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-38",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 38"
+      },
+      {
+        "entity_id": "supplier-38",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 38"
+      },
+      {
+        "entity_id": "contract-38",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 38",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-38",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 38"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-38",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-38",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-38:offering",
+      "supplier:supplier-38:alternatives",
+      "contract:contract-38:term",
+      "process:process-38:inputs"
+    ]
+  },
+  {
+    "id": "G039",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-39",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 39"
+      },
+      {
+        "entity_id": "supplier-39",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 39"
+      },
+      {
+        "entity_id": "contract-39",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 39",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-39",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 39"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-39",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-39",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-39:offering",
+      "supplier:supplier-39:alternatives",
+      "contract:contract-39:term",
+      "process:process-39:inputs"
+    ]
+  },
+  {
+    "id": "G040",
+    "family": "supplier-contract-process-risk",
+    "entities": [
+      {
+        "entity_id": "co-40",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 40"
+      },
+      {
+        "entity_id": "supplier-40",
+        "entity_type": "COMPANY",
+        "canonical_name": "Поставщик 40"
+      },
+      {
+        "entity_id": "contract-40",
+        "entity_type": "CONTRACT",
+        "canonical_name": "Договор 40",
+        "attributes": {}
+      },
+      {
+        "entity_id": "process-40",
+        "entity_type": "PROCESS",
+        "canonical_name": "Сборка 40"
+      }
+    ],
+    "claims": [
+      {
+        "subject_entity_id": "co-40",
+        "predicate": "PURCHASES",
+        "object_entity_id": "supplier-40",
+        "claim_status": "SUPPORTED",
+        "attributes": {}
+      }
+    ],
+    "expectedGapKeys": [
+      "company:co-40:offering",
+      "supplier:supplier-40:alternatives",
+      "contract:contract-40:term",
+      "process:process-40:inputs"
+    ]
+  },
+  {
+    "id": "G041",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-41",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 41"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-41:offering"
+    ]
+  },
+  {
+    "id": "G042",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-42",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 42"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-42:offering"
+    ]
+  },
+  {
+    "id": "G043",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-43",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 43"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-43:offering"
+    ]
+  },
+  {
+    "id": "G044",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-44",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 44"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-44:offering"
+    ]
+  },
+  {
+    "id": "G045",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-45",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 45"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-45:offering"
+    ]
+  },
+  {
+    "id": "G046",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-46",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 46"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-46:offering"
+    ]
+  },
+  {
+    "id": "G047",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-47",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 47"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-47:offering"
+    ]
+  },
+  {
+    "id": "G048",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-48",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 48"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-48:offering"
+    ]
+  },
+  {
+    "id": "G049",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-49",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 49"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-49:offering"
+    ]
+  },
+  {
+    "id": "G050",
+    "family": "incomplete-profile",
+    "entities": [
+      {
+        "entity_id": "co-50",
+        "entity_type": "COMPANY",
+        "canonical_name": "ООО Профиль 50"
+      }
+    ],
+    "claims": [],
+    "expectedGapKeys": [
+      "company:co-50:offering"
+    ]
+  }
+]

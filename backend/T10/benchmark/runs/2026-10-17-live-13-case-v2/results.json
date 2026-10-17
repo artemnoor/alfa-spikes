@@ -1,0 +1,4570 @@
+{
+  "benchmark": "T10-live-13-v1",
+  "testedAt": "2026-10-16T22:27:44.184Z",
+  "syntheticOnly": true,
+  "model": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "embeddings": "qwen/qwen3-embedding-8b"
+  },
+  "aggregate": {
+    "calls": 39,
+    "failedCalls": 0,
+    "inputTokens": 11889,
+    "outputTokens": 7082,
+    "reportedCostRub": 0.133697,
+    "latencyMs": 133521,
+    "entitiesExpected": 63,
+    "entitiesFound": 46,
+    "relationsExpected": 31,
+    "relationsFound": 17,
+    "entityRecall": 0.7301587301587301,
+    "relationPredicateRecall": 0.5483870967741935
+  },
+  "cases": [
+    {
+      "scenarioId": "L01",
+      "industry": "производство",
+      "profileId": "caa84d44-6544-4643-a525-9ecf934fa072",
+      "runId": "f0bc2468-d52a-48cd-be07-542bb473a40e",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Мехатрон-Синтез»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "промышленные редукторы"
+        },
+        {
+          "type": "COMPANY",
+          "name": "«МеталлРесурс»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Мехатрон-Синтез»",
+          "found": true
+        },
+        {
+          "expected": "промышленные редукторы",
+          "found": true
+        },
+        {
+          "expected": "заводе в Калуге",
+          "found": false
+        },
+        {
+          "expected": "Калуге",
+          "found": false
+        },
+        {
+          "expected": "легированную сталь",
+          "found": false
+        },
+        {
+          "expected": "«МеталлРесурс»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "ООО «Мехатрон-Синтез»",
+          "object": "промышленные редукторы",
+          "quote": "ООО «Мехатрон-Синтез» выпускает промышленные редукторы на заводе в Калуге."
+        },
+        {
+          "predicate": "PURCHASES",
+          "subject": "ООО «Мехатрон-Синтез»",
+          "object": "ООО «Мехатрон-Синтез»",
+          "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс»."
+        },
+        {
+          "predicate": "SUPPLIES",
+          "subject": "«МеталлРесурс»",
+          "object": "ООО «Мехатрон-Синтез»",
+          "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс»."
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "SUPPLIES",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "913",
+        "output_tokens": "666",
+        "reported_cost_rub": "0.009587",
+        "total_latency_ms": "11397"
+      },
+      "profile": {
+        "profileId": "caa84d44-6544-4643-a525-9ecf934fa072",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:25:40.671Z",
+        "company": {
+          "companyId": "c1bad517-aac8-41c3-bf46-78541e58c13f",
+          "legalName": "ООО «Мехатрон-Синтез»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "промышленные редукторы"
+          ],
+          "services": [],
+          "facilities": [],
+          "suppliers": [
+            {
+              "subject": "«МеталлРесурс»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "ООО «Мехатрон-Синтез»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс».",
+                  "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                  "evidenceId": "d96ece44-f28f-4e6c-b2bd-ebd426c8907f",
+                  "sourceTitle": "L01 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "customers": [
+            {
+              "subject": "ООО «Мехатрон-Синтез»",
+              "subjectType": "COMPANY",
+              "predicate": "PURCHASES",
+              "object": "ООО «Мехатрон-Синтез»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс».",
+                  "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                  "evidenceId": "cc7f9a57-62ce-45ed-aca7-ef4ea0892af0",
+                  "sourceTitle": "L01 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «Мехатрон-Синтез»",
+              "subjectType": "COMPANY",
+              "predicate": "PURCHASES",
+              "object": "ООО «Мехатрон-Синтез»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс».",
+                  "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                  "evidenceId": "cc7f9a57-62ce-45ed-aca7-ef4ea0892af0",
+                  "sourceTitle": "L01 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ООО «Мехатрон-Синтез»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "промышленные редукторы",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «Мехатрон-Синтез» выпускает промышленные редукторы на заводе в Калуге.",
+                  "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                  "evidenceId": "0ebfa3d2-b4a8-416f-9e10-00427871e74d",
+                  "sourceTitle": "L01 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "«МеталлРесурс»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "ООО «Мехатрон-Синтез»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для зубчатых передач компания закупает легированную сталь у поставщика «МеталлРесурс».",
+                  "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                  "evidenceId": "d96ece44-f28f-4e6c-b2bd-ebd426c8907f",
+                  "sourceTitle": "L01 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "59c10f8f-57f7-450f-b82c-e455a9c6e460",
+            "entity_type": "COMPANY",
+            "canonical_name": "«МеталлРесурс»",
+            "normalized_name": "металлресурс",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+            "mentions": [
+              {
+                "quote": "поставщика «МеталлРесурс»",
+                "chunkId": "5a706bf4-3a76-4f00-ba38-a5ff10b0b552",
+                "surface": "«МеталлРесурс»",
+                "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                "endOffset": 160,
+                "mentionId": "ef1dacb3-7248-46ba-a42f-08eff9739797",
+                "sourceTitle": "L01 synthetic profile note.txt",
+                "startOffset": 135
+              }
+            ]
+          },
+          {
+            "entity_id": "39258059-d355-4734-ba21-a3185b45cb3d",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Мехатрон-Синтез»",
+            "normalized_name": "ооо мехатрон-синтез",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "4b9415ff-4094-4855-b81d-ef097ac058a8",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Мехатрон-Синтез»",
+            "normalized_name": "ооо мехатрон-синтез",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+            "mentions": [
+              {
+                "quote": "ООО «Мехатрон-Синтез» выпускает промышленные редукторы на заводе в Калуге",
+                "chunkId": "5a706bf4-3a76-4f00-ba38-a5ff10b0b552",
+                "surface": "ООО «Мехатрон-Синтез»",
+                "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                "endOffset": 73,
+                "mentionId": "37165e7e-b7d1-4c0d-92e9-550770f41dd0",
+                "sourceTitle": "L01 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "c77312e1-2c6f-4e09-8940-da69c99c9a66",
+            "entity_type": "PRODUCT",
+            "canonical_name": "промышленные редукторы",
+            "normalized_name": "промышленные редукторы",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+            "mentions": [
+              {
+                "quote": "промышленные редукторы",
+                "chunkId": "5a706bf4-3a76-4f00-ba38-a5ff10b0b552",
+                "surface": "промышленные редукторы",
+                "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+                "endOffset": 54,
+                "mentionId": "afe67573-e9e0-4a80-b204-e4e828cf1e25",
+                "sourceTitle": "L01 synthetic profile note.txt",
+                "startOffset": 32
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "9b691bdd-53b8-40de-a7cc-d3db94b4199d",
+            "title": "L01 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:25:29.124Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "b57aa2e4-a9df-4d3d-b797-8744b462c240",
+            "relatedEntityId": "c77312e1-2c6f-4e09-8940-da69c99c9a66",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «промышленные редукторы»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L02",
+      "industry": "IT-услуги",
+      "profileId": "e7ff4415-857d-45dc-a9c8-10f95e2ef4a2",
+      "runId": "1f88e0b5-927a-4a7f-af85-248c428f1da9",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "АО «Кодовый Мост»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "корпоративные системы электронного документооборота"
+        },
+        {
+          "type": "SERVICE",
+          "name": "услуги по их технической поддержке"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "АО «Кодовый Мост»",
+          "found": true
+        },
+        {
+          "expected": "системы электронного документооборота",
+          "found": true
+        },
+        {
+          "expected": "технической поддержке",
+          "found": true
+        },
+        {
+          "expected": "«Северный Контур»",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "АО «Кодовый Мост»",
+          "object": "корпоративные системы электронного документооборота",
+          "quote": "АО «Кодовый Мост» разрабатывает корпоративные системы электронного документооборота"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PROVIDES_SERVICE",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "872",
+        "output_tokens": "402",
+        "reported_cost_rub": "0.011489",
+        "total_latency_ms": "11524"
+      },
+      "profile": {
+        "profileId": "e7ff4415-857d-45dc-a9c8-10f95e2ef4a2",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:25:52.308Z",
+        "company": {
+          "companyId": "d80e44de-7fef-4a51-9dc7-4b0eff97c471",
+          "legalName": "АО «Кодовый Мост»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "корпоративные системы электронного документооборота"
+          ],
+          "services": [
+            "услуги по их технической поддержке"
+          ],
+          "facilities": [],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "АО «Кодовый Мост»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "корпоративные системы электронного документооборота",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "АО «Кодовый Мост» разрабатывает корпоративные системы электронного документооборота",
+                  "sourceId": "da1c9587-51c9-441f-98f5-31802da537c2",
+                  "evidenceId": "29bd3f77-842c-4b29-8959-0cd0981181c1",
+                  "sourceTitle": "L02 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "0fc476e8-5900-499a-a35b-632bf235f9d0",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «Кодовый Мост»",
+            "normalized_name": "ао кодовый мост",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "7189e574-d34a-4540-b9a6-40fb0154441d",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «Кодовый Мост»",
+            "normalized_name": "ао кодовый мост",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "da1c9587-51c9-441f-98f5-31802da537c2",
+            "mentions": [
+              {
+                "quote": "АО «Кодовый Мост» разрабатывает корпоративные системы электронного документооборота",
+                "chunkId": "e0f3a99e-59a3-49f6-9c03-41da2d651650",
+                "surface": "АО «Кодовый Мост»",
+                "sourceId": "da1c9587-51c9-441f-98f5-31802da537c2",
+                "endOffset": 83,
+                "mentionId": "e0c61ddb-b729-451f-8a9b-0cdcd6f615a6",
+                "sourceTitle": "L02 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "94a0b228-7fae-4d5d-909a-f73331f26558",
+            "entity_type": "PRODUCT",
+            "canonical_name": "корпоративные системы электронного документооборота",
+            "normalized_name": "корпоративные системы электронного документооборота",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "da1c9587-51c9-441f-98f5-31802da537c2",
+            "mentions": [
+              {
+                "quote": "корпоративные системы электронного документооборота",
+                "chunkId": "e0f3a99e-59a3-49f6-9c03-41da2d651650",
+                "surface": "корпоративные системы электронного документооборота",
+                "sourceId": "da1c9587-51c9-441f-98f5-31802da537c2",
+                "endOffset": 83,
+                "mentionId": "e3e7b960-2cd0-4b8d-a0d1-ff75387780c3",
+                "sourceTitle": "L02 synthetic profile note.txt",
+                "startOffset": 32
+              }
+            ]
+          },
+          {
+            "entity_id": "d8947eb8-c9ac-465a-9750-4ceda38eadbb",
+            "entity_type": "SERVICE",
+            "canonical_name": "услуги по их технической поддержке",
+            "normalized_name": "услуги по их технической поддержке",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "da1c9587-51c9-441f-98f5-31802da537c2",
+            "mentions": [
+              {
+                "quote": "оказывает услуги по их технической поддержке",
+                "chunkId": "e0f3a99e-59a3-49f6-9c03-41da2d651650",
+                "surface": "услуги по их технической поддержке",
+                "sourceId": "da1c9587-51c9-441f-98f5-31802da537c2",
+                "endOffset": 130,
+                "mentionId": "4cc1710c-6c0c-40d1-aa4a-c17dc9425bd1",
+                "sourceTitle": "L02 synthetic profile note.txt",
+                "startOffset": 86
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "da1c9587-51c9-441f-98f5-31802da537c2",
+            "title": "L02 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:25:40.688Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "6ef814b6-d23e-4687-869f-38f1516efca1",
+            "relatedEntityId": "94a0b228-7fae-4d5d-909a-f73331f26558",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «корпоративные системы электронного документооборота»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L03",
+      "industry": "торговля",
+      "profileId": "ac4dcbc1-c966-40d2-9e1b-0ceaaede34b7",
+      "runId": "13abeae0-6b67-44c4-a929-28dc10da10d6",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «РегионКомплект»"
+        },
+        {
+          "type": "COMPANY",
+          "name": "ООО «ПроводТорг»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "электротехническое оборудование"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Урала"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «РегионКомплект»",
+          "found": true
+        },
+        {
+          "expected": "электротехническое оборудование",
+          "found": true
+        },
+        {
+          "expected": "ООО «ПроводТорг»",
+          "found": true
+        },
+        {
+          "expected": "кабельной продукции",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "SUPPLIES",
+          "subject": "ООО «РегионКомплект»",
+          "object": "электротехническое оборудование",
+          "quote": "ООО «РегионКомплект» поставляет электротехническое оборудование промышленным предприятиям Урала."
+        },
+        {
+          "predicate": "PURCHASES",
+          "subject": "ООО «РегионКомплект»",
+          "object": "ООО «ПроводТорг»",
+          "quote": "В 2025 году компания приобрела партию кабельной продукции у ООО «ПроводТорг»."
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "SUPPLIES",
+          "found": true
+        },
+        {
+          "expected": "PURCHASES",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "918",
+        "output_tokens": "521",
+        "reported_cost_rub": "0.008347",
+        "total_latency_ms": "10032"
+      },
+      "profile": {
+        "profileId": "ac4dcbc1-c966-40d2-9e1b-0ceaaede34b7",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:02.469Z",
+        "company": {
+          "companyId": "36bacd1c-46cb-4af2-8193-8a05a3e98771",
+          "legalName": "ООО «РегионКомплект»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "электротехническое оборудование"
+          ],
+          "services": [],
+          "facilities": [],
+          "suppliers": [
+            {
+              "subject": "ООО «РегионКомплект»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "электротехническое оборудование",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «РегионКомплект» поставляет электротехническое оборудование промышленным предприятиям Урала.",
+                  "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                  "evidenceId": "616ef0bb-2727-46e3-974c-2914f36380af",
+                  "sourceTitle": "L03 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "customers": [
+            {
+              "subject": "ООО «РегионКомплект»",
+              "subjectType": "COMPANY",
+              "predicate": "PURCHASES",
+              "object": "ООО «ПроводТорг»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "В 2025 году компания приобрела партию кабельной продукции у ООО «ПроводТорг».",
+                  "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                  "evidenceId": "d3a73987-e86b-42ba-a4b4-f65eefc700f5",
+                  "sourceTitle": "L03 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «РегионКомплект»",
+              "subjectType": "COMPANY",
+              "predicate": "PURCHASES",
+              "object": "ООО «ПроводТорг»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "В 2025 году компания приобрела партию кабельной продукции у ООО «ПроводТорг».",
+                  "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                  "evidenceId": "d3a73987-e86b-42ba-a4b4-f65eefc700f5",
+                  "sourceTitle": "L03 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ООО «РегионКомплект»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "электротехническое оборудование",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «РегионКомплект» поставляет электротехническое оборудование промышленным предприятиям Урала.",
+                  "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                  "evidenceId": "616ef0bb-2727-46e3-974c-2914f36380af",
+                  "sourceTitle": "L03 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "aa34b842-02b7-4b57-8a23-496e48d36db9",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «ПроводТорг»",
+            "normalized_name": "ооо проводторг",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+            "mentions": [
+              {
+                "quote": "у ООО «ПроводТорг»",
+                "chunkId": "1016b06b-92cc-453e-8cdf-ae78651d9946",
+                "surface": "ООО «ПроводТорг»",
+                "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                "endOffset": 173,
+                "mentionId": "6f96ccd0-ed65-41ce-91a0-4f355bebf64b",
+                "sourceTitle": "L03 synthetic profile note.txt",
+                "startOffset": 155
+              }
+            ]
+          },
+          {
+            "entity_id": "9000fc16-9bc0-47ac-bc80-2af9225f2380",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «РегионКомплект»",
+            "normalized_name": "ооо регионкомплект",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "be0e3059-4bf3-4d23-afdf-ceb7e7fb9752",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «РегионКомплект»",
+            "normalized_name": "ооо регионкомплект",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+            "mentions": [
+              {
+                "quote": "ООО «РегионКомплект» поставляет электротехническое оборудование промышленным предприятиям Урала",
+                "chunkId": "1016b06b-92cc-453e-8cdf-ae78651d9946",
+                "surface": "ООО «РегионКомплект»",
+                "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                "endOffset": 95,
+                "mentionId": "011bebc8-94ab-4ae4-851b-80c2f2bc4265",
+                "sourceTitle": "L03 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "858b35cd-6c2a-4768-a698-82c80b6f5ea2",
+            "entity_type": "LOCATION",
+            "canonical_name": "Урала",
+            "normalized_name": "урала",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+            "mentions": [
+              {
+                "quote": "промышленным предприятиям Урала",
+                "chunkId": "1016b06b-92cc-453e-8cdf-ae78651d9946",
+                "surface": "Урала",
+                "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                "endOffset": 95,
+                "mentionId": "e8d43863-d69c-4128-9245-987dbdc34ee8",
+                "sourceTitle": "L03 synthetic profile note.txt",
+                "startOffset": 64
+              }
+            ]
+          },
+          {
+            "entity_id": "ed2dcda9-1ff6-450f-b1f7-a396e0194a56",
+            "entity_type": "PRODUCT",
+            "canonical_name": "электротехническое оборудование",
+            "normalized_name": "электротехническое оборудование",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+            "mentions": [
+              {
+                "quote": "электротехническое оборудование",
+                "chunkId": "1016b06b-92cc-453e-8cdf-ae78651d9946",
+                "surface": "электротехническое оборудование",
+                "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+                "endOffset": 63,
+                "mentionId": "dbb62e8f-f18f-4d74-9ea6-a68d8601c955",
+                "sourceTitle": "L03 synthetic profile note.txt",
+                "startOffset": 32
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "3d7a9d2e-3033-455d-97ad-db966be8e8ea",
+            "title": "L03 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:25:52.322Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "772d9de9-f495-47c0-afae-13ac81911899",
+            "relatedEntityId": "ed2dcda9-1ff6-450f-b1f7-a396e0194a56",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «электротехническое оборудование»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L04",
+      "industry": "логистика",
+      "profileId": "1f27ddf4-7718-4935-8102-b87a0b95cc64",
+      "runId": "289d1ddb-bf89-4915-a839-d7a9a28fbcb1",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Восток Карго»"
+        },
+        {
+          "type": "FACILITY",
+          "name": "«Терминал Восточный»"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Хабаровск"
+        },
+        {
+          "type": "COMPANY",
+          "name": "«ДомМаркет»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Восток Карго»",
+          "found": true
+        },
+        {
+          "expected": "«Терминал Восточный»",
+          "found": true
+        },
+        {
+          "expected": "Хабаровске",
+          "found": true
+        },
+        {
+          "expected": "«ДомМаркет»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "subject": "ООО «Восток Карго»",
+          "object": "«Терминал Восточный»",
+          "quote": "ООО «Восток Карго» управляет складским комплексом «Терминал Восточный» в Хабаровске."
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "subject": "«Терминал Восточный»",
+          "object": "Хабаровск",
+          "quote": "ООО «Восток Карго» управляет складским комплексом «Терминал Восточный» в Хабаровске."
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "OPERATES",
+          "found": true
+        },
+        {
+          "expected": "LOCATED_IN",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "889",
+        "output_tokens": "531",
+        "reported_cost_rub": "0.008252",
+        "total_latency_ms": "11735"
+      },
+      "profile": {
+        "profileId": "1f27ddf4-7718-4935-8102-b87a0b95cc64",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:14.321Z",
+        "company": {
+          "companyId": "6b5b9930-01ac-41c1-94c8-26a85754f99e",
+          "legalName": "ООО «Восток Карго»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [],
+          "facilities": [
+            "«Терминал Восточный»"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "«Терминал Восточный»",
+              "subjectType": "FACILITY",
+              "predicate": "LOCATED_IN",
+              "object": "Хабаровск",
+              "objectType": "LOCATION",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «Восток Карго» управляет складским комплексом «Терминал Восточный» в Хабаровске.",
+                  "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                  "evidenceId": "bdb193a2-3ac0-48f5-b2d9-19e43f26d2a2",
+                  "sourceTitle": "L04 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ООО «Восток Карго»",
+              "subjectType": "COMPANY",
+              "predicate": "OPERATES",
+              "object": "«Терминал Восточный»",
+              "objectType": "FACILITY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «Восток Карго» управляет складским комплексом «Терминал Восточный» в Хабаровске.",
+                  "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                  "evidenceId": "f2993a3f-7ab9-4cd0-87a2-dbfc6d6391d2",
+                  "sourceTitle": "L04 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "b82a4e9a-d083-4ddc-9bcb-2d733140ead1",
+            "entity_type": "COMPANY",
+            "canonical_name": "«ДомМаркет»",
+            "normalized_name": "доммаркет",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "6fb20025-9f77-4b86-b759-9056f578d797",
+            "mentions": [
+              {
+                "quote": "сети магазинов «ДомМаркет»",
+                "chunkId": "bd476179-bfd6-4dc9-90a6-45a8c2f7ce19",
+                "surface": "«ДомМаркет»",
+                "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                "endOffset": 162,
+                "mentionId": "e29cac28-829e-4bb5-a41c-fb181628a091",
+                "sourceTitle": "L04 synthetic profile note.txt",
+                "startOffset": 136
+              }
+            ]
+          },
+          {
+            "entity_id": "36266d58-8565-4d37-a72c-7bd625256578",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Восток Карго»",
+            "normalized_name": "ооо восток карго",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "6fb20025-9f77-4b86-b759-9056f578d797",
+            "mentions": [
+              {
+                "quote": "ООО «Восток Карго»",
+                "chunkId": "bd476179-bfd6-4dc9-90a6-45a8c2f7ce19",
+                "surface": "ООО «Восток Карго»",
+                "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                "endOffset": 18,
+                "mentionId": "eb297e58-390c-4676-81d4-0d1b8572982c",
+                "sourceTitle": "L04 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "86c2cf0b-d825-4796-8e7f-27d5465b8a80",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Восток Карго»",
+            "normalized_name": "ооо восток карго",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "354adc2b-ef9b-4f55-9dd3-35c949bc593b",
+            "entity_type": "FACILITY",
+            "canonical_name": "«Терминал Восточный»",
+            "normalized_name": "терминал восточный",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "6fb20025-9f77-4b86-b759-9056f578d797",
+            "mentions": [
+              {
+                "quote": "складским комплексом «Терминал Восточный»",
+                "chunkId": "bd476179-bfd6-4dc9-90a6-45a8c2f7ce19",
+                "surface": "«Терминал Восточный»",
+                "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                "endOffset": 70,
+                "mentionId": "2303c363-b18d-4bba-b952-0834c15c8066",
+                "sourceTitle": "L04 synthetic profile note.txt",
+                "startOffset": 29
+              }
+            ]
+          },
+          {
+            "entity_id": "a1f168d3-6a27-4592-b892-604f84dfc23e",
+            "entity_type": "LOCATION",
+            "canonical_name": "Хабаровск",
+            "normalized_name": "хабаровск",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "6fb20025-9f77-4b86-b759-9056f578d797",
+            "mentions": [
+              {
+                "quote": "в Хабаровске",
+                "chunkId": "bd476179-bfd6-4dc9-90a6-45a8c2f7ce19",
+                "surface": "Хабаровск",
+                "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+                "endOffset": 83,
+                "mentionId": "fbcfed7c-e36e-4432-85d0-80eee5fb00ac",
+                "sourceTitle": "L04 synthetic profile note.txt",
+                "startOffset": 71
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "6fb20025-9f77-4b86-b759-9056f578d797",
+            "title": "L04 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:02.485Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "8b70834a-9592-4a07-9a58-6341aa723cd0",
+            "relatedEntityId": "b82a4e9a-d083-4ddc-9bcb-2d733140ead1",
+            "missingFact": "Ключевые продукты или услуги компании",
+            "priority": 5,
+            "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L05",
+      "industry": "пищевое производство",
+      "profileId": "4611fb28-88c5-4a92-9877-d2edfbd60709",
+      "runId": "2d554d31-c3dd-4c60-9385-b7a428101daa",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "5 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "АО «Ясный Урожай»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "замороженные овощные смеси"
+        },
+        {
+          "type": "FACILITY",
+          "name": "площадке в Липецкой области"
+        },
+        {
+          "type": "COMPANY",
+          "name": "«ЭкоПак»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "упаковочная плёнка"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "АО «Ясный Урожай»",
+          "found": true
+        },
+        {
+          "expected": "замороженные овощные смеси",
+          "found": true
+        },
+        {
+          "expected": "Липецкой области",
+          "found": true
+        },
+        {
+          "expected": "горох",
+          "found": false
+        },
+        {
+          "expected": "морковь",
+          "found": false
+        },
+        {
+          "expected": "«ЭкоПак»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "АО «Ясный Урожай»",
+          "object": "замороженные овощные смеси",
+          "quote": "АО «Ясный Урожай» производит замороженные овощные смеси"
+        },
+        {
+          "predicate": "SUPPLIES",
+          "subject": "«ЭкоПак»",
+          "object": "упаковочная плёнка",
+          "quote": "упаковочная плёнка компании «ЭкоПак»"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "USES",
+          "found": false
+        },
+        {
+          "expected": "SUPPLIES",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "957",
+        "output_tokens": "593",
+        "reported_cost_rub": "0.012320",
+        "total_latency_ms": "9173"
+      },
+      "profile": {
+        "profileId": "4611fb28-88c5-4a92-9877-d2edfbd60709",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:23.631Z",
+        "company": {
+          "companyId": "930b3174-cdfc-48ea-bbd5-d6337903a175",
+          "legalName": "АО «Ясный Урожай»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "замороженные овощные смеси",
+            "упаковочная плёнка"
+          ],
+          "services": [],
+          "facilities": [
+            "площадке в Липецкой области"
+          ],
+          "suppliers": [
+            {
+              "subject": "«ЭкоПак»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "упаковочная плёнка",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "упаковочная плёнка компании «ЭкоПак»",
+                  "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                  "evidenceId": "88ca64d4-82d8-4088-bda8-f9eb36d0819c",
+                  "sourceTitle": "L05 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "«ЭкоПак»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "упаковочная плёнка",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "упаковочная плёнка компании «ЭкоПак»",
+                  "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                  "evidenceId": "88ca64d4-82d8-4088-bda8-f9eb36d0819c",
+                  "sourceTitle": "L05 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "АО «Ясный Урожай»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "замороженные овощные смеси",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "АО «Ясный Урожай» производит замороженные овощные смеси",
+                  "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                  "evidenceId": "8e70a2d8-51a9-44c8-9584-f2662abfca9d",
+                  "sourceTitle": "L05 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "a71d02d6-9010-4fd3-84cd-9352ca116d73",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «Ясный Урожай»",
+            "normalized_name": "ао ясный урожай",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "mentions": [
+              {
+                "quote": "АО «Ясный Урожай» производит замороженные овощные смеси",
+                "chunkId": "4861aa30-eec4-4373-a91c-98964518e5d2",
+                "surface": "АО «Ясный Урожай»",
+                "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                "endOffset": 55,
+                "mentionId": "2bcf543c-6a2c-4c29-8da1-3fea1bc2802b",
+                "sourceTitle": "L05 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "f2bc4f7c-58fd-48ae-9ceb-8b17caa419a1",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «Ясный Урожай»",
+            "normalized_name": "ао ясный урожай",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "e7a19338-9304-4689-bb8b-915bd02f516f",
+            "entity_type": "COMPANY",
+            "canonical_name": "«ЭкоПак»",
+            "normalized_name": "экопак",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "mentions": [
+              {
+                "quote": "компании «ЭкоПак»",
+                "chunkId": "4861aa30-eec4-4373-a91c-98964518e5d2",
+                "surface": "«ЭкоПак»",
+                "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                "endOffset": 167,
+                "mentionId": "3a84ee42-542d-4983-a5a1-db7355324dd8",
+                "sourceTitle": "L05 synthetic profile note.txt",
+                "startOffset": 150
+              }
+            ]
+          },
+          {
+            "entity_id": "33613306-80ee-42dc-af2c-dbda1f08c9c9",
+            "entity_type": "FACILITY",
+            "canonical_name": "площадке в Липецкой области",
+            "normalized_name": "площадке в липецкой области",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "mentions": [
+              {
+                "quote": "на площадке в Липецкой области",
+                "chunkId": "4861aa30-eec4-4373-a91c-98964518e5d2",
+                "surface": "площадке в Липецкой области",
+                "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                "endOffset": 86,
+                "mentionId": "ffd40178-32d5-4c9b-abb9-6936feb635d2",
+                "sourceTitle": "L05 synthetic profile note.txt",
+                "startOffset": 56
+              }
+            ]
+          },
+          {
+            "entity_id": "d5385e82-2284-4d62-90b7-42180fa7d04a",
+            "entity_type": "PRODUCT",
+            "canonical_name": "замороженные овощные смеси",
+            "normalized_name": "замороженные овощные смеси",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "mentions": [
+              {
+                "quote": "производит замороженные овощные смеси",
+                "chunkId": "4861aa30-eec4-4373-a91c-98964518e5d2",
+                "surface": "замороженные овощные смеси",
+                "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                "endOffset": 55,
+                "mentionId": "87bbf344-f9ca-412a-854b-a351f68fe5f3",
+                "sourceTitle": "L05 synthetic profile note.txt",
+                "startOffset": 18
+              }
+            ]
+          },
+          {
+            "entity_id": "4662c379-7a51-4c16-94c7-2d5e601f73b7",
+            "entity_type": "PRODUCT",
+            "canonical_name": "упаковочная плёнка",
+            "normalized_name": "упаковочная плёнка",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "mentions": [
+              {
+                "quote": "упаковочная плёнка компании «ЭкоПак»",
+                "chunkId": "4861aa30-eec4-4373-a91c-98964518e5d2",
+                "surface": "упаковочная плёнка",
+                "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+                "endOffset": 167,
+                "mentionId": "99aea5f6-ded0-4f7b-8058-a3518836f70a",
+                "sourceTitle": "L05 synthetic profile note.txt",
+                "startOffset": 131
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "8be0d6de-7343-4cae-adaa-e5aa9713e8d3",
+            "title": "L05 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:14.346Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "c8be4ecb-f093-4dab-8e22-7bd8ee5d0533",
+            "relatedEntityId": "d5385e82-2284-4d62-90b7-42180fa7d04a",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «замороженные овощные смеси»?",
+            "status": "open"
+          },
+          {
+            "gapId": "f6e0124e-44e8-4a15-bdfc-65406ef3d272",
+            "relatedEntityId": "4662c379-7a51-4c16-94c7-2d5e601f73b7",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «упаковочная плёнка»?",
+            "status": "open"
+          },
+          {
+            "gapId": "a563db83-5ea5-442b-9cf7-506f363a4290",
+            "relatedEntityId": "33613306-80ee-42dc-af2c-dbda1f08c9c9",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «площадке в Липецкой области»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L06",
+      "industry": "энергетика",
+      "profileId": "f698c98e-cebc-42b0-8b90-ce464424b9f3",
+      "runId": "b61ffa33-9232-46c5-b15f-a58302729207",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Ветроресурс»"
+        },
+        {
+          "type": "FACILITY",
+          "name": "ветропарк «Прибрежный»"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Мурманской области"
+        },
+        {
+          "type": "FACILITY",
+          "name": "подстанции «Северная-2»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Ветроресурс»",
+          "found": true
+        },
+        {
+          "expected": "«Прибрежный»",
+          "found": true
+        },
+        {
+          "expected": "Мурманской области",
+          "found": true
+        },
+        {
+          "expected": "«Северная-2»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "subject": "ООО «Ветроресурс»",
+          "object": "ветропарк «Прибрежный»",
+          "quote": "ООО «Ветроресурс» эксплуатирует ветропарк «Прибрежный»"
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "subject": "ветропарк «Прибрежный»",
+          "object": "Мурманской области",
+          "quote": "ветропарк «Прибрежный» в Мурманской области"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "OPERATES",
+          "found": true
+        },
+        {
+          "expected": "USES",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "912",
+        "output_tokens": "538",
+        "reported_cost_rub": "0.008482",
+        "total_latency_ms": "8231"
+      },
+      "profile": {
+        "profileId": "f698c98e-cebc-42b0-8b90-ce464424b9f3",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:31.972Z",
+        "company": {
+          "companyId": "a68e8a4a-9478-446a-987a-0ef5c3fe0a12",
+          "legalName": "ООО «Ветроресурс»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [],
+          "facilities": [
+            "ветропарк «Прибрежный»",
+            "подстанции «Северная-2»"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «Ветроресурс»",
+              "subjectType": "COMPANY",
+              "predicate": "OPERATES",
+              "object": "ветропарк «Прибрежный»",
+              "objectType": "FACILITY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «Ветроресурс» эксплуатирует ветропарк «Прибрежный»",
+                  "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                  "evidenceId": "060e7d17-9246-4b0c-a6d5-e33b8b295c74",
+                  "sourceTitle": "L06 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ветропарк «Прибрежный»",
+              "subjectType": "FACILITY",
+              "predicate": "LOCATED_IN",
+              "object": "Мурманской области",
+              "objectType": "LOCATION",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ветропарк «Прибрежный» в Мурманской области",
+                  "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                  "evidenceId": "37086957-fc42-408a-a838-82443f4bc187",
+                  "sourceTitle": "L06 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "41c68ff5-51f1-49dd-a554-11049d99197e",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Ветроресурс»",
+            "normalized_name": "ооо ветроресурс",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "701eec64-7acb-429f-8d0a-6b63f1cec638",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Ветроресурс»",
+            "normalized_name": "ооо ветроресурс",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "f8c437f7-8c5e-4d55-821d-80b195091379",
+            "mentions": [
+              {
+                "quote": "ООО «Ветроресурс» эксплуатирует ветропарк «Прибрежный»",
+                "chunkId": "59e7aead-d0f0-4f4b-9517-f80948244bcb",
+                "surface": "ООО «Ветроресурс»",
+                "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                "endOffset": 54,
+                "mentionId": "5eb89adf-8183-4faf-a949-2c5d6be90e23",
+                "sourceTitle": "L06 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "a01d2268-268d-4e89-b183-1b7ba786a908",
+            "entity_type": "FACILITY",
+            "canonical_name": "ветропарк «Прибрежный»",
+            "normalized_name": "ветропарк прибрежный",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "f8c437f7-8c5e-4d55-821d-80b195091379",
+            "mentions": [
+              {
+                "quote": "ветропарк «Прибрежный»",
+                "chunkId": "59e7aead-d0f0-4f4b-9517-f80948244bcb",
+                "surface": "ветропарк «Прибрежный»",
+                "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                "endOffset": 54,
+                "mentionId": "a2e65541-644c-49cb-93d0-b943540635cb",
+                "sourceTitle": "L06 synthetic profile note.txt",
+                "startOffset": 32
+              }
+            ]
+          },
+          {
+            "entity_id": "a972f176-27f7-4be0-86b4-59bf5d914669",
+            "entity_type": "FACILITY",
+            "canonical_name": "подстанции «Северная-2»",
+            "normalized_name": "подстанции северная-2",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "f8c437f7-8c5e-4d55-821d-80b195091379",
+            "mentions": [
+              {
+                "quote": "подстанции «Северная-2»",
+                "chunkId": "59e7aead-d0f0-4f4b-9517-f80948244bcb",
+                "surface": "подстанции «Северная-2»",
+                "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                "endOffset": 147,
+                "mentionId": "13465ee0-c63a-4efd-85cd-262433724cf6",
+                "sourceTitle": "L06 synthetic profile note.txt",
+                "startOffset": 124
+              }
+            ]
+          },
+          {
+            "entity_id": "572483b3-0578-47d3-8295-25a2e44c1fa1",
+            "entity_type": "LOCATION",
+            "canonical_name": "Мурманской области",
+            "normalized_name": "мурманской области",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "f8c437f7-8c5e-4d55-821d-80b195091379",
+            "mentions": [
+              {
+                "quote": "в Мурманской области",
+                "chunkId": "59e7aead-d0f0-4f4b-9517-f80948244bcb",
+                "surface": "Мурманской области",
+                "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+                "endOffset": 75,
+                "mentionId": "f53f8e8f-a9aa-462f-97fc-766781ca86de",
+                "sourceTitle": "L06 synthetic profile note.txt",
+                "startOffset": 55
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "f8c437f7-8c5e-4d55-821d-80b195091379",
+            "title": "L06 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:23.645Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "120f2117-aa71-4a9a-b186-1f076a4a5489",
+            "relatedEntityId": "41c68ff5-51f1-49dd-a554-11049d99197e",
+            "missingFact": "Ключевые продукты или услуги компании",
+            "priority": 5,
+            "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+            "status": "open"
+          },
+          {
+            "gapId": "2c79d9a8-55f7-4226-a8d8-b0370b125add",
+            "relatedEntityId": "a972f176-27f7-4be0-86b4-59bf5d914669",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «подстанции «Северная-2»»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L07",
+      "industry": "медицинские изделия",
+      "profileId": "88931004-5e7e-47ae-987c-5dcc647d4bcc",
+      "runId": "c7d0d332-04d3-4735-976f-a3acfe7ffd55",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «МедТех Лаб»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "портативные анализаторы крови"
+        },
+        {
+          "type": "COMPONENT",
+          "name": "Корпуса изделий"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «МедТех Лаб»",
+          "found": true
+        },
+        {
+          "expected": "портативные анализаторы крови",
+          "found": true
+        },
+        {
+          "expected": "медицинского поликарбоната",
+          "found": false
+        },
+        {
+          "expected": "Твери",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "ООО «МедТех Лаб»",
+          "object": "портативные анализаторы крови",
+          "quote": "ООО «МедТех Лаб» производит портативные анализаторы крови"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "REQUIRES",
+          "found": false
+        },
+        {
+          "expected": "LOCATED_IN",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "865",
+        "output_tokens": "405",
+        "reported_cost_rub": "0.018407",
+        "total_latency_ms": "9846"
+      },
+      "profile": {
+        "profileId": "88931004-5e7e-47ae-987c-5dcc647d4bcc",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:41.918Z",
+        "company": {
+          "companyId": "150e1f29-4f3f-413a-a9e4-acd490fd3d46",
+          "legalName": "ООО «МедТех Лаб»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "портативные анализаторы крови"
+          ],
+          "services": [],
+          "facilities": [],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «МедТех Лаб»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "портативные анализаторы крови",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «МедТех Лаб» производит портативные анализаторы крови",
+                  "sourceId": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+                  "evidenceId": "c6b11ae5-da1c-4bab-b3a9-df0f1fc4c1ca",
+                  "sourceTitle": "L07 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "36499fdd-40cd-4e06-a8c9-05ac61443f1b",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «МедТех Лаб»",
+            "normalized_name": "ооо медтех лаб",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "6eb5bce7-c3fb-48f2-9c71-6fd640f273e3",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «МедТех Лаб»",
+            "normalized_name": "ооо медтех лаб",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+            "mentions": [
+              {
+                "quote": "ООО «МедТех Лаб» производит портативные анализаторы крови",
+                "chunkId": "06e83252-ba7f-414c-a022-7f2128408fd2",
+                "surface": "ООО «МедТех Лаб»",
+                "sourceId": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+                "endOffset": 57,
+                "mentionId": "10940b03-0700-4004-89aa-cc77dbd82a7f",
+                "sourceTitle": "L07 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "e1553102-8104-412e-b4a1-f083606382d5",
+            "entity_type": "COMPONENT",
+            "canonical_name": "Корпуса изделий",
+            "normalized_name": "корпуса изделий",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+            "mentions": [
+              {
+                "quote": "Корпуса изделий изготавливаются из медицинского поликарбоната",
+                "chunkId": "06e83252-ba7f-414c-a022-7f2128408fd2",
+                "surface": "Корпуса изделий",
+                "sourceId": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+                "endOffset": 120,
+                "mentionId": "d61ec6e4-c686-4c97-b847-23cd1f6b588a",
+                "sourceTitle": "L07 synthetic profile note.txt",
+                "startOffset": 59
+              }
+            ]
+          },
+          {
+            "entity_id": "7df20262-cb59-494e-ae18-6a28b563f020",
+            "entity_type": "PRODUCT",
+            "canonical_name": "портативные анализаторы крови",
+            "normalized_name": "портативные анализаторы крови",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+            "mentions": [
+              {
+                "quote": "портативные анализаторы крови",
+                "chunkId": "06e83252-ba7f-414c-a022-7f2128408fd2",
+                "surface": "портативные анализаторы крови",
+                "sourceId": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+                "endOffset": 57,
+                "mentionId": "524602cb-1384-4b54-a13f-848fe79b39d8",
+                "sourceTitle": "L07 synthetic profile note.txt",
+                "startOffset": 28
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "4cf9d57f-9ebd-4fff-a503-1a4f246eec49",
+            "title": "L07 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:31.986Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "bc279b5b-03be-4e74-a22b-b5a43b759d8c",
+            "relatedEntityId": "7df20262-cb59-494e-ae18-6a28b563f020",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «портативные анализаторы крови»?",
+            "status": "open"
+          },
+          {
+            "gapId": "54423f56-e574-4e5e-9f42-a1f07c054dc5",
+            "relatedEntityId": "e1553102-8104-412e-b4a1-f083606382d5",
+            "missingFact": "Поставщик компонента",
+            "priority": 4,
+            "question": "Кто поставляет компонент «Корпуса изделий» и есть ли альтернативные поставщики?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L08",
+      "industry": "строительство",
+      "profileId": "109509c1-a0c3-4495-9d28-82c21093db9b",
+      "runId": "3d40dbe1-5d67-47c8-af2e-d4201e37999e",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Городская Среда»"
+        },
+        {
+          "type": "FACILITY",
+          "name": "спортивный комплекс «Олимп»"
+        },
+        {
+          "type": "COMPANY",
+          "name": "МБУ «СпортВлад»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Городская Среда»",
+          "found": true
+        },
+        {
+          "expected": "«Олимп»",
+          "found": true
+        },
+        {
+          "expected": "Владимире",
+          "found": false
+        },
+        {
+          "expected": "МБУ «СпортВлад»",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": false
+        },
+        {
+          "expected": "OPERATES",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "910",
+        "output_tokens": "507",
+        "reported_cost_rub": "0.008190",
+        "total_latency_ms": "8744"
+      },
+      "profile": {
+        "profileId": "109509c1-a0c3-4495-9d28-82c21093db9b",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:26:50.766Z",
+        "company": {
+          "companyId": "25e25d04-76b9-4646-813d-63af41c739a0",
+          "legalName": "ООО «Городская Среда»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [],
+          "facilities": [
+            "спортивный комплекс «Олимп»"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": []
+        },
+        "entities": [
+          {
+            "entity_id": "98c5994d-e4bc-4504-8d5d-d1d634f7567a",
+            "entity_type": "COMPANY",
+            "canonical_name": "МБУ «СпортВлад»",
+            "normalized_name": "мбу спортвлад",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+            "mentions": [
+              {
+                "quote": "Эксплуатацию комплекса после передачи ведёт МБУ «СпортВлад»",
+                "chunkId": "aadce8b2-9033-40aa-b5bd-982a4d427ca8",
+                "surface": "МБУ «СпортВлад»",
+                "sourceId": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+                "endOffset": 165,
+                "mentionId": "018794cf-8759-47cf-bfdb-6fd753e1b0ce",
+                "sourceTitle": "L08 synthetic profile note.txt",
+                "startOffset": 106
+              }
+            ]
+          },
+          {
+            "entity_id": "411a3a34-fa23-4999-b9bd-17a5e21c2ce6",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Городская Среда»",
+            "normalized_name": "ооо городская среда",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+            "mentions": [
+              {
+                "quote": "ООО «Городская Среда» построило и передало муниципалитету спортивный комплекс «Олимп»",
+                "chunkId": "aadce8b2-9033-40aa-b5bd-982a4d427ca8",
+                "surface": "ООО «Городская Среда»",
+                "sourceId": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+                "endOffset": 85,
+                "mentionId": "d1fdeea1-f321-4c59-bf8d-4f1b796fdd58",
+                "sourceTitle": "L08 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "d82af3d7-84ad-4f94-bc78-0516f03f34b7",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Городская Среда»",
+            "normalized_name": "ооо городская среда",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "d3c933af-b53c-4d36-8fe5-8dc6574a561d",
+            "entity_type": "FACILITY",
+            "canonical_name": "спортивный комплекс «Олимп»",
+            "normalized_name": "спортивный комплекс олимп",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+            "mentions": [
+              {
+                "quote": "спортивный комплекс «Олимп» в городе Владимире",
+                "chunkId": "aadce8b2-9033-40aa-b5bd-982a4d427ca8",
+                "surface": "спортивный комплекс «Олимп»",
+                "sourceId": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+                "endOffset": 104,
+                "mentionId": "807cb0e8-3880-49a2-a324-de9ccb9e81e0",
+                "sourceTitle": "L08 synthetic profile note.txt",
+                "startOffset": 58
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "8c0aefe0-14b1-4bac-8ef9-56e9a25f9e6f",
+            "title": "L08 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:41.931Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "a49d5a83-cb35-4227-a1d7-29dae5f29eb8",
+            "relatedEntityId": "98c5994d-e4bc-4504-8d5d-d1d634f7567a",
+            "missingFact": "Ключевые продукты или услуги компании",
+            "priority": 5,
+            "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+            "status": "open"
+          },
+          {
+            "gapId": "60477c31-7956-4e9e-ad99-68ffe6cfe21c",
+            "relatedEntityId": "d3c933af-b53c-4d36-8fe5-8dc6574a561d",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «спортивный комплекс «Олимп»»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L09",
+      "industry": "сельское хозяйство",
+      "profileId": "841f5328-969b-41c6-bbf6-d10ac5b1ae56",
+      "runId": "bc2fe81b-d980-4778-9b47-d21a85ea5934",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "6 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "КФХ «Зелёная Долина»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "семенной картофель"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Псковской области"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "семена сорта «Ладожский»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "минеральные удобрения"
+        },
+        {
+          "type": "COMPANY",
+          "name": "«АгроСнаб»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "КФХ «Зелёная Долина»",
+          "found": true
+        },
+        {
+          "expected": "семенной картофель",
+          "found": true
+        },
+        {
+          "expected": "Псковской области",
+          "found": true
+        },
+        {
+          "expected": "«Ладожский»",
+          "found": true
+        },
+        {
+          "expected": "минеральные удобрения",
+          "found": true
+        },
+        {
+          "expected": "«АгроСнаб»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "КФХ «Зелёная Долина»",
+          "object": "семенной картофель",
+          "quote": "КФХ «Зелёная Долина» выращивает семенной картофель в Псковской области."
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "subject": "КФХ «Зелёная Долина»",
+          "object": "Псковской области",
+          "quote": "КФХ «Зелёная Долина» выращивает семенной картофель в Псковской области."
+        },
+        {
+          "predicate": "SUPPLIES",
+          "subject": "«АгроСнаб»",
+          "object": "минеральные удобрения",
+          "quote": "Для посевной хозяйство использует семена сорта «Ладожский» и минеральные удобрения поставщика «АгроСнаб»."
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "USES",
+          "found": false
+        },
+        {
+          "expected": "SUPPLIES",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "968",
+        "output_tokens": "843",
+        "reported_cost_rub": "0.011367",
+        "total_latency_ms": "10813"
+      },
+      "profile": {
+        "profileId": "841f5328-969b-41c6-bbf6-d10ac5b1ae56",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:27:01.704Z",
+        "company": {
+          "companyId": "b80d26df-cb12-4a26-8f3c-0da78781d3c9",
+          "legalName": "КФХ «Зелёная Долина»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "минеральные удобрения",
+            "семена сорта «Ладожский»",
+            "семенной картофель"
+          ],
+          "services": [],
+          "facilities": [],
+          "suppliers": [
+            {
+              "subject": "«АгроСнаб»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "минеральные удобрения",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для посевной хозяйство использует семена сорта «Ладожский» и минеральные удобрения поставщика «АгроСнаб».",
+                  "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                  "evidenceId": "3e9eeed7-085a-4db6-acec-83dacb1da8aa",
+                  "sourceTitle": "L09 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "«АгроСнаб»",
+              "subjectType": "COMPANY",
+              "predicate": "SUPPLIES",
+              "object": "минеральные удобрения",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Для посевной хозяйство использует семена сорта «Ладожский» и минеральные удобрения поставщика «АгроСнаб».",
+                  "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                  "evidenceId": "3e9eeed7-085a-4db6-acec-83dacb1da8aa",
+                  "sourceTitle": "L09 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "КФХ «Зелёная Долина»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "семенной картофель",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "КФХ «Зелёная Долина» выращивает семенной картофель в Псковской области.",
+                  "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                  "evidenceId": "af374230-a7aa-41e1-8863-3b0d8a2dca52",
+                  "sourceTitle": "L09 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "КФХ «Зелёная Долина»",
+              "subjectType": "COMPANY",
+              "predicate": "LOCATED_IN",
+              "object": "Псковской области",
+              "objectType": "LOCATION",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "КФХ «Зелёная Долина» выращивает семенной картофель в Псковской области.",
+                  "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                  "evidenceId": "0a910be4-6d9a-4b26-998a-0bf1053cb5c2",
+                  "sourceTitle": "L09 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "e7871f6a-e623-4f34-9071-9fffbbef51bb",
+            "entity_type": "COMPANY",
+            "canonical_name": "«АгроСнаб»",
+            "normalized_name": "агроснаб",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "поставщика «АгроСнаб»",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "«АгроСнаб»",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 176,
+                "mentionId": "88fdf317-ae2e-42c4-b4dc-9feb8b1bca55",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 155
+              }
+            ]
+          },
+          {
+            "entity_id": "e4fb2f10-4854-4229-8f58-1d163d2fff33",
+            "entity_type": "COMPANY",
+            "canonical_name": "КФХ «Зелёная Долина»",
+            "normalized_name": "кфх зелёная долина",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "140d41cd-a233-4ed4-944b-1e7fa7acb99f",
+            "entity_type": "COMPANY",
+            "canonical_name": "КФХ «Зелёная Долина»",
+            "normalized_name": "кфх зелёная долина",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "КФХ «Зелёная Долина» выращивает семенной картофель",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "КФХ «Зелёная Долина»",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 50,
+                "mentionId": "295c9e46-b2c6-490e-b909-fe466d0aa1df",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "4fb0154d-d13b-4fa0-95fa-76063b018183",
+            "entity_type": "LOCATION",
+            "canonical_name": "Псковской области",
+            "normalized_name": "псковской области",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "в Псковской области",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "Псковской области",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 70,
+                "mentionId": "213e3989-fd19-4a99-98be-509388d5065e",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 51
+              }
+            ]
+          },
+          {
+            "entity_id": "6a2fa7e6-543a-40f5-8236-8b0b7aef51b5",
+            "entity_type": "PRODUCT",
+            "canonical_name": "минеральные удобрения",
+            "normalized_name": "минеральные удобрения",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "минеральные удобрения",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "минеральные удобрения",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 154,
+                "mentionId": "f39726e9-df98-4922-b447-9f06101daa0a",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 133
+              }
+            ]
+          },
+          {
+            "entity_id": "8b0cc184-6c2f-42dd-9b08-f09162805634",
+            "entity_type": "PRODUCT",
+            "canonical_name": "семена сорта «Ладожский»",
+            "normalized_name": "семена сорта ладожский",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "семена сорта «Ладожский»",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "семена сорта «Ладожский»",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 130,
+                "mentionId": "458556cf-c382-447c-9b20-78e9e258bf44",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 106
+              }
+            ]
+          },
+          {
+            "entity_id": "8dadaed1-dd36-4002-b2f9-58e0bbb31bdd",
+            "entity_type": "PRODUCT",
+            "canonical_name": "семенной картофель",
+            "normalized_name": "семенной картофель",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "mentions": [
+              {
+                "quote": "выращивает семенной картофель",
+                "chunkId": "0280688c-e3cf-48d1-89ab-aeb78fca1f85",
+                "surface": "семенной картофель",
+                "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+                "endOffset": 50,
+                "mentionId": "7e412f52-533a-488e-a69f-aa94b8c8a7e3",
+                "sourceTitle": "L09 synthetic profile note.txt",
+                "startOffset": 21
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "c66a6de1-d5d8-4726-bb3f-4d667055ee36",
+            "title": "L09 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:26:50.779Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "028e28ce-f57b-4b8d-a5f5-e72868d72e3e",
+            "relatedEntityId": "8dadaed1-dd36-4002-b2f9-58e0bbb31bdd",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «семенной картофель»?",
+            "status": "open"
+          },
+          {
+            "gapId": "d8075d77-9d63-41c3-a66d-899c0c672a4f",
+            "relatedEntityId": "8b0cc184-6c2f-42dd-9b08-f09162805634",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «семена сорта «Ладожский»»?",
+            "status": "open"
+          },
+          {
+            "gapId": "5cc69177-d9c0-4df7-98a7-32adf42dbf66",
+            "relatedEntityId": "6a2fa7e6-543a-40f5-8236-8b0b7aef51b5",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «минеральные удобрения»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L10",
+      "industry": "телеком",
+      "profileId": "a9ea76aa-fdf5-4442-9b2b-f74cc037ca15",
+      "runId": "96bfdd4d-ede2-42cd-ac13-7dc28a26b5b4",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "АО «СетьПлюс»"
+        },
+        {
+          "type": "SERVICE",
+          "name": "услуги передачи данных"
+        },
+        {
+          "type": "FACILITY",
+          "name": "волоконно-оптическую сеть"
+        },
+        {
+          "type": "COMPANY",
+          "name": "ООО «Линия-Сервис»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "АО «СетьПлюс»",
+          "found": true
+        },
+        {
+          "expected": "передачи данных",
+          "found": true
+        },
+        {
+          "expected": "волоконно-оптическую сеть",
+          "found": true
+        },
+        {
+          "expected": "Республике Татарстан",
+          "found": false
+        },
+        {
+          "expected": "ООО «Линия-Сервис»",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "subject": "АО «СетьПлюс»",
+          "object": "услуги передачи данных",
+          "quote": "АО «СетьПлюс» оказывает услуги передачи данных корпоративным клиентам"
+        },
+        {
+          "predicate": "CONTRACTED_WITH",
+          "subject": "ООО «Линия-Сервис»",
+          "object": "ООО «Линия-Сервис»",
+          "quote": "Работы на сети выполняет подрядчик ООО «Линия-Сервис»"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PROVIDES_SERVICE",
+          "found": true
+        },
+        {
+          "expected": "OPERATES",
+          "found": false
+        },
+        {
+          "expected": "CONTRACTED_WITH",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "944",
+        "output_tokens": "598",
+        "reported_cost_rub": "0.009108",
+        "total_latency_ms": "9411"
+      },
+      "profile": {
+        "profileId": "a9ea76aa-fdf5-4442-9b2b-f74cc037ca15",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:27:11.227Z",
+        "company": {
+          "companyId": "c3c2dcfa-cf6a-4f9d-92f4-572a7ca909ef",
+          "legalName": "АО «СетьПлюс»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [
+            "услуги передачи данных"
+          ],
+          "facilities": [
+            "волоконно-оптическую сеть"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "АО «СетьПлюс»",
+              "subjectType": "COMPANY",
+              "predicate": "PROVIDES_SERVICE",
+              "object": "услуги передачи данных",
+              "objectType": "SERVICE",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "АО «СетьПлюс» оказывает услуги передачи данных корпоративным клиентам",
+                  "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                  "evidenceId": "8a96770e-ed76-4bba-ac25-9e68eaffa8ca",
+                  "sourceTitle": "L10 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ООО «Линия-Сервис»",
+              "subjectType": "COMPANY",
+              "predicate": "CONTRACTED_WITH",
+              "object": "ООО «Линия-Сервис»",
+              "objectType": "COMPANY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Работы на сети выполняет подрядчик ООО «Линия-Сервис»",
+                  "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                  "evidenceId": "4d2f489f-918c-4e3c-b32f-2bfd6d25f20b",
+                  "sourceTitle": "L10 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "0bb59f91-98d7-47ab-b902-4e815ceb8fab",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «СетьПлюс»",
+            "normalized_name": "ао сетьплюс",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "6559d301-2e84-40b4-b6ac-716da8eb2674",
+            "entity_type": "COMPANY",
+            "canonical_name": "АО «СетьПлюс»",
+            "normalized_name": "ао сетьплюс",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+            "mentions": [
+              {
+                "quote": "АО «СетьПлюс» оказывает услуги передачи данных корпоративным клиентам",
+                "chunkId": "325156f9-9586-4221-8cda-deda19a073d9",
+                "surface": "АО «СетьПлюс»",
+                "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                "endOffset": 69,
+                "mentionId": "75021fa0-b136-43df-81c1-4fe7cbd6fe49",
+                "sourceTitle": "L10 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "8510d6c1-9731-48f2-bf19-7db724d79801",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Линия-Сервис»",
+            "normalized_name": "ооо линия-сервис",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+            "mentions": [
+              {
+                "quote": "подрядчик ООО «Линия-Сервис»",
+                "chunkId": "325156f9-9586-4221-8cda-deda19a073d9",
+                "surface": "ООО «Линия-Сервис»",
+                "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                "endOffset": 199,
+                "mentionId": "5dc37e7f-eec1-4b95-adfc-9f54fd4f096a",
+                "sourceTitle": "L10 synthetic profile note.txt",
+                "startOffset": 171
+              }
+            ]
+          },
+          {
+            "entity_id": "4b564479-5bc0-4cb9-95bf-adcf65d7a359",
+            "entity_type": "FACILITY",
+            "canonical_name": "волоконно-оптическую сеть",
+            "normalized_name": "волоконно-оптическую сеть",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+            "mentions": [
+              {
+                "quote": "собственную волоконно-оптическую сеть",
+                "chunkId": "325156f9-9586-4221-8cda-deda19a073d9",
+                "surface": "волоконно-оптическую сеть",
+                "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                "endOffset": 121,
+                "mentionId": "7747a58c-3043-4360-81ea-8e4a0560d8d2",
+                "sourceTitle": "L10 synthetic profile note.txt",
+                "startOffset": 84
+              }
+            ]
+          },
+          {
+            "entity_id": "d5a035e1-03b8-4b2f-9acc-2e7fd2ad4df8",
+            "entity_type": "SERVICE",
+            "canonical_name": "услуги передачи данных",
+            "normalized_name": "услуги передачи данных",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+            "mentions": [
+              {
+                "quote": "услуги передачи данных",
+                "chunkId": "325156f9-9586-4221-8cda-deda19a073d9",
+                "surface": "услуги передачи данных",
+                "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+                "endOffset": 46,
+                "mentionId": "9c5d4232-a746-45f7-8cef-b0783c311e01",
+                "sourceTitle": "L10 synthetic profile note.txt",
+                "startOffset": 24
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "7020cee0-4258-4ff9-a0be-be80a73f3479",
+            "title": "L10 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:27:01.719Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "f8e50af0-8720-4107-86d1-00e67a181546",
+            "relatedEntityId": "4b564479-5bc0-4cb9-95bf-adcf65d7a359",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «волоконно-оптическую сеть»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L11",
+      "industry": "автокомпоненты",
+      "profileId": "650bf5b8-a2ef-4978-81f1-b67cf08e3177",
+      "runId": "ff0d7e68-0269-45ac-9b57-e25017d29441",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «ДрайвПарт»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "тормозные диски"
+        },
+        {
+          "type": "FACILITY",
+          "name": "Производственная линия"
+        },
+        {
+          "type": "LOCATION",
+          "name": "Ярославле"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «ДрайвПарт»",
+          "found": true
+        },
+        {
+          "expected": "тормозные диски",
+          "found": true
+        },
+        {
+          "expected": "«АвтоВектор»",
+          "found": false
+        },
+        {
+          "expected": "производственная линия",
+          "found": true
+        },
+        {
+          "expected": "Ярославле",
+          "found": true
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "ООО «ДрайвПарт»",
+          "object": "тормозные диски",
+          "quote": "ООО «ДрайвПарт» выпускает тормозные диски для легковых автомобилей"
+        },
+        {
+          "predicate": "LOCATED_IN",
+          "subject": "Производственная линия",
+          "object": "Ярославле",
+          "quote": "Производственная линия компании расположена в Ярославле"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "SUPPLIES",
+          "found": false
+        },
+        {
+          "expected": "LOCATED_IN",
+          "found": true
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "908",
+        "output_tokens": "579",
+        "reported_cost_rub": "0.008829",
+        "total_latency_ms": "8568"
+      },
+      "profile": {
+        "profileId": "650bf5b8-a2ef-4978-81f1-b67cf08e3177",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:27:19.906Z",
+        "company": {
+          "companyId": "4b61ec27-7199-40df-8dd6-82bdef8a3b87",
+          "legalName": "ООО «ДрайвПарт»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "тормозные диски"
+          ],
+          "services": [],
+          "facilities": [
+            "Производственная линия"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «ДрайвПарт»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "тормозные диски",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «ДрайвПарт» выпускает тормозные диски для легковых автомобилей",
+                  "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                  "evidenceId": "db1aeb1f-6283-4487-9274-f95314982071",
+                  "sourceTitle": "L11 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "Производственная линия",
+              "subjectType": "FACILITY",
+              "predicate": "LOCATED_IN",
+              "object": "Ярославле",
+              "objectType": "LOCATION",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Производственная линия компании расположена в Ярославле",
+                  "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                  "evidenceId": "327f6003-5e99-42b6-af14-bb06986b7d10",
+                  "sourceTitle": "L11 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "3b615954-1270-4ce4-acff-858f41f1a16a",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «ДрайвПарт»",
+            "normalized_name": "ооо драйвпарт",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "df93af8e-e57a-426e-bac8-ae46e8fec420",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «ДрайвПарт»",
+            "normalized_name": "ооо драйвпарт",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+            "mentions": [
+              {
+                "quote": "ООО «ДрайвПарт» выпускает тормозные диски",
+                "chunkId": "81ba2ec8-61e7-4e8b-9d43-981e81893216",
+                "surface": "ООО «ДрайвПарт»",
+                "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                "endOffset": 41,
+                "mentionId": "adf54246-afee-4068-9f92-5f4ad96c1cf7",
+                "sourceTitle": "L11 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "9c756f94-4c31-4b81-862d-c568ef5dde13",
+            "entity_type": "FACILITY",
+            "canonical_name": "Производственная линия",
+            "normalized_name": "производственная линия",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+            "mentions": [
+              {
+                "quote": "Производственная линия компании расположена в Ярославле",
+                "chunkId": "81ba2ec8-61e7-4e8b-9d43-981e81893216",
+                "surface": "Производственная линия",
+                "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                "endOffset": 159,
+                "mentionId": "39203d90-794f-414a-9d3f-7120a1313b4f",
+                "sourceTitle": "L11 synthetic profile note.txt",
+                "startOffset": 104
+              }
+            ]
+          },
+          {
+            "entity_id": "7acfbfdb-eb7b-41c9-9bc9-ec8ce5347cbb",
+            "entity_type": "LOCATION",
+            "canonical_name": "Ярославле",
+            "normalized_name": "ярославле",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+            "mentions": [
+              {
+                "quote": "расположена в Ярославле",
+                "chunkId": "81ba2ec8-61e7-4e8b-9d43-981e81893216",
+                "surface": "Ярославле",
+                "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                "endOffset": 159,
+                "mentionId": "cadb43e5-ee44-4b88-b12e-03907d0aeaa2",
+                "sourceTitle": "L11 synthetic profile note.txt",
+                "startOffset": 136
+              }
+            ]
+          },
+          {
+            "entity_id": "562955ba-b0c4-4b9c-b0c8-1717dc1a700c",
+            "entity_type": "PRODUCT",
+            "canonical_name": "тормозные диски",
+            "normalized_name": "тормозные диски",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+            "mentions": [
+              {
+                "quote": "тормозные диски для легковых автомобилей",
+                "chunkId": "81ba2ec8-61e7-4e8b-9d43-981e81893216",
+                "surface": "тормозные диски",
+                "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+                "endOffset": 66,
+                "mentionId": "e1b52f4b-8936-4745-86fb-ee5f8cae83c1",
+                "sourceTitle": "L11 synthetic profile note.txt",
+                "startOffset": 26
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "21ac9f12-3cf1-4de7-80cc-0e8f9483fa10",
+            "title": "L11 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:27:11.242Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "c1100891-7e79-4d88-86aa-a0ca4655a1ea",
+            "relatedEntityId": "562955ba-b0c4-4b9c-b0c8-1717dc1a700c",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «тормозные диски»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L12",
+      "industry": "общественное питание",
+      "profileId": "9e19bdd1-372e-4860-b01e-aa267e39cf6e",
+      "runId": "61dc281e-e9f7-40fb-8133-2a914456a35c",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "4 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Городская Кухня»"
+        },
+        {
+          "type": "COMPANY",
+          "name": "ООО «ПаркНедвижимость»"
+        },
+        {
+          "type": "FACILITY",
+          "name": "кухонный цех"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "комплексные обеды"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Городская Кухня»",
+          "found": true
+        },
+        {
+          "expected": "комплексные обеды",
+          "found": true
+        },
+        {
+          "expected": "кухонный цех",
+          "found": true
+        },
+        {
+          "expected": "ООО «ПаркНедвижимость»",
+          "found": true
+        },
+        {
+          "expected": "молочную продукцию",
+          "found": false
+        },
+        {
+          "expected": "«Рассвет»",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "PRODUCES",
+          "subject": "ООО «Городская Кухня»",
+          "object": "комплексные обеды",
+          "quote": "ООО «Городская Кухня» готовит комплексные обеды для офисных центров"
+        },
+        {
+          "predicate": "OPERATES",
+          "subject": "ООО «Городская Кухня»",
+          "object": "кухонный цех",
+          "quote": "Компания арендует кухонный цех у ООО «ПаркНедвижимость»"
+        }
+      ],
+      "expectedPredicates": [
+        {
+          "expected": "PRODUCES",
+          "found": true
+        },
+        {
+          "expected": "CONTRACTED_WITH",
+          "found": false
+        },
+        {
+          "expected": "PURCHASES",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "956",
+        "output_tokens": "610",
+        "reported_cost_rub": "0.011701",
+        "total_latency_ms": "9725"
+      },
+      "profile": {
+        "profileId": "9e19bdd1-372e-4860-b01e-aa267e39cf6e",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:27:29.740Z",
+        "company": {
+          "companyId": "5f243d9b-70a1-4e6b-9913-2743a8d8e6bd",
+          "legalName": "ООО «Городская Кухня»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "комплексные обеды"
+          ],
+          "services": [],
+          "facilities": [
+            "кухонный цех"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "ООО «Городская Кухня»",
+              "subjectType": "COMPANY",
+              "predicate": "PRODUCES",
+              "object": "комплексные обеды",
+              "objectType": "PRODUCT",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "ООО «Городская Кухня» готовит комплексные обеды для офисных центров",
+                  "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                  "evidenceId": "fe0fc5cb-10a2-4749-bf99-f3a12027e483",
+                  "sourceTitle": "L12 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            },
+            {
+              "subject": "ООО «Городская Кухня»",
+              "subjectType": "COMPANY",
+              "predicate": "OPERATES",
+              "object": "кухонный цех",
+              "objectType": "FACILITY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Компания арендует кухонный цех у ООО «ПаркНедвижимость»",
+                  "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                  "evidenceId": "b2ba4377-f6b9-4513-8bf3-c8524af14f18",
+                  "sourceTitle": "L12 synthetic profile note.txt",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "7130bd88-9912-4e36-acb8-8c979cc0f0b2",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Городская Кухня»",
+            "normalized_name": "ооо городская кухня",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "9c6307bb-238e-4ec1-b32d-ac3ccc450a28",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Городская Кухня»",
+            "normalized_name": "ооо городская кухня",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+            "mentions": [
+              {
+                "quote": "ООО «Городская Кухня» готовит комплексные обеды для офисных центров",
+                "chunkId": "609eefa8-3a0e-458f-a323-42cca16fccbf",
+                "surface": "ООО «Городская Кухня»",
+                "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                "endOffset": 67,
+                "mentionId": "2eb0e93d-daa2-438d-9e11-e406b2a6f317",
+                "sourceTitle": "L12 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "2f7d0b44-f990-4cf5-95c3-4003f3b86d30",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «ПаркНедвижимость»",
+            "normalized_name": "ооо паркнедвижимость",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+            "mentions": [
+              {
+                "quote": "арендует кухонный цех у ООО «ПаркНедвижимость»",
+                "chunkId": "609eefa8-3a0e-458f-a323-42cca16fccbf",
+                "surface": "ООО «ПаркНедвижимость»",
+                "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                "endOffset": 124,
+                "mentionId": "ea0af134-d5e1-4744-8294-1f24e3f8d10a",
+                "sourceTitle": "L12 synthetic profile note.txt",
+                "startOffset": 78
+              }
+            ]
+          },
+          {
+            "entity_id": "bf0f1286-ce06-4db1-a734-f5487eda4c5b",
+            "entity_type": "FACILITY",
+            "canonical_name": "кухонный цех",
+            "normalized_name": "кухонный цех",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+            "mentions": [
+              {
+                "quote": "арендует кухонный цех у ООО «ПаркНедвижимость»",
+                "chunkId": "609eefa8-3a0e-458f-a323-42cca16fccbf",
+                "surface": "кухонный цех",
+                "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                "endOffset": 124,
+                "mentionId": "957eb7bd-5322-4723-95ed-a5bd1462cc5b",
+                "sourceTitle": "L12 synthetic profile note.txt",
+                "startOffset": 78
+              }
+            ]
+          },
+          {
+            "entity_id": "f5aa7b4d-fe52-49b1-a891-f2c70d2b3b89",
+            "entity_type": "PRODUCT",
+            "canonical_name": "комплексные обеды",
+            "normalized_name": "комплексные обеды",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+            "mentions": [
+              {
+                "quote": "готовит комплексные обеды для офисных центров",
+                "chunkId": "609eefa8-3a0e-458f-a323-42cca16fccbf",
+                "surface": "комплексные обеды",
+                "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+                "endOffset": 67,
+                "mentionId": "cabf5ab7-f787-4a6c-a156-d1d8ca9bdae0",
+                "sourceTitle": "L12 synthetic profile note.txt",
+                "startOffset": 22
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "763543f7-dc53-47c5-ba43-3370ad5f9ad8",
+            "title": "L12 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:27:19.918Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "e6f20594-ebe4-4b3e-b800-76ea3dc7a2b9",
+            "relatedEntityId": "f5aa7b4d-fe52-49b1-a891-f2c70d2b3b89",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта «комплексные обеды»?",
+            "status": "open"
+          },
+          {
+            "gapId": "ff3406bb-9dcc-416b-a2b3-c503922c3acc",
+            "relatedEntityId": "bf0f1286-ce06-4db1-a734-f5487eda4c5b",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «кухонный цех»?",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": "L13",
+      "industry": "промышленное ПО",
+      "profileId": "8452a007-0af1-403e-af4b-78f9ea76af3e",
+      "runId": "c75a1274-0c31-4713-b3f3-af4fb896ba9c",
+      "status": "partial",
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без уникальных идентификаторов."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "external_enrichment_not_configured",
+              "message": "Для внешних реестров и сайтов не настроены разрешённые адаптеры; система не делает сетевых запросов и не придумывает значения."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "ООО «Процесс-Аналитика»"
+        },
+        {
+          "type": "PRODUCT",
+          "name": "«Поток-М»"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "expected": "ООО «Процесс-Аналитика»",
+          "found": true
+        },
+        {
+          "expected": "«Поток-М»",
+          "found": true
+        },
+        {
+          "expected": "мониторинга производственных линий",
+          "found": false
+        },
+        {
+          "expected": "машинного зрения",
+          "found": false
+        },
+        {
+          "expected": "серверах заказчика",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedPredicates": [
+        {
+          "expected": "PROVIDES_SERVICE",
+          "found": false
+        },
+        {
+          "expected": "USES",
+          "found": false
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "877",
+        "output_tokens": "289",
+        "reported_cost_rub": "0.007618",
+        "total_latency_ms": "14322"
+      },
+      "profile": {
+        "profileId": "8452a007-0af1-403e-af4b-78f9ea76af3e",
+        "version": 1,
+        "generatedAt": "2026-10-16T22:27:44.174Z",
+        "company": {
+          "companyId": "4ecc9fd1-c2cb-4e76-9a46-1432a711f681",
+          "legalName": "ООО «Процесс-Аналитика»",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [
+            "«Поток-М»"
+          ],
+          "services": [],
+          "facilities": [],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": []
+        },
+        "entities": [
+          {
+            "entity_id": "12b60445-e295-4b3f-959b-f18947a2edd0",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Процесс-Аналитика»",
+            "normalized_name": "ооо процесс-аналитика",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "d9708fed-beea-485f-9cfe-4d21beeb1411",
+            "mentions": [
+              {
+                "quote": "ООО «Процесс-Аналитика» предоставляет программный комплекс «Поток-М»",
+                "chunkId": "a3b11459-cb0e-4e11-ad15-2abc86ed68dc",
+                "surface": "ООО «Процесс-Аналитика»",
+                "sourceId": "d9708fed-beea-485f-9cfe-4d21beeb1411",
+                "endOffset": 68,
+                "mentionId": "ba0dea14-b54a-4d7f-bda8-5ee27e2d8250",
+                "sourceTitle": "L13 synthetic profile note.txt",
+                "startOffset": 0
+              }
+            ]
+          },
+          {
+            "entity_id": "46ce73cb-d582-420d-b34e-238d7f6e3156",
+            "entity_type": "COMPANY",
+            "canonical_name": "ООО «Процесс-Аналитика»",
+            "normalized_name": "ооо процесс-аналитика",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "8f2ae845-b078-4727-abde-b4a754b8d396",
+            "entity_type": "PRODUCT",
+            "canonical_name": "«Поток-М»",
+            "normalized_name": "поток-м",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "d9708fed-beea-485f-9cfe-4d21beeb1411",
+            "mentions": [
+              {
+                "quote": "программный комплекс «Поток-М»",
+                "chunkId": "a3b11459-cb0e-4e11-ad15-2abc86ed68dc",
+                "surface": "«Поток-М»",
+                "sourceId": "d9708fed-beea-485f-9cfe-4d21beeb1411",
+                "endOffset": 68,
+                "mentionId": "dd54ed81-13b6-4629-a426-9277e17e9bee",
+                "sourceTitle": "L13 synthetic profile note.txt",
+                "startOffset": 38
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "d9708fed-beea-485f-9cfe-4d21beeb1411",
+            "title": "L13 synthetic profile note.txt",
+            "type": "document",
+            "url": null,
+            "accessLevel": "customer_internal",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T22:27:29.753Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "d52f74ab-65db-40e6-8bc1-11d6c7773f54",
+            "relatedEntityId": "8f2ae845-b078-4727-abde-b4a754b8d396",
+            "missingFact": "Компоненты, материалы и ресурсы продукта",
+            "priority": 4,
+            "question": "Какие основные компоненты, материалы и ресурсы нужны для продукта ««Поток-М»»?",
+            "status": "open"
+          }
+        ]
+      }
+    }
+  ]
+}

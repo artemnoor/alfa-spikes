@@ -1,0 +1,13 @@
+{
+  "evaluation": "T10 relation triple evaluation",
+  "dataset": "T10-live-13-v7",
+  "annotationFile": "benchmark/live-expected-relations.mjs",
+  "matchedFields": [
+    "predicate",
+    "subject",
+    "object"
+  ],
+  "nameNormalization": "NFKC lowercase punctuation/whitespace normalization with contained-name match",
+  "additionalModelCalls": 0,
+  "costRub": 0
+}

@@ -1,0 +1,3343 @@
+{
+  "benchmark": "T10-real-3-v1",
+  "testedAt": "2026-10-16T23:35:12.907Z",
+  "datasetType": "real company reports; open primary sources; manually annotated excerpts",
+  "models": {
+    "extractor": "deepseek/deepseek-v4-flash",
+    "matcher": "typesafe/jev",
+    "embeddings": "qwen/qwen3-embedding-8b"
+  },
+  "aggregate": {
+    "calls": 14,
+    "failedCalls": 0,
+    "inputTokens": 4287,
+    "outputTokens": 672,
+    "reportedCostRub": 0.041027,
+    "latencyMs": 28243,
+    "entitiesExpected": 12,
+    "entitiesFound": 8,
+    "entityFalsePositives": 0,
+    "entityFalseNegatives": 4,
+    "entityPrecision": 1,
+    "entityRecall": 0.6666666666666666,
+    "entityF1": 0.8,
+    "relationships": {
+      "expected": 4,
+      "truePositive": 1,
+      "falsePositive": 0,
+      "falseNegative": 3,
+      "precision": 1,
+      "recall": 0.25,
+      "f1": 0.4
+    }
+  },
+  "cases": [
+    {
+      "scenarioId": "R01",
+      "industry": "steel manufacturing",
+      "language": "en",
+      "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+      "runId": "2180fc52-633e-4464-af6e-703a4dafd834",
+      "status": "partial",
+      "source": {
+        "title": "NLMK issuer report for 12 months 2024",
+        "url": "https://nlmk.com/download_file.php?ELEMENT_ID=169812&FILE_ID=182477&NAME=Issuer%27s+report+for+12+months+2024&PAGE_URL=%2Fen%2Fabout%2Fdocuments%2F",
+        "publicationDate": "2025-05-19",
+        "page": 6,
+        "excerpt": "NLMK Group steel output was 14.3 mt (-2.1% yoy)*."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "stageOutputs": {
+        "B01": {
+          "input": {
+            "companyName": "NLMK Group",
+            "inn": null,
+            "ogrn": null,
+            "website": null
+          },
+          "output": {
+            "identityStatus": "name_only",
+            "companyId": "59c00b9c-3226-4556-8c97-3c6b041456e2",
+            "legalName": "NLMK Group",
+            "candidates": [],
+            "sources": []
+          },
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        "B02": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "requestedSources": [
+              {
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "sourceType": "annual_report",
+                "url": "https://nlmk.com/download_file.php?ELEMENT_ID=169812&FILE_ID=182477&NAME=Issuer%27s+report+for+12+months+2024&PAGE_URL=%2Fen%2Fabout%2Fdocuments%2F"
+              }
+            ]
+          },
+          "output": {
+            "sources": [
+              {
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "sourceType": "annual_report",
+                "title": "NLMK issuer report for 12 months 2024",
+                "status": "available",
+                "accessLevel": "public"
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B03": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "sourceIds": [
+              "db50ed55-b5e2-4e35-aa5f-592e588f5322"
+            ]
+          },
+          "output": {
+            "documents": [
+              {
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "format": "text",
+                "characterCount": 49,
+                "chunks": 1,
+                "embeddings": 1,
+                "textSha256": "9a053be5b8ec99d3bd45a64a14d8bbd2e2eb11f781e420feccb268c4ac068764"
+              }
+            ],
+            "chunks": [
+              {
+                "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "startOffset": 0,
+                "endOffset": 49,
+                "pageNumber": null,
+                "tokenCount": 13
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B04": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "chunks": [
+              {
+                "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322"
+              }
+            ]
+          },
+          "output": {
+            "entities": [
+              {
+                "entity_id": "9e7cd7b6-ef72-499e-81b9-02c4fb0c2cb3",
+                "entity_type": "COMPANY",
+                "canonical_name": "NLMK Group",
+                "normalized_name": "nlmk group",
+                "identifiers": {},
+                "origin_source_id": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "mentionId": "356c8de6-41d2-43d3-b27c-1d4f792a6cd2",
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                "quote": "NLMK Group",
+                "startOffset": 0,
+                "endOffset": 10
+              }
+            ],
+            "mentions": [
+              {
+                "entityId": "9e7cd7b6-ef72-499e-81b9-02c4fb0c2cb3",
+                "mentionId": "356c8de6-41d2-43d3-b27c-1d4f792a6cd2",
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                "quote": "NLMK Group",
+                "startOffset": 0,
+                "endOffset": 10
+              }
+            ],
+            "rejected": []
+          },
+          "errors": []
+        },
+        "B05": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "entities": [
+              {
+                "entityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "type": "COMPANY",
+                "name": "NLMK Group"
+              }
+            ],
+            "candidates": []
+          },
+          "output": {
+            "decisions": [
+              {
+                "entityId": "9e7cd7b6-ef72-499e-81b9-02c4fb0c2cb3",
+                "candidateEntityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "decision": "SAME_ENTITY",
+                "decidedBy": "exact_profile_legal_name",
+                "reason": "Полное нормализованное юридическое имя совпадает с выбранной компанией; другое написание и одна торговая марка сами по себе не объединяются.",
+                "evidence": {
+                  "matchedProfileEntityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                  "normalizedName": "nlmk group"
+                }
+              }
+            ],
+            "candidates": [],
+            "rankings": [],
+            "fallbacks": [],
+            "unresolved": []
+          },
+          "errors": []
+        },
+        "B06": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "chunks": [
+              {
+                "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322"
+              }
+            ],
+            "entities": [
+              {
+                "name": "NLMK Group",
+                "type": "COMPANY"
+              }
+            ]
+          },
+          "output": {
+            "relationships": [],
+            "rejected": []
+          },
+          "errors": []
+        },
+        "B07": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "proposals": []
+          },
+          "output": {
+            "accepted": [],
+            "rejected": [],
+            "conflicts": []
+          },
+          "errors": []
+        },
+        "B08": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "entities": [
+              {
+                "entityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "type": "COMPANY"
+              }
+            ],
+            "claims": []
+          },
+          "output": {
+            "nodes": [
+              {
+                "entity_id": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "entity_type": "COMPANY",
+                "canonical_name": "NLMK Group",
+                "normalized_name": "nlmk group",
+                "identifiers": {
+                  "inn": null,
+                  "ogrn": null
+                },
+                "attributes": {},
+                "resolution_status": "candidate",
+                "origin_source_id": null,
+                "global_company_id": "59c00b9c-3226-4556-8c97-3c6b041456e2",
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": []
+              }
+            ],
+            "edges": [],
+            "version": 0
+          },
+          "errors": []
+        },
+        "B09": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "graph": {
+              "nodes": 1,
+              "edges": 0
+            }
+          },
+          "output": {
+            "gaps": [
+              {
+                "gap_id": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "profile_id": "b2508036-f618-40ea-8a38-410238eadfbb",
+                "related_entity_id": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "gap_key": "company:8ae935c2-d60d-4675-baa9-ca754278c30e:offering",
+                "missing_fact": "Ключевые продукты или услуги компании",
+                "importance": "business_model",
+                "rationale": "Без описания предложения нельзя понять основную деятельность и источники выручки.",
+                "priority": 5,
+                "suggested_source": "Каталог продукции, сайт, анкета клиента или годовой отчёт",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open",
+                "created_in_run_id": "2180fc52-633e-4464-af6e-703a4dafd834",
+                "created_at": "2026-10-16T23:34:48.647Z",
+                "updated_at": "2026-10-16T23:34:48.647Z"
+              }
+            ]
+          },
+          "errors": []
+        },
+        "B10": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "gaps": [
+              {
+                "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?"
+              }
+            ],
+            "sourceIds": [
+              "db50ed55-b5e2-4e35-aa5f-592e588f5322"
+            ]
+          },
+          "output": {
+            "attempts": [
+              {
+                "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "1b45e0b0-ce82-49d5-ac0d-adfa454b50f6",
+                    "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                    "sourceTitle": "NLMK issuer report for 12 months 2024",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.21764326481303398,
+                    "excerpt": "NLMK Group steel output was 14.3 mt (-2.1% yoy)*."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ],
+            "questions": [
+              {
+                "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open"
+              }
+            ],
+            "errors": [
+              {
+                "code": "official_registry_access_not_configured",
+                "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ]
+          },
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        "B11": {
+          "input": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "graph": {
+              "nodes": 1,
+              "edges": 0
+            },
+            "gaps": [
+              {
+                "gap_id": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "profile_id": "b2508036-f618-40ea-8a38-410238eadfbb",
+                "related_entity_id": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "gap_key": "company:8ae935c2-d60d-4675-baa9-ca754278c30e:offering",
+                "missing_fact": "Ключевые продукты или услуги компании",
+                "importance": "business_model",
+                "rationale": "Без описания предложения нельзя понять основную деятельность и источники выручки.",
+                "priority": 5,
+                "suggested_source": "Каталог продукции, сайт, анкета клиента или годовой отчёт",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open",
+                "created_in_run_id": "2180fc52-633e-4464-af6e-703a4dafd834",
+                "created_at": "2026-10-16T23:34:48.647Z",
+                "updated_at": "2026-10-16T23:34:48.647Z",
+                "related_entity_name": "NLMK Group",
+                "related_entity_type": "COMPANY",
+                "answers": []
+              }
+            ],
+            "sources": [
+              {
+                "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+                "title": "NLMK issuer report for 12 months 2024",
+                "status": "processed"
+              }
+            ]
+          },
+          "output": {
+            "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+            "version": 1,
+            "company": {
+              "companyId": "59c00b9c-3226-4556-8c97-3c6b041456e2",
+              "legalName": "NLMK Group",
+              "inn": null,
+              "ogrn": null,
+              "website": null,
+              "identityStatus": "name_only"
+            },
+            "business": {
+              "products": [],
+              "services": [],
+              "facilities": [],
+              "suppliers": [],
+              "customers": [],
+              "processes": [],
+              "resources": [],
+              "relations": []
+            },
+            "unknowns": [
+              {
+                "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+                "relatedEntityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+                "missingFact": "Ключевые продукты или услуги компании",
+                "priority": 5,
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open"
+              }
+            ],
+            "conflicts": [],
+            "generatedAt": "2026-10-16T23:34:49.749Z"
+          },
+          "errors": []
+        }
+      },
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "NLMK Group"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "NLMK Group",
+          "found": true
+        },
+        {
+          "type": "PRODUCT",
+          "name": "steel output",
+          "found": false
+        }
+      ],
+      "relationships": [],
+      "expectedRelationTriples": [
+        {
+          "predicate": "PRODUCES",
+          "source": "NLMK Group",
+          "target": "steel output"
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "failed_calls": 0,
+        "input_tokens": "456",
+        "output_tokens": "47",
+        "reported_cost_rub": "0.002571",
+        "total_latency_ms": "5616"
+      },
+      "profile": {
+        "profileId": "b2508036-f618-40ea-8a38-410238eadfbb",
+        "version": 1,
+        "generatedAt": "2026-10-16T23:34:49.749Z",
+        "company": {
+          "companyId": "59c00b9c-3226-4556-8c97-3c6b041456e2",
+          "legalName": "NLMK Group",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [],
+          "facilities": [],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": []
+        },
+        "entities": [
+          {
+            "entity_id": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+            "entity_type": "COMPANY",
+            "canonical_name": "NLMK Group",
+            "normalized_name": "nlmk group",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "global_company_id": "59c00b9c-3226-4556-8c97-3c6b041456e2",
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": []
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "db50ed55-b5e2-4e35-aa5f-592e588f5322",
+            "title": "NLMK issuer report for 12 months 2024",
+            "type": "annual_report",
+            "url": "https://nlmk.com/download_file.php?ELEMENT_ID=169812&FILE_ID=182477&NAME=Issuer%27s+report+for+12+months+2024&PAGE_URL=%2Fen%2Fabout%2Fdocuments%2F",
+            "accessLevel": "public",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T23:34:43.637Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "050f20aa-f723-425f-b298-979c7fd4dffc",
+            "relatedEntityId": "8ae935c2-d60d-4675-baa9-ca754278c30e",
+            "missingFact": "Ключевые продукты или услуги компании",
+            "priority": 5,
+            "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+            "status": "open"
+          }
+        ]
+      },
+      "expectedUnknowns": [
+        "Main supplier names are not disclosed for the group in this report section."
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PRODUCES",
+          "source": "NLMK Group",
+          "target": "steel output",
+          "found": false
+        }
+      ],
+      "unexpectedRelationships": []
+    },
+    {
+      "scenarioId": "R02",
+      "industry": "food retail and logistics",
+      "language": "en",
+      "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+      "runId": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+      "status": "partial",
+      "source": {
+        "title": "X5 Group 2024 Annual Report — strategic report",
+        "url": "https://www.x5.ru/wp-content/uploads/reports/2024/en/strategic-report/",
+        "publicationDate": "2025",
+        "page": null,
+        "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "stageOutputs": {
+        "B01": {
+          "input": {
+            "companyName": "Pyaterochka",
+            "inn": null,
+            "ogrn": null,
+            "website": null
+          },
+          "output": {
+            "identityStatus": "name_only",
+            "companyId": "e51d154b-c5a0-4102-a264-960c91af3df0",
+            "legalName": "Pyaterochka",
+            "candidates": [],
+            "sources": []
+          },
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        "B02": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "requestedSources": [
+              {
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "sourceType": "annual_report",
+                "url": "https://www.x5.ru/wp-content/uploads/reports/2024/en/strategic-report/"
+              }
+            ]
+          },
+          "output": {
+            "sources": [
+              {
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "sourceType": "annual_report",
+                "title": "X5 Group 2024 Annual Report — strategic report",
+                "status": "available",
+                "accessLevel": "public"
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B03": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "sourceIds": [
+              "d296f8a7-b263-4f12-a54d-7bb6cfb7358e"
+            ]
+          },
+          "output": {
+            "documents": [
+              {
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "format": "text",
+                "characterCount": 146,
+                "chunks": 1,
+                "embeddings": 1,
+                "textSha256": "bb3db69b320bfd2d25210a0f86c902036b091c42be6bcbe38ba3ed23197629e3"
+              }
+            ],
+            "chunks": [
+              {
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "startOffset": 0,
+                "endOffset": 146,
+                "pageNumber": null,
+                "tokenCount": 37
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B04": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "chunks": [
+              {
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e"
+              }
+            ]
+          },
+          "output": {
+            "entities": [
+              {
+                "entity_id": "5a422ee8-4917-416c-98ef-332bbd8ae25e",
+                "entity_type": "COMPANY",
+                "canonical_name": "Pyaterochka",
+                "normalized_name": "pyaterochka",
+                "identifiers": {},
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "mentionId": "404a60af-a9fe-43ae-94f4-07f5209147d2",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "Pyaterochka’s logistics infrastructure",
+                "startOffset": 0,
+                "endOffset": 38
+              },
+              {
+                "entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "entity_type": "FACILITY",
+                "canonical_name": "distribution centres",
+                "normalized_name": "distribution centres",
+                "identifiers": {},
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "mentionId": "2cbaea0d-0a2f-4b8f-b99c-1863948400f4",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "42 distribution centres",
+                "startOffset": 49,
+                "endOffset": 72
+              },
+              {
+                "entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "entity_type": "FACILITY",
+                "canonical_name": "3PL facilities",
+                "normalized_name": "3pl facilities",
+                "identifiers": {},
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "mentionId": "7d7edeb1-4d02-40bf-b14c-1d0c14bfdc7c",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "three 3PL facilities",
+                "startOffset": 84,
+                "endOffset": 104
+              },
+              {
+                "entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "entity_type": "FACILITY",
+                "canonical_name": "stores",
+                "normalized_name": "stores",
+                "identifiers": {},
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "mentionId": "01578a2a-07d6-488c-aa46-be835da5dccf",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "22,976 stores",
+                "startOffset": 114,
+                "endOffset": 127
+              }
+            ],
+            "mentions": [
+              {
+                "entityId": "5a422ee8-4917-416c-98ef-332bbd8ae25e",
+                "mentionId": "404a60af-a9fe-43ae-94f4-07f5209147d2",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "Pyaterochka’s logistics infrastructure",
+                "startOffset": 0,
+                "endOffset": 38
+              },
+              {
+                "entityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "mentionId": "2cbaea0d-0a2f-4b8f-b99c-1863948400f4",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "42 distribution centres",
+                "startOffset": 49,
+                "endOffset": 72
+              },
+              {
+                "entityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "mentionId": "7d7edeb1-4d02-40bf-b14c-1d0c14bfdc7c",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "three 3PL facilities",
+                "startOffset": 84,
+                "endOffset": 104
+              },
+              {
+                "entityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "mentionId": "01578a2a-07d6-488c-aa46-be835da5dccf",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "quote": "22,976 stores",
+                "startOffset": 114,
+                "endOffset": 127
+              }
+            ],
+            "rejected": []
+          },
+          "errors": []
+        },
+        "B05": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "entities": [
+              {
+                "entityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "type": "COMPANY",
+                "name": "Pyaterochka"
+              },
+              {
+                "entityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "type": "FACILITY",
+                "name": "3PL facilities"
+              },
+              {
+                "entityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "type": "FACILITY",
+                "name": "distribution centres"
+              },
+              {
+                "entityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "type": "FACILITY",
+                "name": "stores"
+              }
+            ],
+            "candidates": []
+          },
+          "output": {
+            "decisions": [
+              {
+                "entityId": "5a422ee8-4917-416c-98ef-332bbd8ae25e",
+                "candidateEntityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "decision": "SAME_ENTITY",
+                "decidedBy": "exact_profile_legal_name",
+                "reason": "Полное нормализованное юридическое имя совпадает с выбранной компанией; другое написание и одна торговая марка сами по себе не объединяются.",
+                "evidence": {
+                  "matchedProfileEntityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                  "normalizedName": "pyaterochka"
+                }
+              }
+            ],
+            "candidates": [],
+            "rankings": [],
+            "fallbacks": [],
+            "unresolved": [
+              {
+                "entityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "name": "3PL facilities",
+                "reason": "Нужен дополнительный уникальный идентификатор или подтверждение неоднозначного кандидата."
+              },
+              {
+                "entityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "name": "distribution centres",
+                "reason": "Нужен дополнительный уникальный идентификатор или подтверждение неоднозначного кандидата."
+              },
+              {
+                "entityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "name": "stores",
+                "reason": "Нужен дополнительный уникальный идентификатор или подтверждение неоднозначного кандидата."
+              }
+            ]
+          },
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "3 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        "B06": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "chunks": [
+              {
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e"
+              }
+            ],
+            "entities": [
+              {
+                "name": "Pyaterochka",
+                "type": "COMPANY"
+              },
+              {
+                "name": "distribution centres",
+                "type": "FACILITY"
+              },
+              {
+                "name": "3PL facilities",
+                "type": "FACILITY"
+              },
+              {
+                "name": "stores",
+                "type": "FACILITY"
+              }
+            ]
+          },
+          "output": {
+            "relationships": [
+              {
+                "sourceName": "Pyaterochka",
+                "sourceType": "COMPANY",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "Pyaterochka",
+                    "type": "COMPANY",
+                    "startOffset": 0
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "Pyaterochka"
+                },
+                "predicate": "OPERATES",
+                "targetName": "distribution centres",
+                "targetType": "FACILITY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "distribution centres",
+                    "type": "FACILITY",
+                    "startOffset": 49
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "distribution centres"
+                },
+                "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "startOffset": 0
+              }
+            ],
+            "rejected": [
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Pyaterochka",
+                  "predicate": "OPERATES",
+                  "targetName": "3PL facilities",
+                  "quote": "including three 3PL facilities",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+              },
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Pyaterochka",
+                  "predicate": "OPERATES",
+                  "targetName": "stores",
+                  "quote": "serving 22,976 stores",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+              }
+            ]
+          },
+          "errors": []
+        },
+        "B07": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "proposals": [
+              {
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "predicate": "OPERATES",
+                "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres"
+              }
+            ]
+          },
+          "output": {
+            "accepted": [
+              {
+                "sourceName": "Pyaterochka",
+                "sourceType": "COMPANY",
+                "sourceResolution": {
+                  "entity": {
+                    "name": "Pyaterochka",
+                    "type": "COMPANY",
+                    "startOffset": 0
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "Pyaterochka"
+                },
+                "predicate": "OPERATES",
+                "targetName": "distribution centres",
+                "targetType": "FACILITY",
+                "targetResolution": {
+                  "entity": {
+                    "name": "distribution centres",
+                    "type": "FACILITY",
+                    "startOffset": 49
+                  },
+                  "method": "exact_quote",
+                  "evidenceTerm": "distribution centres"
+                },
+                "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                "status": "CURRENT",
+                "attributes": {},
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "startOffset": 0,
+                "subject": {
+                  "type": "COMPANY",
+                  "name": "Pyaterochka",
+                  "resolution": {
+                    "entity": {
+                      "name": "Pyaterochka",
+                      "type": "COMPANY",
+                      "startOffset": 0
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "Pyaterochka"
+                  }
+                },
+                "object": {
+                  "type": "FACILITY",
+                  "name": "distribution centres",
+                  "resolution": {
+                    "entity": {
+                      "name": "distribution centres",
+                      "type": "FACILITY",
+                      "startOffset": 49
+                    },
+                    "method": "exact_quote",
+                    "evidenceTerm": "distribution centres"
+                  }
+                },
+                "accepted": true,
+                "claimStatus": "SUPPORTED",
+                "evidence": {
+                  "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                  "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                  "startOffset": 0,
+                  "endOffset": 72,
+                  "quoteMatchesSource": true,
+                  "sourceAccessLevel": "customer_internal",
+                  "factValidation": "text_match_only"
+                },
+                "relationshipStatus": "CURRENT"
+              }
+            ],
+            "rejected": [
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Pyaterochka",
+                  "predicate": "OPERATES",
+                  "targetName": "3PL facilities",
+                  "quote": "including three 3PL facilities",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+              },
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Pyaterochka",
+                  "predicate": "OPERATES",
+                  "targetName": "stores",
+                  "quote": "serving 22,976 stores",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+              }
+            ],
+            "conflicts": []
+          },
+          "errors": []
+        },
+        "B08": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "entities": [
+              {
+                "entityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "type": "COMPANY"
+              },
+              {
+                "entityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "type": "FACILITY"
+              },
+              {
+                "entityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "type": "FACILITY"
+              },
+              {
+                "entityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "type": "FACILITY"
+              }
+            ],
+            "claims": [
+              {
+                "claimId": "9ca185cf-994f-4e18-acb1-e09ee6ceda05",
+                "status": "SUPPORTED"
+              }
+            ]
+          },
+          "output": {
+            "nodes": [
+              {
+                "entity_id": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "entity_type": "COMPANY",
+                "canonical_name": "Pyaterochka",
+                "normalized_name": "pyaterochka",
+                "identifiers": {
+                  "inn": null,
+                  "ogrn": null
+                },
+                "attributes": {},
+                "resolution_status": "candidate",
+                "origin_source_id": null,
+                "global_company_id": "e51d154b-c5a0-4102-a264-960c91af3df0",
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": []
+              },
+              {
+                "entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "entity_type": "FACILITY",
+                "canonical_name": "3PL facilities",
+                "normalized_name": "3pl facilities",
+                "identifiers": {},
+                "attributes": {},
+                "resolution_status": "unresolved",
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "global_company_id": null,
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": [
+                  {
+                    "quote": "three 3PL facilities",
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "surface": "3PL facilities",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "endOffset": 104,
+                    "mentionId": "7d7edeb1-4d02-40bf-b14c-1d0c14bfdc7c",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "startOffset": 84
+                  }
+                ]
+              },
+              {
+                "entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "entity_type": "FACILITY",
+                "canonical_name": "distribution centres",
+                "normalized_name": "distribution centres",
+                "identifiers": {},
+                "attributes": {},
+                "resolution_status": "unresolved",
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "global_company_id": null,
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": [
+                  {
+                    "quote": "42 distribution centres",
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "surface": "distribution centres",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "endOffset": 72,
+                    "mentionId": "2cbaea0d-0a2f-4b8f-b99c-1863948400f4",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "startOffset": 49
+                  }
+                ]
+              },
+              {
+                "entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "entity_type": "FACILITY",
+                "canonical_name": "stores",
+                "normalized_name": "stores",
+                "identifiers": {},
+                "attributes": {},
+                "resolution_status": "unresolved",
+                "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "global_company_id": null,
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": [
+                  {
+                    "quote": "22,976 stores",
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "surface": "stores",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "endOffset": 127,
+                    "mentionId": "01578a2a-07d6-488c-aa46-be835da5dccf",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "startOffset": 114
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "claim_id": "9ca185cf-994f-4e18-acb1-e09ee6ceda05",
+                "claim_hash": "59b67fcd2c7af937b4284d8b99fea9f642e4d6f35a03d77b8e6d18e68b8607ed",
+                "subject_entity_id": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "subject_name": "Pyaterochka",
+                "subject_type": "COMPANY",
+                "predicate": "OPERATES",
+                "object_entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "object_value": null,
+                "object_name": "distribution centres",
+                "object_type": "FACILITY",
+                "attributes": {
+                  "relationshipStatus": "CURRENT"
+                },
+                "claim_status": "SUPPORTED",
+                "valid_from": null,
+                "valid_to": null,
+                "created_at": "2026-10-16T23:35:00.110Z",
+                "updated_at": "2026-10-16T23:35:00.110Z",
+                "evidence": [
+                  {
+                    "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "evidenceId": "ed392477-013b-45cd-911d-33b7aba1cf29",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "factValidation": "text_match_only",
+                    "quoteMatchesSource": true
+                  }
+                ]
+              }
+            ],
+            "version": 0
+          },
+          "errors": []
+        },
+        "B09": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "graph": {
+              "nodes": 4,
+              "edges": 1
+            }
+          },
+          "output": {
+            "gaps": [
+              {
+                "gap_id": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "gap_key": "company:49ee4c45-fa13-4ec2-be8b-4d6e4696928f:offering",
+                "missing_fact": "Ключевые продукты или услуги компании",
+                "importance": "business_model",
+                "rationale": "Без описания предложения нельзя понять основную деятельность и источники выручки.",
+                "priority": 5,
+                "suggested_source": "Каталог продукции, сайт, анкета клиента или годовой отчёт",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "806bf005-4d24-4825-a115-292c3699e98b",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "gap_key": "facility:455f106d-ec1a-44cb-8685-82f675c18be1:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «distribution centres»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "gap_key": "facility:79c947bd-3503-4019-986b-8c35d6313bee:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «3PL facilities»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "gap_key": "facility:79c947bd-3503-4019-986b-8c35d6313bee:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "gap_key": "facility:455f106d-ec1a-44cb-8685-82f675c18be1:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "gap_key": "facility:d162c73c-503b-45fa-a318-7a38db08a809:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «stores»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              },
+              {
+                "gap_id": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "gap_key": "facility:d162c73c-503b-45fa-a318-7a38db08a809:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z"
+              }
+            ]
+          },
+          "errors": []
+        },
+        "B10": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "gaps": [
+              {
+                "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?"
+              },
+              {
+                "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+                "question": "Где расположена площадка «distribution centres»?"
+              },
+              {
+                "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "question": "Где расположена площадка «3PL facilities»?"
+              },
+              {
+                "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?"
+              },
+              {
+                "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?"
+              },
+              {
+                "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "question": "Где расположена площадка «stores»?"
+              },
+              {
+                "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?"
+              }
+            ],
+            "sourceIds": [
+              "d296f8a7-b263-4f12-a54d-7bb6cfb7358e"
+            ]
+          },
+          "output": {
+            "attempts": [
+              {
+                "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.24083124155812063,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.5442642731745327,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.47067883785493225,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.438967022957384,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.4947411116803364,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.4228578599860865,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "546f30be-68e6-4164-8cea-c5c7e7e972aa"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                    "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                    "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.40547039541425756,
+                    "excerpt": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres (including three 3PL facilities) serving 22,976 stores across 74 regions."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ],
+            "questions": [
+              {
+                "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open"
+              },
+              {
+                "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+                "question": "Где расположена площадка «distribution centres»?",
+                "status": "open"
+              },
+              {
+                "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "question": "Где расположена площадка «3PL facilities»?",
+                "status": "open"
+              },
+              {
+                "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?",
+                "status": "open"
+              },
+              {
+                "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?",
+                "status": "open"
+              },
+              {
+                "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "question": "Где расположена площадка «stores»?",
+                "status": "open"
+              },
+              {
+                "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?",
+                "status": "open"
+              }
+            ],
+            "errors": [
+              {
+                "code": "official_registry_access_not_configured",
+                "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ]
+          },
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        "B11": {
+          "input": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "graph": {
+              "nodes": 4,
+              "edges": 1
+            },
+            "gaps": [
+              {
+                "gap_id": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "gap_key": "company:49ee4c45-fa13-4ec2-be8b-4d6e4696928f:offering",
+                "missing_fact": "Ключевые продукты или услуги компании",
+                "importance": "business_model",
+                "rationale": "Без описания предложения нельзя понять основную деятельность и источники выручки.",
+                "priority": 5,
+                "suggested_source": "Каталог продукции, сайт, анкета клиента или годовой отчёт",
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "Pyaterochka",
+                "related_entity_type": "COMPANY",
+                "answers": []
+              },
+              {
+                "gap_id": "806bf005-4d24-4825-a115-292c3699e98b",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "gap_key": "facility:455f106d-ec1a-44cb-8685-82f675c18be1:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «distribution centres»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "distribution centres",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              },
+              {
+                "gap_id": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "gap_key": "facility:79c947bd-3503-4019-986b-8c35d6313bee:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «3PL facilities»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "3PL facilities",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              },
+              {
+                "gap_id": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "gap_key": "facility:79c947bd-3503-4019-986b-8c35d6313bee:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "3PL facilities",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              },
+              {
+                "gap_id": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "gap_key": "facility:455f106d-ec1a-44cb-8685-82f675c18be1:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "distribution centres",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              },
+              {
+                "gap_id": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "gap_key": "facility:d162c73c-503b-45fa-a318-7a38db08a809:location",
+                "missing_fact": "Местоположение площадки",
+                "importance": "operations",
+                "rationale": "География площадки нужна для анализа логистики, доступности ресурсов и локальных рисков.",
+                "priority": 3,
+                "suggested_source": "Паспорт объекта, адрес филиала или реестр недвижимости",
+                "question": "Где расположена площадка «stores»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "stores",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              },
+              {
+                "gap_id": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "profile_id": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+                "related_entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "gap_key": "facility:d162c73c-503b-45fa-a318-7a38db08a809:resources",
+                "missing_fact": "Ключевые ресурсы производственной площадки",
+                "importance": "operations",
+                "rationale": "Без ресурсов площадки нельзя оценить её операционные ограничения и критические зависимости.",
+                "priority": 3,
+                "suggested_source": "Технический паспорт площадки или операционная анкета",
+                "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?",
+                "status": "open",
+                "created_in_run_id": "eda0e04e-7bbc-4799-8f73-655ba2861c36",
+                "created_at": "2026-10-16T23:35:00.147Z",
+                "updated_at": "2026-10-16T23:35:00.147Z",
+                "related_entity_name": "stores",
+                "related_entity_type": "FACILITY",
+                "answers": []
+              }
+            ],
+            "sources": [
+              {
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "title": "X5 Group 2024 Annual Report — strategic report",
+                "status": "processed"
+              }
+            ]
+          },
+          "output": {
+            "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+            "version": 1,
+            "company": {
+              "companyId": "e51d154b-c5a0-4102-a264-960c91af3df0",
+              "legalName": "Pyaterochka",
+              "inn": null,
+              "ogrn": null,
+              "website": null,
+              "identityStatus": "name_only"
+            },
+            "business": {
+              "products": [],
+              "services": [],
+              "facilities": [
+                "3PL facilities",
+                "distribution centres",
+                "stores"
+              ],
+              "suppliers": [],
+              "customers": [],
+              "processes": [],
+              "resources": [],
+              "relations": [
+                {
+                  "subject": "Pyaterochka",
+                  "subjectType": "COMPANY",
+                  "predicate": "OPERATES",
+                  "object": "distribution centres",
+                  "objectType": "FACILITY",
+                  "status": "CURRENT",
+                  "claimStatus": "SUPPORTED",
+                  "attributes": {
+                    "relationshipStatus": "CURRENT"
+                  },
+                  "evidence": [
+                    {
+                      "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                      "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                      "evidenceId": "ed392477-013b-45cd-911d-33b7aba1cf29",
+                      "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                      "factValidation": "text_match_only",
+                      "quoteMatchesSource": true
+                    }
+                  ]
+                }
+              ]
+            },
+            "unknowns": [
+              {
+                "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+                "relatedEntityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+                "missingFact": "Ключевые продукты или услуги компании",
+                "priority": 5,
+                "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+                "status": "open"
+              },
+              {
+                "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+                "relatedEntityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "missingFact": "Местоположение площадки",
+                "priority": 3,
+                "question": "Где расположена площадка «distribution centres»?",
+                "status": "open"
+              },
+              {
+                "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+                "relatedEntityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "missingFact": "Местоположение площадки",
+                "priority": 3,
+                "question": "Где расположена площадка «3PL facilities»?",
+                "status": "open"
+              },
+              {
+                "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+                "relatedEntityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+                "missingFact": "Ключевые ресурсы производственной площадки",
+                "priority": 3,
+                "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?",
+                "status": "open"
+              },
+              {
+                "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+                "relatedEntityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+                "missingFact": "Ключевые ресурсы производственной площадки",
+                "priority": 3,
+                "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?",
+                "status": "open"
+              },
+              {
+                "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+                "relatedEntityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "missingFact": "Местоположение площадки",
+                "priority": 3,
+                "question": "Где расположена площадка «stores»?",
+                "status": "open"
+              },
+              {
+                "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+                "relatedEntityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+                "missingFact": "Ключевые ресурсы производственной площадки",
+                "priority": 3,
+                "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?",
+                "status": "open"
+              }
+            ],
+            "conflicts": [],
+            "generatedAt": "2026-10-16T23:35:02.213Z"
+          },
+          "errors": []
+        }
+      },
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Pyaterochka"
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centres"
+        },
+        {
+          "type": "FACILITY",
+          "name": "3PL facilities"
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Pyaterochka",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "distribution centres",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "3PL facilities",
+          "found": true
+        },
+        {
+          "type": "FACILITY",
+          "name": "stores",
+          "found": true
+        },
+        {
+          "type": "LOCATION",
+          "name": "regions",
+          "found": false
+        }
+      ],
+      "relationships": [
+        {
+          "predicate": "OPERATES",
+          "subject": "Pyaterochka",
+          "object": "distribution centres",
+          "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres"
+        }
+      ],
+      "expectedRelationTriples": [
+        {
+          "predicate": "OPERATES",
+          "source": "Pyaterochka",
+          "target": "distribution centres"
+        }
+      ],
+      "usage": {
+        "calls": 6,
+        "failed_calls": 0,
+        "input_tokens": "2162",
+        "output_tokens": "332",
+        "reported_cost_rub": "0.026945",
+        "total_latency_ms": "12221"
+      },
+      "profile": {
+        "profileId": "e8900679-3ff0-4257-8f17-7dd1f0566d66",
+        "version": 1,
+        "generatedAt": "2026-10-16T23:35:02.213Z",
+        "company": {
+          "companyId": "e51d154b-c5a0-4102-a264-960c91af3df0",
+          "legalName": "Pyaterochka",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [],
+          "facilities": [
+            "3PL facilities",
+            "distribution centres",
+            "stores"
+          ],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": [
+            {
+              "subject": "Pyaterochka",
+              "subjectType": "COMPANY",
+              "predicate": "OPERATES",
+              "object": "distribution centres",
+              "objectType": "FACILITY",
+              "status": "CURRENT",
+              "claimStatus": "SUPPORTED",
+              "attributes": {
+                "relationshipStatus": "CURRENT"
+              },
+              "evidence": [
+                {
+                  "quote": "Pyaterochka’s logistics infrastructure comprised 42 distribution centres",
+                  "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                  "evidenceId": "ed392477-013b-45cd-911d-33b7aba1cf29",
+                  "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                  "factValidation": "text_match_only",
+                  "quoteMatchesSource": true
+                }
+              ]
+            }
+          ]
+        },
+        "entities": [
+          {
+            "entity_id": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+            "entity_type": "COMPANY",
+            "canonical_name": "Pyaterochka",
+            "normalized_name": "pyaterochka",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "global_company_id": "e51d154b-c5a0-4102-a264-960c91af3df0",
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "79c947bd-3503-4019-986b-8c35d6313bee",
+            "entity_type": "FACILITY",
+            "canonical_name": "3PL facilities",
+            "normalized_name": "3pl facilities",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+            "global_company_id": null,
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": [
+              {
+                "quote": "three 3PL facilities",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "surface": "3PL facilities",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "endOffset": 104,
+                "mentionId": "7d7edeb1-4d02-40bf-b14c-1d0c14bfdc7c",
+                "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                "startOffset": 84
+              }
+            ]
+          },
+          {
+            "entity_id": "455f106d-ec1a-44cb-8685-82f675c18be1",
+            "entity_type": "FACILITY",
+            "canonical_name": "distribution centres",
+            "normalized_name": "distribution centres",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+            "global_company_id": null,
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": [
+              {
+                "quote": "42 distribution centres",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "surface": "distribution centres",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "endOffset": 72,
+                "mentionId": "2cbaea0d-0a2f-4b8f-b99c-1863948400f4",
+                "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                "startOffset": 49
+              }
+            ]
+          },
+          {
+            "entity_id": "d162c73c-503b-45fa-a318-7a38db08a809",
+            "entity_type": "FACILITY",
+            "canonical_name": "stores",
+            "normalized_name": "stores",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+            "global_company_id": null,
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": [
+              {
+                "quote": "22,976 stores",
+                "chunkId": "546f30be-68e6-4164-8cea-c5c7e7e972aa",
+                "surface": "stores",
+                "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+                "endOffset": 127,
+                "mentionId": "01578a2a-07d6-488c-aa46-be835da5dccf",
+                "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+                "startOffset": 114
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "d296f8a7-b263-4f12-a54d-7bb6cfb7358e",
+            "title": "X5 Group 2024 Annual Report — strategic report",
+            "type": "annual_report",
+            "url": "https://www.x5.ru/wp-content/uploads/reports/2024/en/strategic-report/",
+            "accessLevel": "public",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T23:34:49.742Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "547fedce-2e42-4c58-b096-ec9dc9f65f28",
+            "relatedEntityId": "49ee4c45-fa13-4ec2-be8b-4d6e4696928f",
+            "missingFact": "Ключевые продукты или услуги компании",
+            "priority": 5,
+            "question": "Какие основные продукты или услуги создаёт и продаёт компания?",
+            "status": "open"
+          },
+          {
+            "gapId": "806bf005-4d24-4825-a115-292c3699e98b",
+            "relatedEntityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «distribution centres»?",
+            "status": "open"
+          },
+          {
+            "gapId": "a74a211f-799b-4e8f-b344-6f5630d23227",
+            "relatedEntityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «3PL facilities»?",
+            "status": "open"
+          },
+          {
+            "gapId": "bc1b08a5-e059-446d-be79-6999ff1189c4",
+            "relatedEntityId": "79c947bd-3503-4019-986b-8c35d6313bee",
+            "missingFact": "Ключевые ресурсы производственной площадки",
+            "priority": 3,
+            "question": "Какие ключевые ресурсы нужны для работы площадки «3PL facilities»?",
+            "status": "open"
+          },
+          {
+            "gapId": "cd60cd2e-cbbf-4319-abfe-605c7cfb4df6",
+            "relatedEntityId": "455f106d-ec1a-44cb-8685-82f675c18be1",
+            "missingFact": "Ключевые ресурсы производственной площадки",
+            "priority": 3,
+            "question": "Какие ключевые ресурсы нужны для работы площадки «distribution centres»?",
+            "status": "open"
+          },
+          {
+            "gapId": "623210c0-68e3-4ddf-8f0f-a06bb8c19d4d",
+            "relatedEntityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+            "missingFact": "Местоположение площадки",
+            "priority": 3,
+            "question": "Где расположена площадка «stores»?",
+            "status": "open"
+          },
+          {
+            "gapId": "de7a8dc1-6392-4a0f-92b2-34adf9ae97d7",
+            "relatedEntityId": "d162c73c-503b-45fa-a318-7a38db08a809",
+            "missingFact": "Ключевые ресурсы производственной площадки",
+            "priority": 3,
+            "question": "Какие ключевые ресурсы нужны для работы площадки «stores»?",
+            "status": "open"
+          }
+        ]
+      },
+      "expectedUnknowns": [
+        "Specific distribution-centre addresses are not stated in this excerpt."
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "OPERATES",
+          "source": "Pyaterochka",
+          "target": "distribution centres",
+          "found": true
+        }
+      ],
+      "unexpectedRelationships": []
+    },
+    {
+      "scenarioId": "R03",
+      "industry": "telecommunications",
+      "language": "ru",
+      "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+      "runId": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+      "status": "partial",
+      "source": {
+        "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+        "url": "https://www.company.rt.ru/upload/protected/iblock/0e7/p34heurcokdbqxjcc34tipp0wg39fo27/Issuer_report_12mo2024_abriged_.pdf",
+        "publicationDate": "2025-03-28",
+        "page": 8,
+        "excerpt": "Основой финансово-хозяйственной деятельности группы «Ростелеком» является оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет."
+      },
+      "stages": [
+        {
+          "blockId": "B01",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        {
+          "blockId": "B02",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B03",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B04",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B05",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        {
+          "blockId": "B06",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B07",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B08",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B09",
+          "status": "completed",
+          "errors": []
+        },
+        {
+          "blockId": "B10",
+          "status": "partial",
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        {
+          "blockId": "B11",
+          "status": "completed",
+          "errors": []
+        }
+      ],
+      "stageOutputs": {
+        "B01": {
+          "input": {
+            "companyName": "Ростелеком",
+            "inn": null,
+            "ogrn": null,
+            "website": null
+          },
+          "output": {
+            "identityStatus": "name_only",
+            "companyId": "fba98090-bb04-4045-8d38-b3ac8c7dfdac",
+            "legalName": "Ростелеком",
+            "candidates": [],
+            "sources": []
+          },
+          "errors": [
+            {
+              "code": "registry_verification_pending",
+              "message": "Идентификатор не подтверждён внешним реестром."
+            }
+          ]
+        },
+        "B02": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "requestedSources": [
+              {
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "sourceType": "annual_report",
+                "url": "https://www.company.rt.ru/upload/protected/iblock/0e7/p34heurcokdbqxjcc34tipp0wg39fo27/Issuer_report_12mo2024_abriged_.pdf"
+              }
+            ]
+          },
+          "output": {
+            "sources": [
+              {
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "sourceType": "annual_report",
+                "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                "status": "available",
+                "accessLevel": "public"
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B03": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "sourceIds": [
+              "eaf83ad2-3f9d-4c55-a290-732834785ba4"
+            ]
+          },
+          "output": {
+            "documents": [
+              {
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "format": "text",
+                "characterCount": 199,
+                "chunks": 1,
+                "embeddings": 1,
+                "textSha256": "808d895f733dde043fc6e7b61c992f03ea25ed78265aeeb0f1a9390931e09577"
+              }
+            ],
+            "chunks": [
+              {
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "startOffset": 0,
+                "endOffset": 199,
+                "pageNumber": null,
+                "tokenCount": 50
+              }
+            ],
+            "errors": []
+          },
+          "errors": []
+        },
+        "B04": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "chunks": [
+              {
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4"
+              }
+            ]
+          },
+          "output": {
+            "entities": [
+              {
+                "entity_id": "ae5dbfd5-8cda-4be4-a9c0-e596e050af10",
+                "entity_type": "COMPANY",
+                "canonical_name": "Ростелеком",
+                "normalized_name": "ростелеком",
+                "identifiers": {},
+                "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "mentionId": "03120f02-95c5-4215-a6da-b719e93ff962",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "группы «Ростелеком»",
+                "startOffset": 45,
+                "endOffset": 64
+              },
+              {
+                "entity_id": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "entity_type": "SERVICE",
+                "canonical_name": "мобильная связь",
+                "normalized_name": "мобильная связь",
+                "identifiers": {},
+                "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "mentionId": "d0b1c959-1216-4d74-8bb2-8f7db77d24fd",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "мобильная связь",
+                "startOffset": 149,
+                "endOffset": 164
+              },
+              {
+                "entity_id": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "entity_type": "SERVICE",
+                "canonical_name": "широкополосный доступ в интернет",
+                "normalized_name": "широкополосный доступ в интернет",
+                "identifiers": {},
+                "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "mentionId": "fef5af17-b9e8-4316-9aa2-f54cb77152ec",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "широкополосный доступ в интернет",
+                "startOffset": 166,
+                "endOffset": 198
+              }
+            ],
+            "mentions": [
+              {
+                "entityId": "ae5dbfd5-8cda-4be4-a9c0-e596e050af10",
+                "mentionId": "03120f02-95c5-4215-a6da-b719e93ff962",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "группы «Ростелеком»",
+                "startOffset": 45,
+                "endOffset": 64
+              },
+              {
+                "entityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "mentionId": "d0b1c959-1216-4d74-8bb2-8f7db77d24fd",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "мобильная связь",
+                "startOffset": 149,
+                "endOffset": 164
+              },
+              {
+                "entityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "mentionId": "fef5af17-b9e8-4316-9aa2-f54cb77152ec",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "quote": "широкополосный доступ в интернет",
+                "startOffset": 166,
+                "endOffset": 198
+              }
+            ],
+            "rejected": []
+          },
+          "errors": []
+        },
+        "B05": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "entities": [
+              {
+                "entityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "type": "COMPANY",
+                "name": "Ростелеком"
+              },
+              {
+                "entityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "type": "SERVICE",
+                "name": "мобильная связь"
+              },
+              {
+                "entityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "type": "SERVICE",
+                "name": "широкополосный доступ в интернет"
+              }
+            ],
+            "candidates": []
+          },
+          "output": {
+            "decisions": [
+              {
+                "entityId": "ae5dbfd5-8cda-4be4-a9c0-e596e050af10",
+                "candidateEntityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "decision": "SAME_ENTITY",
+                "decidedBy": "exact_profile_legal_name",
+                "reason": "Полное нормализованное юридическое имя совпадает с выбранной компанией; другое написание и одна торговая марка сами по себе не объединяются.",
+                "evidence": {
+                  "matchedProfileEntityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                  "normalizedName": "ростелеком"
+                }
+              }
+            ],
+            "candidates": [],
+            "rankings": [],
+            "fallbacks": [],
+            "unresolved": [
+              {
+                "entityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "name": "мобильная связь",
+                "reason": "Нужен дополнительный уникальный идентификатор или подтверждение неоднозначного кандидата."
+              },
+              {
+                "entityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "name": "широкополосный доступ в интернет",
+                "reason": "Нужен дополнительный уникальный идентификатор или подтверждение неоднозначного кандидата."
+              }
+            ]
+          },
+          "errors": [
+            {
+              "code": "manual_resolution_required",
+              "message": "2 сущностей оставлены неразрешёнными без достаточных оснований."
+            }
+          ]
+        },
+        "B06": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "chunks": [
+              {
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4"
+              }
+            ],
+            "entities": [
+              {
+                "name": "Ростелеком",
+                "type": "COMPANY"
+              },
+              {
+                "name": "мобильная связь",
+                "type": "SERVICE"
+              },
+              {
+                "name": "широкополосный доступ в интернет",
+                "type": "SERVICE"
+              }
+            ]
+          },
+          "output": {
+            "relationships": [],
+            "rejected": [
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Ростелеком",
+                  "predicate": "PROVIDES_SERVICE",
+                  "targetName": "мобильная связь",
+                  "quote": "оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+              },
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Ростелеком",
+                  "predicate": "PROVIDES_SERVICE",
+                  "targetName": "широкополосный доступ в интернет",
+                  "quote": "оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+              }
+            ]
+          },
+          "errors": []
+        },
+        "B07": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "proposals": []
+          },
+          "output": {
+            "accepted": [],
+            "rejected": [
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Ростелеком",
+                  "predicate": "PROVIDES_SERVICE",
+                  "targetName": "мобильная связь",
+                  "quote": "оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+              },
+              {
+                "ok": false,
+                "code": "relationship_validation_failed",
+                "reason": "Участники связи не совпали с извлечёнными сущностями; Субъект не сопоставлен с допустимой сущностью по цитате и локальному контексту",
+                "proposal": {
+                  "sourceName": "Ростелеком",
+                  "predicate": "PROVIDES_SERVICE",
+                  "targetName": "широкополосный доступ в интернет",
+                  "quote": "оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет",
+                  "status": "CURRENT",
+                  "attributes": {}
+                },
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+              }
+            ],
+            "conflicts": []
+          },
+          "errors": []
+        },
+        "B08": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "entities": [
+              {
+                "entityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "type": "COMPANY"
+              },
+              {
+                "entityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "type": "SERVICE"
+              },
+              {
+                "entityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "type": "SERVICE"
+              }
+            ],
+            "claims": []
+          },
+          "output": {
+            "nodes": [
+              {
+                "entity_id": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "entity_type": "COMPANY",
+                "canonical_name": "Ростелеком",
+                "normalized_name": "ростелеком",
+                "identifiers": {
+                  "inn": null,
+                  "ogrn": null
+                },
+                "attributes": {},
+                "resolution_status": "candidate",
+                "origin_source_id": null,
+                "global_company_id": "fba98090-bb04-4045-8d38-b3ac8c7dfdac",
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": []
+              },
+              {
+                "entity_id": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "entity_type": "SERVICE",
+                "canonical_name": "мобильная связь",
+                "normalized_name": "мобильная связь",
+                "identifiers": {},
+                "attributes": {},
+                "resolution_status": "unresolved",
+                "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "global_company_id": null,
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": [
+                  {
+                    "quote": "мобильная связь",
+                    "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                    "surface": "мобильная связь",
+                    "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                    "endOffset": 164,
+                    "mentionId": "d0b1c959-1216-4d74-8bb2-8f7db77d24fd",
+                    "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                    "startOffset": 149
+                  }
+                ]
+              },
+              {
+                "entity_id": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "entity_type": "SERVICE",
+                "canonical_name": "широкополосный доступ в интернет",
+                "normalized_name": "широкополосный доступ в интернет",
+                "identifiers": {},
+                "attributes": {},
+                "resolution_status": "unresolved",
+                "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "global_company_id": null,
+                "canonical_entity_id": null,
+                "canonical_entity_name": null,
+                "mentions": [
+                  {
+                    "quote": "широкополосный доступ в интернет",
+                    "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                    "surface": "широкополосный доступ в интернет",
+                    "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                    "endOffset": 198,
+                    "mentionId": "fef5af17-b9e8-4316-9aa2-f54cb77152ec",
+                    "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                    "startOffset": 166
+                  }
+                ]
+              }
+            ],
+            "edges": [],
+            "version": 0
+          },
+          "errors": []
+        },
+        "B09": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "graph": {
+              "nodes": 3,
+              "edges": 0
+            }
+          },
+          "output": {
+            "gaps": [
+              {
+                "gap_id": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "gap_key": "company:0513e89a-24b8-4cf4-af74-f0e7d5e81032:offering_relationship",
+                "missing_fact": "Роль компании в производстве или продаже предложения",
+                "importance": "business_model",
+                "rationale": "Список продуктов без связи с компанией не показывает, производит ли она их, оказывает ли услуги или перепродаёт товар.",
+                "priority": 4,
+                "suggested_source": "Каталог, описание бизнес-модели или коммерческая анкета",
+                "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z"
+              },
+              {
+                "gap_id": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "gap_key": "service:99a8b634-1dc8-417b-acab-6306436b04bb:provider",
+                "missing_fact": "Связь услуги с компанией",
+                "importance": "business_model",
+                "rationale": "Упоминание услуги само по себе не подтверждает, что её оказывает именно эта компания.",
+                "priority": 4,
+                "suggested_source": "Каталог услуг или договор оказания услуг",
+                "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z"
+              },
+              {
+                "gap_id": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "gap_key": "service:9c40635d-6d05-4b5a-9aa4-98f3c4b35417:provider",
+                "missing_fact": "Связь услуги с компанией",
+                "importance": "business_model",
+                "rationale": "Упоминание услуги само по себе не подтверждает, что её оказывает именно эта компания.",
+                "priority": 4,
+                "suggested_source": "Каталог услуг или договор оказания услуг",
+                "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z"
+              }
+            ]
+          },
+          "errors": []
+        },
+        "B10": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "gaps": [
+              {
+                "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?"
+              },
+              {
+                "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?"
+              },
+              {
+                "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?"
+              }
+            ],
+            "sourceIds": [
+              "eaf83ad2-3f9d-4c55-a290-732834785ba4"
+            ]
+          },
+          "output": {
+            "attempts": [
+              {
+                "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                    "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                    "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.6496317193022,
+                    "excerpt": "Основой финансово-хозяйственной деятельности группы «Ростелеком» является оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                    "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                    "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.5780656430799546,
+                    "excerpt": "Основой финансово-хозяйственной деятельности группы «Ростелеком» является оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "sourceType": "internal_document_search",
+                "status": "completed",
+                "candidateChunkIds": [
+                  "495f5728-8b5b-441b-8f3c-be00c89d0e11"
+                ],
+                "candidates": [
+                  {
+                    "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                    "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                    "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                    "pageNumber": null,
+                    "sectionPath": null,
+                    "similarity": 0.6362939883383059,
+                    "excerpt": "Основой финансово-хозяйственной деятельности группы «Ростелеком» является оказание услуг в области телекоммуникаций и цифровых решений, в том числе: мобильная связь; широкополосный доступ в интернет."
+                  }
+                ],
+                "requiresVerification": true
+              },
+              {
+                "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              },
+              {
+                "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "sourceType": "official_registry",
+                "status": "skipped",
+                "reason": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ],
+            "questions": [
+              {
+                "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?",
+                "status": "open"
+              },
+              {
+                "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?",
+                "status": "open"
+              },
+              {
+                "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?",
+                "status": "open"
+              }
+            ],
+            "errors": [
+              {
+                "code": "official_registry_access_not_configured",
+                "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+              }
+            ]
+          },
+          "errors": [
+            {
+              "code": "official_registry_access_not_configured",
+              "message": "Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен. Добавьте сайт компании, чтобы подключить его к сбору открытых источников."
+            }
+          ]
+        },
+        "B11": {
+          "input": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "graph": {
+              "nodes": 3,
+              "edges": 0
+            },
+            "gaps": [
+              {
+                "gap_id": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "gap_key": "company:0513e89a-24b8-4cf4-af74-f0e7d5e81032:offering_relationship",
+                "missing_fact": "Роль компании в производстве или продаже предложения",
+                "importance": "business_model",
+                "rationale": "Список продуктов без связи с компанией не показывает, производит ли она их, оказывает ли услуги или перепродаёт товар.",
+                "priority": 4,
+                "suggested_source": "Каталог, описание бизнес-модели или коммерческая анкета",
+                "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z",
+                "related_entity_name": "Ростелеком",
+                "related_entity_type": "COMPANY",
+                "answers": []
+              },
+              {
+                "gap_id": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "gap_key": "service:99a8b634-1dc8-417b-acab-6306436b04bb:provider",
+                "missing_fact": "Связь услуги с компанией",
+                "importance": "business_model",
+                "rationale": "Упоминание услуги само по себе не подтверждает, что её оказывает именно эта компания.",
+                "priority": 4,
+                "suggested_source": "Каталог услуг или договор оказания услуг",
+                "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z",
+                "related_entity_name": "мобильная связь",
+                "related_entity_type": "SERVICE",
+                "answers": []
+              },
+              {
+                "gap_id": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "profile_id": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+                "related_entity_id": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "gap_key": "service:9c40635d-6d05-4b5a-9aa4-98f3c4b35417:provider",
+                "missing_fact": "Связь услуги с компанией",
+                "importance": "business_model",
+                "rationale": "Упоминание услуги само по себе не подтверждает, что её оказывает именно эта компания.",
+                "priority": 4,
+                "suggested_source": "Каталог услуг или договор оказания услуг",
+                "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?",
+                "status": "open",
+                "created_in_run_id": "0e229af8-1fcb-4e45-a30f-62d04380be48",
+                "created_at": "2026-10-16T23:35:11.222Z",
+                "updated_at": "2026-10-16T23:35:11.222Z",
+                "related_entity_name": "широкополосный доступ в интернет",
+                "related_entity_type": "SERVICE",
+                "answers": []
+              }
+            ],
+            "sources": [
+              {
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                "status": "processed"
+              }
+            ]
+          },
+          "output": {
+            "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+            "version": 1,
+            "company": {
+              "companyId": "fba98090-bb04-4045-8d38-b3ac8c7dfdac",
+              "legalName": "Ростелеком",
+              "inn": null,
+              "ogrn": null,
+              "website": null,
+              "identityStatus": "name_only"
+            },
+            "business": {
+              "products": [],
+              "services": [
+                "мобильная связь",
+                "широкополосный доступ в интернет"
+              ],
+              "facilities": [],
+              "suppliers": [],
+              "customers": [],
+              "processes": [],
+              "resources": [],
+              "relations": []
+            },
+            "unknowns": [
+              {
+                "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+                "relatedEntityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+                "missingFact": "Роль компании в производстве или продаже предложения",
+                "priority": 4,
+                "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?",
+                "status": "open"
+              },
+              {
+                "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+                "relatedEntityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+                "missingFact": "Связь услуги с компанией",
+                "priority": 4,
+                "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?",
+                "status": "open"
+              },
+              {
+                "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+                "relatedEntityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+                "missingFact": "Связь услуги с компанией",
+                "priority": 4,
+                "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?",
+                "status": "open"
+              }
+            ],
+            "conflicts": [],
+            "generatedAt": "2026-10-16T23:35:12.897Z"
+          },
+          "errors": []
+        }
+      },
+      "entities": [
+        {
+          "type": "COMPANY",
+          "name": "Ростелеком"
+        },
+        {
+          "type": "SERVICE",
+          "name": "мобильная связь"
+        },
+        {
+          "type": "SERVICE",
+          "name": "широкополосный доступ в интернет"
+        }
+      ],
+      "expectedEntities": [
+        {
+          "type": "COMPANY",
+          "name": "Ростелеком",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "телекоммуникаций",
+          "found": false
+        },
+        {
+          "type": "SERVICE",
+          "name": "цифровых решений",
+          "found": false
+        },
+        {
+          "type": "SERVICE",
+          "name": "мобильная связь",
+          "found": true
+        },
+        {
+          "type": "SERVICE",
+          "name": "широкополосный доступ в интернет",
+          "found": true
+        }
+      ],
+      "relationships": [],
+      "expectedRelationTriples": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Ростелеком",
+          "target": "мобильная связь"
+        },
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Ростелеком",
+          "target": "широкополосный доступ в интернет"
+        }
+      ],
+      "usage": {
+        "calls": 5,
+        "failed_calls": 0,
+        "input_tokens": "1669",
+        "output_tokens": "293",
+        "reported_cost_rub": "0.011511",
+        "total_latency_ms": "10406"
+      },
+      "profile": {
+        "profileId": "14419968-aa1c-4c75-ae68-53b3d6a329c0",
+        "version": 1,
+        "generatedAt": "2026-10-16T23:35:12.897Z",
+        "company": {
+          "companyId": "fba98090-bb04-4045-8d38-b3ac8c7dfdac",
+          "legalName": "Ростелеком",
+          "inn": null,
+          "ogrn": null,
+          "website": null,
+          "identityStatus": "name_only"
+        },
+        "business": {
+          "products": [],
+          "services": [
+            "мобильная связь",
+            "широкополосный доступ в интернет"
+          ],
+          "facilities": [],
+          "suppliers": [],
+          "customers": [],
+          "processes": [],
+          "resources": [],
+          "relations": []
+        },
+        "entities": [
+          {
+            "entity_id": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+            "entity_type": "COMPANY",
+            "canonical_name": "Ростелеком",
+            "normalized_name": "ростелеком",
+            "identifiers": {
+              "inn": null,
+              "ogrn": null
+            },
+            "attributes": {},
+            "resolution_status": "candidate",
+            "origin_source_id": null,
+            "global_company_id": "fba98090-bb04-4045-8d38-b3ac8c7dfdac",
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": []
+          },
+          {
+            "entity_id": "99a8b634-1dc8-417b-acab-6306436b04bb",
+            "entity_type": "SERVICE",
+            "canonical_name": "мобильная связь",
+            "normalized_name": "мобильная связь",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+            "global_company_id": null,
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": [
+              {
+                "quote": "мобильная связь",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "surface": "мобильная связь",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "endOffset": 164,
+                "mentionId": "d0b1c959-1216-4d74-8bb2-8f7db77d24fd",
+                "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                "startOffset": 149
+              }
+            ]
+          },
+          {
+            "entity_id": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+            "entity_type": "SERVICE",
+            "canonical_name": "широкополосный доступ в интернет",
+            "normalized_name": "широкополосный доступ в интернет",
+            "identifiers": {},
+            "attributes": {},
+            "resolution_status": "unresolved",
+            "origin_source_id": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+            "global_company_id": null,
+            "canonical_entity_id": null,
+            "canonical_entity_name": null,
+            "mentions": [
+              {
+                "quote": "широкополосный доступ в интернет",
+                "chunkId": "495f5728-8b5b-441b-8f3c-be00c89d0e11",
+                "surface": "широкополосный доступ в интернет",
+                "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+                "endOffset": 198,
+                "mentionId": "fef5af17-b9e8-4316-9aa2-f54cb77152ec",
+                "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+                "startOffset": 166
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "sourceId": "eaf83ad2-3f9d-4c55-a290-732834785ba4",
+            "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+            "type": "annual_report",
+            "url": "https://www.company.rt.ru/upload/protected/iblock/0e7/p34heurcokdbqxjcc34tipp0wg39fo27/Issuer_report_12mo2024_abriged_.pdf",
+            "accessLevel": "public",
+            "status": "processed",
+            "retrievedAt": "2026-10-16T23:35:02.228Z"
+          }
+        ],
+        "conflicts": [],
+        "unknowns": [
+          {
+            "gapId": "f7870a82-9935-45b6-b428-9c1cfd6133af",
+            "relatedEntityId": "0513e89a-24b8-4cf4-af74-f0e7d5e81032",
+            "missingFact": "Роль компании в производстве или продаже предложения",
+            "priority": 4,
+            "question": "Какие из известных продуктов и услуг Ростелеком производит, оказывает или перепродаёт?",
+            "status": "open"
+          },
+          {
+            "gapId": "0dd6524a-ab86-4a9a-b643-bedff85bf5f0",
+            "relatedEntityId": "99a8b634-1dc8-417b-acab-6306436b04bb",
+            "missingFact": "Связь услуги с компанией",
+            "priority": 4,
+            "question": "Оказывает ли Ростелеком услугу «мобильная связь» и кому?",
+            "status": "open"
+          },
+          {
+            "gapId": "74a08e3f-849b-447d-8556-f3562673e54e",
+            "relatedEntityId": "9c40635d-6d05-4b5a-9aa4-98f3c4b35417",
+            "missingFact": "Связь услуги с компанией",
+            "priority": 4,
+            "question": "Оказывает ли Ростелеком услугу «широкополосный доступ в интернет» и кому?",
+            "status": "open"
+          }
+        ]
+      },
+      "expectedUnknowns": [
+        "The excerpt does not identify customer-specific network or service dependencies."
+      ],
+      "expectedRelationships": [
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Ростелеком",
+          "target": "мобильная связь",
+          "found": false
+        },
+        {
+          "predicate": "PROVIDES_SERVICE",
+          "source": "Ростелеком",
+          "target": "широкополосный доступ в интернет",
+          "found": false
+        }
+      ],
+      "unexpectedRelationships": []
+    }
+  ]
+}
