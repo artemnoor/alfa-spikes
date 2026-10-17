@@ -1,0 +1,17 @@
+{
+  "runId": "2026-10-17-retrieval-32-live-v1",
+  "runner": "benchmark/run-retrieval-live.mjs",
+  "queryFile": "benchmark/retrieval-scenarios.mjs",
+  "corpusFile": "benchmark/real-scenarios.mjs",
+  "maxCostRub": 0.15,
+  "metricDefinitions": {
+    "recallAt5": "share of manually relevant chunks present in the first five results",
+    "recallAt10": "share of manually relevant chunks present in the first ten results",
+    "mrr": "mean reciprocal rank of first manually relevant chunk"
+  },
+  "comparison": [
+    "Qwen cosine only",
+    "BM25 only",
+    "reciprocal rank fusion of lexical and Qwen lists"
+  ]
+}

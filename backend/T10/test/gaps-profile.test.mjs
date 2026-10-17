@@ -43,4 +43,8 @@ test('profile generation separates supported facts from unknowns and does not im
   assert.equal(profile.business.relations.length, 1)
   assert.equal(profile.business.relations[0].claimStatus, 'SUPPORTED')
   assert.equal(profile.unknowns[0].missingFact, 'Компоненты')
+  assert.equal(profile.statuses.processing_status, 'completed')
+  assert.equal(profile.statuses.identity_verification_status, 'name_only')
+  assert.equal(profile.statuses.source_coverage.status, 'no_sources')
+  assert.equal(profile.statuses.profile_completeness.status, 'incomplete')
 })

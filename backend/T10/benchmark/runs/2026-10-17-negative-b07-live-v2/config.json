@@ -1,0 +1,9 @@
+{
+  "runId": "2026-10-17-negative-b07-live-v2",
+  "runner": "benchmark/run-negative-live.mjs",
+  "scenarioFile": "benchmark/negative-scenarios.mjs",
+  "scenarioCount": 10,
+  "maxCostRub": 0.15,
+  "labels": "manually authored synthetic expected entailment labels",
+  "oneBatch": true
+}

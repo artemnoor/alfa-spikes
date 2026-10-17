@@ -1,7 +1,7 @@
 import test, { after, before } from 'node:test'
 import assert from 'node:assert/strict'
 import { createT10Server } from '../src/server.mjs'
-import { closeT10Store, findSimilarDocumentChunks, findSimilarEntityCandidates, getGraph, initializeT10Store, linkEntitiesByUniqueIdentifiers, linkExactProfileCompanyMentions, listDocumentChunks, listEntities, persistEntityExtraction, persistResolutionDecisions, pool, saveChunkEmbeddings, saveEntityEmbeddings, saveSource } from '../src/store.mjs'
+import { closeT10Store, findLexicalDocumentChunks, findSimilarDocumentChunks, findSimilarEntityCandidates, getGraph, initializeT10Store, linkEntitiesByUniqueIdentifiers, linkExactProfileCompanyMentions, listDocumentChunks, listEntities, persistEntityExtraction, persistResolutionDecisions, pool, saveChunkEmbeddings, saveEntityEmbeddings, saveSource } from '../src/store.mjs'
 
 let server
 let baseUrl
@@ -67,6 +67,10 @@ test('stores a document idempotently with provenance and customer access level',
   const chunks = await jsonRequest(`/profiles/${createdProfile.profileId}/chunks?sourceId=${first.body.source.source_id}`)
   assert.equal(chunks.body.chunks.length, 1)
   assert.equal(chunks.body.chunks[0].text_content, contentText)
+  const lexical = await findLexicalDocumentChunks(createdProfile.profileId, 'насосов площадки Перми', 5)
+  assert.equal(lexical[0].chunk_id, chunks.body.chunks[0].chunk_id)
+  const broadQuestion = await findLexicalDocumentChunks(createdProfile.profileId, 'Какое оборудование компания выпускает на производственной площадке города Перми?', 5)
+  assert.equal(broadQuestion[0].chunk_id, chunks.body.chunks[0].chunk_id)
 })
 
 test('records a user-asserted fact with exact quote and exposes it in the graph', async () => {
@@ -139,7 +143,10 @@ test('runs the independent B01–B11 profile pipeline and stores open gaps plus 
   assert.equal(result.response.status, 200)
   assert.equal(result.body.stages.length, 11)
   assert.deepEqual(result.body.stages.map((stage) => stage.blockId), Array.from({ length: 11 }, (_, index) => `B${String(index + 1).padStart(2, '0')}`))
-  assert.equal(result.body.run.status, 'partial')
+  assert.equal(result.body.run.status, 'completed')
+  assert.equal(result.body.profile.statuses.processing_status, 'completed')
+  assert.equal(result.body.profile.statuses.identity_verification_status, 'name_only')
+  assert.equal(result.body.profile.statuses.profile_completeness.status, 'incomplete')
   assert.ok(result.body.profile.unknowns.some((gap) => gap.missingFact === 'Ключевые продукты или услуги компании'))
   const b10 = result.body.stages.find((stage) => stage.blockId === 'B10')
   assert.ok(b10.output.attempts.some((attempt) => attempt.sourceType === 'internal_document_search' && attempt.status === 'completed'))
@@ -232,6 +239,46 @@ test('stores entity vectors in pgvector and retrieves top same-type candidates f
   const merged=await listEntities(profileId)
   assert.equal(merged.find((entity)=>entity.canonical_name==='Редуктор Б').canonical_entity_id,products.find((entity)=>entity.canonical_name==='Редуктор А').entity_id)
   assert.equal((await getGraph(profileId)).nodes.filter((node)=>node.type==='PRODUCT').length,1)
+})
+
+test('persists the extraction provenance of a relation-recovered participant', async () => {
+  const created=await jsonRequest('/profiles','POST',{companyName:`Participant recovery ${crypto.randomUUID()}`})
+  createdProfiles.push(created.body.profile)
+  const sourceText='Company Volna produces palladium.'
+  const source=await saveSource(created.body.profile.profileId,{sourceType:'document',title:'Quoted participant',contentText:sourceText})
+  await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'PRODUCT',name:'palladium',quote:'palladium',sourceId:source.source_id,chunkId:null,
+    startOffset:sourceText.indexOf('palladium'),endOffset:sourceText.indexOf('palladium')+'palladium'.length,attributes:{},identifiers:{},extractionMethod:'B06 quoted relation participant',
+  }],rejected:[]})
+  const stored=await pool.query('SELECT extraction->>\'extractionMethod\' AS method, evidence_quote FROM t10.entity_mentions WHERE source_id=$1',[source.source_id])
+  assert.equal(stored.rows[0].method,'B06 quoted relation participant')
+  assert.equal(stored.rows[0].evidence_quote,'palladium')
+})
+
+test('persists a B04 cross-chunk reference as a mention of its existing entity instead of creating a duplicate node', async () => {
+  const created=await jsonRequest('/profiles','POST',{companyName:`Context reference ${crypto.randomUUID()}`})
+  createdProfiles.push(created.body.profile)
+  const sourceText='Northstar Metals is named. The Company increased production.'
+  const source=await saveSource(created.body.profile.profileId,{sourceType:'document',title:'Cross-chunk reference',contentText:sourceText})
+  const first=await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'COMPANY',name:'Northstar Metals',quote:'Northstar Metals is named',sourceId:source.source_id,chunkId:null,
+    startOffset:0,endOffset:'Northstar Metals'.length,attributes:{},identifiers:{},
+  }],rejected:[]})
+  const entityId=first.entities[0].entity_id
+  await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'COMPANY',entityId,name:'The Company',quote:'The Company increased production',sourceId:source.source_id,chunkId:null,
+    startOffset:sourceText.indexOf('The Company'),endOffset:sourceText.indexOf('The Company')+'The Company'.length,attributes:{},identifiers:{},extractionMethod:'B04 document-context reference resolution',
+  }],rejected:[]})
+  const stored=await pool.query(`
+    SELECT e.entity_id, e.canonical_name, m.surface, m.extraction->>'contextResolved' AS context_resolved
+    FROM t10.entities e JOIN t10.entity_mentions m USING(entity_id)
+    WHERE e.profile_id=$1 AND m.source_id=$2 ORDER BY m.start_offset
+  `,[created.body.profile.profileId,source.source_id])
+  assert.equal(stored.rows.length,2)
+  assert.equal(new Set(stored.rows.map((row)=>row.entity_id)).size,1)
+  assert.deepEqual(stored.rows.map((row)=>row.surface),['Northstar Metals','The Company'])
+  assert.equal(stored.rows[1].canonical_name,'Northstar Metals')
+  assert.equal(stored.rows[1].context_resolved,'true')
 })
 
 test('links source mentions to the profile entity by an exact checksum-valid INN', async () => {

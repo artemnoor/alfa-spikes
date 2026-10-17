@@ -1,0 +1,54 @@
+{
+  "createdAt": "2026-10-17T04:32:25.520Z",
+  "model": "deepseek/deepseek-v4-flash",
+  "purpose": "B04 document-context completeness and reference resolution",
+  "status": "completed",
+  "finishReason": "stop",
+  "latencyMs": 2184,
+  "inputTokens": 428,
+  "outputTokens": 91,
+  "reportedCostRub": 0.0016398,
+  "maxCostRub": 0.1,
+  "chunksSent": 2,
+  "references": [
+    {
+      "entityId": "company-unique",
+      "type": "COMPANY",
+      "name": "The company",
+      "quote": "The company",
+      "startOffset": 40,
+      "endOffset": 51,
+      "chunkId": "unique-ref",
+      "sourceId": "live-unique-ref",
+      "extractionMethod": "B04 document-context reference resolution"
+    }
+  ],
+  "entities": [],
+  "rejected": [],
+  "modelParsedResponse": {
+    "chunks": [
+      {
+        "chunkId": "unique-ref",
+        "entities": [],
+        "references": [
+          {
+            "surface": "The company",
+            "quote": "The company",
+            "entityId": "company-unique"
+          }
+        ]
+      },
+      {
+        "chunkId": "ambiguous-ref",
+        "entities": [],
+        "references": []
+      }
+    ]
+  },
+  "checks": {
+    "uniqueCompanyReferenceAccepted": true,
+    "ambiguousCompanyReferenceRejected": false,
+    "allEntityQuotesVerified": true,
+    "passed": false
+  }
+}

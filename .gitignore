@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .playwright-cli/
 output/playwright/
+backend/T10/src/graphify-out/
+backend/T10/benchmark/runs/**/checkpoint.json
 **/.cache/
 /data/*.sqlite-shm
 /data/*.sqlite-wal

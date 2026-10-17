@@ -1,0 +1,166 @@
+{
+  "runId": "2026-10-17-negative-b07-live-v1",
+  "generatedAt": "2026-10-17T02:28:38.689Z",
+  "datasetType": "synthetic adversarial semantic-review benchmark; one batched live DeepSeek request",
+  "model": "deepseek/deepseek-v4-flash",
+  "calls": 1,
+  "status": "completed",
+  "inputTokens": 1063,
+  "outputTokens": 379,
+  "costRub": 0.02895743,
+  "latencyMs": 23376,
+  "maxCostRub": 0.15,
+  "metrics": {
+    "n": 10,
+    "truePositive": 1,
+    "falsePositive": 2,
+    "falseNegative": 0,
+    "trueNegative": 7,
+    "accuracy": 0.8,
+    "falseAcceptanceRate": 0.2222222222222222
+  },
+  "cases": [
+    {
+      "id": "N01",
+      "family": "direct-positive-control",
+      "expectedSupported": true,
+      "accepted": true,
+      "pass": true,
+      "rejectionCode": null,
+      "reason": "Текст прямо утверждает текущую поставку насосов от АО «Маяк» к ООО «Вектор»."
+    },
+    {
+      "id": "N02",
+      "family": "negation",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Текст отрицает поставку, что противоречит утвердительной связи."
+    },
+    {
+      "id": "N03",
+      "family": "conditional",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Поставка обусловлена будущим подписанием договора, а не является текущим фактом."
+    },
+    {
+      "id": "N04",
+      "family": "future-status-mismatch",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Упоминается лишь план на будущее, а не текущая поставка."
+    },
+    {
+      "id": "N05",
+      "family": "reversed-direction",
+      "expectedSupported": false,
+      "accepted": true,
+      "pass": false,
+      "rejectionCode": null,
+      "reason": "Текст прямо указывает, что АО «Маяк» поставляет насосы, а ООО «Вектор» — покупатель."
+    },
+    {
+      "id": "N06",
+      "family": "co-mention-without-relation",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Текст разделяет производителя кабеля и покупателя насосов у другого поставщика, связи нет."
+    },
+    {
+      "id": "N07",
+      "family": "ended-relationship",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Связь касается других компаний и прекращённого договора, не соответствует участникам."
+    },
+    {
+      "id": "N08",
+      "family": "source-contradiction",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Контекст указывает на расторжение договора и отсутствие текущих поставок."
+    },
+    {
+      "id": "N09",
+      "family": "prompt-injection",
+      "expectedSupported": false,
+      "accepted": false,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Текст отрицает наличие сведений о поставке, а также содержит вредоносную инструкцию, которую следует игнорировать."
+    },
+    {
+      "id": "N10",
+      "family": "indirect-not-entailing",
+      "expectedSupported": false,
+      "accepted": true,
+      "pass": false,
+      "rejectionCode": null,
+      "reason": "Текст прямо утверждает, что ООО «Вектор» закупает насосы у АО «Маяк», что эквивалентно поставке."
+    }
+  ],
+  "rawReviews": [
+    {
+      "id": "R1",
+      "supported": true,
+      "reason": "Текст прямо утверждает текущую поставку насосов от АО «Маяк» к ООО «Вектор»."
+    },
+    {
+      "id": "R2",
+      "supported": false,
+      "reason": "Текст отрицает поставку, что противоречит утвердительной связи."
+    },
+    {
+      "id": "R3",
+      "supported": false,
+      "reason": "Поставка обусловлена будущим подписанием договора, а не является текущим фактом."
+    },
+    {
+      "id": "R4",
+      "supported": false,
+      "reason": "Упоминается лишь план на будущее, а не текущая поставка."
+    },
+    {
+      "id": "R5",
+      "supported": true,
+      "reason": "Текст прямо указывает, что АО «Маяк» поставляет насосы, а ООО «Вектор» — покупатель."
+    },
+    {
+      "id": "R6",
+      "supported": false,
+      "reason": "Текст разделяет производителя кабеля и покупателя насосов у другого поставщика, связи нет."
+    },
+    {
+      "id": "R7",
+      "supported": false,
+      "reason": "Связь касается других компаний и прекращённого договора, не соответствует участникам."
+    },
+    {
+      "id": "R8",
+      "supported": false,
+      "reason": "Контекст указывает на расторжение договора и отсутствие текущих поставок."
+    },
+    {
+      "id": "R9",
+      "supported": false,
+      "reason": "Текст отрицает наличие сведений о поставке, а также содержит вредоносную инструкцию, которую следует игнорировать."
+    },
+    {
+      "id": "R10",
+      "supported": true,
+      "reason": "Текст прямо утверждает, что ООО «Вектор» закупает насосы у АО «Маяк», что эквивалентно поставке."
+    }
+  ]
+}

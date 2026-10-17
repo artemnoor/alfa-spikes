@@ -1,0 +1,16 @@
+{
+  "runId": "2026-10-17-independent-retrieval-hard-v1",
+  "runner": "benchmark/run-independent-retrieval-live.mjs",
+  "scenarioFile": "benchmark/independent-holdout-scenarios.mjs",
+  "queryFile": "benchmark/independent-holdout-retrieval-hard-queries.mjs",
+  "querySet": "hard",
+  "sourceDisjointFrom": "benchmark/real-scenarios.mjs R01–R16",
+  "labelsFrozenBeforeRun": true,
+  "temporaryProfileOnly": true,
+  "maxCostRub": 0.15,
+  "metricDefinitions": {
+    "recallAt5": "share of manually relevant chunks found in first five",
+    "recallAt10": "share of manually relevant chunks found in first ten",
+    "mrr": "mean reciprocal rank of first relevant chunk"
+  }
+}

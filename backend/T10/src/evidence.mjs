@@ -5,6 +5,63 @@ const numericAttributeKeys = new Set(['amount','quantity','volume','capacity','p
 const dateAttributeKeys = new Set(['validfrom','validto','date','publishedat','startdate','enddate'])
 const ignoredAttributeKeys = new Set(['relationshipstatus','status','source','sourceid','chunkid'])
 
+function normalizeRoleText(value) {
+  return String(value ?? '').normalize('NFKC').toLocaleLowerCase('ru-RU')
+    .replace(/[«»“”„‟"'`]+/gu, '').replace(/\s+/gu, ' ').trim()
+}
+
+function commercialRoleInQuote(quote, participant) {
+  const text = normalizeRoleText(quote)
+  const name = normalizeRoleText(participant?.name)
+  if (!name) return null
+  const index = text.indexOf(name)
+  if (index < 0) return null
+  const boundaryBefore = Math.max(text.lastIndexOf('.', index), text.lastIndexOf(';', index), text.lastIndexOf('!', index), text.lastIndexOf('?', index))
+  const boundaryAfter = [text.indexOf('.', index + name.length), text.indexOf(';', index + name.length), text.indexOf('!', index + name.length), text.indexOf('?', index + name.length)].filter((position) => position >= 0)
+  const clauseStart = boundaryBefore < 0 ? 0 : boundaryBefore + 1
+  const clauseEnd = boundaryAfter.length ? Math.min(...boundaryAfter) : text.length
+  const before = text.slice(clauseStart, index)
+  const clause = text.slice(clauseStart, clauseEnd)
+  const supplierCue = /поставщик[а-яё]*|поставля[а-яё]*|продавец|прода[её]т|продал[а-яё]*|supplier|suppl(?:y|ies|ied)|seller|sells|sold|deliver(?:s|ed|y)/iu.test(clause)
+  const buyerCue = /закуп[а-яё]*|покупа[а-яё]*|приобрета[а-яё]*|покупател[а-яё]*|заказчик|получател[а-яё]*|buyer|customer|purchas(?:e|es|ed|ing)|bought|buys|recipient/iu.test(clause)
+  const isSellerSource = /(?:^|\s)(?:у|от|from|by)\s*$/iu.test(before)
+  return { supplier: supplierCue || isSellerSource, buyer: buyerCue }
+}
+
+function validateRelationDirection(proposal, quote, subject, object) {
+  if (!['SUPPLIES','PURCHASES'].includes(proposal.predicate) || subject?.type !== 'COMPANY') return null
+  const role = commercialRoleInQuote(quote, subject)
+  if (!role) return null
+  if (proposal.predicate === 'SUPPLIES' && role.buyer && !role.supplier) {
+    return 'Направление SUPPLIES отклонено: субъект в цитате обозначен как покупатель, а не поставщик'
+  }
+  if (proposal.predicate === 'PURCHASES' && role.supplier && !role.buyer) {
+    return 'Направление PURCHASES отклонено: субъект в цитате обозначен как поставщик, а не покупатель'
+  }
+  return null
+}
+
+function validateClaimStatus(proposal, quote) {
+  const text = normalizeRoleText(quote)
+  if (proposal.status === 'CURRENT' && /(?:не\s+(?!только\b)(?:поставля|закуп|покупа|приобрета)|не\s+осуществля[а-яё]*\s+поставк|нет\s+(?:текущих\s+)?поставок|расторгнут[а-яё]*|прекращён[а-яё]*|прекращен[а-яё]*|истёк|истек|terminated|expired|has ended|no current supplies)/iu.test(text)) {
+    return 'Статус CURRENT противоречит отрицанию или прекращению в цитате'
+  }
+  if (proposal.status === 'CURRENT' && /(?:планирует|планируют|планируем|запланирован|намерен|собирается|будет\s+поставля|будут\s+поставля|если\s+.*(?:постав|закуп)|при\s+условии|в\s+случае|plans? to|intends? to|will\s+(?:supply|purchase|deliver)|subject to)/iu.test(text)) {
+    return 'Статус CURRENT не подтверждён: цитата описывает план или условие'
+  }
+  return null
+}
+
+function validatePartOfPredicate(proposal, quote) {
+  if (proposal.predicate !== 'PART_OF') return null
+  const text = normalizeRoleText(quote)
+  const partCue = /(?:part of|subsidiary of|division of|business unit of|belongs to|within|includes?|comprises?|consists? of|arm of|brand of|часть компании|частью компании|входит в состав|включа[а-яё]*|состоит из|дочерн[а-яё]*|подразделени[а-яё]*|филиал[а-яё]*)/iu
+  if (partCue.test(text)) return null
+  const mergerCue = /(?:merged? with|merger|amalgamat|слияни[а-яё]*|объединил[а-яё]*с)/iu
+  if (mergerCue.test(text)) return 'PART_OF не подтверждается: цитата описывает объединение компаний, но не отношение части и целого'
+  return 'PART_OF не подтверждается явным указанием на включение, подразделение или отношение части и целого'
+}
+
 function flattenAttributes(value, prefix = '') {
   if (!value || typeof value !== 'object' || Array.isArray(value)) return [[prefix, value]]
   return Object.entries(value).flatMap(([key, child])=>flattenAttributes(child,prefix ? `${prefix}.${key}` : key))
@@ -89,17 +146,25 @@ export function verifyBusinessProposal(proposal, { sourceText, sourceId, sourceS
     const reference = proposal.sourceResolution?.evidenceTerm ?? subject.resolution?.evidenceTerm
     const method = proposal.sourceResolution?.method ?? subject.resolution?.method
     const aliasQuoted = method === 'exact_alias_quote' && reference && normalizeText(quote).includes(normalizeText(reference))
+    const inflectedMentionQuoted = ['exact_surface_variant','exact_alias_variant'].includes(method) && reference && normalizeText(quote).includes(normalizeText(reference))
     const uniqueLocalReference = method === 'unique_preceding_mention' && reference && normalizeText(quote).includes(normalizeText(reference))
-    if (!aliasQuoted && !uniqueLocalReference) errors.push('Цитата не содержит субъект и не имеет однозначной локальной ссылки')
+    if (!aliasQuoted && !inflectedMentionQuoted && !uniqueLocalReference) errors.push('Цитата не содержит субъект и не имеет однозначной локальной ссылки')
   }
   if (object && !objectQuoted) {
     const reference = proposal.targetResolution?.evidenceTerm ?? object.resolution?.evidenceTerm
     const method = proposal.targetResolution?.method ?? object.resolution?.method
     const aliasQuoted = method === 'exact_alias_quote' && reference && normalizeText(quote).includes(normalizeText(reference))
+    const inflectedMentionQuoted = ['exact_surface_variant','exact_alias_variant'].includes(method) && reference && normalizeText(quote).includes(normalizeText(reference))
     const uniqueLocalReference = method === 'unique_preceding_mention' && reference && normalizeText(quote).includes(normalizeText(reference))
-    if (!aliasQuoted && !uniqueLocalReference) errors.push('Цитата не содержит объект и не имеет однозначной локальной ссылки')
+    if (!aliasQuoted && !inflectedMentionQuoted && !uniqueLocalReference) errors.push('Цитата не содержит объект и не имеет однозначной локальной ссылки')
   }
   if (proposal.status && !['CURRENT','PLANNED','CONDITIONAL','ENDED','UNKNOWN'].includes(proposal.status)) errors.push('Недопустимый статус отношения')
+  const directionProblem = validateRelationDirection(proposal, quote, subject, object)
+  if (directionProblem) errors.push(directionProblem)
+  const statusProblem = validateClaimStatus(proposal, quote)
+  if (statusProblem) errors.push(statusProblem)
+  const predicateProblem = validatePartOfPredicate(proposal, quote)
+  if (predicateProblem) errors.push(predicateProblem)
   const date = proposal.attributes?.validFrom ?? proposal.attributes?.validTo
   if (date != null && Number.isNaN(Date.parse(date))) errors.push('Дата отношения не распознана backend')
   errors.push(...validateAttributesAgainstQuote(proposal.attributes ?? {}, quote))
@@ -109,7 +174,7 @@ export function verifyBusinessProposal(proposal, { sourceText, sourceId, sourceS
   } : {
     accepted: true,
     claimStatus: 'SUPPORTED', // Exact text evidence does not establish independent truth.
-    evidence: { sourceId, quote, startOffset: offset, endOffset: offset + quote.length, quoteMatchesSource: true, sourceAccessLevel, factValidation: 'text_match_only' },
+    evidence: { sourceId, quote, startOffset: offset, endOffset: offset + quote.length, quoteMatchesSource: true, sourceAccessLevel, factValidation: proposal.semanticVerification?.status === 'SUPPORTED' ? 'model_supported' : 'text_match_only' },
     relationshipStatus: proposal.status ?? 'UNKNOWN',
   }
 }

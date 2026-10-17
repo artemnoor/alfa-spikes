@@ -83,6 +83,114 @@ test('maps provider chunk aliases using the matched input chunk, not returned ar
   assert.equal(result.relationships[0].sourceName,'АО «Вектор»')
 })
 
+test('B06 resolves an explicit unique company reference using earlier document chunks', async () => {
+  const first={chunk_id:'c-prior',source_id:'s-doc',start_offset:0,text_content:'Gazprom is a global energy company.'}
+  const second={chunk_id:'c-later',source_id:'s-doc',start_offset:80,text_content:'The Company’s production of gas increased.'}
+  const entities=[
+    {type:'COMPANY',name:'Gazprom',entityId:'company-1',canonicalEntityId:'company-1',sourceId:'s-doc',chunkId:'c-prior',startOffset:0},
+    {type:'PRODUCT',name:'gas',entityId:'product-1',sourceId:'s-doc',chunkId:'c-later',startOffset:second.start_offset+34},
+  ]
+  let contextWasProvided=false
+  const result=await extractRelationshipsFromChunks([first,second],entities,{
+    callModel:async ({messages})=>{
+      const payload=JSON.parse(messages[1].content)
+      contextWasProvided=payload.chunks[1].entities.some((entity)=>entity.name==='Gazprom'&&entity.contextOnly===true)
+      return {parsed:{chunks:[
+        {chunkId:'D1',relationships:[]},
+        {chunkId:'D2',relationships:[{sourceName:'Gazprom',predicate:'PRODUCES',targetName:'gas',quote:'The Company’s production of gas increased',status:'CURRENT'}]},
+      ]}}
+    },
+  })
+  assert.equal(contextWasProvided,true)
+  assert.equal(result.relationships.length,1)
+  assert.equal(result.relationships[0].sourceName,'Gazprom')
+  assert.equal(result.relationships[0].sourceResolution.method,'unique_preceding_mention')
+})
+
+test('B06 recovers a missing uniquely typed participant only from an exact relation quote', async () => {
+  const source={chunk_id:'c-product',source_id:'s-product',start_offset:0,text_content:'Volna produces palladium.'}
+  const companyEntity={type:'COMPANY',name:'Volna',entityId:'co-1',sourceId:'s-product',chunkId:'c-product',startOffset:0}
+  const result=await extractRelationshipsFromChunks([source],[companyEntity],{
+    callModel:async()=>({parsed:{chunks:[{chunkId:'D1',relationships:[{sourceName:'Volna',predicate:'PRODUCES',targetName:'palladium',quote:'Volna produces palladium',status:'CURRENT'}]}]}}),
+  })
+  assert.equal(result.recoveredEntities.length,1)
+  assert.equal(result.recoveredEntities[0].type,'PRODUCT')
+  assert.equal(result.recoveredEntities[0].quote,'palladium')
+  assert.equal(result.relationships.length,1)
+  assert.equal(result.relationships[0].targetName,'palladium')
+})
+
+test('B06 does not guess a missing participant type when the predicate permits several types', async () => {
+  const source={chunk_id:'c-ambiguous',source_id:'s-ambiguous',start_offset:0,text_content:'Volna supplies steel.'}
+  const companyEntity={type:'COMPANY',name:'Volna',entityId:'co-2',sourceId:'s-ambiguous',chunkId:'c-ambiguous',startOffset:0}
+  const result=await extractRelationshipsFromChunks([source],[companyEntity],{
+    callModel:async()=>({parsed:{chunks:[{chunkId:'D1',relationships:[{sourceName:'Volna',predicate:'SUPPLIES',targetName:'steel',quote:'Volna supplies steel',status:'CURRENT'}]}]}}),
+  })
+  assert.equal(result.recoveredEntities.length,0)
+  assert.equal(result.relationships.length,0)
+  assert.equal(result.rejected.length,1)
+})
+
+test('B06 retries a cue-bearing chunk with entities but no relation proposals once and marks recovered claims', async () => {
+  const source = { chunk_id:'c-recovery', source_id:'s-recovery', start_offset:0, text_content:'Volna manufactures industrial pumps.' }
+  const participants = [
+    { type:'COMPANY', name:'Volna', sourceId:'s-recovery', chunkId:'c-recovery', startOffset:0 },
+    { type:'PRODUCT', name:'industrial pumps', sourceId:'s-recovery', chunkId:'c-recovery', startOffset:18 },
+  ]
+  const calls = []
+  const result = await extractRelationshipsFromChunks([source], participants, {
+    callModel: async ({ purpose }) => {
+      calls.push(purpose)
+      return calls.length === 1
+        ? { parsed:{ chunks:[{ chunkId:'D1', relationships:[] }] } }
+        : { parsed:{ chunks:[{ chunkId:'D1', relationships:[{ sourceName:'Volna', predicate:'PRODUCES', targetName:'industrial pumps', quote:'Volna manufactures industrial pumps', status:'CURRENT' }] }] } }
+    },
+  })
+  assert.deepEqual(calls,['B06 business relationship extraction','B06 relationship completeness recovery'])
+  assert.equal(result.recovery.chunks,1)
+  assert.equal(result.relationships.length,1)
+  assert.equal(result.relationships[0].extractionPass,'completeness_recovery')
+})
+
+test('B06 retries a cue-bearing chunk when the first proposed relation fails local evidence validation', async () => {
+  const source = { chunk_id:'c-invalid-first', source_id:'s-invalid-first', start_offset:0, text_content:'Volna manufactures industrial pumps.' }
+  const participants = [
+    { type:'COMPANY', name:'Volna', sourceId:'s-invalid-first', chunkId:'c-invalid-first', startOffset:0 },
+    { type:'PRODUCT', name:'industrial pumps', sourceId:'s-invalid-first', chunkId:'c-invalid-first', startOffset:18 },
+  ]
+  let calls = 0
+  const result = await extractRelationshipsFromChunks([source], participants, {
+    callModel: async () => {
+      calls += 1
+      const quote = calls === 1 ? 'Volna builds industrial pumps' : 'Volna manufactures industrial pumps'
+      return { parsed:{ chunks:[{ chunkId:'D1', relationships:[{ sourceName:'Volna', predicate:'PRODUCES', targetName:'industrial pumps', quote, status:'CURRENT' }] }] } }
+    },
+  })
+  assert.equal(calls,2)
+  assert.equal(result.relationships.length,1)
+  assert.equal(result.relationships[0].extractionPass,'completeness_recovery')
+  assert.equal(result.rejected.some((item)=>item.proposal?.quote==='Volna builds industrial pumps'),true)
+})
+
+test('B06 completeness recovery is bounded and skips cue-free chunks', async () => {
+  const first = { chunk_id:'c-first', source_id:'s1', start_offset:0, text_content:'Volna manufactures pumps.' }
+  const second = { chunk_id:'c-second', source_id:'s1', start_offset:30, text_content:'Volna supplies components.' }
+  const noCue = { chunk_id:'c-no-cue', source_id:'s1', start_offset:60, text_content:'Volna and pumps were mentioned in the report.' }
+  const chunks=[first,second,noCue]
+  const entities = chunks.flatMap((item) => [
+    { type:'COMPANY', name:'Volna', sourceId:item.source_id, chunkId:item.chunk_id, startOffset:item.start_offset },
+    { type:'PRODUCT', name:'pumps', sourceId:item.source_id, chunkId:item.chunk_id, startOffset:item.start_offset+10 },
+  ])
+  const calls=[]
+  const result=await extractRelationshipsFromChunks(chunks,entities,{
+    batchSize:1,recoveryMaxChunks:1,
+    callModel:async ({purpose})=>{calls.push(purpose);return {parsed:{chunks:[{chunkId:'D1',relationships:[]}]}}},
+  })
+  assert.equal(calls.filter((purpose)=>purpose==='B06 business relationship extraction').length,3)
+  assert.equal(calls.filter((purpose)=>purpose==='B06 relationship completeness recovery').length,1)
+  assert.equal(result.recovery.chunks,1)
+})
+
 test('normalizes company acronym aliases and reverse-maps INCLUDES to PART_OF', () => {
   const profile = { type: 'COMPANY', name: 'MTS Web Services', aliases: companyNameAliases('MTS Web Services') }
   const service = { type: 'SERVICE', name: 'CloudMTS cloud services' }
@@ -119,6 +227,54 @@ test('resolves an English company reference only when the profile company was ex
   assert.equal(result.ok, true)
   assert.equal(result.relationship.sourceResolution.method, 'unique_preceding_mention')
   assert.equal(result.relationship.sourceResolution.evidenceTerm, 'Company')
+})
+
+test('resolves a Russian inflected service mention without changing the canonical entity name', () => {
+  const article='Компания Волна включает Яндекс Доставку в собственные сервисы.'
+  const source={...chunk,text_content:article}
+  const entities=[
+    {type:'COMPANY',name:'Волна',startOffset:article.indexOf('Волна')},
+    {type:'SERVICE',name:'Яндекс Доставка',startOffset:article.indexOf('Яндекс')},
+  ]
+  const quote='Компания Волна включает Яндекс Доставку в собственные сервисы'
+  const result=verifyRelationship(source,{sourceName:'Волна',predicate:'PART_OF',targetName:'Яндекс Доставка',quote},entities)
+  assert.equal(result.ok,true)
+  assert.equal(result.relationship.targetName,'Яндекс Доставка')
+  assert.equal(result.relationship.targetResolution.method,'exact_surface_variant')
+  assert.equal(result.relationship.targetResolution.evidenceTerm,'Яндекс Доставку')
+  const verification=verifyBusinessProposal({predicate:result.relationship.predicate,quote,status:'CURRENT',sourceResolution:result.relationship.sourceResolution,targetResolution:result.relationship.targetResolution},{
+    sourceText:article,sourceId:'s-morph',sourceStatus:'processed',sourceAccessLevel:'customer_internal',
+    subject:{type:'COMPANY',name:'Волна',resolution:result.relationship.sourceResolution},
+    object:{type:'SERVICE',name:'Яндекс Доставка',resolution:result.relationship.targetResolution},
+  })
+  assert.equal(verification.accepted,true)
+})
+
+test('resolves the profile company from an unambiguous production context', () => {
+  const article='Gazprom is a global energy company. Production and sales of gas grew this year.'
+  const source={...chunk,text_content:article}
+  const entities=[
+    {type:'COMPANY',name:'Gazprom',startOffset:0},
+    {type:'PRODUCT',name:'gas',startOffset:article.lastIndexOf('gas')},
+  ]
+  const quote='Production and sales of gas grew this year'
+  const result=verifyRelationship(source,{sourceName:'Gazprom',predicate:'PRODUCES',targetName:'gas',quote},entities)
+  assert.equal(result.ok,true)
+  assert.equal(result.relationship.sourceResolution.method,'unique_preceding_mention')
+})
+
+test('does not resolve a company reference when multiple prior companies are plausible', () => {
+  const article='Gazprom and Rosneft operate in the same sector. Production of gas continued.'
+  const source={...chunk,text_content:article}
+  const entities=[
+    {type:'COMPANY',name:'Gazprom',startOffset:0},
+    {type:'COMPANY',name:'Rosneft',startOffset:article.indexOf('Rosneft')},
+    {type:'PRODUCT',name:'gas',startOffset:article.lastIndexOf('gas')},
+  ]
+  const quote='Production of gas continued'
+  const result=verifyRelationship(source,{sourceName:'Gazprom',predicate:'PRODUCES',targetName:'gas',quote},entities)
+  assert.equal(result.ok,false)
+  assert.match(result.reason,/Субъект не сопоставлен/u)
 })
 
 test('adds a profile company only when its acronym appears in the chunk and validates the quote', async () => {

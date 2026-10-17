@@ -1,0 +1,22 @@
+{
+  "createdAt": "2026-10-17T04:31:07.664Z",
+  "model": "deepseek/deepseek-v4-flash",
+  "purpose": "B04 document-context completeness and reference resolution",
+  "status": "completed",
+  "finishReason": "stop",
+  "latencyMs": 1634,
+  "inputTokens": 368,
+  "outputTokens": 37,
+  "reportedCostRub": 0.00118819,
+  "maxCostRub": 0.1,
+  "chunksSent": 2,
+  "references": [],
+  "entities": [],
+  "rejected": [],
+  "checks": {
+    "uniqueCompanyReferenceAccepted": false,
+    "ambiguousCompanyReferenceRejected": false,
+    "allEntityQuotesVerified": true,
+    "passed": false
+  }
+}

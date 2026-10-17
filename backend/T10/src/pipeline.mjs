@@ -1,7 +1,9 @@
 import { createBlockResult, T10_BLOCK_SCHEMAS } from './contracts.mjs'
 import { processDocument } from './documents.mjs'
-import { extractEntitiesFromChunks } from './entities.mjs'
+import { extractEntitiesFromChunks, recoverDocumentContextEntities, recoverSparseChunkEntities } from './entities.mjs'
 import { verifyBatch } from './evidence.mjs'
+import { verifyRelationshipSemantics } from './semantic-evidence.mjs'
+import { rankHybridChunks } from './retrieval.mjs'
 import { detectBusinessGaps } from './gaps.mjs'
 import { buildBusinessProfile } from './profile.mjs'
 import { companyNameAliases, extractRelationshipsFromChunks } from './relationships.mjs'
@@ -14,7 +16,7 @@ import {
   createRun, finishRun, getBusinessData, getRunUsage, getSourceContent, listDocumentChunks, listSources,
   persistDetectedGaps, persistEntityExtraction, persistProfileVersion, persistRelationshipClaims, persistResolutionDecisions, persistRejectedProposals,
   recordEnrichmentAttempt, recordModelCall, saveChunkEmbeddings, saveProcessedDocument, updateBlockRun,
-  linkExactProfileCompanyMentions, linkEntitiesByUniqueIdentifiers, saveEntityEmbeddings, findSimilarEntityCandidates, findSimilarDocumentChunks, saveSource,
+  linkExactProfileCompanyMentions, linkEntitiesByUniqueIdentifiers, saveEntityEmbeddings, findSimilarEntityCandidates, findSimilarDocumentChunks, findLexicalDocumentChunks, saveSource,
 } from './store.mjs'
 
 function envelope(blockId, input, output, { status = 'completed', errors = [], usage = [] } = {}) {
@@ -214,13 +216,38 @@ export async function processCompanyProfile(profileId, config = {}) {
     await runBlock(run.run_id, 'B03', b03, { chunks: chunks.length, vectorizedChunks: chunks.length - missingVectors, missingVectors })
     stages.push(b03)
 
-    const extraction = await extractEntitiesFromChunks(chunks)
-    const persistedEntities = await persistEntityExtraction(profileId, extraction)
-    for (const result of extraction.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: 'B04 business entity extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    const initialExtraction = await extractEntitiesFromChunks(chunks)
+    const recovery = await recoverSparseChunkEntities(chunks, initialExtraction.entities, { maxChunks: Math.max(0, Math.min(60, Number(config.b04RecoveryMaxChunks ?? 60))) })
+    const firstAndSecondPass = {
+      ...initialExtraction,
+      entities: [...initialExtraction.entities, ...recovery.entities],
+      mentions: [...initialExtraction.mentions, ...recovery.entities],
+      rejected: [...initialExtraction.rejected, ...recovery.rejected],
+      modelCalls: [...initialExtraction.modelCalls, ...recovery.modelCalls],
+      status: [...initialExtraction.modelCalls, ...recovery.modelCalls].some((item) => item.status === 'failed') ? 'partial' : initialExtraction.status,
+    }
+    const persistedFirstPass = await persistEntityExtraction(profileId, firstAndSecondPass)
+    const configuredContextChunks = Number(config.b04DocumentContextMaxChunks ?? process.env.T10_B04_DOCUMENT_CONTEXT_MAX_CHUNKS ?? 12)
+    const contextRecovery = await recoverDocumentContextEntities(chunks, persistedFirstPass.entities, { maxChunks: Number.isFinite(configuredContextChunks) ? Math.max(0, Math.min(12, Math.floor(configuredContextChunks))) : 12 })
+    const contextEntities = contextRecovery.entities.length || contextRecovery.references.length || contextRecovery.rejected.length
+      ? await persistEntityExtraction(profileId, { mentions: [...contextRecovery.entities, ...contextRecovery.references], rejected: contextRecovery.rejected })
+      : { entities: [], rejected: contextRecovery.rejected, rejectedCount: contextRecovery.rejected.length }
+    const persistedEntities = { entities: [...persistedFirstPass.entities, ...contextEntities.entities], rejected: [...persistedFirstPass.rejected, ...contextEntities.rejected] }
+    const extraction = {
+      ...firstAndSecondPass,
+      entities: [...firstAndSecondPass.entities, ...contextRecovery.entities],
+      mentions: [...firstAndSecondPass.mentions, ...contextRecovery.entities, ...contextRecovery.references],
+      rejected: [...persistedEntities.rejected],
+      modelCalls: [...firstAndSecondPass.modelCalls, ...contextRecovery.modelCalls],
+      status: [...firstAndSecondPass.modelCalls, ...contextRecovery.modelCalls].some((item) => item.status === 'failed') ? 'partial' : firstAndSecondPass.status,
+    }
+    for (const result of extraction.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: result.purpose ?? 'B04 business entity extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    const b04EntityById = new Map(persistedEntities.entities.map((entity) => [entity.entity_id, entity]))
+    const b04Entities = [...b04EntityById.values()]
     const b04 = envelope('B04', { profileId, chunks: chunks.map(({ chunk_id, source_id }) => ({ chunkId: chunk_id, sourceId: source_id })) }, {
-      entities: persistedEntities.entities, mentions: persistedEntities.entities.map(({ entity_id, mentionId, sourceId, chunkId, quote, startOffset, endOffset }) => ({ entityId: entity_id, mentionId, sourceId, chunkId, quote, startOffset, endOffset })), rejected: extraction.rejected,
-    }, { status: extraction.status, errors: extraction.rejected.filter((item) => item.code === 'model_error') })
-    await runBlock(run.run_id, 'B04', b04, { entities: persistedEntities.entities.length, rejected: extraction.rejected.length, modelCalls: extraction.modelCalls.length })
+      entities: b04Entities, mentions: persistedEntities.entities.map(({ entity_id, mentionId, sourceId, chunkId, surface, quote, startOffset, endOffset, extractionMethod }) => ({ entityId: entity_id, mentionId, sourceId, chunkId, surface, quote, startOffset, endOffset, extractionMethod })), rejected: extraction.rejected,
+    }, { status: extraction.status, errors: extraction.rejected.filter((item) => item.code === 'model_error'), contextChunks: contextRecovery.chunks, contextReferences: contextRecovery.references.length })
+    await runBlock(run.run_id, 'B04', b04, { entities: b04Entities.length, mentions: persistedEntities.entities.length, rejected: extraction.rejected.length, modelCalls: extraction.modelCalls.length })
     stages.push(b04)
 
     const exactIdentityLinks = await linkExactProfileCompanyMentions(profileId)
@@ -243,12 +270,16 @@ export async function processCompanyProfile(profileId, config = {}) {
     await runBlock(run.run_id, 'B05', b05, { resolved: resolvedEntities.length, unresolved: unresolvedEntities.length, candidates:candidateResolution.candidates.length, modelCalls:candidateResolution.modelCalls })
     stages.push(b05)
 
-    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, entityId: entity.entity_id, startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
+    const canonicalIdByEntityId = new Map(dataAfterRanking.entities.map((entity) => [entity.entity_id, entity.canonical_entity_id ?? entity.global_company_id ?? entity.entity_id]))
+    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, aliases: entity.surface && entity.surface !== entity.canonical_name ? [entity.surface] : [], entityId: entity.entity_id, canonicalEntityId: canonicalIdByEntityId.get(entity.entity_id), startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
     const profileCompany = {
       type: 'COMPANY', name: dataAfterRanking.profile.legal_name, entityId: dataAfterRanking.profile.company_id,
       aliases: companyNameAliases(dataAfterRanking.profile.legal_name),
     }
     const relationshipResult = await extractRelationshipsFromChunks(chunks, extractionRows, { profileCompany })
+    const recoveredParticipantEntities = relationshipResult.recoveredEntities.length
+      ? await persistEntityExtraction(profileId, { mentions: relationshipResult.recoveredEntities, rejected: [] })
+      : { entities: [] }
     let relationRankingError = null
     let relationRankingUsage = null
     let relationRankingCalls = 0
@@ -269,10 +300,10 @@ export async function processCompanyProfile(profileId, config = {}) {
         await recordModelCall({ profileId, runId: run.run_id, model: process.env.T10_MATCH_MODEL || 'typesafe/jev', purpose: 'B06 JEV relationship predicate disambiguation', status: 'failed', inputTokens: error.inputTokens ?? null, outputTokens: error.outputTokens ?? null, costRub: error.costRub ?? null, latencyMs: error.latencyMs ?? null, response: error.response ?? null, error: error.message })
       }
     }
-    for (const result of relationshipResult.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: 'B06 business relationship extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    for (const result of relationshipResult.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: result.purpose ?? 'B06 business relationship extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
     const b06 = envelope('B06', { profileId, chunks: chunks.map(({ chunk_id, source_id }) => ({ chunkId: chunk_id, sourceId: source_id })), entities: extractionRows.map(({ name, type }) => ({ name, type })) }, {
-      relationships: relationshipResult.relationships, rejected: relationshipResult.rejected,
-    }, { status: relationshipResult.status === 'partial' || relationRankingError ? 'partial' : relationshipResult.status, errors: [...relationshipResult.rejected.filter((item) => item.code === 'model_error'), ...(relationRankingError ? [relationRankingError] : [])], usage: [
+      relationships: relationshipResult.relationships, recoveredEntities: recoveredParticipantEntities.entities, rejected: relationshipResult.rejected, recovery: relationshipResult.recovery,
+    }, { status: relationshipResult.status === 'partial' || relationRankingError ? 'partial' : relationshipResult.status, errors: [...relationshipResult.rejected.filter((item) => item.code === 'model_error'), ...(relationRankingError ? [relationRankingError] : [])], recoveryChunks: relationshipResult.recovery?.chunks ?? 0, recoveredEntities: recoveredParticipantEntities.entities.length, usage: [
       ...relationshipResult.modelCalls.map((item) => ({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })),
       ...(relationRankingUsage?.calls ? [{ model: process.env.T10_MATCH_MODEL || 'typesafe/jev', ...relationRankingUsage }] : []),
     ] })
@@ -284,10 +315,20 @@ export async function processCompanyProfile(profileId, config = {}) {
     const proposals = relationshipResult.relationships.map((item) => ({
       ...item, subject: { type: item.sourceType, name: item.sourceName, resolution: item.sourceResolution }, object: { type: item.targetType, name: item.targetName, resolution: item.targetResolution },
     }))
-    const b07Result = verifyBatch(proposals, (sourceId) => sourceMap.get(sourceId), dataAfterRanking.claims)
+    const semantic = await verifyRelationshipSemantics(proposals, (sourceId) => sourceMap.get(sourceId))
+    if (semantic.modelCall) {
+      const item = semantic.modelCall
+      await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: item.purpose ?? 'B07 relationship semantic entailment verification', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+    }
+    const semanticallyAccepted = semantic.accepted
+    const semanticallyRejected = semantic.rejected
+    const b07Result = verifyBatch(semanticallyAccepted, (sourceId) => sourceMap.get(sourceId), dataAfterRanking.claims)
+    b07Result.rejected.push(...semanticallyRejected)
+    if (semanticallyRejected.length && !b07Result.accepted.length) b07Result.status = 'failed'
+    else if (semanticallyRejected.length) b07Result.status = 'partial'
     const b07 = envelope('B07', { profileId, proposals: proposals.map(({ sourceId, predicate, quote }) => ({ sourceId, predicate, quote })) }, {
       accepted: b07Result.accepted, rejected: [...b07Result.rejected, ...relationshipResult.rejected], conflicts: b07Result.conflicts,
-    }, { status: b07Result.status, errors: b07Result.rejected })
+    }, { status: b07Result.status, errors: b07Result.rejected, usage: semantic.modelCall && semantic.modelCall.status !== 'failed' ? [{ model: semantic.modelCall.model, inputTokens: semantic.modelCall.inputTokens ?? null, outputTokens: semantic.modelCall.outputTokens ?? null, costRub: semantic.modelCall.costRub ?? null, latencyMs: semantic.modelCall.latencyMs ?? null }] : [] })
     const savedClaims = await persistRelationshipClaims(profileId, b07Result.accepted, run.run_id)
     const savedRejected = await persistRejectedProposals(profileId, run.run_id, [...relationshipResult.rejected, ...b07Result.rejected])
     await runBlock(run.run_id, 'B07', b07, { accepted: b07Result.accepted.length, rejected: b07Result.rejected.length + relationshipResult.rejected.length, savedRejected })
@@ -301,7 +342,7 @@ export async function processCompanyProfile(profileId, config = {}) {
     stages.push(b08)
 
     const detected = detectBusinessGaps({ profileId, entities: graph.entities, claims: graph.claims })
-    const savedGaps = await persistDetectedGaps(profileId, detected, run.run_id)
+    let savedGaps = await persistDetectedGaps(profileId, detected, run.run_id)
     const b09 = envelope('B09', { profileId, graph: { nodes: graph.entities.length, edges: graph.claims.length } }, { gaps: savedGaps })
     await runBlock(run.run_id, 'B09', b09, { gaps: savedGaps.filter((gap) => gap.status === 'open').length })
     stages.push(b09)
@@ -312,6 +353,7 @@ export async function processCompanyProfile(profileId, config = {}) {
     const enrichmentSources = await listSources(profileId)
     const processedWebsite = enrichmentSources.find((source) => source.source_type === 'company_website' && source.access_level === 'public' && source.source_status === 'processed') ?? null
     let b10Usage = []
+    const b10ExtraUsage = []
     const vectorized = chunks.some((chunk) => chunk.vectorized)
     if (openGaps.length && vectorized && polzaConfigured()) {
       try {
@@ -320,8 +362,10 @@ export async function processCompanyProfile(profileId, config = {}) {
         b10Usage = [{ model: queryResult.model, inputTokens: queryResult.inputTokens, outputTokens: queryResult.outputTokens, costRub: queryResult.costRub, latencyMs: queryResult.latencyMs }]
         for (let index = 0; index < openGaps.length; index += 1) {
           const gap = openGaps[index]
-          const candidates = await findSimilarDocumentChunks(profileId, queryResult.vectors[index], 3)
-          if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: Number(item.similarity), excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
+          const vectorCandidates = await findSimilarDocumentChunks(profileId, queryResult.vectors[index], 20)
+          const lexicalCandidates = await findLexicalDocumentChunks(profileId, gap.question, 20).catch(() => null)
+          const candidates = rankHybridChunks({ query: gap.question, chunks, vectorCandidates, lexicalCandidates, limit: 5 })
+          if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: item.similarity, lexicalRank: item.lexicalRank, vectorRank: item.vectorRank, matchSignals: item.matchSignals, score: item.score, excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
         }
       } catch (error) {
         b10Usage = error.model ? [{ model: error.model, inputTokens: error.inputTokens ?? null, outputTokens: error.outputTokens ?? null, costRub: error.costRub ?? null, latencyMs: error.latencyMs ?? null }] : []
@@ -329,17 +373,11 @@ export async function processCompanyProfile(profileId, config = {}) {
       }
     }
     for (const gap of openGaps) {
-      const terms = gap.missing_fact.toLocaleLowerCase('ru-RU').split(/\W+/u).filter((term) => term.length > 4)
-      const candidates = chunks.filter((chunk) => terms.some((term) => chunk.text_content.toLocaleLowerCase('ru-RU').includes(term))).slice(0, 3)
       const existingEvidence = candidateEvidence.find((item) => item.gapId === gap.gap_id)
-      if (candidates.length) {
-        const lexicalIds = candidates.map((item) => item.chunk_id)
-        const merged = [...new Set([...(existingEvidence?.candidateChunkIds ?? []), ...lexicalIds])].slice(0, 5)
-        const lexicalDetails = candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, match: 'lexical', excerpt: item.text_content.slice(0, 1200) }))
-        if (existingEvidence) {
-          existingEvidence.candidateChunkIds = merged
-          existingEvidence.candidates.push(...lexicalDetails.filter((item) => !existingEvidence.candidates.some((candidate) => candidate.chunkId === item.chunkId)))
-        } else candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: merged, candidates: lexicalDetails, requiresVerification: true })
+      if (!existingEvidence) {
+        const lexicalCandidates = await findLexicalDocumentChunks(profileId, gap.question, 20).catch(() => null)
+        const candidates = rankHybridChunks({ query: gap.question, chunks, lexicalCandidates, limit: 5 })
+        if (candidates.length) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: candidates.map((item) => item.chunk_id), candidates: candidates.map((item) => ({ chunkId: item.chunk_id, sourceId: item.source_id, sourceTitle: item.source_title, pageNumber: item.page_number, sectionPath: item.section_path, similarity: null, lexicalRank: item.lexicalRank, vectorRank: null, matchSignals: item.matchSignals, score: item.score, excerpt: item.text_content.slice(0, 1200) })), requiresVerification: true })
       }
       const evidence = candidateEvidence.find((item) => item.gapId === gap.gap_id)
       await recordEnrichmentAttempt(profileId, gap.gap_id, run.run_id, {
@@ -356,6 +394,46 @@ export async function processCompanyProfile(profileId, config = {}) {
       })
       if (!evidence) candidateEvidence.push({ gapId: gap.gap_id, candidateChunkIds: [], candidates: [], requiresVerification: true })
     }
+    // B10 gets exactly one bounded retrieval→extraction→B07→recheck pass.
+    const maxEnrichmentChunks = Math.max(0, Math.min(12, Number(config.b10MaxCandidates ?? 8)))
+    const candidateIds = [...new Set(candidateEvidence.flatMap((item) => item.candidateChunkIds ?? []))].slice(0, maxEnrichmentChunks)
+    const enrichmentChunks = chunks.filter((chunk) => candidateIds.includes(chunk.chunk_id))
+    let enrichedClaims = []
+    let enrichmentStatus = enrichmentChunks.length ? 'partial' : 'skipped'
+    if (enrichmentChunks.length) {
+      try {
+        const focusedExtraction = await extractRelationshipsFromChunks(enrichmentChunks, extractionRows, { profileCompany })
+        for (const item of focusedExtraction.modelCalls) {
+          await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: 'B10 focused gap fact extraction', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+          b10ExtraUsage.push({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })
+        }
+        const focusedProposals = focusedExtraction.relationships.map((item) => ({ ...item, subject: { type: item.sourceType, name: item.sourceName, resolution: item.sourceResolution }, object: { type: item.targetType, name: item.targetName, resolution: item.targetResolution } }))
+        const focusedSemantic = await verifyRelationshipSemantics(focusedProposals, (sourceId) => sourceMap.get(sourceId), { maxProposals: 12 })
+        if (focusedSemantic.modelCall) {
+          const item = focusedSemantic.modelCall
+          await recordModelCall({ profileId, runId: run.run_id, model: item.model, purpose: 'B10 focused fact semantic verification', status: item.status ?? 'completed', inputTokens: item.inputTokens, outputTokens: item.outputTokens, costRub: item.costRub, latencyMs: item.latencyMs, response: item.parsed ?? null, error: item.error })
+          b10ExtraUsage.push({ model: item.model, inputTokens: item.inputTokens ?? null, outputTokens: item.outputTokens ?? null, costRub: item.costRub ?? null, latencyMs: item.latencyMs ?? null })
+        }
+        const verified = verifyBatch(focusedSemantic.accepted, (sourceId) => sourceMap.get(sourceId), (await getBusinessData(profileId)).claims)
+        if (verified.accepted.length) {
+          const persisted = await persistRelationshipClaims(profileId, verified.accepted, run.run_id)
+          enrichedClaims = persisted.filter((claim) => claim.duplicate !== true)
+        }
+        enrichmentStatus = focusedExtraction.rejected.some((item) => item.code === 'model_error') || focusedSemantic.rejected.length || verified.rejected.length ? 'partial' : 'completed'
+        if (verified.accepted.length) {
+          const updatedGraph = await getBusinessData(profileId)
+          savedGaps = await persistDetectedGaps(profileId, detectBusinessGaps({ profileId, entities: updatedGraph.entities, claims: updatedGraph.claims }), run.run_id)
+        }
+        for (const gap of openGaps) {
+          if (candidateEvidence.some((entry) => entry.gapId === gap.gap_id && entry.candidateChunkIds?.some((id) => candidateIds.includes(id)))) {
+            await recordEnrichmentAttempt(profileId, gap.gap_id, run.run_id, { sourceType: 'internal_document_search', queryText: gap.question, status: enrichmentStatus, errorText: enrichmentStatus === 'partial' ? 'Кандидаты проверены; нового полностью подтверждённого факта не получено.' : null })
+          }
+        }
+      } catch (error) {
+        enrichmentStatus = 'failed'
+        if (openGaps[0]) await recordEnrichmentAttempt(profileId, openGaps[0].gap_id, run.run_id, { sourceType: 'internal_document_search', queryText: 'B10 bounded evidence recovery', status: 'failed', errorText: error.message })
+      }
+    }
     const registryStatusMessage = `Нет настроенных атрибутов доступа к интеграции ФНС; официальный реестр пропущен.${processedWebsite ? ' Указанный сайт компании обработан как публичный источник.' : ' Добавьте сайт компании, чтобы подключить его к сбору открытых источников.'}`
     const b10Errors = [{ code: 'official_registry_access_not_configured', message: registryStatusMessage }]
     const b10Attempts = candidateEvidence.map((item) => ({ gapId: item.gapId, sourceType: 'internal_document_search', status: 'completed', candidateChunkIds: item.candidateChunkIds, candidates: item.candidates, requiresVerification: true }))
@@ -364,25 +442,27 @@ export async function processCompanyProfile(profileId, config = {}) {
       b10Attempts.push({ gapId: gap.gap_id, sourceType: 'official_registry', status: 'skipped', reason: b10Errors[0].message })
     }
     const b10 = envelope('B10', { profileId, gaps: savedGaps.filter((item) => item.status === 'open').map((item) => ({ gapId: item.gap_id, question: item.question })), sourceIds: sources.map((item) => item.source_id) }, {
-      attempts: b10Attempts,
+      attempts: [...b10Attempts, ...(enrichmentChunks.length ? [{ sourceType: 'internal_document_fact_recovery', status: enrichmentStatus, candidateChunkIds: candidateIds, verifiedClaims: enrichedClaims.length, boundedIterations: 1 }] : [])],
       questions: savedGaps.filter((item) => item.status === 'open').map((item) => ({ gapId: item.gap_id, question: item.question, status: 'open' })),
       errors: b10Errors,
-    }, { status: 'partial', errors: b10Errors, usage: b10Usage })
+    }, { status: 'partial', errors: b10Errors, usage: [...b10Usage, ...b10ExtraUsage] })
     await runBlock(run.run_id, 'B10', b10, { openGaps: b10.output.questions.length, internalCandidates: candidateEvidence.length })
     stages.push(b10)
 
     const finalData = await getBusinessData(profileId)
     const version = finalData.profile.current_version + 1
-    const generated = buildBusinessProfile({ profile: finalData.profile, entities: finalData.entities, claims: finalData.claims, gaps: finalData.gaps, sources: finalData.sources, version })
+    const operationalErrorCodes = new Set(['model_error', 'embedding_failed', 'embedding_not_configured', 'entity_embeddings_failed', 'entity_embeddings_not_configured', 'jev_entity_ranking_failed', 'jev_relation_ranking_failed', 'semantic_validation_failed'])
+    const processingStatus = stages.some((stage) => stage.status === 'failed' || stage.errors.some((error) => operationalErrorCodes.has(error.code))) ? 'partial' : 'completed'
+    const generated = buildBusinessProfile({ profile: finalData.profile, entities: finalData.entities, claims: finalData.claims, gaps: finalData.gaps, sources: finalData.sources, version, processingStatus })
     const savedVersion = await persistProfileVersion(profileId, run.run_id, generated)
     const b11 = envelope('B11', { profileId, graph: { nodes: finalData.entities.length, edges: finalData.claims.length }, gaps: finalData.gaps, sources: finalData.sources.map(({ source_id, title, source_status }) => ({ sourceId: source_id, title, status: source_status })) }, {
       profileId, version: savedVersion.version, company: generated.company, business: generated.business,
-      unknowns: generated.unknowns, conflicts: generated.conflicts, generatedAt: generated.generatedAt,
+      unknowns: generated.unknowns, conflicts: generated.conflicts, statuses: generated.statuses, generatedAt: generated.generatedAt,
     })
     await runBlock(run.run_id, 'B11', b11, { version: savedVersion.version })
     stages.push(b11)
 
-    hasErrors = stages.some((stage) => stage.status === 'partial' || stage.status === 'failed')
+    hasErrors = processingStatus === 'partial'
     const completed = await finishRun(run.run_id, { status: hasErrors ? 'partial' : 'completed' })
     return { run: completed, stages, profile: generated, metrics: await getRunUsage(run.run_id) }
   } catch (error) {

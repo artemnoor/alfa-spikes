@@ -1,0 +1,4568 @@
+{
+  "runId": "2026-10-17-retrieval-32-live-v2",
+  "generatedAt": "2026-10-17T02:31:47.670Z",
+  "dataset": {
+    "queries": 32,
+    "documents": 16,
+    "sources": 16,
+    "sourceSet": "real-scenarios.mjs R01–R16; short excerpts from public primary sources",
+    "independentJudgments": true,
+    "sourceDisjointHoldout": false
+  },
+  "model": "Qwen/Qwen3-Embedding-8B",
+  "calls": 1,
+  "inputTokens": 1471,
+  "outputTokens": 0,
+  "costRub": 0.00174354,
+  "latencyMs": 9933,
+  "maxCostRub": 0.15,
+  "metrics": {
+    "vector": {
+      "recallAt5": 1,
+      "recallAt10": 1,
+      "mrr": 1,
+      "queries": 32
+    },
+    "postgresFts": {
+      "recallAt5": 0.03125,
+      "recallAt10": 0.03125,
+      "mrr": 0.03125,
+      "queries": 32
+    },
+    "bm25Fallback": {
+      "recallAt5": 0.9375,
+      "recallAt10": 0.9375,
+      "mrr": 0.875,
+      "queries": 32
+    },
+    "hybrid": {
+      "recallAt5": 1,
+      "recallAt10": 1,
+      "mrr": 1,
+      "queries": 32
+    }
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "query": "What was NLMK Group steel output in the 2024 reporting period?",
+      "relevantChunkIds": [
+        "R01"
+      ],
+      "indexedRelevantChunkIds": [
+        "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09"
+      ],
+      "vector": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.8958532152088556,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.5194241714134401,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.48199817860159144,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.48198524010094224,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.476306949322174,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "query": "Find the annual steel production volume and year-on-year change for NLMK.",
+      "relevantChunkIds": [
+        "R01"
+      ],
+      "indexedRelevantChunkIds": [
+        "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09"
+      ],
+      "vector": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.7838615050233433,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.4445034232439722,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.44190024983289056,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4379690065420858,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.4017181274202841,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "query": "Сколько распределительных центров в логистической инфраструктуре Пятёрочки?",
+      "relevantChunkIds": [
+        "R02"
+      ],
+      "indexedRelevantChunkIds": [
+        "80d11f31-5484-45b0-ab16-b5b0de4f9ade"
+      ],
+      "vector": {
+        "ranking": [
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "hybrid": {
+        "ranking": [
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.759157731583255,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.4461500708877988,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.30742138624191284,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.29026003421902913,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.2391735464334488,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "query": "Найди сведения о логистике и числе магазинов сети Pyaterochka.",
+      "relevantChunkIds": [
+        "R02"
+      ],
+      "indexedRelevantChunkIds": [
+        "80d11f31-5484-45b0-ab16-b5b0de4f9ade"
+      ],
+      "vector": {
+        "ranking": [
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.7685419092016874,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.4958074538650352,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.49252711303290253,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3514878468055589,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.34835329517544045,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "query": "Какие услуги Ростелекома относятся к широкополосному доступу?",
+      "relevantChunkIds": [
+        "R03"
+      ],
+      "indexedRelevantChunkIds": [
+        "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+      ],
+      "vector": {
+        "ranking": [
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "hybrid": {
+        "ranking": [
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.6277206692362675,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.4096046822556292,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.35124890223132654,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.26539638638497154,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.25501619309283863,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "query": "В каком фрагменте описаны цифровые решения и мобильная связь Ростелекома?",
+      "relevantChunkIds": [
+        "R03"
+      ],
+      "indexedRelevantChunkIds": [
+        "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+      ],
+      "vector": {
+        "ranking": [
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.60204497587949,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3367417260100515,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.31236820294667555,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.2997676700145905,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.28458046041377716,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "query": "Which cloud and cybersecurity services are planned for MTS Web Services?",
+      "relevantChunkIds": [
+        "R04"
+      ],
+      "indexedRelevantChunkIds": [
+        "30b24234-e39b-4558-aabb-dfb87f9accfd"
+      ],
+      "vector": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.81037595302987,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.42531339156449377,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.4152220015293958,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.345179228915645,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3419130938675091,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "query": "Find the MWS announcement mentioning CloudMTS and MTS RED.",
+      "relevantChunkIds": [
+        "R04"
+      ],
+      "indexedRelevantChunkIds": [
+        "30b24234-e39b-4558-aabb-dfb87f9accfd"
+      ],
+      "vector": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.7163415293286459,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.344937205314646,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3317172627617613,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.32931510703203504,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3227789017225644,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "query": "Какой сервис Яндекса выполняет доставку средней и последней мили?",
+      "relevantChunkIds": [
+        "R05"
+      ],
+      "indexedRelevantChunkIds": [
+        "3f8859f2-74a1-4d11-a1b7-dec9eb38258f"
+      ],
+      "vector": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.738310782708023,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3842242887153804,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.38295067054327925,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.37567117810249595,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.36599390900098805,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "query": "Найди описание O2O-сервисов и Яндекс Доставки.",
+      "relevantChunkIds": [
+        "R05"
+      ],
+      "indexedRelevantChunkIds": [
+        "3f8859f2-74a1-4d11-a1b7-dec9eb38258f"
+      ],
+      "vector": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.7788456678390558,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.46911338523983104,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.4012363015868492,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.39517424135361734,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.3937224511073566,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "query": "What hydrocarbon production volume did Rosneft report for 2024?",
+      "relevantChunkIds": [
+        "R06"
+      ],
+      "indexedRelevantChunkIds": [
+        "acb69a74-f3c1-4b6b-894b-2ecc95083429"
+      ],
+      "vector": {
+        "ranking": [
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.8361406120918722,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.7306935191154688,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.5479870324165744,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.4506834862986835,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4246265888214231,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "query": "Find Rosneft annual results with the million tonnes of oil equivalent figure.",
+      "relevantChunkIds": [
+        "R06"
+      ],
+      "indexedRelevantChunkIds": [
+        "acb69a74-f3c1-4b6b-894b-2ecc95083429"
+      ],
+      "vector": {
+        "ranking": [
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.6946160925349969,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.6020849347114734,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4417037367820865,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.43709767614631057,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.4341947295201469,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "query": "Какой металл Норникель называет крупнейшим мировым направлением производства?",
+      "relevantChunkIds": [
+        "R07"
+      ],
+      "indexedRelevantChunkIds": [
+        "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+      ],
+      "vector": {
+        "ranking": [
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.6906741445854828,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.3991648554801941,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.3401906084787145,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.31525049391395,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.29203683639012024,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "query": "Найди утверждение о производстве палладия группой «Норильский никель».",
+      "relevantChunkIds": [
+        "R07"
+      ],
+      "indexedRelevantChunkIds": [
+        "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+      ],
+      "vector": {
+        "ranking": [
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.7414703677331963,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.4422738953339056,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.411306644159958,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.39829781045305235,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.3635725866683561,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "query": "How much natural gas did NOVATEK produce in 2024?",
+      "relevantChunkIds": [
+        "R08"
+      ],
+      "indexedRelevantChunkIds": [
+        "6816d169-353a-4d44-b769-b596ba226696"
+      ],
+      "vector": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.8045868640645637,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.5732659014146486,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.5254041522259568,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.4789132748738889,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4245496735245191,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "query": "Which NOVATEK excerpt reports hydrocarbon output and natural gas volumes?",
+      "relevantChunkIds": [
+        "R08"
+      ],
+      "indexedRelevantChunkIds": [
+        "6816d169-353a-4d44-b769-b596ba226696"
+      ],
+      "vector": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.7512824983169257,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.5537289582975591,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.5005057156387478,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.45201667857270245,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3974784375740036,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "query": "Какой рекордный объем производства золота у компании «Полюс»?",
+      "relevantChunkIds": [
+        "R09"
+      ],
+      "indexedRelevantChunkIds": [
+        "629d525a-4e55-4011-9ad4-632e904f2e7c"
+      ],
+      "vector": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.7679764766707259,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4540929198265108,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.36974818290781475,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.3652292272311968,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.3558220009485491,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "query": "Найди данные о количестве унций золота, произведенных «Полюсом».",
+      "relevantChunkIds": [
+        "R09"
+      ],
+      "indexedRelevantChunkIds": [
+        "629d525a-4e55-4011-9ad4-632e904f2e7c"
+      ],
+      "vector": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.708150856229511,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.4216791186715223,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.41868130826688343,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.3878187172304881,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.3765465241885446,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q19",
+      "query": "Какие направления деятельности объединяет компания «Магнит»?",
+      "relevantChunkIds": [
+        "R10"
+      ],
+      "indexedRelevantChunkIds": [
+        "72e24cb1-b377-4e39-86de-837a83fcd345"
+      ],
+      "vector": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.6357198195791505,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.43354065018408006,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.34947548213747814,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.339882780327468,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.332250833511362,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q20",
+      "query": "Find the Magnit passage about food manufacturing and logistics operations.",
+      "relevantChunkIds": [
+        "R10"
+      ],
+      "indexedRelevantChunkIds": [
+        "72e24cb1-b377-4e39-86de-837a83fcd345"
+      ],
+      "vector": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.6128113269805908,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.46685445506248224,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3696316104907764,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.3675719657454557,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.33114224672317505,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q21",
+      "query": "Где описаны финансовые результаты и устойчивое развитие «Северстали»?",
+      "relevantChunkIds": [
+        "R11"
+      ],
+      "indexedRelevantChunkIds": [
+        "66391791-f29b-4c98-bf82-07f462243267"
+      ],
+      "vector": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.7577318341768637,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.40552110688451704,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.3981526670637934,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3785890977313323,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.35449536089502365,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q22",
+      "query": "Find the Severstal integrated report excerpt about sustainability reporting.",
+      "relevantChunkIds": [
+        "R11"
+      ],
+      "indexedRelevantChunkIds": [
+        "66391791-f29b-4c98-bf82-07f462243267"
+      ],
+      "vector": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.7961778044700849,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.43260302252146876,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "sourceTitle": "NLMK issuer report for 12 months 2024",
+          "similarity": 0.3940253257751577,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.3864880705199123,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.3484096707809389,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q23",
+      "query": "Which stages of the gas value chain does Gazprom say it works across?",
+      "relevantChunkIds": [
+        "R12"
+      ],
+      "indexedRelevantChunkIds": [
+        "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+      ],
+      "vector": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "6816d169-353a-4d44-b769-b596ba226696"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.5799865531953611,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.4057776444223611,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.37920248408259416,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.32502933590730476,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.30678326366248354,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q24",
+      "query": "Find Gazprom facts mentioning storage, processing and sales of oil or gas.",
+      "relevantChunkIds": [
+        "R12"
+      ],
+      "indexedRelevantChunkIds": [
+        "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+      ],
+      "vector": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.6537515314669341,
+          "lexicalRank": 1,
+          "vectorRank": 1,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.5397237908346288,
+          "lexicalRank": 2,
+          "vectorRank": 2,
+          "matchSignals": [
+            "full_text",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.4069326873461856,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.39672181010246566,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.396608942544994,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q25",
+      "query": "Какое подразделение СИБУРа занимается вторичной переработкой пластика?",
+      "relevantChunkIds": [
+        "R13"
+      ],
+      "indexedRelevantChunkIds": [
+        "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+      ],
+      "vector": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.7107884711497111,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.32594059926448593,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.28502206281156406,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.25946382461380446,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "sourceTitle": "Gazprom company profile",
+          "similarity": 0.25814939314572205,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q26",
+      "query": "Найди инициативу СИБУРа по возвращению пластика в производственный цикл.",
+      "relevantChunkIds": [
+        "R13"
+      ],
+      "indexedRelevantChunkIds": [
+        "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+      ],
+      "vector": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "sourceTitle": "SIBUR integrated report 2024 announcement",
+          "similarity": 0.6737284459552659,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "sourceTitle": "Nornickel 2024 annual report — operational performance",
+          "similarity": 0.3216822359940724,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "66391791-f29b-4c98-bf82-07f462243267",
+          "sourceTitle": "Severstal integrated report 2024 presentation notice",
+          "similarity": 0.30875195913028963,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.2666648149493672,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "sourceTitle": "Issuer report of PJSC Rostelecom for 12 months 2024",
+          "similarity": 0.26226924286668085,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q27",
+      "query": "How many passengers did Aeroflot carry on domestic routes in 2024?",
+      "relevantChunkIds": [
+        "R14"
+      ],
+      "indexedRelevantChunkIds": [
+        "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+      ],
+      "vector": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.8128849229559661,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "sourceTitle": "Rosneft full-year 2024 IFRS results",
+          "similarity": 0.42638902192312167,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.40840568592582915,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.37043535045945397,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.357694651300672,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "exact_identifier",
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q28",
+      "query": "Найди показатель перевозок «Аэрофлота» на внутренних авиалиниях.",
+      "relevantChunkIds": [
+        "R14"
+      ],
+      "indexedRelevantChunkIds": [
+        "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+      ],
+      "vector": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.7791346474307301,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.3895215639899806,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.36044415589176615,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.33801677864939994,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.31789415127354537,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q29",
+      "query": "What warehouse floor area does Ozon report after its expansion?",
+      "relevantChunkIds": [
+        "R15"
+      ],
+      "indexedRelevantChunkIds": [
+        "0c2d19d9-2aeb-4313-840f-c4b24d126bac"
+      ],
+      "vector": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.7556238770485139,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.5520240664482273,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.471054164830106,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.42760344045223797,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "sourceTitle": "MTS Web Services cloud-platform announcement",
+          "similarity": 0.3415885378823946,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q30",
+      "query": "Найди сведения о росте числа складов и площадях Ozon.",
+      "relevantChunkIds": [
+        "R15"
+      ],
+      "indexedRelevantChunkIds": [
+        "0c2d19d9-2aeb-4313-840f-c4b24d126bac"
+      ],
+      "vector": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.8078573575189937,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.5848945874101457,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.47112438254807176,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.38495519071550377,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "sourceTitle": "Magnit company overview",
+          "similarity": 0.3160134553909302,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q31",
+      "query": "How many new production lines did Ozon Pharmaceuticals launch?",
+      "relevantChunkIds": [
+        "R16"
+      ],
+      "indexedRelevantChunkIds": [
+        "aa9e367b-fc77-4e2a-aa74-496de15bee18"
+      ],
+      "vector": {
+        "ranking": [
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 0.5,
+        "firstRelevantRank": 2
+      },
+      "hybrid": {
+        "ranking": [
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.7595547724300948,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.5493659318249345,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.3713570977875138,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "sourceTitle": "X5 Group 2024 Annual Report — strategic report",
+          "similarity": 0.3630198917973113,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "sourceTitle": "Polyus operating results for 2024",
+          "similarity": 0.3587252368062478,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q32",
+      "query": "Найди данные о росте продаж в упаковках у «Озон Фармацевтика».",
+      "relevantChunkIds": [
+        "R16"
+      ],
+      "indexedRelevantChunkIds": [
+        "aa9e367b-fc77-4e2a-aa74-496de15bee18"
+      ],
+      "vector": {
+        "ranking": [
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "postgresFts": {
+        "ranking": [],
+        "recallAt": {
+          "5": 0,
+          "10": 0
+        },
+        "reciprocalRank": 0,
+        "firstRelevantRank": null
+      },
+      "bm25Fallback": {
+        "ranking": [
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "hybrid": {
+        "ranking": [
+          "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "6816d169-353a-4d44-b769-b596ba226696",
+          "629d525a-4e55-4011-9ad4-632e904f2e7c",
+          "f882a8d7-2e8c-4f23-bddc-60f0d4b40d09",
+          "66391791-f29b-4c98-bf82-07f462243267",
+          "acb69a74-f3c1-4b6b-894b-2ecc95083429",
+          "7c0d198e-01e7-4409-8d9c-48fcb36b5e1a",
+          "e394e5b4-decc-4cf1-a7d7-1e106c49c296",
+          "80d11f31-5484-45b0-ab16-b5b0de4f9ade",
+          "5206ee1b-27d1-47c8-8f84-9d7bebd2a7b9",
+          "5bef224e-bc1a-4172-aa7e-6cc5c89ca99c",
+          "72e24cb1-b377-4e39-86de-837a83fcd345",
+          "30b24234-e39b-4558-aabb-dfb87f9accfd"
+        ],
+        "recallAt": {
+          "5": 1,
+          "10": 1
+        },
+        "reciprocalRank": 1,
+        "firstRelevantRank": 1
+      },
+      "topCandidates": [
+        {
+          "chunkId": "aa9e367b-fc77-4e2a-aa74-496de15bee18",
+          "sourceTitle": "Ozon Pharma 2024 operating results",
+          "similarity": 0.8139702899491499,
+          "lexicalRank": null,
+          "vectorRank": 1,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "0c2d19d9-2aeb-4313-840f-c4b24d126bac",
+          "sourceTitle": "Ozon 2024 results for pickup-point partners",
+          "similarity": 0.5153982620956622,
+          "lexicalRank": null,
+          "vectorRank": 2,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "3f8859f2-74a1-4d11-a1b7-dec9eb38258f",
+          "sourceTitle": "Яндекс financial results for 2024",
+          "similarity": 0.3322343726297845,
+          "lexicalRank": null,
+          "vectorRank": 3,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "77f76b71-89d5-47d5-9a67-e5f6a24f3d01",
+          "sourceTitle": "Aeroflot group 2024 operating results",
+          "similarity": 0.2917223473257273,
+          "lexicalRank": null,
+          "vectorRank": 4,
+          "matchSignals": [
+            "semantic"
+          ]
+        },
+        {
+          "chunkId": "6816d169-353a-4d44-b769-b596ba226696",
+          "sourceTitle": "NOVATEK preliminary operating data for 2024",
+          "similarity": 0.2710775460097268,
+          "lexicalRank": null,
+          "vectorRank": 5,
+          "matchSignals": [
+            "semantic"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceReferences": [
+    {
+      "id": "R01",
+      "title": "NLMK issuer report for 12 months 2024",
+      "url": "https://nlmk.com/download_file.php?ELEMENT_ID=169812&FILE_ID=182477&NAME=Issuer%27s+report+for+12+months+2024&PAGE_URL=%2Fen%2Fabout%2Fdocuments%2F",
+      "company": "NLMK Group",
+      "industry": "steel manufacturing"
+    },
+    {
+      "id": "R02",
+      "title": "X5 Group 2024 Annual Report — strategic report",
+      "url": "https://www.x5.ru/wp-content/uploads/reports/2024/en/strategic-report/",
+      "company": "Pyaterochka",
+      "industry": "food retail and logistics"
+    },
+    {
+      "id": "R03",
+      "title": "Issuer report of PJSC Rostelecom for 12 months 2024",
+      "url": "https://www.company.rt.ru/upload/protected/iblock/0e7/p34heurcokdbqxjcc34tipp0wg39fo27/Issuer_report_12mo2024_abriged_.pdf",
+      "company": "Ростелеком",
+      "industry": "telecommunications"
+    },
+    {
+      "id": "R04",
+      "title": "MTS Web Services cloud-platform announcement",
+      "url": "https://ir.mts.ru/news_and_events/technology_news/details/741906",
+      "company": "MTS Web Services",
+      "industry": "telecommunications and cloud"
+    },
+    {
+      "id": "R05",
+      "title": "Яндекс financial results for 2024",
+      "url": "https://ir.yandex.ru/financial-releases?report=q4&year=2024",
+      "company": "Яндекс",
+      "industry": "technology and delivery"
+    },
+    {
+      "id": "R06",
+      "title": "Rosneft full-year 2024 IFRS results",
+      "url": "https://rosneft.com/press/releases/item/221793/",
+      "company": "Роснефть",
+      "industry": "oil and gas"
+    },
+    {
+      "id": "R07",
+      "title": "Nornickel 2024 annual report — operational performance",
+      "url": "https://supply-chain2024.nornickel.com/ru/about-nornickel.html",
+      "company": "Норникель",
+      "industry": "mining and metals"
+    },
+    {
+      "id": "R08",
+      "title": "NOVATEK preliminary operating data for 2024",
+      "url": "https://www.novatek.ru/en/press/releases/index.php?from_24=11&id=7BsD5&id_4=6921",
+      "company": "NOVATEK",
+      "industry": "natural gas and LNG"
+    },
+    {
+      "id": "R09",
+      "title": "Polyus operating results for 2024",
+      "url": "https://polyus.com/ru/media/press-releases/operating-results-for-the-second-halff-of-2024-and-full-year-2024/",
+      "company": "Полюс",
+      "industry": "gold mining"
+    },
+    {
+      "id": "R10",
+      "title": "Magnit company overview",
+      "url": "https://www.magnit.com/ru/about-company/about-magnit/",
+      "company": "Магнит",
+      "industry": "food retail and logistics"
+    },
+    {
+      "id": "R11",
+      "title": "Severstal integrated report 2024 presentation notice",
+      "url": "https://promo.severstal.com/report-2024",
+      "company": "Северсталь",
+      "industry": "steel and metallurgy"
+    },
+    {
+      "id": "R12",
+      "title": "Gazprom company profile",
+      "url": "https://www.gazprom.com/about/",
+      "company": "Газпром",
+      "industry": "integrated energy"
+    },
+    {
+      "id": "R13",
+      "title": "SIBUR integrated report 2024 announcement",
+      "url": "https://www.sibur.ru/ru/press-center/news-and-press/sibur-predstavil-integrirovannyy-otchet-za-2024-god-ustoychivost-innovatsii-i-vklad-v-dostizhenie-na/",
+      "company": "СИБУР",
+      "industry": "petrochemicals"
+    },
+    {
+      "id": "R14",
+      "title": "Aeroflot group 2024 operating results",
+      "url": "https://ir.aeroflot.ru/fileadmin/user_upload/files/mfso2024/2025_03_04_AFLT_12M_2024_IFRS_press_release.pdf",
+      "company": "Аэрофлот",
+      "industry": "commercial aviation"
+    },
+    {
+      "id": "R15",
+      "title": "Ozon 2024 results for pickup-point partners",
+      "url": "https://t.me/s/ozonapvz?before=1705",
+      "company": "Ozon",
+      "industry": "e-commerce and logistics"
+    },
+    {
+      "id": "R16",
+      "title": "Ozon Pharma 2024 operating results",
+      "url": "https://ozonpharm.ru/news/press-releases/ozon-farmacevtika-obyavlyaet-finansovye-i-operacionnye-rezultaty-2024-goda/",
+      "company": "Озон Фармацевтика",
+      "industry": "pharmaceutical manufacturing"
+    }
+  ]
+}

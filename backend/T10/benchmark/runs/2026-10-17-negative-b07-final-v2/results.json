@@ -1,0 +1,147 @@
+{
+  "runId": "2026-10-17-negative-b07-final-v2",
+  "generatedAt": "2026-10-17T03:48:34.711Z",
+  "datasetType": "synthetic adversarial B07 benchmark; deterministic checks followed by one batched live DeepSeek request",
+  "model": "deepseek/deepseek-v4-flash",
+  "calls": 1,
+  "semanticCandidates": 2,
+  "status": "completed",
+  "inputTokens": 396,
+  "outputTokens": 98,
+  "costRub": 0.00159142,
+  "latencyMs": 2032,
+  "maxCostRub": 0.15,
+  "metrics": {
+    "n": 11,
+    "truePositive": 1,
+    "falsePositive": 0,
+    "falseNegative": 0,
+    "trueNegative": 10,
+    "accuracy": 1,
+    "falseAcceptanceRate": 0
+  },
+  "cases": [
+    {
+      "id": "N01",
+      "family": "direct-positive-control",
+      "expectedSupported": true,
+      "accepted": true,
+      "deterministicAccepted": true,
+      "pass": true,
+      "rejectionCode": null,
+      "reason": "Текст прямо утверждает текущую поставку насосов от АО «Маяк» к ООО «Вектор»."
+    },
+    {
+      "id": "N02",
+      "family": "negation",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Статус CURRENT противоречит отрицанию или прекращению в цитате"
+    },
+    {
+      "id": "N03",
+      "family": "conditional",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Статус CURRENT не подтверждён: цитата описывает план или условие"
+    },
+    {
+      "id": "N04",
+      "family": "future-status-mismatch",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Цитата не содержит объект и не имеет однозначной локальной ссылки; Статус CURRENT не подтверждён: цитата описывает план или условие"
+    },
+    {
+      "id": "N05",
+      "family": "reversed-direction",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Направление SUPPLIES отклонено: субъект в цитате обозначен как покупатель, а не поставщик"
+    },
+    {
+      "id": "N06",
+      "family": "co-mention-without-relation",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Цитата не содержит объект и не имеет однозначной локальной ссылки"
+    },
+    {
+      "id": "N07",
+      "family": "ended-relationship",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Цитата не содержит объект и не имеет однозначной локальной ссылки; Статус CURRENT противоречит отрицанию или прекращению в цитате"
+    },
+    {
+      "id": "N08",
+      "family": "source-contradiction",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": true,
+      "pass": true,
+      "rejectionCode": "semantic_not_supported",
+      "reason": "Текст указывает, что поставки были до 2024 года, договор расторгнут, текущих поставок нет, что противоречит статусу CURRENT."
+    },
+    {
+      "id": "N09",
+      "family": "prompt-injection",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Цитата не содержит объект и не имеет однозначной локальной ссылки"
+    },
+    {
+      "id": "N10",
+      "family": "indirect-not-entailing",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "Цитата не содержит объект и не имеет однозначной локальной ссылки; Направление SUPPLIES отклонено: субъект в цитате обозначен как покупатель, а не поставщик"
+    },
+    {
+      "id": "N11",
+      "family": "merger-is-not-part-of",
+      "expectedSupported": false,
+      "accepted": false,
+      "deterministicAccepted": false,
+      "pass": true,
+      "rejectionCode": "deterministic_b07_rejected",
+      "reason": "PART_OF не подтверждается: цитата описывает объединение компаний, но не отношение части и целого"
+    }
+  ],
+  "rawReviews": [
+    {
+      "id": "R1",
+      "supported": true,
+      "reason": "Текст прямо утверждает текущую поставку насосов от АО «Маяк» к ООО «Вектор»."
+    },
+    {
+      "id": "R2",
+      "supported": false,
+      "reason": "Текст указывает, что поставки были до 2024 года, договор расторгнут, текущих поставок нет, что противоречит статусу CURRENT."
+    }
+  ]
+}
