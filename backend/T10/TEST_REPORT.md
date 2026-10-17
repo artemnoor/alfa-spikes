@@ -11,15 +11,15 @@ Date: 2026-10-17. `NOT_RUN` means no evidence was collected for that check.
 | Production frontend build | **PASSED** | Root `npm run build` (`tsc && vite build`). |
 | Whitespace/diff check | **PASSED** | `git diff --check`. |
 | Real Polza AI benchmark | **COMPLETED** | Matched R04–R16: 85 calls, 0 failed, ₽0.402963. Separate R01–R13 diagnostic: 106 calls, 0 failed, ₽0.371171. Reports include raw outputs and accounting. |
-| Browser smoke | **PARTIAL** | Playwright opened `http://localhost:5173/`, rendered the T10 tab, and observed the local API as ready. The only console error was the existing missing `/favicon.ico` (404). No form was submitted. |
+| Browser E2E | **PASSED WITH UI WARNINGS** | On isolated Vite/API ports, created a clearly labeled temporary profile, added and processed a text source, inspected graph and gaps, saved a gap answer, reprocessed the same profile (second run completed), and confirmed the JSON export control was available. The temporary profile and orphan company row were deleted afterward. React logged duplicate-key warnings while rendering returned list data; this did not block the flow and remains a UI issue to trace. The unrelated T08/T09 health-check CORS noise was not part of this T10 path. |
 
 ## Checks not run
 
 | Check | Result | Reason |
 |---|---|---|
-| Full browser E2E: create profile → upload → extract → graph → answer gap → reprocess → export | `NOT_RUN` | Avoided creating persistent test profiles/data through the user's open local app. API integration covers profile/source/gap persistence but does not replace browser E2E. |
+| Browser export download assertion | `NOT_RUN` | The export action was visible in the completed browser flow, but a download event/file-content assertion was not captured. |
 | Migrations against a clean, disposable PostgreSQL database | `NOT_RUN` | Integration tests used the configured shared local database; no clean database was provisioned. |
-| Repeat full AI run on an already-populated profile | `NOT_RUN` | The live benchmark creates isolated profiles per case; same-profile repeat-run behavior was not evaluated end to end. SQL claim/evidence uniqueness and API idempotency tests cover only their tested operations. |
+| Repeat full AI run on an already-populated profile | **PASSED ON ONE TEMPORARY PROFILE** | Browser run #2 completed on the same profile after the gap answer was saved; its profile version advanced to 2. This is a smoke result, not a repeatability or concurrency study. |
 | New independent 30+ official-source dataset and blind holdout | `NOT_RUN` | The 13 existing official-source excerpts are regression data. No additional manual labeling was produced, so no holdout score is claimed. |
 | Retrieval ranking metrics (Recall@5/10, MRR) | `NOT_RUN` | No independently judged relevant-chunk set exists. |
 | Gap-detection precision/recall and usefulness | `NOT_RUN` on independent data | Existing 50-case gap suite is synthetic. |
