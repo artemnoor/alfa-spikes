@@ -30,6 +30,27 @@ The current run improves entity precision/recall and relation precision slightly
 
 ## Retrieval and adversarial checks (separate tasks)
 
+### Source-disjoint retrieval (30 official-source excerpts)
+
+Two 30-query variants were run against a temporary corpus of 30 primary-source excerpts from companies absent from R01–R16. One variant uses direct questions and the second uses paraphrases with less lexical overlap. Queries were labeled before the rankings were inspected. Both use the production PostgreSQL FTS, pgvector/Qwen, BM25 fallback and hybrid fusion paths.
+
+| Query set | Method | Recall@5 | Recall@10 | MRR |
+|---|---|---:|---:|---:|
+| Direct, n=30 | Qwen vector | 100.0% | 100.0% | 100.0% |
+| Direct, n=30 | PostgreSQL FTS | 100.0% | 100.0% | 100.0% |
+| Direct, n=30 | BM25 fallback | 100.0% | 100.0% | 100.0% |
+| Direct, n=30 | Hybrid | 100.0% | 100.0% | 100.0% |
+| Paraphrased, n=30 | Qwen vector | 100.0% | 100.0% | 97.8% |
+| Paraphrased, n=30 | PostgreSQL FTS | 86.7% | 86.7% | 76.4% |
+| Paraphrased, n=30 | BM25 fallback | 90.0% | 90.0% | 86.1% |
+| Paraphrased, n=30 | Hybrid | 96.7% | 100.0% | 92.2% |
+
+The direct set is too easy to distinguish ranking quality. On paraphrases, vector search ranks the relevant chunk first in 29/30 cases; hybrid retrieves all relevant chunks by rank 10 and misses top 5 once. This remains a 30-document pilot. The two embedding batches cost ₽0.003819 total. Raw ranks and sources: [`independent-retrieval-live-v1`](benchmark/runs/2026-10-17-independent-retrieval-live-v1/RESULTS.md) and [`independent-retrieval-hard-v1`](benchmark/runs/2026-10-17-independent-retrieval-hard-v1/RESULTS.md).
+
+### Source-disjoint entity and relation holdout
+
+The frozen H01–H30 extraction holdout is source/company-disjoint from R01–R16. Strict normalized exact entity labels produce P/R/F1 of 73.5/77.2/75.3%. Strict ordered triple labels produce P/R/F1 of 43.5/38.5/40.8%; direction accuracy is 10/10 and status accuracy 9/10 among only 10 exact matched triples. The run cost ₽0.910891 over 216 calls (zero failures), and recorded mean/P95 per-call latency is 2,928/8,831 ms. These estimates are affected by ambiguous gold granularity and the small sample; see the case-level audit in [`independent-holdout-live-v1`](benchmark/runs/2026-10-17-independent-holdout-live-v1/RESULTS.md). Do not interpret direction/status conditional accuracy as overall correctness.
+
 The production retrieval path was exercised with 32 manually authored queries over 16 short primary-source excerpts in a temporary PostgreSQL T10 profile. Query labels are separate from extraction predictions, but the documents overlap R01–R16; this is not a source-disjoint holdout.
 
 | Retrieval method | n queries | Recall@5 | Recall@10 | MRR |
@@ -50,9 +71,9 @@ The separate B07 live negative probe had 10 synthetic cases, one DeepSeek call, 
 | Direction accuracy on real independent labels | `NOT_RUN`; a small synthetic live probe is diagnostic only and the 13-case gold does not separately annotate direction. |
 | Relation status accuracy on real independent labels | `NOT_RUN`; the 13-case gold triples do not consistently annotate temporal status. |
 | Precision restricted to supported claims | `NOT_RUN` as a separate denominator; accepted claims include exact quote plus a model entailment review, but no independent support labels exist. |
-| Retrieval metrics on a source-disjoint or larger corpus | `NOT_RUN`; the pilot above reuses the existing regression documents. |
+| Retrieval metrics on a production-sized corpus | `NOT_RUN`; the source-disjoint evaluation has 30 documents and 30 queries per variant. |
 | Gap precision/recall, usefulness, automatic closure rate | `NOT_RUN`; existing gap benchmark is synthetic and is not an independent business-profile annotation. |
 | Mean/P95 per-call latency | `NOT_RUN`; saved aggregate contains total latency, not a per-call latency distribution. |
-| Independent 30+ official-document holdout | `NOT_RUN`; the existing 13 excerpts are regression data and must not be treated as a holdout. |
+| Larger independent extraction holdout (100–200) with independent adjudication | `NOT_RUN`; H01–H30 is a manually authored 30-case pilot, not a large or double-annotated gold set. |
 
 R04 deserves a gold-label review: its source says the announced MWS portfolio “will include” three named items. The current expected file labels zero relationships, while the post-change system proposed three planned `PART_OF` relations and the semantic reviewer accepted them. They count as false positives against the current gold, but the annotation may itself be incomplete. No gold labels were changed for this report.

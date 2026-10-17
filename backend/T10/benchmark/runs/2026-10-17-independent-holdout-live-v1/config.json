@@ -1,0 +1,13 @@
+{
+  "runId": "2026-10-17-independent-holdout-live-v1",
+  "benchmarkId": "T10-independent-holdout-2026-10",
+  "datasetType": "frozen source-disjoint holdout; 30 manually labeled passages from official primary-source filings and annual reports; untouched during prompt/retrieval tuning",
+  "scenarioFile": "benchmark/independent-holdout-scenarios.mjs",
+  "scenarioCount": 30,
+  "completedCases": 30,
+  "maxCostRub": 1.5,
+  "scoring": "strict normalized exact label match; no substring or partial-name match",
+  "labelsFrozenBeforeLiveRun": true,
+  "promptOrCodeTuningAfterLabels": false,
+  "cleanup": "temporary profiles and orphan companies deleted after each case"
+}
