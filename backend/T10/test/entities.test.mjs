@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { extractEntitiesFromChunks, verifyEntityExtraction } from '../src/entities.mjs'
+import { extractEntitiesFromChunks, recoverDocumentContextEntities, verifyEntityExtraction } from '../src/entities.mjs'
 
 const chunk = {
   chunk_id: 'chunk-1', source_id: 'source-1', start_offset: 100,
@@ -62,4 +62,41 @@ test('normalizes an explicitly returned DIVISION type while preserving the model
   assert.equal(result.accepted[0].type, 'BUSINESS_UNIT')
   assert.equal(result.accepted[0].originalType, 'DIVISION')
   assert.equal(result.accepted[0].typeNormalization, 'DIVISION_TO_BUSINESS_UNIT')
+})
+
+test('B04 document pass resolves a quoted generic company reference to one preceding same-source entity and extracts exact local entities', async () => {
+  const chunks = [
+    { chunk_id:'c1', source_id:'s1', start_offset:0, text_content:'Northstar Metals is the named company.' },
+    { chunk_id:'c2', source_id:'s1', start_offset:40, text_content:'The Company increased production of copper.' },
+  ]
+  const known = [{ entity_id:'e1', entity_type:'COMPANY', canonical_name:'Northstar Metals', sourceId:'s1', chunkId:'c1', startOffset:0 }]
+  const result = await recoverDocumentContextEntities(chunks, known, {
+    callModel:async ({ purpose })=>{
+      assert.equal(purpose,'B04 document-context completeness and reference resolution')
+      return { parsed:{chunks:[{chunkId:'D1',references:[{entityId:'e1',surface:'The Company',quote:'The Company increased production of copper.'}],entities:[{type:'PRODUCT',name:'copper',quote:'production of copper'}]}]}}
+    },
+  })
+  assert.equal(result.chunks,1)
+  assert.equal(result.references.length,1)
+  assert.equal(result.references[0].entityId,'e1')
+  assert.equal(result.references[0].startOffset,40)
+  assert.equal(result.entities[0].name,'copper')
+  assert.equal(result.entities[0].startOffset,40+'The Company increased '.length)
+})
+
+test('B04 document pass rejects ambiguous cross-company references even if the model selects an ID', async () => {
+  const chunks = [
+    { chunk_id:'c1', source_id:'s1', start_offset:0, text_content:'Northstar Metals is named first.' },
+    { chunk_id:'c2', source_id:'s1', start_offset:35, text_content:'Beacon Group is named second.' },
+    { chunk_id:'c3', source_id:'s1', start_offset:70, text_content:'The Company increased production of copper.' },
+  ]
+  const known = [
+    { entity_id:'e1', entity_type:'COMPANY', canonical_name:'Northstar Metals', sourceId:'s1', chunkId:'c1', startOffset:0 },
+    { entity_id:'e2', entity_type:'COMPANY', canonical_name:'Beacon Group', sourceId:'s1', chunkId:'c2', startOffset:35 },
+  ]
+  const result = await recoverDocumentContextEntities(chunks, known, {
+    callModel:async()=>({parsed:{chunks:[{chunkId:'D1',references:[{entityId:'e1',surface:'The Company',quote:'The Company increased production of copper.'}],entities:[]}]}}),
+  })
+  assert.equal(result.references.length,0)
+  assert.equal(result.rejected[0].code,'invalid_document_reference')
 })

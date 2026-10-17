@@ -406,36 +406,50 @@ export async function recordModelCall({ profileId, runId = null, blockRunId = nu
 export async function persistEntityExtraction(profileId, extraction) {
   return inTransaction(async (client) => {
     const saved = []
+    const rejected = [...(extraction.rejected ?? [])]
     for (const mention of extraction.mentions) {
       const name = String(mention.name).normalize('NFKC').replace(/\s+/gu, ' ').trim()
-      const normalizedName = normalizeEntityName(name)
-      const { rows } = await client.query(`
-        INSERT INTO t10.entities
-          (entity_id, profile_id, entity_type, canonical_name, normalized_name, identifiers, attributes, resolution_status, origin_source_id)
-        VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7::jsonb,'unresolved',$8)
-        ON CONFLICT (profile_id, entity_type, normalized_name, origin_source_id) WHERE origin_source_id IS NOT NULL DO UPDATE SET
-          identifiers = t10.entities.identifiers || EXCLUDED.identifiers,
-          attributes = t10.entities.attributes || EXCLUDED.attributes, updated_at = now()
-        RETURNING entity_id, entity_type, canonical_name, normalized_name, identifiers, origin_source_id
-      `, [randomUUID(), profileId, mention.type, name, normalizedName, JSON.stringify(mention.identifiers ?? {}), JSON.stringify(mention.attributes ?? {}), mention.sourceId])
-      const entity = rows[0]
+      let entity
+      if (mention.entityId) {
+        const result = await client.query(`
+          SELECT entity_id, entity_type, canonical_name, normalized_name, identifiers, origin_source_id
+          FROM t10.entities WHERE profile_id=$1 AND entity_id=$2
+        `, [profileId, mention.entityId])
+        if (result.rowCount !== 1 || result.rows[0].entity_type !== mention.type) {
+          rejected.push({ code: 'invalid_context_entity_id', reason: 'Ссылка на контекстную сущность отсутствует в этом профиле или имеет другой тип', sourceId: mention.sourceId, chunkId: mention.chunkId, proposal: { entityId: mention.entityId, type: mention.type, surface: name } })
+          continue
+        }
+        entity = result.rows[0]
+      } else {
+        const normalizedName = normalizeEntityName(name)
+        const { rows } = await client.query(`
+          INSERT INTO t10.entities
+            (entity_id, profile_id, entity_type, canonical_name, normalized_name, identifiers, attributes, resolution_status, origin_source_id)
+          VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7::jsonb,'unresolved',$8)
+          ON CONFLICT (profile_id, entity_type, normalized_name, origin_source_id) WHERE origin_source_id IS NOT NULL DO UPDATE SET
+            identifiers = t10.entities.identifiers || EXCLUDED.identifiers,
+            attributes = t10.entities.attributes || EXCLUDED.attributes, updated_at = now()
+          RETURNING entity_id, entity_type, canonical_name, normalized_name, identifiers, origin_source_id
+        `, [randomUUID(), profileId, mention.type, name, normalizedName, JSON.stringify(mention.identifiers ?? {}), JSON.stringify(mention.attributes ?? {}), mention.sourceId])
+        entity = rows[0]
+      }
       const { rows: mentionRows } = await client.query(`
         INSERT INTO t10.entity_mentions
           (mention_id, profile_id, entity_id, source_id, chunk_id, surface, evidence_quote, start_offset, end_offset, extraction)
         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb)
         ON CONFLICT DO NOTHING RETURNING mention_id
       `, [randomUUID(), profileId, entity.entity_id, mention.sourceId, mention.chunkId, name,
-        mention.quote, mention.startOffset, mention.endOffset, JSON.stringify({ attributes: mention.attributes ?? {}, identifiers:mention.identifiers ?? {}, extractionMethod: mention.extractionMethod ?? 'DeepSeek V4 Flash', quoteVerified: true })])
-      saved.push({ ...entity, mentionId: mentionRows[0]?.mention_id ?? null, sourceId: mention.sourceId, chunkId: mention.chunkId, quote: mention.quote, startOffset: mention.startOffset, endOffset: mention.endOffset })
+        mention.quote, mention.startOffset, mention.endOffset, JSON.stringify({ attributes: mention.attributes ?? {}, identifiers:mention.identifiers ?? {}, extractionMethod: mention.extractionMethod ?? 'DeepSeek V4 Flash', quoteVerified: true, contextResolved: Boolean(mention.entityId) })])
+      saved.push({ ...entity, mentionId: mentionRows[0]?.mention_id ?? null, surface: name, sourceId: mention.sourceId, chunkId: mention.chunkId, quote: mention.quote, startOffset: mention.startOffset, endOffset: mention.endOffset, extractionMethod: mention.extractionMethod ?? 'DeepSeek V4 Flash' })
     }
-    for (const rejected of extraction.rejected) {
-      const sourceIds = [rejected.sourceId ?? rejected.source_id ?? rejected.proposal?.sourceId, ...(rejected.sourceIds ?? [])].filter(Boolean)
+    for (const item of rejected) {
+      const sourceIds = [item.sourceId ?? item.source_id ?? item.proposal?.sourceId, ...(item.sourceIds ?? [])].filter(Boolean)
       for (const sourceId of [...new Set(sourceIds)]) await client.query(`
           INSERT INTO t10.rejected_proposals (proposal_id, profile_id, source_id, proposed_json, rejection_code, rejection_reason)
           VALUES ($1,$2,$3,$4::jsonb,$5,$6)
-        `, [randomUUID(), profileId, sourceId, JSON.stringify(rejected.proposal ?? rejected), rejected.code ?? 'rejected', rejected.reason ?? rejected.message ?? 'Отклонено проверкой'])
+        `, [randomUUID(), profileId, sourceId, JSON.stringify(item.proposal ?? item), item.code ?? 'rejected', item.reason ?? item.message ?? 'Отклонено проверкой'])
     }
-    return { entities: saved, rejectedCount: extraction.rejected.length }
+    return { entities: saved, rejected, rejectedCount: rejected.length }
   })
 }
 

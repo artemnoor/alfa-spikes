@@ -255,6 +255,32 @@ test('persists the extraction provenance of a relation-recovered participant', a
   assert.equal(stored.rows[0].evidence_quote,'palladium')
 })
 
+test('persists a B04 cross-chunk reference as a mention of its existing entity instead of creating a duplicate node', async () => {
+  const created=await jsonRequest('/profiles','POST',{companyName:`Context reference ${crypto.randomUUID()}`})
+  createdProfiles.push(created.body.profile)
+  const sourceText='Northstar Metals is named. The Company increased production.'
+  const source=await saveSource(created.body.profile.profileId,{sourceType:'document',title:'Cross-chunk reference',contentText:sourceText})
+  const first=await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'COMPANY',name:'Northstar Metals',quote:'Northstar Metals is named',sourceId:source.source_id,chunkId:null,
+    startOffset:0,endOffset:'Northstar Metals'.length,attributes:{},identifiers:{},
+  }],rejected:[]})
+  const entityId=first.entities[0].entity_id
+  await persistEntityExtraction(created.body.profile.profileId,{mentions:[{
+    type:'COMPANY',entityId,name:'The Company',quote:'The Company increased production',sourceId:source.source_id,chunkId:null,
+    startOffset:sourceText.indexOf('The Company'),endOffset:sourceText.indexOf('The Company')+'The Company'.length,attributes:{},identifiers:{},extractionMethod:'B04 document-context reference resolution',
+  }],rejected:[]})
+  const stored=await pool.query(`
+    SELECT e.entity_id, e.canonical_name, m.surface, m.extraction->>'contextResolved' AS context_resolved
+    FROM t10.entities e JOIN t10.entity_mentions m USING(entity_id)
+    WHERE e.profile_id=$1 AND m.source_id=$2 ORDER BY m.start_offset
+  `,[created.body.profile.profileId,source.source_id])
+  assert.equal(stored.rows.length,2)
+  assert.equal(new Set(stored.rows.map((row)=>row.entity_id)).size,1)
+  assert.deepEqual(stored.rows.map((row)=>row.surface),['Northstar Metals','The Company'])
+  assert.equal(stored.rows[1].canonical_name,'Northstar Metals')
+  assert.equal(stored.rows[1].context_resolved,'true')
+})
+
 test('links source mentions to the profile entity by an exact checksum-valid INN', async () => {
   const created=await jsonRequest('/profiles','POST',{companyName:'ООО «Каноническая компания»',inn:'7707083893'})
   createdProfiles.push(created.body.profile)

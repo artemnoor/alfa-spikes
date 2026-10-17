@@ -24,7 +24,7 @@
 - B09 uses deterministic structural rules and a synthetic 50-case benchmark. It has no independently measured question usefulness, gap precision/recall or auto-closure rate.
 - Per-call latency distribution/P95, concurrent pipeline runs, large-document limits and production load were not tested in this task.
 - All 9 migrations, including the new FTS indexes, applied successfully to an isolated empty PostgreSQL database; the disposable database was dropped. API integration also ran against the configured shared database.
-- Browser E2E created and removed an isolated temporary profile; repeat processing completed. Duplicate React key warnings remain unexplained, and the JSON download event/content was not asserted.
+- Browser E2E created and removed an isolated temporary profile; repeat processing and JSON export/download parsing completed. The tested Chromium console had no errors or warnings; other browsers and large exports remain unmeasured.
 - T08 invariants and T09 unit/PostgreSQL/API suites passed. No T08/T09 code was modified.
 
 ## Operational notes

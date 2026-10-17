@@ -1,6 +1,6 @@
 import { createBlockResult, T10_BLOCK_SCHEMAS } from './contracts.mjs'
 import { processDocument } from './documents.mjs'
-import { extractEntitiesFromChunks, recoverSparseChunkEntities } from './entities.mjs'
+import { extractEntitiesFromChunks, recoverDocumentContextEntities, recoverSparseChunkEntities } from './entities.mjs'
 import { verifyBatch } from './evidence.mjs'
 import { verifyRelationshipSemantics } from './semantic-evidence.mjs'
 import { rankHybridChunks } from './retrieval.mjs'
@@ -218,7 +218,7 @@ export async function processCompanyProfile(profileId, config = {}) {
 
     const initialExtraction = await extractEntitiesFromChunks(chunks)
     const recovery = await recoverSparseChunkEntities(chunks, initialExtraction.entities, { maxChunks: Math.max(0, Math.min(60, Number(config.b04RecoveryMaxChunks ?? 60))) })
-    const extraction = {
+    const firstAndSecondPass = {
       ...initialExtraction,
       entities: [...initialExtraction.entities, ...recovery.entities],
       mentions: [...initialExtraction.mentions, ...recovery.entities],
@@ -226,12 +226,28 @@ export async function processCompanyProfile(profileId, config = {}) {
       modelCalls: [...initialExtraction.modelCalls, ...recovery.modelCalls],
       status: [...initialExtraction.modelCalls, ...recovery.modelCalls].some((item) => item.status === 'failed') ? 'partial' : initialExtraction.status,
     }
-    const persistedEntities = await persistEntityExtraction(profileId, extraction)
-    for (const result of extraction.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: 'B04 business entity extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    const persistedFirstPass = await persistEntityExtraction(profileId, firstAndSecondPass)
+    const configuredContextChunks = Number(config.b04DocumentContextMaxChunks ?? process.env.T10_B04_DOCUMENT_CONTEXT_MAX_CHUNKS ?? 12)
+    const contextRecovery = await recoverDocumentContextEntities(chunks, persistedFirstPass.entities, { maxChunks: Number.isFinite(configuredContextChunks) ? Math.max(0, Math.min(12, Math.floor(configuredContextChunks))) : 12 })
+    const contextEntities = contextRecovery.entities.length || contextRecovery.references.length || contextRecovery.rejected.length
+      ? await persistEntityExtraction(profileId, { mentions: [...contextRecovery.entities, ...contextRecovery.references], rejected: contextRecovery.rejected })
+      : { entities: [], rejected: contextRecovery.rejected, rejectedCount: contextRecovery.rejected.length }
+    const persistedEntities = { entities: [...persistedFirstPass.entities, ...contextEntities.entities], rejected: [...persistedFirstPass.rejected, ...contextEntities.rejected] }
+    const extraction = {
+      ...firstAndSecondPass,
+      entities: [...firstAndSecondPass.entities, ...contextRecovery.entities],
+      mentions: [...firstAndSecondPass.mentions, ...contextRecovery.entities, ...contextRecovery.references],
+      rejected: [...persistedEntities.rejected],
+      modelCalls: [...firstAndSecondPass.modelCalls, ...contextRecovery.modelCalls],
+      status: [...firstAndSecondPass.modelCalls, ...contextRecovery.modelCalls].some((item) => item.status === 'failed') ? 'partial' : firstAndSecondPass.status,
+    }
+    for (const result of extraction.modelCalls) await recordModelCall({ profileId, runId: run.run_id, model: result.model, purpose: result.purpose ?? 'B04 business entity extraction', status: result.status ?? 'completed', inputTokens: result.inputTokens, outputTokens: result.outputTokens, costRub: result.costRub, latencyMs: result.latencyMs, response: result.parsed ?? null, error: result.error })
+    const b04EntityById = new Map(persistedEntities.entities.map((entity) => [entity.entity_id, entity]))
+    const b04Entities = [...b04EntityById.values()]
     const b04 = envelope('B04', { profileId, chunks: chunks.map(({ chunk_id, source_id }) => ({ chunkId: chunk_id, sourceId: source_id })) }, {
-      entities: persistedEntities.entities, mentions: persistedEntities.entities.map(({ entity_id, mentionId, sourceId, chunkId, quote, startOffset, endOffset }) => ({ entityId: entity_id, mentionId, sourceId, chunkId, quote, startOffset, endOffset })), rejected: extraction.rejected,
-    }, { status: extraction.status, errors: extraction.rejected.filter((item) => item.code === 'model_error') })
-    await runBlock(run.run_id, 'B04', b04, { entities: persistedEntities.entities.length, rejected: extraction.rejected.length, modelCalls: extraction.modelCalls.length })
+      entities: b04Entities, mentions: persistedEntities.entities.map(({ entity_id, mentionId, sourceId, chunkId, surface, quote, startOffset, endOffset, extractionMethod }) => ({ entityId: entity_id, mentionId, sourceId, chunkId, surface, quote, startOffset, endOffset, extractionMethod })), rejected: extraction.rejected,
+    }, { status: extraction.status, errors: extraction.rejected.filter((item) => item.code === 'model_error'), contextChunks: contextRecovery.chunks, contextReferences: contextRecovery.references.length })
+    await runBlock(run.run_id, 'B04', b04, { entities: b04Entities.length, mentions: persistedEntities.entities.length, rejected: extraction.rejected.length, modelCalls: extraction.modelCalls.length })
     stages.push(b04)
 
     const exactIdentityLinks = await linkExactProfileCompanyMentions(profileId)
@@ -255,7 +271,7 @@ export async function processCompanyProfile(profileId, config = {}) {
     stages.push(b05)
 
     const canonicalIdByEntityId = new Map(dataAfterRanking.entities.map((entity) => [entity.entity_id, entity.canonical_entity_id ?? entity.global_company_id ?? entity.entity_id]))
-    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, entityId: entity.entity_id, canonicalEntityId: canonicalIdByEntityId.get(entity.entity_id), startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
+    const extractionRows = persistedEntities.entities.map((entity) => ({ type: entity.entity_type, name: entity.canonical_name, aliases: entity.surface && entity.surface !== entity.canonical_name ? [entity.surface] : [], entityId: entity.entity_id, canonicalEntityId: canonicalIdByEntityId.get(entity.entity_id), startOffset: entity.startOffset, sourceId: entity.sourceId, chunkId: entity.chunkId }))
     const profileCompany = {
       type: 'COMPANY', name: dataAfterRanking.profile.legal_name, entityId: dataAfterRanking.profile.company_id,
       aliases: companyNameAliases(dataAfterRanking.profile.legal_name),
