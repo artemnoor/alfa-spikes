@@ -303,7 +303,6 @@ export async function extractRelationshipsFromChunks(chunks, entities, { callMod
     const payload = relationshipPayload(chunk, entities, profileCompany, 0)
     const participants = payload.entities.filter((entity) => ['COMPANY','BUSINESS_UNIT','PRODUCT','SERVICE','FACILITY','PROCESS','COMPONENT','RESOURCE','TECHNOLOGY','LOCATION'].includes(entity.type))
     return participants.length >= 2 && !relationships.some((item) => item.chunkId === chunk.chunk_id)
-      && !rejected.some((item) => item.chunkId === chunk.chunk_id)
   }).slice(0, maxRecovery)
   for (let offset = 0; offset < recoveredChunks.length; offset += Math.max(1, batchSize)) await parseBatch(recoveredChunks.slice(offset, offset + Math.max(1, batchSize)), true)
 

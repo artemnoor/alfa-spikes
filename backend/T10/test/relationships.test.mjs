@@ -152,6 +152,26 @@ test('B06 retries a cue-bearing chunk with entities but no relation proposals on
   assert.equal(result.relationships[0].extractionPass,'completeness_recovery')
 })
 
+test('B06 retries a cue-bearing chunk when the first proposed relation fails local evidence validation', async () => {
+  const source = { chunk_id:'c-invalid-first', source_id:'s-invalid-first', start_offset:0, text_content:'Volna manufactures industrial pumps.' }
+  const participants = [
+    { type:'COMPANY', name:'Volna', sourceId:'s-invalid-first', chunkId:'c-invalid-first', startOffset:0 },
+    { type:'PRODUCT', name:'industrial pumps', sourceId:'s-invalid-first', chunkId:'c-invalid-first', startOffset:18 },
+  ]
+  let calls = 0
+  const result = await extractRelationshipsFromChunks([source], participants, {
+    callModel: async () => {
+      calls += 1
+      const quote = calls === 1 ? 'Volna builds industrial pumps' : 'Volna manufactures industrial pumps'
+      return { parsed:{ chunks:[{ chunkId:'D1', relationships:[{ sourceName:'Volna', predicate:'PRODUCES', targetName:'industrial pumps', quote, status:'CURRENT' }] }] } }
+    },
+  })
+  assert.equal(calls,2)
+  assert.equal(result.relationships.length,1)
+  assert.equal(result.relationships[0].extractionPass,'completeness_recovery')
+  assert.equal(result.rejected.some((item)=>item.proposal?.quote==='Volna builds industrial pumps'),true)
+})
+
 test('B06 completeness recovery is bounded and skips cue-free chunks', async () => {
   const first = { chunk_id:'c-first', source_id:'s1', start_offset:0, text_content:'Volna manufactures pumps.' }
   const second = { chunk_id:'c-second', source_id:'s1', start_offset:30, text_content:'Volna supplies components.' }

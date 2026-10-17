@@ -22,34 +22,34 @@ The saved `final-live-R04-R16-v1` comparison improved entity F1 and relation pre
 
 ## B06 development iteration on the same R04–R16 cases
 
-After the above current-checkout comparison, two concrete error sources were addressed: a named company was not resolved from a clear `production` context, and Russian inflected mentions such as `Доставка` / `Доставку` failed exact participant matching. Company references now require exactly one preceding candidate, so multiple-company contexts remain unresolved. B06 also has a bounded second pass for cue-bearing empty chunks (maximum 12 by default; zero disables it).
+After the above current-checkout comparison, concrete error sources were addressed: a named company was not resolved from a clear `production` context, Russian inflected mentions failed exact participant matching, and invalid first-pass quotes could prevent a retry. Company references now require exactly one preceding candidate. B06 has one bounded second pass for cue-bearing chunks with no accepted relation, including chunks where all first-pass candidates fail local validation (maximum 12 by default; zero disables it).
 
-| Metric | Saved baseline | Previous B06 iteration | Latest B06 rerun | Latest vs baseline |
-|---|---:|---:|---:|---:|
-| Entity precision / recall / F1 | 70.8 / 70.8 / 70.8% | 70.8 / 70.8 / 70.8% | 69.6 / 66.7 / 68.1% | F1 −2.7 pp |
-| Relation precision | 16.7% (1 TP, 5 FP) | 50.0% (4 TP, 4 FP) | 33.3% (2 TP, 4 FP) | +16.6 pp |
-| Relation recall | 12.5% (1/8) | 50.0% (4/8) | 25.0% (2/8) | +12.5 pp |
-| Relation F1 | 14.3% | 50.0% | 28.6% | +14.3 pp |
-| Calls / failed responses | 99 / 0 | 99 / 1 malformed JSON response | 97 / 0 | −2 calls |
-| Reported cost | ₽0.266928 | ₽0.293422 | ₽0.226312 | −₽0.040616 |
+| Metric | Saved baseline | Previous B06 iteration | Bounded retry for rejected candidates |
+|---|---:|---:|---:|
+| Entity precision / recall / F1 | 70.8 / 70.8 / 70.8% | 69.6 / 66.7 / 68.1% | 64.0 / 66.7 / 65.3% |
+| Relation precision | 16.7% (1 TP, 5 FP) | 33.3% (2 TP, 4 FP) | 62.5% (5 TP, 3 FP) |
+| Relation recall | 12.5% (1/8) | 25.0% (2/8) | 62.5% (5/8) |
+| Relation F1 | 14.3% | 28.6% | 62.5% |
+| Calls / failed responses | 99 / 0 | 97 / 0 | 110 / 0 |
+| Reported cost | ₽0.266928 | ₽0.226312 | ₽0.283928 |
 
-The previous iteration is [`b06-final-R04-R16-v1`](benchmark/runs/2026-10-17-b06-final-R04-R16-v1/RESULTS.md); the latest rerun is [`b06-joint-recovery-final-R04-R16-v1`](benchmark/runs/2026-10-17-b06-joint-recovery-final-R04-R16-v1/RESULTS.md). The lower latest relation score demonstrates substantial model variability. B06 completeness retry did not itself recover additional relations in these matched runs. The PART_OF gate and targeted context probe close specific observed failure modes; neither establishes broad accuracy.
+The bounded retry recovered the R12 relations after the first answer proposed non-exact quotes. However, this one development run does not establish a stable gain: the separate 30-case holdout showed unchanged relation recall and two additional false positives compared with v3. The holdout result takes precedence for generalization; no quality claim is made from the development score alone. Latest raw development evidence: [`b06-validation-retry-R04-R16-v1`](benchmark/runs/2026-10-17-b06-validation-retry-R04-R16-v1/RESULTS.md).
 
 ## Final independent holdout re-evaluation
 
-The frozen H01–H30 labels were not changed. None of the three runs tuned prompts or retrieval on these labels; v3 was a verification rerun.
+The frozen H01–H30 labels were not changed. None of the four runs tuned prompts or retrieval on these labels; v4 verifies a retry behavior selected from R04–R16 development cases.
 
-| Metric | Holdout v1 | Holdout v2 | Holdout v3 | v3 vs v2 |
+| Metric | Holdout v1 | Holdout v2 | Holdout v3 | Holdout v4 |
 |---|---:|---:|---:|---:|
-| Entity precision / recall / F1 | 73.5 / 77.2 / 75.3% | 73.3 / 79.7 / 76.4% | 72.9 / 78.5 / 75.6% | F1 −0.8 pp |
-| Relation precision | 43.5% | 38.1% | 44.4% | +6.3 pp |
-| Relation recall | 38.5% | 30.8% | 30.8% | no change |
-| Relation F1 | 40.8% | 34.0% | 36.4% | +2.4 pp |
-| Calls / failures | 216 / 0 | 215 / 1 | 212 / 0 | — |
-| Input / output tokens | 114,776 / 16,484 | 115,635 / 17,724 | 122,890 / 17,315 | — |
-| Reported cost | ₽0.910891 | ₽0.552483 | ₽0.524357 | run-to-run variation |
+| Entity precision / recall / F1 | 73.5 / 77.2 / 75.3% | 73.3 / 79.7 / 76.4% | 72.9 / 78.5 / 75.6% | 70.1 / 77.2 / 73.5% |
+| Relation precision | 43.5% | 38.1% | 44.4% | 40.0% |
+| Relation recall | 38.5% | 30.8% | 30.8% | 30.8% |
+| Relation F1 | 40.8% | 34.0% | 36.4% | 34.8% |
+| Calls / failures | 216 / 0 | 215 / 1 | 212 / 0 | 218 / 0 |
+| Input / output tokens | 114,776 / 16,484 | 115,635 / 17,724 | 122,890 / 17,315 | 131,417 / 18,099 |
+| Reported cost | ₽0.910891 | ₽0.552483 | ₽0.524357 | ₽0.455116 |
 
-The latest case-level report is [`independent-holdout-live-v3`](benchmark/runs/2026-10-17-independent-holdout-live-v3/RESULTS.md); mean/P95 latency was 2,567/6,028 ms. Repeated relation F1 values of 40.8%, 34.0%, and 36.4% show meaningful run variance. Keep all artifacts and do not claim the matched development result generalized to holdout.
+The latest case-level report is [`independent-holdout-live-v4`](benchmark/runs/2026-10-17-independent-holdout-live-v4/RESULTS.md); mean/P95 latency was 2,927/6,346 ms. Relation recall remained 30.8% vs v3 while false positives rose from 10 to 12. Repeated relation F1 values range from 34.0% to 40.8%; the retry did not demonstrate a holdout gain. Keep all artifacts and do not claim the matched development result generalized to holdout.
 
 ## What was actually run
 
